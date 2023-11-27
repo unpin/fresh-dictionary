@@ -27,7 +27,7 @@ export default function SignInForm() {
           value: token, // this should be a unique value for each session
           maxAge: 120,
           // sameSite: "None", // this is important to prevent CSRF attacks
-          // domain: location.hostname,
+          domain: location.hostname,
           path: "/",
           secure: false,
         });
