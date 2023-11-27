@@ -1,4 +1,4 @@
-const URL = "http://localhost:8000";
+const URL = Deno.env.get("URL") || "http://localhost:8000";
 
 export async function signIn(email: string, password: string) {
   const response = await fetch(`${URL}/auth/signin`, {
