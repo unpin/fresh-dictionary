@@ -1,8 +1,6 @@
 import { Definition, Word } from "../types/words.ts";
 const URL = "https://dictionary.deno.dev";
 
-console.log("URL variable is set to:", Deno.env.get("URL"));
-
 export async function queryWords(query: string): Promise<Word[]> {
   const response = await fetch(
     `${URL}/search/${query}`,
