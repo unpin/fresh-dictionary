@@ -20,24 +20,11 @@ export default function SignInForm() {
         window.localStorage.setItem("token", token);
         window.localStorage.setItem("email", email);
         window.localStorage.setItem("name", name);
-        console.log("User data:", name, email, token);
-        const headers = new Headers();
-        setCookie(headers, {
-          name: "authToken",
-          value: token, // this should be a unique value for each session
-          maxAge: 120,
-          // sameSite: "None", // this is important to prevent CSRF attacks
-          domain: location.hostname,
-          path: "/",
-          secure: false,
-        });
-        console.log(window.location.origin);
         const date = new Date();
         date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
         const expires = "; expires=" + date.toUTCString();
         document.cookie = "authToken" + "=" + (token || "") + expires +
           "; path=/";
-
         window.location.replace(window.location.origin);
       },
     ).catch((error: Error) => {
