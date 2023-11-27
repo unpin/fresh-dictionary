@@ -1,4 +1,4 @@
-const URL = "https://words.deno.dev";
+const URL = "https://dictionary.deno.dev";
 
 export async function signIn(email: string, password: string) {
   const response = await fetch(`${URL}/auth/signin`, {

@@ -1,5 +1,5 @@
 import { Definition, Word } from "../types/words.ts";
-const URL = "https://words.deno.dev";
+const URL = "https://dictionary.deno.dev";
 
 console.log("URL variable is set to:", Deno.env.get("URL"));
 
