@@ -74,6 +74,10 @@ video {
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
+.my-2 {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -245,7 +249,7 @@ video {
     border-radius: 0.25rem;
     font-weight: 600;
     font-size: 14px;
-    transition: background-color var(--animation-ms) ease-in;
+    transition: all var(--animation-ms) ease-out;
     /* FACTOR OUT STYLES BELOW */
     width: 100%;
 }
@@ -372,7 +376,7 @@ hr {
 .svg-icon {
     margin: 0.5rem;
     opacity: 0.5;
-    transition: opacity var(--animation-ms) ease-in;
+    transition: opacity var(--animation-ms) ease-out;
     cursor: pointer;
 }
 
