@@ -25,7 +25,7 @@ export default function SignUpForm() {
           location.hostname + "; " + expires +
           "; path=/";
         console.log("cookie domain trying to set", location.hostname);
-        // window.location.replace(window.location.origin);
+        window.location.replace(window.location.origin);
       },
     ).catch((error: Error) => {
       setError(error.message);
