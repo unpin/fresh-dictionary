@@ -76,7 +76,8 @@ export default function SignInForm() {
               type="email"
               name="email"
               value={email}
-              onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
+              onInput={(e) =>
+                setEmail((e.target as HTMLInputElement).value.toLowerCase())}
             />
           </div>
           <div class="form-group">

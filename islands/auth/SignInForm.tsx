@@ -85,7 +85,9 @@ export default function SignUpForm() {
                   name="email"
                   value={email}
                   onInput={(e) =>
-                    setEmail((e.target as HTMLInputElement).value)}
+                    setEmail(
+                      (e.target as HTMLInputElement).value.toLowerCase(),
+                    )}
                 />
               </div>
               <button disabled={!email} class="btn btn-primary ">
