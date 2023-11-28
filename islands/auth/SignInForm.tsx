@@ -51,6 +51,7 @@ export default function SignInForm() {
   };
 
   const goBack = () => {
+    setError("");
     setName("");
   };
 
