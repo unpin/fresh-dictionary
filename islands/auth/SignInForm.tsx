@@ -88,7 +88,9 @@ export default function SignUpForm() {
                     setEmail((e.target as HTMLInputElement).value)}
                 />
               </div>
-              <button class="btn btn-primary ">Continue</button>
+              <button disabled={!email} class="btn btn-primary ">
+                Continue
+              </button>
             </form>
             <div>
               <p class="small-text my-2">
