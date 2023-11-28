@@ -387,3 +387,9 @@ hr {
 .subheader {
     color: var(--color-gray);
 }
+
+.small-text {
+    color: var(--color-gray);
+    font-size: 14px;
+    padding: 0.5rem 0;
+}

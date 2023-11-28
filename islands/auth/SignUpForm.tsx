@@ -91,6 +91,11 @@ export default function SignInForm() {
           </div>
           <button class="btn btn-primary ">Continue</button>
         </form>
+        <div>
+          <p class="small-text">
+            Already have an account? <a href="/signin">Sign in</a>
+          </p>
+        </div>
       </>
 
       {error &&

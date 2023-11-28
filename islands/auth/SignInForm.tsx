@@ -90,6 +90,11 @@ export default function SignUpForm() {
               </div>
               <button class="btn btn-primary ">Continue</button>
             </form>
+            <div>
+              <p class="small-text">
+                Don't have an account yet? <a href="/signup">Sign up</a>
+              </p>
+            </div>
           </>
         )}
 
