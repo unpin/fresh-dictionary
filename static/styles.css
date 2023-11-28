@@ -329,6 +329,7 @@ hr {
 
 .alert-text {
     padding: 1rem;
+    line-break: anywhere;
 }
 
 .alert-close {
