@@ -23,7 +23,7 @@ export default function SignInForm() {
         const date = new Date();
         date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
         const expires = "; expires=" + date.toUTCString();
-        document.cookie = "authToken" + "=" + (token || "") + "; domain=" +
+        document.cookie = "authToken" + "=" + token + "; domain=" +
           location.hostname + "; " + expires +
           "; path=/";
         window.location.replace(window.location.origin);
