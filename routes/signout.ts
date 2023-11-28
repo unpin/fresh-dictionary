@@ -5,7 +5,7 @@ export const handler: Handlers = {
   GET(_req: Request, ctx: HandlerContext) {
     const url = new URL(_req.url);
     const headers = new Headers(_req.headers);
-    deleteCookie(headers, "authToken", { path: "/", domain: url.hostname });
+    deleteCookie(headers, "authToken", /*{ path: "/", domain: url.hostname }*/);
     headers.set("location", "/signin");
     return new Response(null, {
       status: 302,
