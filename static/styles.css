@@ -52,11 +52,16 @@ video {
     max-width: 100%;
     height: auto;
 }
-
+form {
+    margin-bottom: 1rem;
+}
 .transition-colors {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
+}
+.mb-1 {
+    margin-bottom: 1rem;
 }
 .my-6 {
     margin-bottom: 1.5rem;
@@ -329,7 +334,8 @@ hr {
 
 .alert-text {
     padding: 1rem;
-    line-break: anywhere;
+    line-break: auto;
+    word-break: break-word;
 }
 
 .alert-close {
@@ -369,6 +375,7 @@ hr {
     font-size: 1rem;
     color: var(--color-black);
 }
+
 .profile-email {
     font-size: 13px;
     color: var(--color-gray);
@@ -396,5 +403,4 @@ hr {
 .small-text {
     color: var(--color-gray);
     font-size: 14px;
-    padding: 0.5rem 0;
 }

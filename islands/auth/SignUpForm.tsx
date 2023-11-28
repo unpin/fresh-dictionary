@@ -92,7 +92,7 @@ export default function SignInForm() {
           <button class="btn btn-primary ">Continue</button>
         </form>
         <div>
-          <p class="small-text my-2">
+          <p class="small-text mb-1">
             Already have an account? <a href="/signin">Sign in</a>
           </p>
         </div>
