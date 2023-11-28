@@ -24,7 +24,6 @@ export default function SignUpForm() {
         document.cookie = "authToken" + "=" + token + "; domain=" +
           location.hostname + "; " + expires +
           "; path=/";
-        console.log("cookie domain trying to set", location.hostname);
         window.location.replace(window.location.origin);
       },
     ).catch((error: Error) => {
