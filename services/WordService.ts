@@ -1,9 +1,8 @@
 import { Definition, Word } from "../types/words.ts";
-const URL = "https://dictionary.deno.dev";
 
 export async function queryWords(query: string): Promise<Word[]> {
   const response = await fetch(
-    `${URL}/search/${query}`,
+    `api/words/search/${query}`,
     {
       mode: "cors",
       headers: {
@@ -42,8 +41,8 @@ export async function addDefinition(
 }
 
 export async function getBookmarkedWords(page: number) {
-  return (await fetch(`${URL}/bookmarks?page=${page}`, {
-    mode: "cors",
+  return (await fetch(`api/bookmarks?page=${page}`, {
+    // mode: "cors",
     headers: {
       "Authorization": "Bearer " + localStorage.getItem("token"),
     },

@@ -6,21 +6,26 @@ import * as $0 from "./routes/_404.tsx";
 import * as $1 from "./routes/_app.tsx";
 import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/all/index.tsx";
-import * as $4 from "./routes/api/joke.ts";
-import * as $5 from "./routes/bookmarks/index.tsx";
-import * as $6 from "./routes/greet/[name].tsx";
-import * as $7 from "./routes/index.tsx";
-import * as $8 from "./routes/review/index.tsx";
-import * as $9 from "./routes/signin/index.tsx";
-import * as $10 from "./routes/signout.ts";
-import * as $11 from "./routes/words/[word].tsx";
+import * as $4 from "./routes/api/auth/email.ts";
+import * as $5 from "./routes/api/auth/signin.ts";
+import * as $6 from "./routes/api/auth/signup.ts";
+import * as $7 from "./routes/api/bookmarks/index.ts";
+import * as $8 from "./routes/api/joke.ts";
+import * as $9 from "./routes/api/words/search/[query].ts";
+import * as $10 from "./routes/bookmarks/index.tsx";
+import * as $11 from "./routes/greet/[name].tsx";
+import * as $12 from "./routes/index.tsx";
+import * as $13 from "./routes/review/index.tsx";
+import * as $14 from "./routes/signin/index.tsx";
+import * as $15 from "./routes/signout.ts";
+import * as $16 from "./routes/words/[word].tsx";
 import * as $$0 from "./islands/AddDefinition.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/LoadWords.tsx";
 import * as $$3 from "./islands/NavbarSearch.tsx";
 import * as $$4 from "./islands/WordDefinition.tsx";
 import * as $$5 from "./islands/auth/SignInForm.tsx";
-import * as $$6 from "./islands/bookmarks/BookmarkedWords.tsx";
+import * as $$6 from "./islands/bookmarks/BookmarkList.tsx";
 
 const manifest = {
   routes: {
@@ -28,14 +33,19 @@ const manifest = {
     "./routes/_app.tsx": $1,
     "./routes/_middleware.ts": $2,
     "./routes/all/index.tsx": $3,
-    "./routes/api/joke.ts": $4,
-    "./routes/bookmarks/index.tsx": $5,
-    "./routes/greet/[name].tsx": $6,
-    "./routes/index.tsx": $7,
-    "./routes/review/index.tsx": $8,
-    "./routes/signin/index.tsx": $9,
-    "./routes/signout.ts": $10,
-    "./routes/words/[word].tsx": $11,
+    "./routes/api/auth/email.ts": $4,
+    "./routes/api/auth/signin.ts": $5,
+    "./routes/api/auth/signup.ts": $6,
+    "./routes/api/bookmarks/index.ts": $7,
+    "./routes/api/joke.ts": $8,
+    "./routes/api/words/search/[query].ts": $9,
+    "./routes/bookmarks/index.tsx": $10,
+    "./routes/greet/[name].tsx": $11,
+    "./routes/index.tsx": $12,
+    "./routes/review/index.tsx": $13,
+    "./routes/signin/index.tsx": $14,
+    "./routes/signout.ts": $15,
+    "./routes/words/[word].tsx": $16,
   },
   islands: {
     "./islands/AddDefinition.tsx": $$0,
@@ -44,7 +54,7 @@ const manifest = {
     "./islands/NavbarSearch.tsx": $$3,
     "./islands/WordDefinition.tsx": $$4,
     "./islands/auth/SignInForm.tsx": $$5,
-    "./islands/bookmarks/BookmarkedWords.tsx": $$6,
+    "./islands/bookmarks/BookmarkList.tsx": $$6,
   },
   baseUrl: import.meta.url,
 };

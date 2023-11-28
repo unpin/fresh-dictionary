@@ -1,14 +1,12 @@
-const URL = "https://dictionary.deno.dev";
-
 export async function signIn(email: string, password: string) {
-  const response = await fetch(`${URL}/auth/signin`, {
+  const response = await fetch(`/api/auth/signin`, {
     method: "POST",
     body: JSON.stringify({
       email,
       password,
     }),
   });
-  console.log({ email, password });
+  console.log("signIn statusText", response.statusText);
 
   if (response.status === 400) {
     throw new Error("Password is incorrect");
@@ -19,10 +17,13 @@ export async function signIn(email: string, password: string) {
 }
 
 export async function findUser(email: string) {
-  const response = await fetch(`${URL}/auth/email`, {
+  const response = await fetch(`/api/auth/email`, {
     method: "POST",
     body: JSON.stringify({ email }),
   });
+
+  console.log("findUser statusText", response.statusText);
+
   if (response.status === 404) {
     throw new Error(`User with the email ${email} not found`);
   } else if (response.status !== 200) {
