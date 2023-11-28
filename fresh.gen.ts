@@ -18,14 +18,16 @@ import * as $12 from "./routes/index.tsx";
 import * as $13 from "./routes/review/index.tsx";
 import * as $14 from "./routes/signin/index.tsx";
 import * as $15 from "./routes/signout.ts";
-import * as $16 from "./routes/words/[word].tsx";
+import * as $16 from "./routes/signup/index.tsx";
+import * as $17 from "./routes/words/[word].tsx";
 import * as $$0 from "./islands/AddDefinition.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/LoadWords.tsx";
 import * as $$3 from "./islands/NavbarSearch.tsx";
 import * as $$4 from "./islands/WordDefinition.tsx";
 import * as $$5 from "./islands/auth/SignInForm.tsx";
-import * as $$6 from "./islands/bookmarks/BookmarkList.tsx";
+import * as $$6 from "./islands/auth/SignUpForm.tsx";
+import * as $$7 from "./islands/bookmarks/BookmarkList.tsx";
 
 const manifest = {
   routes: {
@@ -45,7 +47,8 @@ const manifest = {
     "./routes/review/index.tsx": $13,
     "./routes/signin/index.tsx": $14,
     "./routes/signout.ts": $15,
-    "./routes/words/[word].tsx": $16,
+    "./routes/signup/index.tsx": $16,
+    "./routes/words/[word].tsx": $17,
   },
   islands: {
     "./islands/AddDefinition.tsx": $$0,
@@ -54,7 +57,8 @@ const manifest = {
     "./islands/NavbarSearch.tsx": $$3,
     "./islands/WordDefinition.tsx": $$4,
     "./islands/auth/SignInForm.tsx": $$5,
-    "./islands/bookmarks/BookmarkList.tsx": $$6,
+    "./islands/auth/SignUpForm.tsx": $$6,
+    "./islands/bookmarks/BookmarkList.tsx": $$7,
   },
   baseUrl: import.meta.url,
 };

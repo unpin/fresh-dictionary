@@ -2,9 +2,7 @@ import { useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import { findUser, signIn } from "../../services/AuthService.ts";
 import Alert from "../../components/Alert.tsx";
-import { setCookie } from "$std/http/cookie.ts";
-
-export default function SignInForm() {
+export default function SignUpForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

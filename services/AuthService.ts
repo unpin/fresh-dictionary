@@ -16,6 +16,25 @@ export async function signIn(email: string, password: string) {
   return await response.json();
 }
 
+export async function signUp(name: string, email: string, password: string) {
+  const response = await fetch("/api/auth/signup", {
+    method: "POST",
+    body: JSON.stringify({
+      name,
+      email,
+      password,
+    }),
+  });
+
+  if (response.status === 409) {
+    throw new Error(`User with the email ${email} already exists`);
+  } else if (response.status !== 201) {
+    throw new Error("Something went wrong, try again");
+  }
+
+  return await response.json();
+}
+
 export async function findUser(email: string) {
   const response = await fetch(`/api/auth/email`, {
     method: "POST",
