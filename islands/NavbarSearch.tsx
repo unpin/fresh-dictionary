@@ -1,26 +1,26 @@
 import { Signal } from "@preact/signals";
-import { Word } from "../types/words.ts";
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
 import { useState } from "preact/hooks";
 import { getArticle } from "../utils/words.ts";
+import { Entry } from "../models/DictionaryEntry.ts";
 
 interface NavbarSearchProps {
-  words: Signal<Word[]>;
+  entries: Signal<Entry[]>;
 }
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
-export default function NavbarSearch({ words }: NavbarSearchProps) {
+export default function NavbarSearch({ entries }: NavbarSearchProps) {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const getWords = async (e: Event) => {
     const el = e.target as HTMLInputElement;
     if (el.value.trim().length < 1) return;
     setIsLoading(true);
-    const data = await queryWordsThrottled(el.value) as Word[];
+    const data = await queryWordsThrottled(el.value) as Entry[];
     console.log(data);
-    words.value = [...data];
+    entries.value = [...data];
     setIsLoading(false);
   };
 
@@ -49,14 +49,10 @@ export default function NavbarSearch({ words }: NavbarSearchProps) {
         </div>
       </div>
       <div class="search-results container">
-        {words.value.map((e) => (
-          <div>
-            <a
-              href={"/words/" + encodeURI(e._id)}
-              style={{ color: "#333", fontStyle: "Inter", fontSize: "32px" }}
-            >
-              {getArticle(e.article)} {e.word}
-            </a>
+        {entries.value.map((e) => (
+          <div class="dictionary-entry">
+            <div class="entry-article">{getArticle(e.article)}</div>
+            <a href={"/dictionary/" + encodeURI(e._id.toString())}>{e.word}</a>
           </div>
         ))}
       </div>

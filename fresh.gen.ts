@@ -10,16 +10,18 @@ import * as $4 from "./routes/api/auth/email.ts";
 import * as $5 from "./routes/api/auth/signin.ts";
 import * as $6 from "./routes/api/auth/signup.ts";
 import * as $7 from "./routes/api/bookmarks/index.ts";
-import * as $8 from "./routes/api/joke.ts";
-import * as $9 from "./routes/api/words/search/[query].ts";
-import * as $10 from "./routes/bookmarks/index.tsx";
-import * as $11 from "./routes/greet/[name].tsx";
-import * as $12 from "./routes/index.tsx";
-import * as $13 from "./routes/review/index.tsx";
-import * as $14 from "./routes/signin/index.tsx";
-import * as $15 from "./routes/signout.ts";
-import * as $16 from "./routes/signup/index.tsx";
-import * as $17 from "./routes/words/[word].tsx";
+import * as $8 from "./routes/api/dictionary/search/[query].ts";
+import * as $9 from "./routes/api/joke.ts";
+import * as $10 from "./routes/api/words/search/[query].ts";
+import * as $11 from "./routes/bookmarks/index.tsx";
+import * as $12 from "./routes/dictionary/[_id].tsx";
+import * as $13 from "./routes/greet/[name].tsx";
+import * as $14 from "./routes/index.tsx";
+import * as $15 from "./routes/review/index.tsx";
+import * as $16 from "./routes/signin/index.tsx";
+import * as $17 from "./routes/signout.ts";
+import * as $18 from "./routes/signup/index.tsx";
+import * as $19 from "./routes/words/[word].tsx";
 import * as $$0 from "./islands/AddDefinition.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/LoadWords.tsx";
@@ -39,16 +41,18 @@ const manifest = {
     "./routes/api/auth/signin.ts": $5,
     "./routes/api/auth/signup.ts": $6,
     "./routes/api/bookmarks/index.ts": $7,
-    "./routes/api/joke.ts": $8,
-    "./routes/api/words/search/[query].ts": $9,
-    "./routes/bookmarks/index.tsx": $10,
-    "./routes/greet/[name].tsx": $11,
-    "./routes/index.tsx": $12,
-    "./routes/review/index.tsx": $13,
-    "./routes/signin/index.tsx": $14,
-    "./routes/signout.ts": $15,
-    "./routes/signup/index.tsx": $16,
-    "./routes/words/[word].tsx": $17,
+    "./routes/api/dictionary/search/[query].ts": $8,
+    "./routes/api/joke.ts": $9,
+    "./routes/api/words/search/[query].ts": $10,
+    "./routes/bookmarks/index.tsx": $11,
+    "./routes/dictionary/[_id].tsx": $12,
+    "./routes/greet/[name].tsx": $13,
+    "./routes/index.tsx": $14,
+    "./routes/review/index.tsx": $15,
+    "./routes/signin/index.tsx": $16,
+    "./routes/signout.ts": $17,
+    "./routes/signup/index.tsx": $18,
+    "./routes/words/[word].tsx": $19,
   },
   islands: {
     "./islands/AddDefinition.tsx": $$0,

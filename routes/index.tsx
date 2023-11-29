@@ -1,10 +1,10 @@
 import { Head } from "$fresh/runtime.ts";
-import { Signal, useSignal } from "@preact/signals";
+import { Signal } from "@preact/signals";
 import Navbar from "../components/Navbar.tsx";
-import { Word } from "../types/words.ts";
 import NavbarSearch from "../islands/NavbarSearch.tsx";
 import { HandlerContext, Handlers } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
+import { Entry } from "../models/DictionaryEntry.ts";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: HandlerContext) {
@@ -24,7 +24,7 @@ export const handler: Handlers = {
 };
 
 export default function Home() {
-  const words = new Signal<Word[]>([]);
+  const entries = new Signal<Entry[]>([]);
 
   return (
     <>
@@ -38,7 +38,7 @@ export default function Home() {
         <title>Words</title>
       </Head>
       <Navbar />
-      <NavbarSearch words={words} />
+      <NavbarSearch entries={entries} />
     </>
   );
 }

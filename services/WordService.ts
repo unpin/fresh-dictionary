@@ -2,7 +2,7 @@ import { Definition, Word } from "../types/words.ts";
 
 export async function queryWords(query: string): Promise<Word[]> {
   const response = await fetch(
-    `api/words/search/${query}`,
+    `/api/dictionary/search/${query}`,
     {
       mode: "cors",
       headers: {
