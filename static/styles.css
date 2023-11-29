@@ -167,6 +167,7 @@ form {
     & .search-input {
         flex: 1;
         height: 2.5rem;
+        font-size: 1rem;
         background-color: var(--color-white);
         border-radius: var(--border-radius);
         border: none;
