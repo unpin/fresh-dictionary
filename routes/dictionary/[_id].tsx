@@ -9,23 +9,20 @@ export default async function Dictionary(_req: Request, ctx: AppContext) {
   }) as Entry;
 
   if (!entry) return ctx.renderNotFound();
+  const type = entry.definitions[0].type;
 
   return (
     <>
       <Navbar />
       <div class="container">
-        <div>
-          <h1>{entry.word}</h1>
-        </div>
-        <div>Entries</div>
-        <ul>
+        <h1 class="my-4">{entry.word}</h1>
+        <span class="entry-type">{type}</span>
+        <h3 class="my-4">Definitions</h3>
+        <ul class="my-4">
           {entry.definitions.map((def, i) => {
             return (
-              <li>
-                <div>{i + 1}.</div>
-                <div>
-                  <b>Definition</b>
-                </div>
+              <li class="my-4">
+                <div class="definition-counter my-2">{i + 1}.</div>
                 <div>{def.definition}</div>
                 {
                   /* <div>

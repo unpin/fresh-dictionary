@@ -55,6 +55,15 @@ video {
 form {
     margin-bottom: 1rem;
 }
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
 .transition-colors {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -424,4 +433,15 @@ hr {
     color: var(--color-text);
     text-decoration: none;
     font-size: 1.25rem;
+}
+
+.entry-type {
+    border-radius: 4px;
+    background-color: var(--color-background);
+    padding: 0.25rem 0.75rem;
+    font-weight: 500;
+}
+
+.definition-counter {
+    color: var(--color-gray);
 }
