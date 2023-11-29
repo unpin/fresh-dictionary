@@ -206,7 +206,7 @@ form {
     padding-left: 1rem;
     margin-right: auto;
     margin-left: auto;
-    /* border: 1px dashed rebeccapurple; */
+    max-width: 75rem;
 }
 
 @media (min-width: 32rem) {
