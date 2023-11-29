@@ -411,6 +411,7 @@ hr {
     grid-template-columns: max-content 1fr;
     align-items: baseline;
     column-gap: 0.5rem;
+    row-gap: 0.25rem;
 }
 
 .entry-article {
