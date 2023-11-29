@@ -52,7 +52,7 @@ export default function NavbarSearch({ entries }: NavbarSearchProps) {
         <div className="dictionary-entries">
           {entries.value.map((e) => (
             <>
-              <div class="entry-article">{getArticle(e.article)}</div>
+              <div class="entry-article">{getArticle(e.article) || "-"}</div>
               <a
                 class="entry-word"
                 href={"/dictionary/" + encodeURI(e._id.toString())}
