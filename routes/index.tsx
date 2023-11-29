@@ -24,8 +24,6 @@ export const handler: Handlers = {
 };
 
 export default function Home() {
-  const entries = new Signal<Entry[]>([]);
-
   return (
     <>
       <Head>
@@ -38,7 +36,7 @@ export default function Home() {
         <title>Words</title>
       </Head>
       <Navbar />
-      <NavbarSearch entries={entries} />
+      <NavbarSearch />
     </>
   );
 }

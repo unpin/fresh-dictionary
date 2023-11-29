@@ -1,17 +1,13 @@
-import { Signal } from "@preact/signals";
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
 import { useState } from "preact/hooks";
 import { getArticle } from "../utils/words.ts";
 import { Entry } from "../models/DictionaryEntry.ts";
 
-interface NavbarSearchProps {
-  entries: Signal<Entry[]>;
-}
-
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
-export default function NavbarSearch({ entries }: NavbarSearchProps) {
+export default function NavbarSearch() {
+  const [entries, setEntries] = useState<Entry[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const getWords = async (e: Event) => {
@@ -19,8 +15,7 @@ export default function NavbarSearch({ entries }: NavbarSearchProps) {
     if (el.value.trim().length < 1) return;
     setIsLoading(true);
     const data = await queryWordsThrottled(el.value) as Entry[];
-    console.log(data);
-    entries.value = [...data];
+    setEntries([...data]);
     setIsLoading(false);
   };
 
@@ -48,21 +43,27 @@ export default function NavbarSearch({ entries }: NavbarSearchProps) {
           </div>
         </div>
       </div>
-      <div class="search-results container">
-        <div className="dictionary-entries">
-          {entries.value.map((e) => (
-            <>
-              <div class="entry-article">{getArticle(e.article) || "-"}</div>
-              <a
-                class="entry-word"
-                href={"/dictionary/" + encodeURI(e._id.toString())}
-              >
-                {e.word}
-              </a>
-            </>
-          ))}
-        </div>
-      </div>
+      {entries.length > 0 &&
+        (
+          <div class="search-results container search-dropdown">
+            <div class="dictionary-entries">
+              {entries.map((e) => (
+                <>
+                  <div class="entry-article">
+                    {getArticle(e.article) || "-"}
+                  </div>
+                  <a
+                    class="entry-word"
+                    href={"/dictionary/" + encodeURI(e._id.toString())}
+                  >
+                    {e.word}
+                  </a>
+                </>
+              ))}
+            </div>
+            <footer class="search-footer">Show more results</footer>
+          </div>
+        )}
     </>
   );
 }

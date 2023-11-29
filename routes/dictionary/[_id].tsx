@@ -2,6 +2,7 @@ import { AppContext } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { DictionaryEntry, Entry } from "../../models/DictionaryEntry.ts";
 import Navbar from "../../components/Navbar.tsx";
+import NavbarSearch from "../../islands/NavbarSearch.tsx";
 
 export default async function Dictionary(_req: Request, ctx: AppContext) {
   const entry = await DictionaryEntry.findOne({
@@ -14,6 +15,7 @@ export default async function Dictionary(_req: Request, ctx: AppContext) {
   return (
     <>
       <Navbar />
+      <NavbarSearch />
       <div class="container">
         <h1 class="my-4">{entry.word}</h1>
         <span class="entry-type">{type}</span>
