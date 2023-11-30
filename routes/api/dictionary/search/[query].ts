@@ -7,7 +7,11 @@ export const handler: Handlers = {
     // const escapedQuery = query.replaceAll(/[\(\)]/g, ".*");
     // const pattern = new RegExp(`^${escapedQuery}`, "i");
     const entries = await DictionaryEntry.findMany({
-      $text: { $search: query },
+      $text: {
+        $search: query,
+        $caseSensitive: false,
+        $diacriticSensitive: false,
+      },
     }, { limit: 15 });
     console.log(entries[0]);
     return new Response(JSON.stringify(entries), {
