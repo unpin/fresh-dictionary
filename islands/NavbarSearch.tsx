@@ -16,8 +16,6 @@ export default function NavbarSearch() {
   }, [query]);
 
   const getWords = async () => {
-    console.log("getting words with", query);
-
     if (query.trim().length < 2) {
       setEntries([]);
       return;

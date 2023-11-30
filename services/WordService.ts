@@ -10,10 +10,7 @@ export async function queryWords(query: string): Promise<Word[]> {
       },
     },
   );
-  console.log("status", response.status);
   const data = await response.json();
-  console.log(data);
-
   return (response.status === 200) ? data : [];
 }
 
@@ -21,10 +18,7 @@ export async function findById(_id: string) {
   const response = await fetch(
     `${URL}/words/${_id}`,
   );
-  console.log(response.status);
   const data = await response.json();
-  console.log("data>", data);
-
   return (response.status === 200) ? data : null;
 }
 // TODO complete

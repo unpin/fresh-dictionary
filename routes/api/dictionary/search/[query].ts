@@ -13,7 +13,7 @@ export const handler: Handlers = {
         $diacriticSensitive: false,
       },
     }, { limit: 20 });
-    console.log(entries[0]);
+
     return new Response(JSON.stringify(entries), {
       status: 200,
     });
