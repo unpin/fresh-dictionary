@@ -1,45 +1,68 @@
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { getArticle } from "../utils/words.ts";
 import { Entry } from "../models/DictionaryEntry.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
 export default function NavbarSearch() {
+  const [query, setQuery] = useState("");
   const [entries, setEntries] = useState<Entry[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const getWords = async (e: Event) => {
-    const el = e.target as HTMLInputElement;
-    if (el.value.trim().length < 1) return;
+  useEffect(() => {
+    getWords();
+  }, [query]);
+
+  const getWords = async () => {
+    console.log("getting words with", query);
+
+    if (query.trim().length < 2) {
+      setEntries([]);
+      return;
+    }
+
     setIsLoading(true);
-    const data = await queryWordsThrottled(el.value) as Entry[];
+    const data = await queryWordsThrottled(query) as Entry[];
     setEntries([...data]);
     setIsLoading(false);
   };
 
   return (
     <>
-      <div class="search-wrapper ">
+      <div class=" search-wrapper">
         <div class="container">
           <div class="search-field">
             <input
               class="search-input"
-              placeholder="Search for..."
-              onInput={getWords}
+              placeholder="Stichwort"
+              value={query}
+              onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
             />
-            <div class="search-btn">
-              {isLoading
-                ? (
+
+            {isLoading
+              ? (
+                <div class="search-btn" onClick={getWords}>
                   <img class="spin" src="/icons/spinner-third.svg">
                   </img>
-                )
-                : (
-                  <img src="/icons/magnifying-glass.svg">
-                  </img>
-                )}
-            </div>
+                </div>
+              )
+              : (
+                entries.length > 0
+                  ? (
+                    <div class="search-btn" onClick={() => setEntries([])}>
+                      <img src="/icons/xmark.svg">
+                      </img>
+                    </div>
+                  )
+                  : (
+                    <div class="search-btn">
+                      <img src="/icons/magnifying-glass.svg">
+                      </img>
+                    </div>
+                  )
+              )}
           </div>
         </div>
       </div>
