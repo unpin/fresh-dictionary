@@ -27,6 +27,10 @@ export default function NavbarSearch() {
     setIsLoading(false);
   };
 
+  const clearResults = () => {
+    setQuery("");
+  };
+
   return (
     <div class="search-wrapper">
       <div>
@@ -49,7 +53,7 @@ export default function NavbarSearch() {
               : (
                 entries.length > 0
                   ? (
-                    <div class="search-btn" onClick={() => setEntries([])}>
+                    <div class="search-btn" onClick={clearResults}>
                       <img src="/icons/xmark.svg">
                       </img>
                     </div>
