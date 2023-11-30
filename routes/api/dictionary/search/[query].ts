@@ -12,7 +12,7 @@ export const handler: Handlers = {
         $caseSensitive: false,
         $diacriticSensitive: false,
       },
-    }, { limit: 15 });
+    }, { limit: 20 });
     console.log(entries[0]);
     return new Response(JSON.stringify(entries), {
       status: 200,
