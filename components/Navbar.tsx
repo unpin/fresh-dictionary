@@ -1,7 +1,7 @@
 export default function Navbar() {
   return (
     <header class="header">
-      Wortschatz
+      <a href="/" class="logo">Wortschatz</a>
     </header>
   );
 }
