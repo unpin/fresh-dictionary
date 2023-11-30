@@ -28,8 +28,8 @@ export default function NavbarSearch() {
   };
 
   return (
-    <>
-      <div class=" search-wrapper">
+    <div class="search-wrapper">
+      <div>
         <div class="container">
           <div class="search-field">
             <input
@@ -55,7 +55,7 @@ export default function NavbarSearch() {
                     </div>
                   )
                   : (
-                    <div class="search-btn">
+                    <div class="search-btn" onClick={getWords}>
                       <img src="/icons/magnifying-glass.svg">
                       </img>
                     </div>
@@ -66,7 +66,7 @@ export default function NavbarSearch() {
       </div>
       {entries.length > 0 &&
         (
-          <div class="search-results container search-dropdown">
+          <div class="search-results search-dropdown">
             <div class="dictionary-entries">
               {entries.map((e) => (
                 <>
@@ -85,6 +85,6 @@ export default function NavbarSearch() {
             <footer class="search-footer">Show more results</footer>
           </div>
         )}
-    </>
+    </div>
   );
 }
