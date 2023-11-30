@@ -164,9 +164,8 @@ li {
     align-items: center;
     color: var(--color-black);
     background: var(--color-background);
-    height: 3.5rem;
     justify-content: center;
-    padding: 2rem 0;
+    padding: 1rem;
 }
 
 .logo {
