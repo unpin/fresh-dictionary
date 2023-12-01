@@ -1,11 +1,11 @@
-import { AppContext } from "$fresh/server.ts";
+import { FreshContext } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { DictionaryEntry, Entry } from "../../models/DictionaryEntry.ts";
 import Navbar from "../../components/Navbar.tsx";
 import NavbarSearch from "../../islands/NavbarSearch.tsx";
 import SaveWordToLocalStorage from "../../islands/SaveWordToLocalStorage.tsx";
 
-export default async function Dictionary(_req: Request, ctx: AppContext) {
+export default async function Dictionary(_req: Request, ctx: FreshContext) {
   const entry = await DictionaryEntry.findOne({
     _id: new ObjectId(ctx.params._id),
   }) as Entry;
