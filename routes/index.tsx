@@ -34,6 +34,7 @@ export default function Home() {
           rel="stylesheet"
         />
         <title>Words</title>
+        <link rel="stylesheet" href="manifest.json" />
       </Head>
       <Navbar />
       <NavbarSearch />
