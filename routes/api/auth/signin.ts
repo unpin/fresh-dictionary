@@ -1,4 +1,4 @@
-import { Handlers, Status } from "$fresh/server.ts";
+import { Handlers } from "$fresh/server.ts";
 import { signToken } from "../../../common/jwt.ts";
 import { User } from "../../../models/User.ts";
 import { compareSync } from "bcrypt";
@@ -10,14 +10,14 @@ export const handler: Handlers = {
 
     if (!user) {
       return new Response("", {
-        status: Status.NotFound,
+        status: 404,
         statusText: "User not found",
       });
     }
 
     if (!compareSync(password, user.password)) {
       return new Response("", {
-        status: Status.BadRequest,
+        status: 400,
         statusText: "Password is incorrect",
       });
     }

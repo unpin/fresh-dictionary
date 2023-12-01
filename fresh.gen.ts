@@ -2,73 +2,74 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_404.tsx";
-import * as $1 from "./routes/_app.tsx";
-import * as $2 from "./routes/_middleware.ts";
-import * as $3 from "./routes/all/index.tsx";
-import * as $4 from "./routes/api/auth/email.ts";
-import * as $5 from "./routes/api/auth/signin.ts";
-import * as $6 from "./routes/api/auth/signup.ts";
-import * as $7 from "./routes/api/bookmarks/index.ts";
-import * as $8 from "./routes/api/dictionary/search/[query].ts";
-import * as $9 from "./routes/api/joke.ts";
-import * as $10 from "./routes/api/words/search/[query].ts";
-import * as $11 from "./routes/bookmarks/index.tsx";
-import * as $12 from "./routes/dictionary/[_id].tsx";
-import * as $13 from "./routes/greet/[name].tsx";
-import * as $14 from "./routes/index.tsx";
-import * as $15 from "./routes/review/index.tsx";
-import * as $16 from "./routes/signin/index.tsx";
-import * as $17 from "./routes/signout.ts";
-import * as $18 from "./routes/signup/index.tsx";
-import * as $19 from "./routes/words/[word].tsx";
-import * as $$0 from "./islands/AddDefinition.tsx";
-import * as $$1 from "./islands/Counter.tsx";
-import * as $$2 from "./islands/LoadWords.tsx";
-import * as $$3 from "./islands/NavbarSearch.tsx";
-import * as $$4 from "./islands/PreviousSearches.tsx";
-import * as $$5 from "./islands/SaveWordToLocalStorage.tsx";
-import * as $$6 from "./islands/WordDefinition.tsx";
-import * as $$7 from "./islands/auth/SignInForm.tsx";
-import * as $$8 from "./islands/auth/SignUpForm.tsx";
-import * as $$9 from "./islands/bookmarks/BookmarkList.tsx";
+import * as $_404 from "./routes/_404.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $_middleware from "./routes/_middleware.ts";
+import * as $all_index from "./routes/all/index.tsx";
+import * as $api_auth_email from "./routes/api/auth/email.ts";
+import * as $api_auth_signin from "./routes/api/auth/signin.ts";
+import * as $api_auth_signup from "./routes/api/auth/signup.ts";
+import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
+import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
+import * as $api_joke from "./routes/api/joke.ts";
+import * as $api_words_search_query_ from "./routes/api/words/search/[query].ts";
+import * as $bookmarks_index from "./routes/bookmarks/index.tsx";
+import * as $dictionary_id_ from "./routes/dictionary/[_id].tsx";
+import * as $greet_name_ from "./routes/greet/[name].tsx";
+import * as $index from "./routes/index.tsx";
+import * as $review_index from "./routes/review/index.tsx";
+import * as $signin_index from "./routes/signin/index.tsx";
+import * as $signout from "./routes/signout.ts";
+import * as $signup_index from "./routes/signup/index.tsx";
+import * as $words_word_ from "./routes/words/[word].tsx";
+import * as $AddDefinition from "./islands/AddDefinition.tsx";
+import * as $Counter from "./islands/Counter.tsx";
+import * as $LoadWords from "./islands/LoadWords.tsx";
+import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
+import * as $PreviousSearches from "./islands/PreviousSearches.tsx";
+import * as $SaveWordToLocalStorage from "./islands/SaveWordToLocalStorage.tsx";
+import * as $WordDefinition from "./islands/WordDefinition.tsx";
+import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
+import * as $auth_SignUpForm from "./islands/auth/SignUpForm.tsx";
+import * as $bookmarks_BookmarkList from "./islands/bookmarks/BookmarkList.tsx";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/_404.tsx": $0,
-    "./routes/_app.tsx": $1,
-    "./routes/_middleware.ts": $2,
-    "./routes/all/index.tsx": $3,
-    "./routes/api/auth/email.ts": $4,
-    "./routes/api/auth/signin.ts": $5,
-    "./routes/api/auth/signup.ts": $6,
-    "./routes/api/bookmarks/index.ts": $7,
-    "./routes/api/dictionary/search/[query].ts": $8,
-    "./routes/api/joke.ts": $9,
-    "./routes/api/words/search/[query].ts": $10,
-    "./routes/bookmarks/index.tsx": $11,
-    "./routes/dictionary/[_id].tsx": $12,
-    "./routes/greet/[name].tsx": $13,
-    "./routes/index.tsx": $14,
-    "./routes/review/index.tsx": $15,
-    "./routes/signin/index.tsx": $16,
-    "./routes/signout.ts": $17,
-    "./routes/signup/index.tsx": $18,
-    "./routes/words/[word].tsx": $19,
+    "./routes/_404.tsx": $_404,
+    "./routes/_app.tsx": $_app,
+    "./routes/_middleware.ts": $_middleware,
+    "./routes/all/index.tsx": $all_index,
+    "./routes/api/auth/email.ts": $api_auth_email,
+    "./routes/api/auth/signin.ts": $api_auth_signin,
+    "./routes/api/auth/signup.ts": $api_auth_signup,
+    "./routes/api/bookmarks/index.ts": $api_bookmarks_index,
+    "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
+    "./routes/api/joke.ts": $api_joke,
+    "./routes/api/words/search/[query].ts": $api_words_search_query_,
+    "./routes/bookmarks/index.tsx": $bookmarks_index,
+    "./routes/dictionary/[_id].tsx": $dictionary_id_,
+    "./routes/greet/[name].tsx": $greet_name_,
+    "./routes/index.tsx": $index,
+    "./routes/review/index.tsx": $review_index,
+    "./routes/signin/index.tsx": $signin_index,
+    "./routes/signout.ts": $signout,
+    "./routes/signup/index.tsx": $signup_index,
+    "./routes/words/[word].tsx": $words_word_,
   },
   islands: {
-    "./islands/AddDefinition.tsx": $$0,
-    "./islands/Counter.tsx": $$1,
-    "./islands/LoadWords.tsx": $$2,
-    "./islands/NavbarSearch.tsx": $$3,
-    "./islands/PreviousSearches.tsx": $$4,
-    "./islands/SaveWordToLocalStorage.tsx": $$5,
-    "./islands/WordDefinition.tsx": $$6,
-    "./islands/auth/SignInForm.tsx": $$7,
-    "./islands/auth/SignUpForm.tsx": $$8,
-    "./islands/bookmarks/BookmarkList.tsx": $$9,
+    "./islands/AddDefinition.tsx": $AddDefinition,
+    "./islands/Counter.tsx": $Counter,
+    "./islands/LoadWords.tsx": $LoadWords,
+    "./islands/NavbarSearch.tsx": $NavbarSearch,
+    "./islands/PreviousSearches.tsx": $PreviousSearches,
+    "./islands/SaveWordToLocalStorage.tsx": $SaveWordToLocalStorage,
+    "./islands/WordDefinition.tsx": $WordDefinition,
+    "./islands/auth/SignInForm.tsx": $auth_SignInForm,
+    "./islands/auth/SignUpForm.tsx": $auth_SignUpForm,
+    "./islands/bookmarks/BookmarkList.tsx": $bookmarks_BookmarkList,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;

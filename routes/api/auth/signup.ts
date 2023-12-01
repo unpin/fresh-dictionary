@@ -1,4 +1,4 @@
-import { Handlers, Status } from "$fresh/server.ts";
+import { Handlers } from "$fresh/server.ts";
 import { signToken } from "../../../common/jwt.ts";
 import { User } from "../../../models/User.ts";
 import { hashSync } from "bcrypt";
@@ -9,7 +9,7 @@ export const handler: Handlers = {
     const user = await User.findOne({ email });
     if (user) {
       return new Response("", {
-        status: Status.Conflict,
+        status: 409,
         statusText: "User already exists",
       });
     }
@@ -22,7 +22,7 @@ export const handler: Handlers = {
 
     const token = await signToken({ _id, email });
     return new Response(JSON.stringify({ name, email, token }), {
-      status: Status.Created,
+      status: 201,
     });
   },
 };
