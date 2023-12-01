@@ -15,7 +15,7 @@ export default function SaveWordToLocalStorage(
     ) as SearchHistoryData[];
     if (!history.find((e) => e._id === _id)) {
       history.push({ _id, word });
-      storage.setItem("searchHistory", JSON.stringify(history.slice(-5)));
+      storage.setItem("searchHistory", JSON.stringify(history.slice(-8)));
     }
   }, []);
   return <></>;
