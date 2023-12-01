@@ -22,22 +22,15 @@ export default function PreviousSearches() {
   return (
     history.length > 0
       ? (
-        <div class="history-container">
-          <div class="container">
-            <div class="history-heading">
-              <h2>
-                Verlauf
-              </h2>
-              <span>
+        <div class="container">
+          <div class="search-history">
+            {history.map((el) => (
+              <div class="history-entry">
                 <img
                   class="history-icon"
                   src="/icons/clock-rotate-left.svg"
                   alt=""
                 />
-              </span>
-            </div>
-            {history.map((el) => (
-              <div class="history-entry">
                 <a href={"/dictionary/" + el._id}>{el.word}</a>
               </div>
             ))}
