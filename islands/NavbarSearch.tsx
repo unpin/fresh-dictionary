@@ -75,7 +75,7 @@ export default function NavbarSearch() {
               {entries.map((e) => (
                 <>
                   <div class="entry-article">
-                    {getArticle(e.article) || "-"}
+                    {getArticle(e.article) || ""}
                   </div>
                   <a
                     class="entry-word"
