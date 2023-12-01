@@ -486,6 +486,7 @@ hr {
     color: var(--color-text);
     text-decoration: none;
     font-size: 1.25rem;
+    word-break: break-word;
 }
 
 .entry-type {
