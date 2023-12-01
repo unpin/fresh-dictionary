@@ -14,6 +14,11 @@ export default function PreviousSearches() {
     setHistory(storedHistory);
   }, []);
 
+  const clearHistory = () => {
+    localStorage.setItem("searchHistory", "[]");
+    setHistory([]);
+  };
+
   return (
     history.length > 0
       ? (
@@ -37,8 +42,10 @@ export default function PreviousSearches() {
               </div>
             ))}
           </div>
-          <footer>
-            <button class="btn btn-outline">Alle löschen</button>
+          <footer class="history-footer">
+            <div class="history-clear-btn" onClick={clearHistory}>
+              Alle löschen
+            </div>
           </footer>
         </div>
       )
