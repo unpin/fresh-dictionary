@@ -3,6 +3,7 @@ import { ObjectId } from "mongo";
 import { DictionaryEntry, Entry } from "../../models/DictionaryEntry.ts";
 import Navbar from "../../components/Navbar.tsx";
 import NavbarSearch from "../../islands/NavbarSearch.tsx";
+import SaveWordToLocalStorage from "../../islands/SaveWordToLocalStorage.tsx";
 
 export default async function Dictionary(_req: Request, ctx: AppContext) {
   const entry = await DictionaryEntry.findOne({
@@ -14,6 +15,7 @@ export default async function Dictionary(_req: Request, ctx: AppContext) {
 
   return (
     <>
+      <SaveWordToLocalStorage word={entry.word} _id={entry._id.toString()} />
       <Navbar />
       <NavbarSearch />
       <div class="container">

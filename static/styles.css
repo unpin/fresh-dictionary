@@ -499,3 +499,30 @@ hr {
 .definition-counter {
     color: var(--color-gray);
 }
+
+.history-container {
+    margin: 1rem 0;
+}
+
+.history-heading {
+    display: flex;
+    align-items: center;
+    color: var(--color-gray);
+}
+
+.history-heading h2 {
+    margin-right: 0.5rem;
+}
+
+.history-entry {
+    > a {
+        color: var(--color-text);
+        text-decoration: none;
+        font-size: 1.25rem;
+        word-break: break-word;
+    }
+}
+
+.history-icon {
+    width: 24px;
+}

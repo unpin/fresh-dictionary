@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.tsx";
 import NavbarSearch from "../islands/NavbarSearch.tsx";
 import { HandlerContext, Handlers } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
-import { Entry } from "../models/DictionaryEntry.ts";
+import PreviousSearches from "../islands/PreviousSearches.tsx";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: HandlerContext) {
@@ -38,6 +38,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <NavbarSearch />
+      <PreviousSearches />
     </>
   );
 }

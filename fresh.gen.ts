@@ -26,10 +26,12 @@ import * as $$0 from "./islands/AddDefinition.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/LoadWords.tsx";
 import * as $$3 from "./islands/NavbarSearch.tsx";
-import * as $$4 from "./islands/WordDefinition.tsx";
-import * as $$5 from "./islands/auth/SignInForm.tsx";
-import * as $$6 from "./islands/auth/SignUpForm.tsx";
-import * as $$7 from "./islands/bookmarks/BookmarkList.tsx";
+import * as $$4 from "./islands/PreviousSearches.tsx";
+import * as $$5 from "./islands/SaveWordToLocalStorage.tsx";
+import * as $$6 from "./islands/WordDefinition.tsx";
+import * as $$7 from "./islands/auth/SignInForm.tsx";
+import * as $$8 from "./islands/auth/SignUpForm.tsx";
+import * as $$9 from "./islands/bookmarks/BookmarkList.tsx";
 
 const manifest = {
   routes: {
@@ -59,10 +61,12 @@ const manifest = {
     "./islands/Counter.tsx": $$1,
     "./islands/LoadWords.tsx": $$2,
     "./islands/NavbarSearch.tsx": $$3,
-    "./islands/WordDefinition.tsx": $$4,
-    "./islands/auth/SignInForm.tsx": $$5,
-    "./islands/auth/SignUpForm.tsx": $$6,
-    "./islands/bookmarks/BookmarkList.tsx": $$7,
+    "./islands/PreviousSearches.tsx": $$4,
+    "./islands/SaveWordToLocalStorage.tsx": $$5,
+    "./islands/WordDefinition.tsx": $$6,
+    "./islands/auth/SignInForm.tsx": $$7,
+    "./islands/auth/SignUpForm.tsx": $$8,
+    "./islands/bookmarks/BookmarkList.tsx": $$9,
   },
   baseUrl: import.meta.url,
 };
