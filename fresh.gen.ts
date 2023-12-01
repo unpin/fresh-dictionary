@@ -26,8 +26,8 @@ import * as $AddDefinition from "./islands/AddDefinition.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $LoadWords from "./islands/LoadWords.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
-import * as $PreviousSearches from "./islands/PreviousSearches.tsx";
 import * as $SaveWordToLocalStorage from "./islands/SaveWordToLocalStorage.tsx";
+import * as $SearchHistory from "./islands/SearchHistory.tsx";
 import * as $WordDefinition from "./islands/WordDefinition.tsx";
 import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
 import * as $auth_SignUpForm from "./islands/auth/SignUpForm.tsx";
@@ -62,8 +62,8 @@ const manifest = {
     "./islands/Counter.tsx": $Counter,
     "./islands/LoadWords.tsx": $LoadWords,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
-    "./islands/PreviousSearches.tsx": $PreviousSearches,
     "./islands/SaveWordToLocalStorage.tsx": $SaveWordToLocalStorage,
+    "./islands/SearchHistory.tsx": $SearchHistory,
     "./islands/WordDefinition.tsx": $WordDefinition,
     "./islands/auth/SignInForm.tsx": $auth_SignInForm,
     "./islands/auth/SignUpForm.tsx": $auth_SignUpForm,

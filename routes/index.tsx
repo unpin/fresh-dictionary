@@ -2,12 +2,12 @@ import { Head } from "$fresh/runtime.ts";
 import { Signal } from "@preact/signals";
 import Navbar from "../components/Navbar.tsx";
 import NavbarSearch from "../islands/NavbarSearch.tsx";
-import { HandlerContext, Handlers } from "$fresh/server.ts";
+import { FreshContext, Handlers } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
-import PreviousSearches from "../islands/PreviousSearches.tsx";
+import SearchHistory from "../islands/SearchHistory.tsx";
 
 export const handler: Handlers = {
-  async GET(_req: Request, ctx: HandlerContext) {
+  async GET(_req: Request, ctx: FreshContext) {
     const cookies = getCookies(_req.headers);
 
     if (!cookies.authToken) {
@@ -38,7 +38,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <NavbarSearch />
-      <PreviousSearches />
+      <SearchHistory />
     </>
   );
 }
