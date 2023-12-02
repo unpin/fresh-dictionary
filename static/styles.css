@@ -172,7 +172,7 @@ li {
     width: 48px;
 }
 
-.search-dropdown {
+.search-results {
     position: absolute;
     border-radius: 4px;
     background-color: white;
@@ -185,10 +185,9 @@ li {
 }
 
 @media (min-width: 600px) {
-    .search-dropdown {
+    .search-results {
         left: 50%;
         transform: translateX(-50%);
-        max-width: 560px;
     }
 }
 
@@ -217,15 +216,8 @@ li {
     display: flex;
     padding: 0.5rem;
     gap: 0.5rem;
-    margin: auto;
     background-color: var(--color-white);
     border-radius: var(--border-radius);
-}
-
-@media (min-width: 600px) {
-    .search-field {
-        max-width: 560px;
-    }
 }
 
 .search-btn {
@@ -258,7 +250,7 @@ li {
     padding-left: 1rem;
     margin-right: auto;
     margin-left: auto;
-    max-width: 75rem;
+    max-width: 600px;
 }
 
 @media (min-width: 600px) {
@@ -461,7 +453,7 @@ hr {
     font-size: 14px;
 }
 
-.dictionary-entries {
+.result-entries {
     display: grid;
     grid-template-columns: max-content 1fr;
     align-items: baseline;
@@ -472,7 +464,7 @@ hr {
 }
 
 @media (min-width: 600px) {
-    .dictionary-entries {
+    .result-entries {
         padding: 1.25rem;
     }
 }

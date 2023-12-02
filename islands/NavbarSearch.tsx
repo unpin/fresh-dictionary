@@ -70,8 +70,8 @@ export default function NavbarSearch() {
       </div>
       {entries.length > 0 &&
         (
-          <div class="search-results search-dropdown">
-            <div class="dictionary-entries">
+          <div class="container search-results">
+            <div class="result-entries">
               {entries.map((e) => (
                 <>
                   <div class="entry-article">
