@@ -20,28 +20,27 @@ export default function PreviousSearches() {
   };
 
   return (
-    history.length > 0
-      ? (
-        <div class="container">
-          <div class="search-history">
-            {history.map((el) => (
-              <div class="history-entry">
-                <img
-                  class="history-icon"
-                  src="/icons/clock-rotate-left.svg"
-                  alt=""
-                />
-                <a href={"/dictionary/" + el._id}>{el.word}</a>
-              </div>
-            ))}
-          </div>
-          <footer class="history-footer">
-            <div class="history-clear-btn" onClick={clearHistory}>
-              Alle löschen
+    history.length > 0 &&
+    (
+      <div class="container">
+        <div class="search-history">
+          {history.map((el) => (
+            <div class="history-entry">
+              <img
+                class="history-icon"
+                src="/icons/clock-rotate-left.svg"
+                alt=""
+              />
+              <a href={"/dictionary/" + el._id}>{el.word}</a>
             </div>
-          </footer>
+          ))}
         </div>
-      )
-      : <></>
+        <footer class="history-footer">
+          <div class="history-clear-btn" onClick={clearHistory}>
+            Alle löschen
+          </div>
+        </footer>
+      </div>
+    )
   );
 }
