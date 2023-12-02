@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar.tsx";
 import NavbarSearch from "../../islands/NavbarSearch.tsx";
 import SaveWordToLocalStorage from "../../islands/SaveWordToLocalStorage.tsx";
 import { Sentence } from "../../models/Sentence.ts";
+import { Head } from "$fresh/runtime.ts";
 
 export default async function Dictionary(_req: Request, ctx: FreshContext) {
   const entry = await DictionaryEntry.findOne({
@@ -19,6 +20,9 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
 
   return (
     <>
+      <Head>
+        <title>Words - {entry.word}</title>
+      </Head>
       <SaveWordToLocalStorage word={entry.word} _id={entry._id.toString()} />
       <Navbar />
       <NavbarSearch />
