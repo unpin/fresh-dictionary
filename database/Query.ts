@@ -2,6 +2,7 @@ import {
   AggregateOptions,
   AggregatePipeline,
   CountOptions,
+  CreateIndexOptions,
   Database,
   DeleteOptions,
   Document,
@@ -69,6 +70,10 @@ export class Query<T> {
       update,
       options,
     );
+  }
+
+  async createIndex(options: CreateIndexOptions) {
+    return await this.getCollection().createIndexes(options);
   }
 
   async countDocuments(filter: Filter<Document>, options?: CountOptions) {
