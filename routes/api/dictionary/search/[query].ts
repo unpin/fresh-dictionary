@@ -12,7 +12,12 @@ export const handler: Handlers = {
         $caseSensitive: false,
         $diacriticSensitive: false,
       },
-    }, { limit: 20 });
+    }, {
+      projection: {
+        word: 1,
+      },
+      limit: 20,
+    });
 
     return new Response(JSON.stringify(entries), {
       status: 200,
