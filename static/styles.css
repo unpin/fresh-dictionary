@@ -155,6 +155,11 @@ li {
 .rounded {
     border-radius: 0.25rem;
 }
+
+.relative {
+    position: relative;
+}
+
 .hover:bg-gray-200:hover {
     background-color: #e5e7eb;
 }
@@ -170,13 +175,6 @@ li {
 
 .logo {
     width: 48px;
-}
-
-.search-results {
-    position: absolute;
-    border-radius: 4px;
-    background-color: white;
-    width: 100%;
 }
 
 .search-footer {
@@ -241,9 +239,14 @@ li {
 }
 
 .search-results {
+    position: absolute;
+    border-radius: 4px;
+    background-color: white;
+    width: 100%;
     padding: 1rem;
-    top: 72px;
+    top: 0.5rem;
     z-index: 100;
+    box-shadow: 0 10px 20px -2px rgba(0, 0, 0, 0.4);
 }
 
 .container {
@@ -252,13 +255,6 @@ li {
     margin-right: auto;
     margin-left: auto;
     max-width: 600px;
-}
-
-@media (min-width: 600px) {
-    .search-results {
-        box-shadow: 0 10px 20px -2px rgba(0, 0, 0, 0.4);
-        top: 64px;
-    }
 }
 
 .spin {

@@ -70,23 +70,25 @@ export default function NavbarSearch() {
       </div>
       {entries.length > 0 &&
         (
-          <div class="container search-results">
-            <div class="result-entries">
-              {entries.map((e) => (
-                <>
-                  <div class="entry-article">
-                    {getArticle(e.article) || ""}
-                  </div>
-                  <a
-                    class="entry-word"
-                    href={"/dictionary/" + encodeURI(e._id.toString())}
-                  >
-                    {e.word}
-                  </a>
-                </>
-              ))}
+          <div class="relative">
+            <div class="container search-results">
+              <div class="result-entries">
+                {entries.map((e) => (
+                  <>
+                    <div class="entry-article">
+                      {getArticle(e.article) || ""}
+                    </div>
+                    <a
+                      class="entry-word"
+                      href={"/dictionary/" + encodeURI(e._id.toString())}
+                    >
+                      {e.word}
+                    </a>
+                  </>
+                ))}
+              </div>
+              <footer class="search-footer">Show more results</footer>
             </div>
-            <footer class="search-footer">Show more results</footer>
           </div>
         )}
     </div>
