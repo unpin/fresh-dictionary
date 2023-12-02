@@ -9,4 +9,7 @@ const sentenceSchema: Schema = {
   name: { type: String },
 };
 
-export const Sentence = Query.createModel<Schema>("sentences", sentenceSchema);
+export const Sentence = Query.createModel<Schema>(
+  "example_sentences",
+  sentenceSchema,
+);
