@@ -546,3 +546,7 @@ hr {
     margin-bottom: 0.5rem;
     color: var(--color-gray);
 }
+
+.dictionary-word {
+    word-break: break-word;
+}

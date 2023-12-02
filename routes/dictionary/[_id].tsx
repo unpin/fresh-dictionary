@@ -27,7 +27,7 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
       <Navbar />
       <NavbarSearch />
       <div class="container">
-        <h1 class="my-4">{entry.word}</h1>
+        <h1 class="my-4 dictionary-word">{entry.word}</h1>
         <span class="entry-type">{type}</span>
         <h3 class="my-4">Bedeutungen</h3>
         <ul class="my-4">
