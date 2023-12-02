@@ -541,3 +541,8 @@ hr {
 .history-clear-btn {
     cursor: pointer;
 }
+
+.examples > li {
+    margin-bottom: 0.5rem;
+    color: var(--color-gray);
+}
