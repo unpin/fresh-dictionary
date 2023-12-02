@@ -14,7 +14,9 @@ export default function App({ Component }: PageProps) {
         />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      <Component />
+      <body>
+        <Component />
+      </body>
     </>
   );
 }
