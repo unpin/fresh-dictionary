@@ -16,9 +16,7 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
     "$std/": "https://deno.land/std@0.204.0/",
     "std/": "https://deno.land/std@0.204.0/",
-    "oak": "https://deno.land/x/oak@v12.6.1/mod.ts",
     "mongo": "https://deno.land/x/mongo@v0.32.0/mod.ts",
-    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts",
     "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
     "djwt": "https://deno.land/x/djwt@v2.9.1/mod.ts"
   },
