@@ -9,14 +9,12 @@ export default function SaveWordToLocalStorage(
   { _id, word }: SearchHistoryData,
 ) {
   useEffect(() => {
-    const storage = localStorage;
     const history = JSON.parse(
-      storage.getItem("searchHistory") ?? "[]",
+      localStorage.getItem("searchHistory") ?? "[]",
     ) as SearchHistoryData[];
-    if (!history.find((e) => e._id === _id)) {
-      history.push({ _id, word });
-      storage.setItem("searchHistory", JSON.stringify(history.slice(-6)));
-    }
+    const filtered = history.filter((e) => e._id !== _id);
+    filtered.unshift({ _id, word });
+    localStorage.setItem("searchHistory", JSON.stringify(filtered.slice(0, 5)));
   }, []);
   return <></>;
 }
