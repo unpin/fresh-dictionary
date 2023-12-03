@@ -24,7 +24,7 @@ export const handler: Handlers = {
 
       const hasBookmark = await Bookmark.findOne({
         userId: new ObjectId(payload._id as string),
-        wordIds: wordId,
+        wordIds: new ObjectId(wordId),
       });
       console.log("hasBookmark?", hasBookmark);
 
