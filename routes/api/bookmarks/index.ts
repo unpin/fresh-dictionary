@@ -53,6 +53,7 @@ export const handler: Handlers = {
           },
         ],
       ).toArray())[0];
+      console.log(data);
 
       return new Response(JSON.stringify(data), {
         status: Status.OK,
