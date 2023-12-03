@@ -168,7 +168,7 @@ li {
     grid-template-columns: repeat(3, 1fr);
     color: var(--color-black);
     background: var(--color-background);
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 .header-content {
