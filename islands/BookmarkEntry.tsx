@@ -51,7 +51,7 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
   };
 
   return (
-    <span class="plus-btn">
+    <span class="bookmark-btn">
       {bookmarked
         ? (
           <img

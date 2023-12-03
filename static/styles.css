@@ -177,11 +177,6 @@ li {
     width: 48px;
 }
 
-.search-footer {
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
-    padding: 0.5rem 0.75rem;
-}
-
 .search-wrapper {
     color: var(--color-black);
     background: var(--color-background);
@@ -455,24 +450,15 @@ hr {
 }
 
 .result-entries {
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    align-items: baseline;
-    column-gap: 0.5rem;
-    row-gap: 0.25rem;
-    border-radius: var(--border-radius);
-    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
 }
 
 @media (min-width: 600px) {
     .result-entries {
         padding: 1.25rem;
     }
-}
-
-.entry-article {
-    font-weight: 600;
-    font-size: 1.25rem;
 }
 
 .entry-word {
@@ -559,15 +545,16 @@ hr {
 .dictionary-heading {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
 .dictionary-play-btn {
     display: inline-block;
+    flex-shrink: 0;
     width: 2rem;
-    margin-left: 0.5rem;
     cursor: pointer;
     user-select: none;
-    opacity: 0.5;
+    opacity: 0.75;
     transition: all var(--animation-ms) ease-in-out;
 }
 
@@ -575,15 +562,16 @@ hr {
     opacity: 0.9;
 }
 
-.plus-btn {
-    width: 1rem;
+.bookmark-btn {
+    flex-shrink: 0;
+    width: 1.125rem;
     margin-left: auto;
     cursor: pointer;
     transition: all var(--animation-ms) ease-in-out;
-    opacity: 0.5;
+    opacity: 0.75;
 }
 
-.plus-btn:hover {
+.bookmark-btn:hover {
     opacity: 0.9;
 }
 
