@@ -512,6 +512,11 @@ hr {
 
 .history-entry {
     display: flex;
+    justify-content: space-between;
+}
+
+.history-entry-word {
+    display: flex;
     gap: 1rem;
     color: var(--color-gray);
 }
@@ -538,7 +543,7 @@ hr {
     padding: 1rem;
 }
 
-.history-clear-btn {
+.history-close-btn {
     cursor: pointer;
 }
 

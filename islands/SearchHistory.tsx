@@ -7,6 +7,7 @@ interface SearchHistory {
 
 export default function PreviousSearches() {
   const [history, setHistory] = useState<SearchHistory[]>([]);
+
   useEffect(() => {
     const storedHistory = JSON.parse(
       localStorage.getItem("searchHistory") || "[]",
@@ -14,9 +15,12 @@ export default function PreviousSearches() {
     setHistory(storedHistory);
   }, []);
 
-  const clearHistory = () => {
-    localStorage.setItem("searchHistory", "[]");
-    setHistory([]);
+  useEffect(() => {
+    localStorage.setItem("searchHistory", JSON.stringify(history));
+  }, [history]);
+
+  const removeItem = (_id: string) => {
+    setHistory(history.filter((e) => e._id !== _id));
   };
 
   return (
@@ -24,22 +28,27 @@ export default function PreviousSearches() {
       {history.length > 0 && (
         <div class="container">
           <div class="search-history">
-            {history.map((el) => (
+            {history.map((entry) => (
               <div class="history-entry">
-                <img
-                  class="history-icon"
-                  src="/icons/clock-rotate-left.svg"
-                  alt=""
-                />
-                <a href={"/dictionary/" + el._id}>{el.word}</a>
+                <div class="history-entry-word">
+                  <img
+                    class="history-icon"
+                    src="/icons/clock-rotate-left.svg"
+                    alt=""
+                  />
+                  <a href={"/dictionary/" + entry._id} data-id={entry._id}>
+                    {entry.word}
+                  </a>
+                </div>
+                <div
+                  class="history-close-btn"
+                  onClick={() => removeItem(entry._id)}
+                >
+                  &#10005;
+                </div>
               </div>
             ))}
           </div>
-          <footer class="history-footer">
-            <div class="history-clear-btn" onClick={clearHistory}>
-              Alle löschen
-            </div>
-          </footer>
         </div>
       )}
     </>
