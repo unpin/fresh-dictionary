@@ -18,8 +18,8 @@ export default function App({ Component }: PageProps) {
         <div>
           <Component />
         </div>
-        <footer>
-          <ul class="navigation-menu">
+        <footer class="navigation-menu">
+          <ul>
             <li>
               <a href="/">
                 <img src="/icons/house-blank.svg" alt="" />

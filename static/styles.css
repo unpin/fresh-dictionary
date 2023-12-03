@@ -588,17 +588,26 @@ hr {
 }
 
 .main {
-    display: grid;
-    grid-template-rows: 1fr;
-    height: 100vh;
+    padding-bottom: 90px;
 }
 
 .navigation-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.navigation-menu ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     border-top: 1px solid var(--color-pale);
     padding: 1.25rem 0;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 90;
 }
 
 .navigation-menu li {
