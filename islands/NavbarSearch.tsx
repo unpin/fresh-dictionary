@@ -77,9 +77,6 @@ export default function NavbarSearch() {
               <div class="result-entries">
                 {entries.map((e) => (
                   <>
-                    <div class="entry-article">
-                      {getArticle(e.article) || ""}
-                    </div>
                     <a
                       class="entry-word"
                       href={"/dictionary/" + encodeURI(e._id.toString())}
@@ -89,7 +86,6 @@ export default function NavbarSearch() {
                   </>
                 ))}
               </div>
-              <footer class="search-footer">Show more results</footer>
             </div>
           </div>
         )}
