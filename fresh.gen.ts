@@ -26,6 +26,7 @@ import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
 import * as $words_word_ from "./routes/words/[word].tsx";
 import * as $AddDefinition from "./islands/AddDefinition.tsx";
+import * as $BackLink from "./islands/BackLink.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $LoadWords from "./islands/LoadWords.tsx";
@@ -67,6 +68,7 @@ const manifest = {
   },
   islands: {
     "./islands/AddDefinition.tsx": $AddDefinition,
+    "./islands/BackLink.tsx": $BackLink,
     "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/Counter.tsx": $Counter,
     "./islands/LoadWords.tsx": $LoadWords,

@@ -165,16 +165,31 @@ li {
 }
 
 .header {
-    display: flex;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
     color: var(--color-black);
     background: var(--color-background);
-    justify-content: center;
     padding: 1rem;
 }
 
+.header-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+.back-btn {
+    width: 1rem;
+    grid-area: 'i';
+    cursor: pointer;
+}
+
 .logo {
+    justify-self: center;
+}
+
+.logo img {
     width: 48px;
+    grid-area: 'l';
 }
 
 .search-wrapper {

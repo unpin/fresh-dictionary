@@ -12,6 +12,7 @@ export default function NavbarSearch() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
+    console.log(window.history);
     getWords();
   }, [query]);
 
