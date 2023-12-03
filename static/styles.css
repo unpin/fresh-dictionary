@@ -180,7 +180,6 @@ li {
 .search-wrapper {
     color: var(--color-black);
     background: var(--color-background);
-    padding-top: 1rem;
     padding-bottom: 1rem;
     position: sticky;
     top: 0;
