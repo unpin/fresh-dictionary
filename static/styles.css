@@ -562,4 +562,5 @@ hr {
     margin-left: 0.5rem;
     opacity: 0.75;
     cursor: pointer;
+    user-select: none;
 }
