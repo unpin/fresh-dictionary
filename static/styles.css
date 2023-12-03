@@ -168,7 +168,7 @@ li {
     grid-template-columns: repeat(3, 1fr);
     color: var(--color-black);
     background: var(--color-background);
-    padding: 1rem 0;
+    padding-top: 1rem;
 }
 
 .header-content {
@@ -195,7 +195,7 @@ li {
 .search-wrapper {
     color: var(--color-black);
     background: var(--color-background);
-    padding-bottom: 1rem;
+    padding: 1rem 0;
     position: sticky;
     top: 0;
     z-index: 110;

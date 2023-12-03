@@ -15,9 +15,7 @@ export default function App({ Component }: PageProps) {
         <link rel="manifest" href="/manifest.json" />
       </Head>
       <body class="main">
-        <div>
-          <Component />
-        </div>
+        <Component />
         <footer class="navigation-menu">
           <ul>
             <li>
