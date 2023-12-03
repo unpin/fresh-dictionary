@@ -16,7 +16,7 @@ export const handler: Handlers = {
       const deletion = await Bookmark.updateOne({
         userId: new ObjectId(payload._id as string),
       }, {
-        $pull: { wordIds: wordId },
+        $pull: { wordIds: new ObjectId(wordId) },
       });
       console.log({ deletion });
       return new Response("", {
