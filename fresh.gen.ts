@@ -9,6 +9,9 @@ import * as $all_index from "./routes/all/index.tsx";
 import * as $api_auth_email from "./routes/api/auth/email.ts";
 import * as $api_auth_signin from "./routes/api/auth/signin.ts";
 import * as $api_auth_signup from "./routes/api/auth/signup.ts";
+import * as $api_bookmarks_add_index from "./routes/api/bookmarks/add/index.ts";
+import * as $api_bookmarks_delete_index from "./routes/api/bookmarks/delete/index.ts";
+import * as $api_bookmarks_find_index from "./routes/api/bookmarks/find/index.ts";
 import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
 import * as $api_joke from "./routes/api/joke.ts";
@@ -23,6 +26,7 @@ import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
 import * as $words_word_ from "./routes/words/[word].tsx";
 import * as $AddDefinition from "./islands/AddDefinition.tsx";
+import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $Counter from "./islands/Counter.tsx";
 import * as $LoadWords from "./islands/LoadWords.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
@@ -44,6 +48,9 @@ const manifest = {
     "./routes/api/auth/email.ts": $api_auth_email,
     "./routes/api/auth/signin.ts": $api_auth_signin,
     "./routes/api/auth/signup.ts": $api_auth_signup,
+    "./routes/api/bookmarks/add/index.ts": $api_bookmarks_add_index,
+    "./routes/api/bookmarks/delete/index.ts": $api_bookmarks_delete_index,
+    "./routes/api/bookmarks/find/index.ts": $api_bookmarks_find_index,
     "./routes/api/bookmarks/index.ts": $api_bookmarks_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
     "./routes/api/joke.ts": $api_joke,
@@ -60,6 +67,7 @@ const manifest = {
   },
   islands: {
     "./islands/AddDefinition.tsx": $AddDefinition,
+    "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/Counter.tsx": $Counter,
     "./islands/LoadWords.tsx": $LoadWords,
     "./islands/NavbarSearch.tsx": $NavbarSearch,

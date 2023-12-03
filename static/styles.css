@@ -565,7 +565,24 @@ hr {
     display: inline-block;
     width: 2rem;
     margin-left: 0.5rem;
-    opacity: 0.75;
     cursor: pointer;
     user-select: none;
+    opacity: 0.5;
+    transition: all var(--animation-ms) ease-in-out;
+}
+
+.dictionary-play-btn:hover {
+    opacity: 0.9;
+}
+
+.plus-btn {
+    width: 1rem;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all var(--animation-ms) ease-in-out;
+    opacity: 0.5;
+}
+
+.plus-btn:hover {
+    opacity: 0.9;
 }

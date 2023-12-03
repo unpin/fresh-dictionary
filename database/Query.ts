@@ -80,8 +80,11 @@ export class Query<T> {
     return await this.getCollection().countDocuments(filter, options);
   }
 
-  aggregate(pipeline: AggregatePipeline<T>[], options?: AggregateOptions) {
-    return this.getCollection().aggregate(pipeline, options);
+  aggregate(
+    pipeline: AggregatePipeline<unknown>[],
+    options?: AggregateOptions,
+  ) {
+    return this.getCollection().aggregate<unknown>(pipeline, options);
   }
 
   private getCollection() {

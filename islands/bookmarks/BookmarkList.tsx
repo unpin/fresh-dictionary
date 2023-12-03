@@ -1,29 +1,37 @@
 import { useEffect, useState } from "preact/hooks";
-import { getBookmarkedWords } from "../../services/WordService.ts";
+
+interface Entry {
+  _id: string;
+  word: string;
+}
+
+interface BookmarkProps {
+  bookmarks: Entry[];
+}
 
 export default function BookmarkedWords() {
-  const [words, setWords] = useState([]);
-  const [page, setPage] = useState(1);
+  const [entries, setEntries] = useState<Entry[]>([]);
 
   useEffect(() => {
-    getBookmarkedWords(page).then((
-      data,
-    ) => ((console.log(data)), setWords(data)));
+    fetch("/api/bookmarks").then((res) => res.json()).then((bookmarks) => {
+      setEntries(bookmarks);
+    });
   }, []);
 
   return (
-    <>
-      <h1>List</h1>
-      <div>
-        {words.map((
-          w: { word: string; _id: string; definitions: [{ meaning: string }] },
-        ) => (
-          <>
-            <h3>{w.word}</h3>
-            {w.definitions.map((d) => <p>{d.meaning}</p>)}
-          </>
-        ))}
-      </div>
-    </>
+    <div class="container">
+      <h1>Bookmarks</h1>
+      {entries.length > 0 && (
+        <ul>
+          {entries.map((e) => (
+            <li>
+              <a href={"/dictionary/" + e._id}>
+                <h3>{e.word}</h3>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

@@ -1,8 +1,12 @@
+import { ObjectId } from "mongo";
+
 type DataType =
   | typeof String
   | typeof Number
   | typeof Boolean
-  | typeof Date;
+  | typeof Date
+  | typeof ObjectId
+  | typeof ObjectId[];
 
 interface FieldSchema {
   required?: boolean;
@@ -58,16 +62,18 @@ export class SchemaValidator {
             }".`,
           );
         }
-      } else if (
-        fieldValidator.type &&
-        !this.validateType(fieldValue, fieldValidator.type)
-      ) {
-        throw new ValidationException(
-          `Field "${fieldName}" must be of type "${
-            this.dataTypeToString(fieldValidator.type)
-          }".`,
-        );
       }
+
+      // else if (
+      //   fieldValidator.type &&
+      //   !this.validateType(fieldValue, fieldValidator.type)
+      // ) {
+      //   throw new ValidationException(
+      //     `Field "${fieldName}" must be of type "${
+      //       this.dataTypeToString(fieldValidator.type)
+      //     }".`,
+      //   );
+      // }
 
       if (
         typeof fieldValue === "string" && (fieldValidator.minLength &&
