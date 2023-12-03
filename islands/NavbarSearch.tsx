@@ -32,39 +32,41 @@ export default function NavbarSearch() {
   };
 
   return (
-    <div class="search-wrapper">
-      <div>
-        <div class="container">
-          <div class="search-field">
-            <input
-              class="search-input"
-              placeholder="Stichwort"
-              value={query}
-              onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-            />
+    <>
+      <div class="search-wrapper">
+        <div>
+          <div class="container">
+            <div class="search-field">
+              <input
+                class="search-input"
+                placeholder="Stichwort"
+                value={query}
+                onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
+              />
 
-            {isLoading
-              ? (
-                <div class="search-btn" onClick={getWords}>
-                  <img class="spin" src="/icons/spinner-third.svg">
-                  </img>
-                </div>
-              )
-              : (
-                entries.length > 0
-                  ? (
-                    <div class="search-btn" onClick={clearResults}>
-                      <img src="/icons/xmark.svg">
-                      </img>
-                    </div>
-                  )
-                  : (
-                    <div class="search-btn" onClick={getWords}>
-                      <img src="/icons/magnifying-glass.svg">
-                      </img>
-                    </div>
-                  )
-              )}
+              {isLoading
+                ? (
+                  <div class="search-btn" onClick={getWords}>
+                    <img class="spin" src="/icons/spinner-third.svg">
+                    </img>
+                  </div>
+                )
+                : (
+                  entries.length > 0
+                    ? (
+                      <div class="search-btn" onClick={clearResults}>
+                        <img src="/icons/xmark.svg">
+                        </img>
+                      </div>
+                    )
+                    : (
+                      <div class="search-btn" onClick={getWords}>
+                        <img src="/icons/magnifying-glass.svg">
+                        </img>
+                      </div>
+                    )
+                )}
+            </div>
           </div>
         </div>
       </div>
@@ -91,6 +93,6 @@ export default function NavbarSearch() {
             </div>
           </div>
         )}
-    </div>
+    </>
   );
 }
