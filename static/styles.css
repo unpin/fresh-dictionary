@@ -586,3 +586,21 @@ hr {
 .plus-btn:hover {
     opacity: 0.9;
 }
+
+.main {
+    display: grid;
+    grid-template-rows: 1fr;
+    height: 100vh;
+}
+
+.navigation-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 1px solid var(--color-pale);
+    padding: 1.25rem 0;
+}
+
+.navigation-menu li {
+    width: 1rem;
+}
