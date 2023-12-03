@@ -18,6 +18,7 @@ export const handler: Handlers = {
       name,
       email,
       password: hashedPassword,
+      createdAt: new Date(),
     });
 
     const token = await signToken({ _id, email });
