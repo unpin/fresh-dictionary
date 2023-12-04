@@ -1,9 +1,9 @@
 import { Head } from "$fresh/runtime.ts";
-import Navbar from "../components/Navbar.tsx";
 import NavbarSearch from "../islands/NavbarSearch.tsx";
 import { FreshContext, Handlers } from "$fresh/server.ts";
 import SearchHistory from "../islands/SearchHistory.tsx";
 import { Status } from "std/http/http_status.ts";
+import Header from "../components/Header.tsx";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: FreshContext) {
@@ -24,8 +24,9 @@ export default function Home() {
       <Head>
         <title>Words</title>
       </Head>
-      <Navbar />
-      <NavbarSearch />
+      <Header>
+        <NavbarSearch />
+      </Header>
       <SearchHistory />
     </>
   );

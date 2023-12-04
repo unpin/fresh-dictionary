@@ -12,11 +12,10 @@ export default function NavbarSearch() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(window.history);
-    getWords();
+    queryDictionary();
   }, [query]);
 
-  const getWords = async () => {
+  const queryDictionary = async () => {
     if (query.trim().length < 2) {
       setEntries([]);
       return;
@@ -28,66 +27,62 @@ export default function NavbarSearch() {
     setIsLoading(false);
   };
 
-  const clearResults = () => {
+  const clearQuery = () => {
     setQuery("");
   };
 
   return (
     <>
-      <div class="search-wrapper">
-        <div>
-          <div class="container">
-            <div class="search-field">
-              <input
-                class="search-input"
-                placeholder="Stichwort"
-                value={query}
-                onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-              />
+      <div class="search-container">
+        <div class="container">
+          <div class="search-field">
+            <input
+              class="search-input"
+              placeholder="Stichwort"
+              value={query}
+              onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
+            />
 
-              {isLoading
-                ? (
-                  <div class="search-btn" onClick={getWords}>
-                    <img class="spin" src="/icons/spinner-third.svg">
-                    </img>
-                  </div>
-                )
-                : (
-                  entries.length > 0
-                    ? (
-                      <div class="search-btn" onClick={clearResults}>
-                        <img src="/icons/xmark.svg">
-                        </img>
-                      </div>
-                    )
-                    : (
-                      <div class="search-btn" onClick={getWords}>
-                        <img src="/icons/magnifying-glass.svg">
-                        </img>
-                      </div>
-                    )
-                )}
-            </div>
+            {isLoading
+              ? (
+                <div class="search-btn" onClick={queryDictionary}>
+                  <img class="spin" src="/icons/spinner-third.svg">
+                  </img>
+                </div>
+              )
+              : (
+                entries.length > 0
+                  ? (
+                    <div class="search-btn" onClick={clearQuery}>
+                      <img src="/icons/xmark.svg">
+                      </img>
+                    </div>
+                  )
+                  : (
+                    <div class="search-btn" onClick={queryDictionary}>
+                      <img src="/icons/magnifying-glass.svg">
+                      </img>
+                    </div>
+                  )
+              )}
           </div>
         </div>
       </div>
       {entries.length > 0 &&
         (
-          <div class="relative">
-            <div class="container search-results">
-              <div class="result-entries">
-                {entries.map((e) => (
-                  <>
-                    <a
-                      class="entry-word"
-                      href={"/dictionary/" + encodeURI(e._id.toString())}
-                    >
-                      {e.word}
-                    </a>
-                  </>
-                ))}
-              </div>
-            </div>
+          <div class="results-container">
+            <ul>
+              {entries.map((e) => (
+                <li>
+                  <a
+                    class="entry-word"
+                    href={"/dictionary/" + encodeURI(e._id.toString())}
+                  >
+                    {e.word}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
     </>

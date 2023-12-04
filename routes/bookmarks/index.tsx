@@ -1,11 +1,13 @@
-import { useEffect } from "preact/hooks";
-import Navbar from "../../components/Navbar.tsx";
 import BookmarkList from "../../islands/bookmarks/BookmarkList.tsx";
+import Header from "../../components/Header.tsx";
+import NavbarSearch from "../../islands/NavbarSearch.tsx";
 
 export default function Bookmarks() {
   return (
     <>
-      <Navbar />
+      <Header>
+        <NavbarSearch />
+      </Header>
       <BookmarkList />
     </>
   );

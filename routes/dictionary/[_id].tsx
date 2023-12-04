@@ -1,13 +1,13 @@
 import { FreshContext } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { DictionaryEntry, Entry } from "../../models/DictionaryEntry.ts";
-import Navbar from "../../components/Navbar.tsx";
 import NavbarSearch from "../../islands/NavbarSearch.tsx";
 import SaveWordToLocalStorage from "../../islands/SaveWordToLocalStorage.tsx";
 import { Sentence } from "../../models/Sentence.ts";
 import { Head } from "$fresh/runtime.ts";
 import TTS from "../../islands/TTS.tsx";
 import BookmarkEntry from "../../islands/BookmarkEntry.tsx";
+import Header from "../../components/Header.tsx";
 
 export default async function Dictionary(_req: Request, ctx: FreshContext) {
   const entry = await DictionaryEntry.findOne({
@@ -26,8 +26,9 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
         <title>{entry.word} | Words</title>
       </Head>
       <SaveWordToLocalStorage word={entry.word} _id={entry._id.toString()} />
-      <Navbar />
-      <NavbarSearch />
+      <Header>
+        <NavbarSearch />
+      </Header>
       <div class="container">
         <div class="dictionary-heading">
           <h1 class="my-4 dictionary-word">{entry.word}</h1>
