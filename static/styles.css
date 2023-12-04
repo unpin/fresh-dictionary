@@ -563,6 +563,34 @@ hr {
     opacity: 0.9;
 }
 
+.bookmarks-container {
+    margin: 1rem 0;
+}
+
+.bookmarks-container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    & > li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--color-light);
+        border-radius: var(--border-radius);
+    }
+    & a {
+        text-decoration: none;
+        color: var(--color-text);
+        font-size: 1.125rem;
+        line-break: anywhere;
+    }
+    & img {
+        flex-shrink: 0;
+        width: 1rem;
+    }
+}
+
 .bookmark-btn {
     flex-shrink: 0;
     width: 1.125rem;

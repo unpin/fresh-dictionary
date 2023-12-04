@@ -20,18 +20,20 @@ export default function BookmarkedWords() {
 
   return (
     <div class="container">
-      <h1>Bookmarks</h1>
-      {entries.length > 0 && (
-        <ul>
-          {entries.map((e) => (
-            <li>
-              <a href={"/dictionary/" + e._id}>
-                <h3>{e.word}</h3>
-              </a>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div class="bookmarks-container">
+        {entries.length > 0 && (
+          <ul>
+            {entries.map((e) => (
+              <li>
+                <a href={"/dictionary/" + e._id}>
+                  {e.word}
+                </a>
+                <img src="/icons/bookmark-solid.svg" alt="" />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
