@@ -5,7 +5,6 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_middleware from "./routes/_middleware.ts";
-import * as $all_index from "./routes/all/index.tsx";
 import * as $api_auth_email from "./routes/api/auth/email.ts";
 import * as $api_auth_signin from "./routes/api/auth/signin.ts";
 import * as $api_auth_signup from "./routes/api/auth/signup.ts";
@@ -29,7 +28,6 @@ import * as $AddDefinition from "./islands/AddDefinition.tsx";
 import * as $BackLink from "./islands/BackLink.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $Counter from "./islands/Counter.tsx";
-import * as $LoadWords from "./islands/LoadWords.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
 import * as $SaveWordToLocalStorage from "./islands/SaveWordToLocalStorage.tsx";
 import * as $SearchHistory from "./islands/SearchHistory.tsx";
@@ -45,7 +43,6 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_middleware.ts": $_middleware,
-    "./routes/all/index.tsx": $all_index,
     "./routes/api/auth/email.ts": $api_auth_email,
     "./routes/api/auth/signin.ts": $api_auth_signin,
     "./routes/api/auth/signup.ts": $api_auth_signup,
@@ -71,7 +68,6 @@ const manifest = {
     "./islands/BackLink.tsx": $BackLink,
     "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/Counter.tsx": $Counter,
-    "./islands/LoadWords.tsx": $LoadWords,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
     "./islands/SaveWordToLocalStorage.tsx": $SaveWordToLocalStorage,
     "./islands/SearchHistory.tsx": $SearchHistory,
