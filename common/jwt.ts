@@ -1,4 +1,4 @@
-import { create, getNumericDate, Payload, verify } from "djwt";
+import { create, decode, getNumericDate, Payload, verify } from "djwt";
 import { JWT_SECRET } from "./constants.ts";
 
 export const CRYPTO_KEY = await crypto.subtle.importKey(
@@ -21,4 +21,8 @@ export function signToken(payload: Payload) {
 
 export function verifyToken(jwt: string) {
   return verify(jwt, CRYPTO_KEY);
+}
+
+export function decodeToken(jwt: string) {
+  return decode(jwt);
 }
