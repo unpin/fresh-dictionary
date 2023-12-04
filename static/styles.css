@@ -601,15 +601,17 @@ hr {
 }
 
 .navigation-menu ul {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
     border-top: 1px solid var(--color-pale);
     padding: 1.25rem 0;
-    position: sticky;
     bottom: 0;
     background-color: white;
     z-index: 90;
+    height: 60px;
 }
 
 .navigation-menu li {
