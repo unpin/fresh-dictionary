@@ -22,7 +22,10 @@ export async function handler(
     Logger.debug(e);
     const resp = await ctx.next();
     resp.headers.set("Location", "/");
-    deleteCookie(resp.headers, "authToken");
+    deleteCookie(resp.headers, "authToken", {
+      path: "/",
+      domain: ctx.url.hostname,
+    });
     return resp;
   }
   return await ctx.next();
