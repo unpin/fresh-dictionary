@@ -2,26 +2,16 @@ import { Handlers } from "$fresh/server.ts";
 import { Status } from "std/http/http_status.ts";
 import { Bookmark } from "../../../models/Bookmark.ts";
 import { ObjectId } from "mongo";
-import { verifyToken } from "../../../common/jwt.ts";
-import { getCookies } from "std/http/cookie.ts";
 
 export const handler: Handlers = {
-  async GET(req, _ctx) {
-    const { authToken } = getCookies(req.headers);
-
-    if (!authToken) {
-      return new Response("", {
-        status: Status.Unauthorized,
-      });
-    }
-
+  async GET(_req, _ctx) {
+    const state = _ctx.state.authToken as { _id: string };
     try {
-      const payload = await verifyToken(authToken);
       const data = (await Bookmark.aggregate(
         [
           {
             $match: {
-              userId: new ObjectId(payload._id?.toString()),
+              userId: new ObjectId(state._id.toString()),
             },
           },
           {
@@ -53,13 +43,10 @@ export const handler: Handlers = {
           },
         ],
       ).toArray())[0];
-      console.log(data);
-
       return new Response(JSON.stringify(data), {
         status: Status.OK,
       });
     } catch (error) {
-      console.log(error);
       return new Response("", {
         status: Status.Unauthorized,
       });

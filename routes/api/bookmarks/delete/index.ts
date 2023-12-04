@@ -1,20 +1,16 @@
 import { Handlers } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { Bookmark } from "../../../../models/Bookmark.ts";
-import { getCookies } from "std/http/cookie.ts";
-import { verifyToken } from "../../../../common/jwt.ts";
 import { Status } from "std/http/http_status.ts";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
     const { wordId } = await req.json();
-    const { authToken } = getCookies(req.headers);
+    const state = _ctx.state.authToken as { _id: string };
 
     try {
-      const payload = await verifyToken(authToken);
-      console.log(payload);
       const deletion = await Bookmark.updateOne({
-        userId: new ObjectId(payload._id as string),
+        userId: new ObjectId(state._id as string),
       }, {
         $pull: { wordIds: new ObjectId(wordId) },
       });

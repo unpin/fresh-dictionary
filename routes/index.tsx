@@ -1,18 +1,15 @@
 import { Head } from "$fresh/runtime.ts";
-import { Signal } from "@preact/signals";
 import Navbar from "../components/Navbar.tsx";
 import NavbarSearch from "../islands/NavbarSearch.tsx";
 import { FreshContext, Handlers } from "$fresh/server.ts";
-import { getCookies } from "$std/http/cookie.ts";
 import SearchHistory from "../islands/SearchHistory.tsx";
+import { Status } from "std/http/http_status.ts";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: FreshContext) {
-    const cookies = getCookies(_req.headers);
-
-    if (!cookies.authToken) {
+    if (!ctx.state.authToken) {
       return new Response("", {
-        status: 307,
+        status: Status.TemporaryRedirect,
         headers: { Location: "/signin" },
       });
     }
