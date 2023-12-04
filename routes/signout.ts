@@ -1,15 +1,14 @@
 import { deleteCookie } from "$std/http/cookie.ts";
-import { HandlerContext, Handlers } from "$fresh/server.ts";
+import { FreshContext, Handlers } from "$fresh/server.ts";
+import { Status } from "std/http/http_status.ts";
 
 export const handler: Handlers = {
-  GET(req: Request, ctx: HandlerContext) {
-    const url = new URL(req.url);
+  GET(req: Request, ctx: FreshContext) {
     const headers = new Headers(req.headers);
-    console.log("cookie domain trying to delete", url.hostname);
-    deleteCookie(headers, "authToken", { path: "/", domain: url.hostname });
-    headers.set("location", "/signin");
+    deleteCookie(headers, "authToken", { path: "/", domain: ctx.url.hostname });
+    headers.set("Location", "/signin");
     return new Response(null, {
-      status: 302,
+      status: Status.Found,
       headers,
     });
   },
