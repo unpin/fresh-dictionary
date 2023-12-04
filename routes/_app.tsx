@@ -1,5 +1,6 @@
 import { PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
+import NavigationMenu from "../components/NavigationMenu.tsx";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -16,30 +17,7 @@ export default function App({ Component }: PageProps) {
       </Head>
       <body class="main">
         <Component />
-        <footer class="navigation-menu">
-          <ul>
-            <li>
-              <a href="/">
-                <img src="/icons/house-blank.svg" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="/icons/magnifying-glass.svg" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <img src="/icons/lines-leaning.svg" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="/bookmarks">
-                <img src="/icons/bookmark-light.svg" alt="" />
-              </a>
-            </li>
-          </ul>
-        </footer>
+        <NavigationMenu />
       </body>
     </>
   );
