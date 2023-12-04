@@ -16,9 +16,7 @@ export const handler: Handlers = {
         headers: { Location: "/signin" },
       });
     }
-
     const resp = await ctx.render();
-    resp.headers.set("X-Custom-Header", "Hello World");
     return resp;
   },
 };
