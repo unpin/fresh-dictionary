@@ -92,7 +92,7 @@ export const handler: Handlers = {
       const { modifiedCount } = await Bookmark.updateOne({
         userId: new ObjectId(state._id as string),
       }, {
-        $pull: { wordIds: new ObjectId(wordId) },
+        $pull: { wordIds: { _id: new ObjectId(wordId) } },
       });
 
       return new Response("", {
