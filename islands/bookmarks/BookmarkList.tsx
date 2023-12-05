@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { deleteBookmark } from "../../services/BookmarkService.ts";
 
 interface Entry {
   _id: string;
@@ -18,6 +19,14 @@ export default function BookmarkedWords() {
     });
   }, []);
 
+  const handleDelete = (_id: string) => {
+    deleteBookmark(_id).then((res) => {
+      if (res.status === 204) {
+        setEntries(entries.filter((e) => e._id !== _id));
+      }
+    });
+  };
+
   return (
     <div class="container">
       <div class="bookmarks-container">
@@ -28,7 +37,11 @@ export default function BookmarkedWords() {
                 <a href={"/dictionary/" + e._id}>
                   {e.word}
                 </a>
-                <img src="/icons/bookmark-solid.svg" alt="" />
+                <img
+                  src="/icons/bookmark-solid.svg"
+                  alt=""
+                  onClick={() => handleDelete(e._id)}
+                />
               </li>
             ))}
           </ul>
