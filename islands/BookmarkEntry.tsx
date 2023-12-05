@@ -32,7 +32,7 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
 
   const handleDelete = () => {
     deleteBookmark(wordId).then((res) => {
-      if (res.status === 200) {
+      if (res.status === 204) {
         setIsBookmarked(false);
       }
     }).catch();

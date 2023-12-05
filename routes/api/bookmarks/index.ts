@@ -96,8 +96,8 @@ export const handler: Handlers = {
         $pull: { wordIds: { _id: new ObjectId(wordId) } },
       });
 
-      return new Response("", {
-        status: modifiedCount ? Status.OK : Status.NotFound,
+      return new Response(null, {
+        status: modifiedCount ? Status.NoContent : Status.NotFound,
       });
     } catch (e) {
       Logger.debug(e);
