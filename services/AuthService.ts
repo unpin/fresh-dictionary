@@ -49,8 +49,6 @@ export async function findUser(email: string) {
     body: JSON.stringify({ email }),
   });
 
-  console.log("findUser statusText", response.statusText);
-
   if (response.status === 404) {
     throw new Error(`User with the email ${email} not found`);
   } else if (response.status !== 200) {
