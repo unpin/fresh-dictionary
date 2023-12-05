@@ -8,7 +8,7 @@ export const handler: Handlers = {
   async GET(_req, _ctx) {
     const state = _ctx.state.authToken as { _id: string };
     try {
-      const data = (await Bookmark.aggregate(
+      const data = Bookmark.aggregate(
         [
           {
             $match: {
@@ -24,27 +24,19 @@ export const handler: Handlers = {
             },
           },
           {
-            $unwind: {
-              path: "$bookmarks",
-            },
+            $unwind: "$bookmarks",
           },
           {
-            $group: {
-              _id: null,
-              bookmarks: {
-                $push: "$bookmarks",
+            $replaceRoot: {
+              newRoot: {
+                _id: "$bookmarks._id",
+                word: "$bookmarks.word",
               },
             },
           },
-          {
-            $project: {
-              "bookmarks._id": 1,
-              "bookmarks.word": 1,
-            },
-          },
         ],
-      ).toArray())[0];
-      return new Response(JSON.stringify(data), {
+      );
+      return new Response(JSON.stringify(await data.toArray()), {
         status: Status.OK,
       });
     } catch (e) {

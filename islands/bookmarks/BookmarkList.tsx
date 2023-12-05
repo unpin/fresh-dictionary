@@ -14,7 +14,7 @@ export default function BookmarkedWords() {
 
   useEffect(() => {
     fetch("/api/bookmarks").then((res) => res.json()).then((data) => {
-      setEntries(data.bookmarks);
+      setEntries(data);
     });
   }, []);
 
