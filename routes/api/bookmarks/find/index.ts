@@ -2,6 +2,7 @@ import { Handlers } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { Bookmark } from "../../../../models/Bookmark.ts";
 import { Status } from "std/http/http_status.ts";
+import { Logger } from "../../../../common/logger.ts";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
@@ -21,8 +22,8 @@ export const handler: Handlers = {
           status: Status.OK,
         },
       );
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      Logger.debug(e);
       return new Response("", {
         status: Status.Unauthorized,
       });

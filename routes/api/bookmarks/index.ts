@@ -2,6 +2,7 @@ import { Handlers } from "$fresh/server.ts";
 import { Status } from "std/http/http_status.ts";
 import { Bookmark } from "../../../models/Bookmark.ts";
 import { ObjectId } from "mongo";
+import { Logger } from "../../../common/logger.ts";
 
 export const handler: Handlers = {
   async GET(_req, _ctx) {
@@ -46,7 +47,8 @@ export const handler: Handlers = {
       return new Response(JSON.stringify(data), {
         status: Status.OK,
       });
-    } catch (error) {
+    } catch (e) {
+      Logger.debug(e);
       return new Response("", {
         status: Status.Unauthorized,
       });
