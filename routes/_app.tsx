@@ -14,6 +14,7 @@ export default function App({ Component }: PageProps) {
           rel="stylesheet"
         />
         <link rel="manifest" href="/manifest.json" />
+        <script src="/workers/register.js"></script>
       </Head>
       <body class="main">
         <Component />
