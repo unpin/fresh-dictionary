@@ -1,11 +1,12 @@
 import { useEffect, useState } from "preact/hooks";
+import { addBookmark, deleteBookmark } from "../services/BookmarkService.ts";
 
 interface BookmarkEntryProps {
   wordId: string;
 }
 
 export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
-  const [bookmarked, setBookmarked] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
     fetch("/api/bookmarks/find", {
@@ -15,50 +16,39 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
       }),
     }).then(async (res) => {
       const { isBookmarked } = await res.json();
-
-      setBookmarked(isBookmarked);
+      setIsBookmarked(isBookmarked);
     }).catch((e) => {
       console.log(e);
     });
   }, []);
 
-  const addBookmark = () => {
-    fetch("/api/bookmarks", {
-      method: "POST",
-      body: JSON.stringify({
-        wordId,
-      }),
-    }).then((res) => {
+  const handleAdd = () => {
+    addBookmark(wordId).then((res) => {
       if (res.status === 201) {
-        setBookmarked(true);
+        setIsBookmarked(true);
       }
     }).catch();
   };
 
-  const deleteBookmark = () => {
-    fetch("/api/bookmarks", {
-      method: "DELETE",
-      body: JSON.stringify({
-        wordId,
-      }),
-    }).then((res) => {
+  const handleDelete = () => {
+    deleteBookmark(wordId).then((res) => {
       if (res.status === 200) {
-        setBookmarked(false);
+        setIsBookmarked(false);
       }
     }).catch();
   };
 
   return (
     <span class="bookmark-btn">
-      {bookmarked
+      {isBookmarked
         ? (
           <img
             src="/icons/bookmark-solid.svg"
-            onClick={deleteBookmark}
+            onClick={handleDelete}
             alt=""
           />
         )
-        : <img src="/icons/bookmark-light.svg" onClick={addBookmark} alt="" />}
+        : <img src="/icons/bookmark-light.svg" onClick={handleAdd} alt="" />}
     </span>
   );
 }
