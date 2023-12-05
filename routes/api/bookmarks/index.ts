@@ -17,6 +17,7 @@ export const handler: Handlers = {
           wordIds: {
             _id: new ObjectId(wordId),
             createdAt: new Date(),
+            lastReviewed: new Date(),
             reviews: 0,
           },
         },
