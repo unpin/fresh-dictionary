@@ -14,3 +14,11 @@ deno task start
 ```
 
 This will watch the project directory and restart as necessary.
+
+### Web Technologies
+
+This is a non-exhaustive list of the Web Technologies used in this project:
+
+- Fetch API
+- Service Worker API
+- Cache API
