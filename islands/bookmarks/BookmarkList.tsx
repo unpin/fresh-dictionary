@@ -6,10 +6,6 @@ interface Entry {
   word: string;
 }
 
-interface BookmarkProps {
-  bookmarks: Entry[];
-}
-
 export default function BookmarkedWords() {
   const [entries, setEntries] = useState<Entry[]>([]);
 
