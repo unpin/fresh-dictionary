@@ -14,7 +14,6 @@ import * as $api_bookmarks_find_index from "./routes/api/bookmarks/find/index.ts
 import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
 import * as $api_joke from "./routes/api/joke.ts";
-import * as $api_words_search_query_ from "./routes/api/words/search/[query].ts";
 import * as $bookmarks_index from "./routes/bookmarks/index.tsx";
 import * as $dictionary_id_ from "./routes/dictionary/[_id].tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
@@ -54,7 +53,6 @@ const manifest = {
     "./routes/api/bookmarks/index.ts": $api_bookmarks_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
     "./routes/api/joke.ts": $api_joke,
-    "./routes/api/words/search/[query].ts": $api_words_search_query_,
     "./routes/bookmarks/index.tsx": $bookmarks_index,
     "./routes/dictionary/[_id].tsx": $dictionary_id_,
     "./routes/greet/[name].tsx": $greet_name_,
