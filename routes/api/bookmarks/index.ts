@@ -13,7 +13,13 @@ export const handler: Handlers = {
       const { modifiedCount } = await Bookmark.updateOne({
         userId: new ObjectId(state._id as string),
       }, {
-        $addToSet: { wordIds: new ObjectId(wordId) },
+        $addToSet: {
+          wordIds: {
+            _id: new ObjectId(wordId),
+            createdAt: new Date(),
+            reviews: 0,
+          },
+        },
       }, {
         upsert: true,
       });
@@ -38,9 +44,12 @@ export const handler: Handlers = {
             },
           },
           {
+            $unwind: "$wordIds",
+          },
+          {
             $lookup: {
               from: "dictionary",
-              localField: "wordIds",
+              localField: "wordIds._id",
               foreignField: "_id",
               as: "bookmarks",
             },
@@ -53,7 +62,14 @@ export const handler: Handlers = {
               newRoot: {
                 _id: "$bookmarks._id",
                 word: "$bookmarks.word",
+                reviews: "$wordIds.reviews",
+                createdAt: "$wordIds.createdAt",
               },
+            },
+          },
+          {
+            $sort: {
+              createdAt: -1,
             },
           },
         ],

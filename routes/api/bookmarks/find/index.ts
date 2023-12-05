@@ -12,7 +12,7 @@ export const handler: Handlers = {
     try {
       const hasBookmark = await Bookmark.findOne({
         userId: new ObjectId(state._id as string),
-        wordIds: new ObjectId(wordId),
+        "wordIds._id": new ObjectId(wordId),
       });
       return new Response(
         JSON.stringify({
