@@ -5,6 +5,28 @@ import { ObjectId } from "mongo";
 import { Logger } from "../../../common/logger.ts";
 
 export const handler: Handlers = {
+  async POST(req, _ctx) {
+    const { wordId } = await req.json();
+    const state = _ctx.state.authToken as { _id: string };
+
+    try {
+      const { modifiedCount } = await Bookmark.updateOne({
+        userId: new ObjectId(state._id as string),
+      }, {
+        $addToSet: { wordIds: new ObjectId(wordId) },
+      }, {
+        upsert: true,
+      });
+      return new Response("", {
+        status: modifiedCount ? Status.Created : Status.BadRequest,
+      });
+    } catch (e) {
+      Logger.debug(e);
+      return new Response("", {
+        status: Status.BadRequest,
+      });
+    }
+  },
   async GET(_req, _ctx) {
     const state = _ctx.state.authToken as { _id: string };
     try {
@@ -43,6 +65,27 @@ export const handler: Handlers = {
       Logger.debug(e);
       return new Response("", {
         status: Status.Unauthorized,
+      });
+    }
+  },
+  async DELETE(req, _ctx) {
+    const { wordId } = await req.json();
+    const state = _ctx.state.authToken as { _id: string };
+
+    try {
+      const { modifiedCount } = await Bookmark.updateOne({
+        userId: new ObjectId(state._id as string),
+      }, {
+        $pull: { wordIds: new ObjectId(wordId) },
+      });
+
+      return new Response("", {
+        status: modifiedCount ? Status.OK : Status.NotFound,
+      });
+    } catch (e) {
+      Logger.debug(e);
+      return new Response("", {
+        status: Status.BadRequest,
       });
     }
   },

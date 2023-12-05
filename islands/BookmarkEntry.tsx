@@ -14,9 +14,7 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
         wordId,
       }),
     }).then(async (res) => {
-      console.log("api/bookmarks/find", res.status);
       const { isBookmarked } = await res.json();
-      console.log({ status: res.status, isBookmarked });
 
       setBookmarked(isBookmarked);
     }).catch((e) => {
@@ -25,7 +23,7 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
   }, []);
 
   const addBookmark = () => {
-    fetch("/api/bookmarks/add", {
+    fetch("/api/bookmarks", {
       method: "POST",
       body: JSON.stringify({
         wordId,
@@ -38,8 +36,8 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
   };
 
   const deleteBookmark = () => {
-    fetch("/api/bookmarks/delete", {
-      method: "POST",
+    fetch("/api/bookmarks", {
+      method: "DELETE",
       body: JSON.stringify({
         wordId,
       }),

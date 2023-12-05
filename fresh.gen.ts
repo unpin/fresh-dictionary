@@ -8,8 +8,6 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $api_auth_email from "./routes/api/auth/email.ts";
 import * as $api_auth_signin from "./routes/api/auth/signin.ts";
 import * as $api_auth_signup from "./routes/api/auth/signup.ts";
-import * as $api_bookmarks_add_index from "./routes/api/bookmarks/add/index.ts";
-import * as $api_bookmarks_delete_index from "./routes/api/bookmarks/delete/index.ts";
 import * as $api_bookmarks_find_index from "./routes/api/bookmarks/find/index.ts";
 import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
@@ -47,8 +45,6 @@ const manifest = {
     "./routes/api/auth/email.ts": $api_auth_email,
     "./routes/api/auth/signin.ts": $api_auth_signin,
     "./routes/api/auth/signup.ts": $api_auth_signup,
-    "./routes/api/bookmarks/add/index.ts": $api_bookmarks_add_index,
-    "./routes/api/bookmarks/delete/index.ts": $api_bookmarks_delete_index,
     "./routes/api/bookmarks/find/index.ts": $api_bookmarks_find_index,
     "./routes/api/bookmarks/index.ts": $api_bookmarks_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
