@@ -10,14 +10,14 @@ export const handler: Handlers = {
     const state = _ctx.state.authToken as { _id: string };
 
     try {
-      const deletion = await Bookmark.updateOne({
+      const { modifiedCount } = await Bookmark.updateOne({
         userId: new ObjectId(state._id as string),
       }, {
         $pull: { wordIds: new ObjectId(wordId) },
       });
-      console.log({ deletion });
+
       return new Response("", {
-        status: Status.OK,
+        status: modifiedCount ? Status.OK : Status.NotFound,
       });
     } catch (e) {
       Logger.debug(e);

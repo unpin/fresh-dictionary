@@ -10,16 +10,15 @@ export const handler: Handlers = {
     const state = _ctx.state.authToken as { _id: string };
 
     try {
-      const update = await Bookmark.updateOne({
+      const { modifiedCount } = await Bookmark.updateOne({
         userId: new ObjectId(state._id as string),
       }, {
         $addToSet: { wordIds: new ObjectId(wordId) },
       }, {
         upsert: true,
       });
-      console.log({ update });
       return new Response("", {
-        status: Status.Created,
+        status: modifiedCount ? Status.Created : Status.BadRequest,
       });
     } catch (e) {
       Logger.debug(e);
