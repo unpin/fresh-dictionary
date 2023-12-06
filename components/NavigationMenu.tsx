@@ -8,18 +8,18 @@ export default function NavigationMenu() {
           </a>
         </li>
         <li>
+          <a href="/bookmarks">
+            <img src="/icons/bookmark-light.svg" alt="" />
+          </a>
+        </li>
+        <li>
           <a href="">
             <img src="/icons/magnifying-glass.svg" alt="" />
           </a>
         </li>
         <li>
-          <a href="">
-            <img src="/icons/lines-leaning.svg" alt="" />
-          </a>
-        </li>
-        <li>
-          <a href="/bookmarks">
-            <img src="/icons/bookmark-light.svg" alt="" />
+          <a href="/profile">
+            <img src="/icons/user-light.svg" alt="" />
           </a>
         </li>
       </ul>

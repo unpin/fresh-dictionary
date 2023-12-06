@@ -630,5 +630,10 @@ hr {
 }
 
 .navigation-menu li {
-    width: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.navigation-menu img {
+    height: 100%;
 }
