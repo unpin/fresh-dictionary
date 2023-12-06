@@ -1,7 +1,7 @@
 import { ComponentChildren } from "preact";
 
 interface HeaderProps {
-  children: ComponentChildren;
+  children?: ComponentChildren;
 }
 
 export default function Header(props: HeaderProps) {
