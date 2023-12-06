@@ -22,3 +22,4 @@ This is a non-exhaustive list of the Web Technologies used in this project:
 - Fetch API
 - Service Worker API
 - Cache API
+- Web Speech API 
