@@ -1,9 +1,9 @@
-import { HandlerContext, Handlers } from "$fresh/server.ts";
+import { FreshContext, Handlers } from "$fresh/server.ts";
 import { getCookies } from "$std/http/cookie.ts";
 import SignUpForm from "../../islands/auth/SignUpForm.tsx";
 
 export const handler: Handlers = {
-  async GET(_req: Request, ctx: HandlerContext) {
+  async GET(_req: Request, ctx: FreshContext) {
     const cookies = getCookies(_req.headers);
 
     if (cookies.authToken) {
