@@ -1,4 +1,4 @@
-const CACHE_VERSION = "v1";
+const CACHE_VERSION = "1.0.0";
 
 const cacheOnInstall = ["/styles.css", "/manifest.json", "/favicon.ico"];
 const cacheFirstResources = [
