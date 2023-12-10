@@ -11,7 +11,7 @@ export const CRYPTO_KEY = await crypto.subtle.importKey(
 
 export function signToken(payload: Payload) {
   const iat = getNumericDate(new Date());
-  const exp = iat + 60 * 60 * 24;
+  const exp = iat + 60 * 60 * 24 * 30;
   return create(
     { alg: "HS512", typ: "JWT" },
     { iat, exp, ...payload },
