@@ -1,7 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import { signToken } from "../../../common/jwt.ts";
 import { User } from "../../../models/User.ts";
-import { genSalt, hashSync } from "bcrypt";
+import { genSaltSync, hashSync } from "bcrypt";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
@@ -13,7 +13,7 @@ export const handler: Handlers = {
         statusText: "User already exists",
       });
     }
-    const hashedPassword = hashSync(password, await genSalt());
+    const hashedPassword = hashSync(password, genSaltSync());
     const _id = await User.create({
       name,
       email,
