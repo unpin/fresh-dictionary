@@ -22,7 +22,7 @@ export default function NavbarSearch() {
     }
 
     setIsLoading(true);
-    const data = await queryWordsThrottled(query) as Entry[];
+    const data = await queryWordsThrottled(query.trim()) as Entry[];
     setEntries([...data]);
     setIsLoading(false);
   };
