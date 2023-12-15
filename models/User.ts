@@ -1,5 +1,6 @@
 import { Query } from "../database/Query.ts";
 import { Schema } from "../database/SchemaValidator.ts";
+import { seed } from "../database/seed.ts";
 
 export enum UserRole {
   ADMIN = "admin",
@@ -22,3 +23,5 @@ const userSchema: Schema = {
 };
 
 export const User = Query.createModel<IUser>("user", userSchema);
+
+await seed();
