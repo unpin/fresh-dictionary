@@ -31,6 +31,7 @@ import * as $WordDefinition from "./islands/WordDefinition.tsx";
 import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
 import * as $auth_SignUpForm from "./islands/auth/SignUpForm.tsx";
 import * as $bookmarks_BookmarkList from "./islands/bookmarks/BookmarkList.tsx";
+import * as $dictionary_DictionaryWord from "./islands/dictionary/DictionaryWord.tsx";
 import * as $notifications_Toast from "./islands/notifications/Toast.tsx";
 import * as $notifications_ToastContainer from "./islands/notifications/ToastContainer.tsx";
 import { type Manifest } from "$fresh/server.ts";
@@ -68,6 +69,7 @@ const manifest = {
     "./islands/auth/SignInForm.tsx": $auth_SignInForm,
     "./islands/auth/SignUpForm.tsx": $auth_SignUpForm,
     "./islands/bookmarks/BookmarkList.tsx": $bookmarks_BookmarkList,
+    "./islands/dictionary/DictionaryWord.tsx": $dictionary_DictionaryWord,
     "./islands/notifications/Toast.tsx": $notifications_Toast,
     "./islands/notifications/ToastContainer.tsx": $notifications_ToastContainer,
   },

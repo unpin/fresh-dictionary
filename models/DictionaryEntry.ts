@@ -9,7 +9,7 @@ export interface EntryDefinition {
   usageLabel: string;
 }
 
-export interface Entry {
+export interface WordEntry {
   _id: ObjectId;
   word: string;
   article?: string;
@@ -30,7 +30,7 @@ const dictionaryEntrySchema: Schema = {
   definitions: { type: entryDefinitionSchema, isArray: true },
 };
 
-export const DictionaryEntry = Query.createModel<Entry>(
+export const DictionaryEntry = Query.createModel<WordEntry>(
   "dictionary",
   dictionaryEntrySchema,
 );

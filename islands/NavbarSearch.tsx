@@ -1,14 +1,14 @@
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { Entry } from "../models/DictionaryEntry.ts";
+import { WordEntry } from "../models/DictionaryEntry.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
 export default function NavbarSearch() {
   const searchFieldRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
-  const [entries, setEntries] = useState<Entry[]>([]);
+  const [entries, setEntries] = useState<WordEntry[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function NavbarSearch() {
     }
 
     setIsLoading(true);
-    const data = await queryWordsThrottled(query.trim()) as Entry[];
+    const data = await queryWordsThrottled(query.trim()) as WordEntry[];
     setEntries([...data]);
     setIsLoading(false);
   };
