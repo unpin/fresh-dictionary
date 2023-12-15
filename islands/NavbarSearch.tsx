@@ -1,12 +1,12 @@
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
-import { useEffect, useState } from "preact/hooks";
-import { getArticle } from "../utils/words.ts";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { Entry } from "../models/DictionaryEntry.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
 export default function NavbarSearch() {
+  const searchFieldRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
   const [entries, setEntries] = useState<Entry[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -29,6 +29,9 @@ export default function NavbarSearch() {
 
   const clearQuery = () => {
     setQuery("");
+    if (searchFieldRef.current) {
+      searchFieldRef.current.focus();
+    }
   };
 
   return (
@@ -37,6 +40,7 @@ export default function NavbarSearch() {
         <div class="container">
           <div class="search-field">
             <input
+              ref={searchFieldRef}
               class="search-input"
               placeholder="Stichwort"
               value={query}
