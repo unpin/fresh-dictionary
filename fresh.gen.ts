@@ -20,7 +20,6 @@ import * as $review_index from "./routes/review/index.tsx";
 import * as $signin_index from "./routes/signin/index.tsx";
 import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
-import * as $words_word_ from "./routes/words/[word].tsx";
 import * as $AddDefinition from "./islands/AddDefinition.tsx";
 import * as $BackLink from "./islands/BackLink.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
@@ -57,7 +56,6 @@ const manifest = {
     "./routes/signin/index.tsx": $signin_index,
     "./routes/signout.ts": $signout,
     "./routes/signup/index.tsx": $signup_index,
-    "./routes/words/[word].tsx": $words_word_,
   },
   islands: {
     "./islands/AddDefinition.tsx": $AddDefinition,
