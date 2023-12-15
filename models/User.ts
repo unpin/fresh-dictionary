@@ -1,11 +1,17 @@
 import { Query } from "../database/Query.ts";
 import { Schema } from "../database/SchemaValidator.ts";
 
+export enum UserRole {
+  ADMIN = "admin",
+  USER = "user",
+}
+
 interface IUser {
   name: string;
   email: string;
   password: string;
   createdAt: Date;
+  userRole: UserRole;
 }
 
 const userSchema: Schema = {
