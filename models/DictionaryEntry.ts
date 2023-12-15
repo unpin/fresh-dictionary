@@ -2,18 +2,19 @@ import { ObjectId } from "mongo";
 import { Query } from "../database/Query.ts";
 import { Schema } from "../database/SchemaValidator.ts";
 
-export interface EntryDefinition {
+export interface WordEntryDefinition {
   _id: ObjectId;
   type: string;
   definition: string;
   usageLabel: string;
+  examples: [string];
 }
 
 export interface WordEntry {
   _id: ObjectId;
   word: string;
   article?: string;
-  definitions: EntryDefinition[];
+  definitions: WordEntryDefinition[];
 }
 
 const entryDefinitionSchema: Schema = {

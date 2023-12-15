@@ -480,6 +480,18 @@ hr {
     color: var(--color-gray);
 }
 
+.definition-examples {
+    position: relative;
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: var(--color-gray);
+    &::before {
+        content: '-';
+        position: absolute;
+        left: -1rem;
+    }
+}
+
 .search-history {
     display: flex;
     flex-direction: column;

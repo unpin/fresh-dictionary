@@ -22,6 +22,12 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
             <li class="my-4">
               <div class="definition-counter my-2">{i + 1}.</div>
               <div>{def.definition}</div>
+              {def.examples &&
+                (
+                  <ul class="definition-examples">
+                    {def.examples.map((e) => <li>{e}</li>)}
+                  </ul>
+                )}
             </li>
           );
         })}
