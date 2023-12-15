@@ -6,9 +6,10 @@ export const handler: Handlers = {
     const query = ctx.params.query;
     // const escapedQuery = query.replaceAll(/[\(\)]/g, ".*");
     // const pattern = new RegExp(`^${escapedQuery}`, "i");
+    const decodedQuery = decodeURI(query);
     const entries = await DictionaryEntry.findMany({
       $text: {
-        $search: query,
+        $search: decodedQuery,
         $caseSensitive: false,
         $diacriticSensitive: false,
       },
