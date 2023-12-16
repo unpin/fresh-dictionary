@@ -24,18 +24,20 @@ export async function handler(
   //     },
   //   });
   // }
-  try {
-    const { _id, email } = await verifyToken(token);
-    ctx.state.authToken = { _id, email };
-  } catch (e) {
-    Logger.debug(e);
-    const resp = await ctx.next();
-    resp.headers.set("Location", "/");
-    deleteCookie(resp.headers, "authToken", {
-      path: "/",
-      domain: ctx.url.hostname,
-    });
-    return resp;
+  if(token) {
+    try {
+      const { _id, email } = await verifyToken(token);
+      ctx.state.authToken = { _id, email };
+    } catch (e) {
+      Logger.debug(e);
+      const resp = await ctx.next();
+      resp.headers.set("Location", "/");
+      deleteCookie(resp.headers,   "authToken", {
+        path: "/",
+        domain: ctx.url.hostname,
+      });
+      return resp;
+    }
   }
   return await ctx.next();
 }
