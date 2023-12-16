@@ -4,6 +4,7 @@ import { deleteBookmark } from "../../services/BookmarkService.ts";
 interface Entry {
   _id: string;
   word: string;
+  article: string;
 }
 
 export default function BookmarkedWords() {
@@ -31,7 +32,7 @@ export default function BookmarkedWords() {
             {entries.map((e) => (
               <li>
                 <a href={"/dictionary/" + e._id}>
-                  {e.word}
+                  {e.article} {e.word}
                 </a>
                 <img
                   src="/icons/bookmark-solid.svg"

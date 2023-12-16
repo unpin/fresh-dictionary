@@ -16,6 +16,7 @@ export const handler: Handlers = {
     }, {
       projection: {
         word: 1,
+        article: 1,
       },
       limit: 20,
     });

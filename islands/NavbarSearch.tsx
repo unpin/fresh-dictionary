@@ -82,7 +82,7 @@ export default function NavbarSearch() {
                     class="entry-word"
                     href={"/dictionary/" + encodeURI(e._id.toString())}
                   >
-                    {e.word}
+                    {e.article} {e.word}
                   </a>
                 </li>
               ))}

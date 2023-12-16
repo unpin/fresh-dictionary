@@ -20,9 +20,12 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
   return (
     <>
       <Head>
-        <title>{entry.word} | Words</title>
+        <title>{entry.article + " "}{entry.word} | Words</title>
       </Head>
-      <SaveWordToLocalStorage word={entry.word} _id={entry._id.toString()} />
+      <SaveWordToLocalStorage
+        word={entry.article + " " + entry.word}
+        _id={entry._id.toString()}
+      />
       <Header>
         <NavbarSearch />
       </Header>

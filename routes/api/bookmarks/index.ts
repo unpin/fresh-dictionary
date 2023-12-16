@@ -63,6 +63,7 @@ export const handler: Handlers = {
               newRoot: {
                 _id: "$bookmarks._id",
                 word: "$bookmarks.word",
+                article: "$bookmarks.article",
                 reviews: "$wordIds.reviews",
                 createdAt: "$wordIds.createdAt",
               },

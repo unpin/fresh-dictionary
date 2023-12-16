@@ -3,6 +3,7 @@ import { useEffect, useState } from "preact/hooks";
 interface SearchHistory {
   _id: string;
   word: string;
+  article: string;
 }
 
 export default function PreviousSearches() {
