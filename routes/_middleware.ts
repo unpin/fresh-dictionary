@@ -24,7 +24,7 @@ export async function handler(
   //     },
   //   });
   // }
-  if(token) {
+  if (token) {
     try {
       const { _id, email } = await verifyToken(token);
       ctx.state.authToken = { _id, email };
