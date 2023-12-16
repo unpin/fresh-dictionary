@@ -20,7 +20,7 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
   return (
     <>
       <Head>
-        <title>{entry.article + " "}{entry.word} | Words</title>
+        <title>{entry.article} {entry.word} | Words</title>
       </Head>
       <SaveWordToLocalStorage
         word={entry.article + " " + entry.word}
