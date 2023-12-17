@@ -485,10 +485,15 @@ hr {
     margin-left: 1rem;
     font-size: 1rem;
     color: var(--color-gray);
-    &::before {
-        content: '-';
-        position: absolute;
-        left: -1rem;
+    & li {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        &::before {
+            content: '-';
+            position: absolute;
+            left: -1rem;
+        }
     }
 }
 
