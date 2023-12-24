@@ -22,7 +22,6 @@ import * as $signup_index from "./routes/signup/index.tsx";
 import * as $AddDefinition from "./islands/AddDefinition.tsx";
 import * as $BackLink from "./islands/BackLink.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
-import * as $Counter from "./islands/Counter.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
 import * as $SaveWordToLocalStorage from "./islands/SaveWordToLocalStorage.tsx";
 import * as $SearchHistory from "./islands/SearchHistory.tsx";
@@ -60,7 +59,6 @@ const manifest = {
     "./islands/AddDefinition.tsx": $AddDefinition,
     "./islands/BackLink.tsx": $BackLink,
     "./islands/BookmarkEntry.tsx": $BookmarkEntry,
-    "./islands/Counter.tsx": $Counter,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
     "./islands/SaveWordToLocalStorage.tsx": $SaveWordToLocalStorage,
     "./islands/SearchHistory.tsx": $SearchHistory,
