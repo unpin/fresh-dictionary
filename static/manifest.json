@@ -2,6 +2,7 @@
   "name": "Words",
   "start_url": "/",
   "display": "standalone",
+  "background_color": "#121212",
   "icons": [
     {
       "src": "icons/512x512.png",
