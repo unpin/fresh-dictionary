@@ -15,7 +15,7 @@ export default function BackLink() {
     <>
       <div class="back-btn" onClick={goBack}>
         {history && (history.length > 0) &&
-          <img src="/icons/chevron-left.svg" alt="" />}
+          <img class="svg" src="/icons/chevron-left.svg" alt="" />}
       </div>
     </>
   );

@@ -50,7 +50,7 @@ export default function NavbarSearch() {
             {isLoading
               ? (
                 <div class="search-btn" onClick={queryDictionary}>
-                  <img class="spin" src="/icons/spinner-third.svg">
+                  <img class="svg spin" src="/icons/spinner-third.svg">
                   </img>
                 </div>
               )
@@ -58,13 +58,13 @@ export default function NavbarSearch() {
                 entries.length > 0
                   ? (
                     <div class="search-btn" onClick={clearQuery}>
-                      <img src="/icons/xmark.svg">
+                      <img class="svg" src="/icons/xmark.svg">
                       </img>
                     </div>
                   )
                   : (
                     <div class="search-btn" onClick={queryDictionary}>
-                      <img src="/icons/magnifying-glass.svg">
+                      <img class="svg" src="/icons/magnifying-glass.svg">
                       </img>
                     </div>
                   )

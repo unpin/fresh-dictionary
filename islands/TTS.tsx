@@ -32,8 +32,8 @@ export default function TTS({ text }: TTSProps) {
   return (
     <span class="dictionary-play-btn" onClick={handlePlay}>
       {isPlaying
-        ? <img src="/icons/volume-solid.svg" alt="" />
-        : <img src="/icons/volume-light.svg" alt="" />}
+        ? <img class="svg" src="/icons/volume-solid.svg" alt="" />
+        : <img class="svg" src="/icons/volume-light.svg" alt="" />}
     </span>
   );
 }

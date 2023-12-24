@@ -43,12 +43,20 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
       {isBookmarked
         ? (
           <img
+            class="svg"
             src="/icons/bookmark-solid.svg"
             onClick={handleDelete}
             alt=""
           />
         )
-        : <img src="/icons/bookmark-light.svg" onClick={handleAdd} alt="" />}
+        : (
+          <img
+            class="svg"
+            src="/icons/bookmark-light.svg"
+            onClick={handleAdd}
+            alt=""
+          />
+        )}
     </span>
   );
 }

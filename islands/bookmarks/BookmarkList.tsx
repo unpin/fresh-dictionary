@@ -35,6 +35,7 @@ export default function BookmarkedWords() {
                   {e.article} {e.word}
                 </a>
                 <img
+                  class="svg"
                   src="/icons/bookmark-solid.svg"
                   alt=""
                   onClick={() => handleDelete(e._id)}
