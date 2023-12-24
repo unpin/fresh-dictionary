@@ -21,10 +21,11 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
 
   const groupByType = (entry: WordEntry) => {
     return entry.definitions.reduce((prev, curr) => {
-      if (prev.has(curr.type)) {
-        prev.get(curr.type).push(curr);
+      const type = curr.type || "other";
+      if (prev.has(type)) {
+        prev.get(type).push(curr);
       } else {
-        prev.set(curr.type, [curr]);
+        prev.set(type, [curr]);
       }
       return prev;
     }, new Map()) as Map<string, WordEntryDefinition[]>;
