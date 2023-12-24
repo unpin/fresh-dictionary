@@ -7,7 +7,7 @@ export interface WordEntryDefinition {
   type: string;
   definition: string;
   usageLabel: string;
-  examples: [string];
+  examples: string[];
 }
 
 export interface WordEntry {
