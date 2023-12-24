@@ -33,7 +33,7 @@ export default function PreviousSearches() {
               <div class="history-entry">
                 <div class="history-entry-word">
                   <img
-                    class="history-icon"
+                    class="svg history-icon"
                     src="/icons/clock-rotate-left.svg"
                     alt=""
                   />
