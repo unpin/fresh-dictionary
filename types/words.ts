@@ -1,5 +1,5 @@
 export interface Definition {
-  _id: string;
+  _id?: string;
   type: string;
   definition: string;
   examples: string[];
