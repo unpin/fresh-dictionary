@@ -1,8 +1,8 @@
 export interface Definition {
   _id: string;
-  meaning: string;
+  type: string;
+  definition: string;
   examples: string[];
-  reviews: number;
 }
 
 export interface Word {
