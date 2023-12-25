@@ -72,7 +72,9 @@ video {
 form {
     margin-bottom: 1rem;
 }
-
+textarea {
+    max-width: 100%;
+}
 ul {
     padding: 0;
 }
