@@ -19,14 +19,12 @@ import * as $review_index from "./routes/review/index.tsx";
 import * as $signin_index from "./routes/signin/index.tsx";
 import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
-import * as $AddDefinition from "./islands/AddDefinition.tsx";
 import * as $BackLink from "./islands/BackLink.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
 import * as $SaveWordToLocalStorage from "./islands/SaveWordToLocalStorage.tsx";
 import * as $SearchHistory from "./islands/SearchHistory.tsx";
 import * as $TTS from "./islands/TTS.tsx";
-import * as $WordDefinition from "./islands/WordDefinition.tsx";
 import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
 import * as $auth_SignUpForm from "./islands/auth/SignUpForm.tsx";
 import * as $bookmarks_BookmarkList from "./islands/bookmarks/BookmarkList.tsx";
@@ -56,14 +54,12 @@ const manifest = {
     "./routes/signup/index.tsx": $signup_index,
   },
   islands: {
-    "./islands/AddDefinition.tsx": $AddDefinition,
     "./islands/BackLink.tsx": $BackLink,
     "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
     "./islands/SaveWordToLocalStorage.tsx": $SaveWordToLocalStorage,
     "./islands/SearchHistory.tsx": $SearchHistory,
     "./islands/TTS.tsx": $TTS,
-    "./islands/WordDefinition.tsx": $WordDefinition,
     "./islands/auth/SignInForm.tsx": $auth_SignInForm,
     "./islands/auth/SignUpForm.tsx": $auth_SignUpForm,
     "./islands/bookmarks/BookmarkList.tsx": $bookmarks_BookmarkList,
