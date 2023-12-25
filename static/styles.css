@@ -11,6 +11,7 @@
     --color-red-300: #ffe1e3;
     --border-radius: 4px;
     --animation-ms: 300ms;
+    --btn-padding: 1rem 0.625rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -294,7 +295,7 @@ li {
 }
 
 .form-input {
-    padding: 1rem 0.625rem;
+    padding: var(--btn-padding);
     border: 1px solid var(--color-pale);
     border-radius: 0.25rem;
     background: var(--color-background-secondary);
@@ -314,13 +315,13 @@ li {
 .btn {
     display: flex;
     justify-content: center;
-    padding: 1rem 0.625rem;
+    padding: 0.75rem;
     border-radius: 0.25rem;
     font-weight: 600;
     font-size: 14px;
     transition: all var(--animation-ms) ease-out;
-    /* FACTOR OUT STYLES BELOW */
-    width: 100%;
+    border: none;
+    background: var(--color-background-secondary);
 }
 
 .btn:disabled {
@@ -342,6 +343,8 @@ li {
 
 .btn-social {
     justify-content: unset;
+    padding: var(--btn-padding);
+    width: 100%;
 }
 
 .btn-social:hover {
@@ -661,4 +664,11 @@ hr {
 
 .navigation-menu img {
     height: 100%;
+}
+
+#signinForm {
+    & .btn {
+        width: 100%;
+        padding: var(--btn-padding);
+    }
 }
