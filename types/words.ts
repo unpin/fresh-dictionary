@@ -2,6 +2,7 @@ export interface Definition {
   _id?: string;
   type: string;
   definition: string;
+  usageLabel?: string;
   examples: string[];
 }
 
@@ -9,6 +10,7 @@ export interface Word {
   _id: string;
   userId: string;
   word: string;
+  article: string;
   definitions: Definition[];
 }
 
