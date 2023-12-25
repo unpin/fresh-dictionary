@@ -3,10 +3,10 @@ import { Query } from "../database/Query.ts";
 import { Schema } from "../database/SchemaValidator.ts";
 
 export interface WordEntryDefinition {
-  _id: ObjectId;
+  _id: ObjectId | string;
   type: string;
   definition: string;
-  usageLabel: string;
+  usageLabel?: string;
   examples: string[];
 }
 
