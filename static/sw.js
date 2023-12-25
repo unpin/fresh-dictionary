@@ -33,7 +33,7 @@ async function cacheFirst(request) {
     }
     return networkResponse;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     return Response.error();
   }
 }
@@ -47,7 +47,7 @@ async function networkFirst(request) {
     }
     return networkResponse;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     const cachedResponse = await caches.match(request);
     return cachedResponse || Response.error();
   }
