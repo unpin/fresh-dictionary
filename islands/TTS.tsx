@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import Icon from "../components/Icon.tsx";
 
 interface TTSProps {
   text: string;
@@ -31,9 +32,7 @@ export default function TTS({ text }: TTSProps) {
   };
   return (
     <span class="dictionary-play-btn" onClick={handlePlay}>
-      {isPlaying
-        ? <img class="svg" src="/icons/volume-solid.svg" alt="" />
-        : <img class="svg" src="/icons/volume-light.svg" alt="" />}
+      <Icon name={isPlaying ? "volume-solid" : "volume"} />
     </span>
   );
 }

@@ -1,25 +1,27 @@
+import Icon from "./Icon.tsx";
+
 export default function NavigationMenu() {
   return (
     <footer class="navigation-menu">
       <ul>
         <li>
           <a href="/">
-            <img class="svg" src="/icons/house-blank.svg" alt="" />
+            <Icon name="house-blank" />
           </a>
         </li>
         <li>
           <a href="/bookmarks">
-            <img class="svg" src="/icons/bookmark-light.svg" alt="" />
+            <Icon name="bookmark" />
           </a>
         </li>
         <li>
           <a href="">
-            <img class="svg" src="/icons/magnifying-glass.svg" alt="" />
+            <Icon name="magnifying-glass" />
           </a>
         </li>
         <li>
           <a href="/profile">
-            <img class="svg" src="/icons/user-light.svg" alt="" />
+            <Icon name="user" />
           </a>
         </li>
       </ul>

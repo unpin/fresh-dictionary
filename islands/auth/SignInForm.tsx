@@ -2,6 +2,7 @@ import { useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import { findUser, signIn } from "../../services/AuthService.ts";
 import Alert from "../../components/Alert.tsx";
+import Icon from "../../components/Icon.tsx";
 export default function SignUpForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -115,7 +116,7 @@ export default function SignUpForm() {
               </div>
             </div>
             <div class="svg-icon" onClick={goBack}>
-              <img class="svg" src="/icons/arrow-left.svg" alt="" />
+              <Icon name="arrow-left" />
             </div>
           </div>
           <form onSubmit={signInHandler} id="signinForm">

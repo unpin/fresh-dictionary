@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { addBookmark, deleteBookmark } from "../services/BookmarkService.ts";
+import Icon from "../components/Icon.tsx";
 
 interface BookmarkEntryProps {
   wordId: string;
@@ -37,26 +38,11 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
       }
     }).catch();
   };
-
   return (
     <span class="bookmark-btn">
       {isBookmarked
-        ? (
-          <img
-            class="svg"
-            src="/icons/bookmark-solid.svg"
-            onClick={handleDelete}
-            alt=""
-          />
-        )
-        : (
-          <img
-            class="svg"
-            src="/icons/bookmark-light.svg"
-            onClick={handleAdd}
-            alt=""
-          />
-        )}
+        ? <Icon name="bookmark-solid" onClick={handleDelete} />
+        : <Icon name="bookmark" onClick={handleAdd} />}
     </span>
   );
 }

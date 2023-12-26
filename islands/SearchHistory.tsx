@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import Icon from "../components/Icon.tsx";
 
 interface SearchHistory {
   _id: string;
@@ -32,11 +33,7 @@ export default function PreviousSearches() {
             {history.map((entry) => (
               <div class="history-entry">
                 <div class="history-entry-word">
-                  <img
-                    class="svg history-icon"
-                    src="/icons/clock-rotate-left.svg"
-                    alt=""
-                  />
+                  <Icon name="clock-rotate-left" />
                   <a href={"/dictionary/" + entry._id} data-id={entry._id}>
                     {entry.word}
                   </a>

@@ -22,8 +22,14 @@
         --color-text: #e2e2e2;
         --color-pale: #494949;
     }
-    .svg {
-        filter: invert(1);
+}
+
+.icon {
+    fill: var(--color-text);
+    opacity: 0.75;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
     }
 }
 
@@ -81,6 +87,14 @@ ul {
 
 li {
     list-style: none;
+}
+
+input:autofill,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: all 86400s ease-in;
 }
 
 .transition-colors {
@@ -248,7 +262,7 @@ li {
     transition: background-color var(--animation-ms) ease-in-out;
     background-color: transparent;
     cursor: pointer;
-    & img {
+    & .icon {
         width: 18px;
         height: 18px;
     }
@@ -274,11 +288,11 @@ li {
     row-gap: 0.5rem;
 }
 
-.spin {
-    animation: spin infinite 0.35s;
+.spinning {
+    animation: spinning infinite 0.35s;
 }
 
-@keyframes spin {
+@keyframes spinning {
     100% {
         rotate: 360deg;
     }
@@ -419,11 +433,15 @@ hr {
 .profile-wrapper {
     display: flex;
     justify-content: space-between;
+    & .icon {
+        width: 1.25rem;
+    }
 }
 
 .profile-card {
     display: flex;
     margin-bottom: 2rem;
+
     align-items: center;
 }
 
@@ -448,21 +466,6 @@ hr {
 .profile-email {
     font-size: 13px;
     color: var(--color-gray);
-}
-
-.svg-icon {
-    margin: 0.5rem;
-    opacity: 0.5;
-    transition: opacity var(--animation-ms) ease-out;
-    cursor: pointer;
-}
-
-.svg-icon > img {
-    width: 1.25rem;
-}
-
-.svg-icon:hover {
-    opacity: 1;
 }
 
 .subheader {
@@ -535,6 +538,9 @@ hr {
     display: flex;
     gap: 1rem;
     color: var(--color-gray);
+    & .icon {
+        width: 20px;
+    }
 }
 
 .history-entry a {
@@ -546,11 +552,6 @@ hr {
     &:hover {
         color: var(--color-text);
     }
-}
-
-.history-icon {
-    width: 20px;
-    opacity: 0.5;
 }
 
 .history-footer {
@@ -594,30 +595,29 @@ hr {
 
 .bookmarks-container {
     margin: 1rem 0;
-}
-
-.bookmarks-container ul {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    & > li {
+    & ul {
         display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem;
-        border: 1px solid var(--color-pale);
-        border-radius: var(--border-radius);
-        cursor: pointer;
-    }
-    & a {
-        text-decoration: none;
-        color: var(--color-text);
-        font-size: 1.125rem;
-        line-break: anywhere;
-    }
-    & img {
-        flex-shrink: 0;
-        width: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        & > li {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--color-pale);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+        & a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 1.125rem;
+            line-break: anywhere;
+        }
+        & .icon {
+            flex-shrink: 0;
+            width: 1rem;
+        }
     }
 }
 
@@ -657,15 +657,13 @@ hr {
     bottom: 0;
     z-index: 90;
     height: 60px;
-}
-
-.navigation-menu li {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.navigation-menu img {
-    height: 100%;
+    & li {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    & .icon {
+        height: 100%;
+    }
 }
 
 #signinForm {
@@ -673,4 +671,10 @@ hr {
         width: 100%;
         padding: var(--btn-padding);
     }
+}
+
+.definition-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
