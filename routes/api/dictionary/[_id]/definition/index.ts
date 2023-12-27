@@ -21,14 +21,9 @@ export const handler: Handlers = {
       },
     });
     if (modifiedCount) {
-      return new Response(
-        JSON.stringify({
-          insertedId: definitionId,
-        }),
-        {
-          status: 200,
-        },
-      );
+      return Response.json({ insertedId: definitionId }, {
+        status: 200,
+      });
     }
     return new Response(null, {
       status: 400,

@@ -13,9 +13,9 @@ export const handler: Handlers = {
       });
     }
 
-    return new Response(JSON.stringify({
+    return Response.json({
       name: user.name,
       email: user.email,
-    }));
+    });
   },
 };

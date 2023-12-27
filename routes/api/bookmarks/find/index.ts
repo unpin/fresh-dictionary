@@ -14,14 +14,9 @@ export const handler: Handlers = {
         userId: new ObjectId(state._id as string),
         "wordIds._id": new ObjectId(wordId),
       });
-      return new Response(
-        JSON.stringify({
-          isBookmarked: hasBookmark ? true : false,
-        }),
-        {
-          status: Status.OK,
-        },
-      );
+      return Response.json({ isBookmarked: hasBookmark ? true : false }, {
+        status: Status.OK,
+      });
     } catch (e) {
       Logger.debug(e);
       return new Response("", {

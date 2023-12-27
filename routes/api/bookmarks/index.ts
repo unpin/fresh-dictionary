@@ -76,7 +76,7 @@ export const handler: Handlers = {
           },
         ],
       );
-      return new Response(JSON.stringify(await data.toArray()), {
+      return Response.json(await data.toArray(), {
         status: Status.OK,
       });
     } catch (e) {
