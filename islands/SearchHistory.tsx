@@ -2,8 +2,7 @@ import Icon from "../components/Icon.tsx";
 import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
 
 export default function PreviousSearches() {
-  const [searchItems, addSearchItem, deleteSearchItem] =
-    useDictionarySearchHistory();
+  const [searchItems, _, deleteSearchItem] = useDictionarySearchHistory();
 
   return (
     <div class="container">
@@ -14,7 +13,6 @@ export default function PreviousSearches() {
               <Icon name="clock-rotate-left" />
               <a
                 href={"/dictionary/" + _id}
-                onClick={() => addSearchItem({ _id, searchTerm })}
               >
                 {searchTerm}
               </a>
