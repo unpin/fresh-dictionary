@@ -37,11 +37,6 @@ export default function NavbarSearch() {
     }
   };
 
-  const handleLinkClick = (_id: string, searchTerm: string) => {
-    console.log("Click registered", _id, searchTerm);
-    addSearchItem({ _id, searchTerm });
-  };
-
   return (
     <>
       <div class="search-container">
