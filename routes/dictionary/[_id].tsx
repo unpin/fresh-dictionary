@@ -7,11 +7,12 @@ import { Sentence } from "../../models/Sentence.ts";
 import { Head } from "$fresh/runtime.ts";
 import Header from "../../components/Header.tsx";
 import DictionaryWord from "../../islands/dictionary/DictionaryWord.tsx";
+import { Word } from "../../types/words.ts";
 
 export default async function Dictionary(_req: Request, ctx: FreshContext) {
   const entry = await DictionaryEntry.findOne({
     _id: new ObjectId(ctx.params._id),
-  }) as WordEntry;
+  }) as Word;
   if (!entry) return ctx.renderNotFound();
   const examples = (await Sentence.findMany({
     v: { $regex: new RegExp(`\\b${entry.word}\\b`) },

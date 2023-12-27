@@ -10,7 +10,8 @@ import * as $api_auth_signin from "./routes/api/auth/signin.ts";
 import * as $api_auth_signup from "./routes/api/auth/signup.ts";
 import * as $api_bookmarks_find_index from "./routes/api/bookmarks/find/index.ts";
 import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
-import * as $api_dictionary_id_definition from "./routes/api/dictionary/[_id]/definition.ts";
+import * as $api_dictionary_id_definition_definitionId_index from "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts";
+import * as $api_dictionary_id_definition_index from "./routes/api/dictionary/[_id]/definition/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
 import * as $bookmarks_index from "./routes/bookmarks/index.tsx";
 import * as $dictionary_id_ from "./routes/dictionary/[_id].tsx";
@@ -46,8 +47,10 @@ const manifest = {
     "./routes/api/auth/signup.ts": $api_auth_signup,
     "./routes/api/bookmarks/find/index.ts": $api_bookmarks_find_index,
     "./routes/api/bookmarks/index.ts": $api_bookmarks_index,
-    "./routes/api/dictionary/[_id]/definition.ts":
-      $api_dictionary_id_definition,
+    "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts":
+      $api_dictionary_id_definition_definitionId_index,
+    "./routes/api/dictionary/[_id]/definition/index.ts":
+      $api_dictionary_id_definition_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
     "./routes/bookmarks/index.tsx": $bookmarks_index,
     "./routes/dictionary/[_id].tsx": $dictionary_id_,
