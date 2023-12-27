@@ -14,7 +14,6 @@ export default function PreviousSearches() {
               <Icon name="clock-rotate-left" />
               <a
                 href={"/dictionary/" + _id}
-                data-id={_id}
                 onClick={() => addSearchItem({ _id, searchTerm })}
               >
                 {searchTerm}
