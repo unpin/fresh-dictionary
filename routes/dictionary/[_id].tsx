@@ -14,10 +14,9 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
     _id: new ObjectId(ctx.params._id),
   }) as Word;
   if (!entry) return ctx.renderNotFound();
-  const examples = (await Sentence.findMany({
-    v: { $regex: new RegExp(`\\b${entry.word}\\b`) },
-  }, { limit: 10 })) as { v: string }[];
-
+  // const examples = (await Sentence.findMany({
+  //   v: { $regex: new RegExp(`\\b${entry.word}\\b`) },
+  // }, { limit: 10 })) as { v: string }[];
   return (
     <>
       <Head>
@@ -32,7 +31,8 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
       </Header>
       <div class="container">
         <DictionaryWord entry={entry} />
-        {examples.length > 0 &&
+        {
+          /* {examples.length > 0 &&
           (
             <>
               <h3 class="my-4">Beispiele</h3>
@@ -40,7 +40,8 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
                 {examples.map((e) => <li>{e.v}</li>)}
               </ul>
             </>
-          )}
+          )} */
+        }
       </div>
     </>
   );
