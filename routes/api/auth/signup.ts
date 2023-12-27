@@ -18,6 +18,7 @@ export const handler: Handlers = {
       name,
       email,
       password: hashedPassword,
+      userRole: UserRole.USER,
       createdAt: new Date(),
     });
 
