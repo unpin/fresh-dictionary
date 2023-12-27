@@ -1,38 +1,28 @@
 import { FreshContext } from "$fresh/server.ts";
 import { deleteCookie, getCookies } from "$std/http/cookie.ts";
-import { Status } from "std/http/http_status.ts";
 import { verifyToken } from "../common/jwt.ts";
 
 import { Logger } from "../common/logger.ts";
 
 interface State {
-  authToken: Record<string, unknown>;
+  auth: Record<string, unknown>;
 }
 
 export async function handler(
   req: Request,
   ctx: FreshContext<State>,
 ) {
-  const cookies = getCookies(req.headers);
-  const token = cookies.authToken;
-  // if (!token) {
-  //   Logger.debug("Unauthorized");
-  //   return new Response(null, {
-  //     status: Status.TemporaryRedirect,
-  //     headers: {
-  //       Location: "/signin",
-  //     },
-  //   });
-  // }
-  if (token) {
+  const { authToken } = getCookies(req.headers);
+
+  if (authToken) {
     try {
-      const { _id, email } = await verifyToken(token);
-      ctx.state.authToken = { _id, email };
+      const { _id, email, userRole } = await verifyToken(authToken);
+      ctx.state.auth = { _id, email, userRole };
     } catch (e) {
       Logger.debug(e);
       const resp = await ctx.next();
-      resp.headers.set("Location", "/");
-      deleteCookie(resp.headers,   "authToken", {
+      resp.headers.set("Location", "/signin");
+      deleteCookie(resp.headers, "authToken", {
         path: "/",
         domain: ctx.url.hostname,
       });

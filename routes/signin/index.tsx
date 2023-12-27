@@ -1,14 +1,12 @@
 import { FreshContext, Handlers } from "$fresh/server.ts";
-import { getCookies } from "$std/http/cookie.ts";
+import { Status } from "std/http/http_status.ts";
 import SignInForm from "../../islands/auth/SignInForm.tsx";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: FreshContext) {
-    const cookies = getCookies(_req.headers);
-
-    if (cookies.authToken) {
+    if (ctx.state.auth) {
       return new Response("", {
-        status: 307,
+        status: Status.TemporaryRedirect,
         headers: { Location: "/" },
       });
     }

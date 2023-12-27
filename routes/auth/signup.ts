@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
-import { signToken } from "../../../common/jwt.ts";
-import { User } from "../../../models/User.ts";
+import { signToken } from "../../common/jwt.ts";
+import { User, UserRole } from "../../models/User.ts";
 import { genSaltSync, hashSync } from "bcrypt";
 
 export const handler: Handlers = {

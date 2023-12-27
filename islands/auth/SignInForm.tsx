@@ -3,6 +3,7 @@ import { JSX } from "preact/jsx-runtime";
 import { findUser, signIn } from "../../services/AuthService.ts";
 import Alert from "../../components/Alert.tsx";
 import Icon from "../../components/Icon.tsx";
+
 export default function SignUpForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,22 +15,13 @@ export default function SignUpForm() {
   ) => {
     e.preventDefault();
     setError("");
-    signIn(email, password).then(
-      ({ name, email, token }) => {
-        window.localStorage.setItem("token", token);
-        window.localStorage.setItem("email", email);
-        window.localStorage.setItem("name", name);
-        const date = new Date();
-        date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
-        const expires = "; expires=" + date.toUTCString();
-        document.cookie = "authToken" + "=" + token + "; domain=" +
-          location.hostname + "; " + expires +
-          "; path=/";
+    signIn(email, password)
+      .then((_) => {
         window.location.replace(window.location.origin);
-      },
-    ).catch((error: Error) => {
-      setError(error.message);
-    });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   const continueHandler = (

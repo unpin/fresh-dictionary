@@ -12,9 +12,10 @@ export default function BookmarkedWords() {
   const [entries, setEntries] = useState<Entry[]>([]);
 
   useEffect(() => {
-    fetch("/api/bookmarks").then((res) => res.json()).then((data) => {
-      setEntries(data);
-    });
+    fetch("/api/bookmarks")
+      .then((res) => res.json()).then((data) => {
+        setEntries(data);
+      });
   }, []);
 
   const handleDelete = (_id: string) => {

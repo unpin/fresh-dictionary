@@ -1,7 +1,7 @@
 const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 export async function signIn(email: string, password: string) {
-  const response = await fetch(`/api/auth/signin`, {
+  const response = await fetch(`/auth/signin`, {
     method: "POST",
     body: JSON.stringify({
       email,
@@ -14,7 +14,7 @@ export async function signIn(email: string, password: string) {
   } else if (response.status !== 200) {
     throw new Error("Something went wrong, try again");
   }
-  return await response.json();
+  return response;
 }
 
 export async function signUp(name: string, email: string, password: string) {
@@ -25,7 +25,7 @@ export async function signUp(name: string, email: string, password: string) {
   } else if (!EMAIL_REGEX.test(email)) {
     throw new Error("Email is not valid");
   }
-  const response = await fetch("/api/auth/signup", {
+  const response = await fetch("/auth/signup", {
     method: "POST",
     body: JSON.stringify({
       name,
@@ -44,7 +44,7 @@ export async function signUp(name: string, email: string, password: string) {
 }
 
 export async function findUser(email: string) {
-  const response = await fetch(`/api/auth/email`, {
+  const response = await fetch(`/auth/email`, {
     method: "POST",
     body: JSON.stringify({ email }),
   });

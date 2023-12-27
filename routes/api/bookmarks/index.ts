@@ -5,13 +5,13 @@ import { ObjectId } from "mongo";
 import { Logger } from "../../../common/logger.ts";
 
 export const handler: Handlers = {
-  async POST(req, _ctx) {
+  async POST(req, ctx) {
     const { wordId } = await req.json();
-    const state = _ctx.state.authToken as { _id: string };
+    const auth = ctx.state.auth as { _id: string };
 
     try {
       const { modifiedCount } = await Bookmark.updateOne({
-        userId: new ObjectId(state._id as string),
+        userId: new ObjectId(auth._id as string),
       }, {
         $addToSet: {
           wordIds: {
@@ -34,14 +34,14 @@ export const handler: Handlers = {
       });
     }
   },
-  async GET(_req, _ctx) {
-    const state = _ctx.state.authToken as { _id: string };
+  async GET(_req, ctx) {
+    const auth = ctx.state.auth as { _id: string };
     try {
       const data = Bookmark.aggregate(
         [
           {
             $match: {
-              userId: new ObjectId(state._id.toString()),
+              userId: new ObjectId(auth._id.toString()),
             },
           },
           {
@@ -86,13 +86,13 @@ export const handler: Handlers = {
       });
     }
   },
-  async DELETE(req, _ctx) {
+  async DELETE(req, ctx) {
     const { wordId } = await req.json();
-    const state = _ctx.state.authToken as { _id: string };
+    const auth = ctx.state.auth as { _id: string };
 
     try {
       const { modifiedCount } = await Bookmark.updateOne({
-        userId: new ObjectId(state._id as string),
+        userId: new ObjectId(auth._id as string),
       }, {
         $pull: { wordIds: { _id: new ObjectId(wordId) } },
       });

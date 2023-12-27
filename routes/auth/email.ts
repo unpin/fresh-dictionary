@@ -1,6 +1,6 @@
 import { Handlers } from "$fresh/server.ts";
 import { Status } from "std/http/http_status.ts";
-import { User } from "../../../models/User.ts";
+import { User } from "../../models/User.ts";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
