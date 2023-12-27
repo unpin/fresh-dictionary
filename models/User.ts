@@ -20,6 +20,7 @@ const userSchema: Schema = {
   email: { type: String, required: true },
   password: { type: String, required: true, minLength: 6 },
   createdAt: { type: Date, required: true },
+  userRole: { type: String, required: true },
 };
 
 export const User = Query.createModel<IUser>("user", userSchema);
