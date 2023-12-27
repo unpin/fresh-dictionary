@@ -39,7 +39,7 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
     }).catch();
   };
   return (
-    <span class="bookmark-btn">
+    <span>
       {isBookmarked
         ? <Icon name="bookmark-solid" onClick={handleDelete} />
         : <Icon name="bookmark" onClick={handleAdd} />}

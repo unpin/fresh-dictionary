@@ -31,7 +31,7 @@ export default function TTS({ text }: TTSProps) {
     if (utterance) synth.speak(utterance);
   };
   return (
-    <span class="dictionary-play-btn" onClick={handlePlay}>
+    <span onClick={handlePlay}>
       <Icon name={isPlaying ? "volume-solid" : "volume"} />
     </span>
   );

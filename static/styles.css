@@ -605,28 +605,20 @@ hr {
     color: var(--color-gray);
 }
 
-.dictionary-word {
-    word-break: break-word;
-}
-
 .dictionary-heading {
     display: flex;
     align-items: center;
-    gap: 1rem;
-}
-
-.dictionary-play-btn {
-    display: inline-block;
-    flex-shrink: 0;
-    width: 2rem;
-    cursor: pointer;
-    user-select: none;
-    opacity: 0.75;
-    transition: all var(--animation-ms) ease-in-out;
-}
-
-.dictionary-play-btn:hover {
-    opacity: 0.9;
+    justify-content: space-between;
+    & h1 {
+        word-break: break-word;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    & .icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
 }
 
 .bookmarks-container {
@@ -655,19 +647,6 @@ hr {
             width: 1rem;
         }
     }
-}
-
-.bookmark-btn {
-    flex-shrink: 0;
-    width: 1.125rem;
-    margin-left: auto;
-    cursor: pointer;
-    transition: all var(--animation-ms) ease-in-out;
-    opacity: 0.75;
-}
-
-.bookmark-btn:hover {
-    opacity: 0.9;
 }
 
 .main {

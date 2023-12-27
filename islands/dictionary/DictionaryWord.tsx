@@ -17,8 +17,10 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
   return (
     <>
       <div class="dictionary-heading">
-        <h1 class="my-4 dictionary-word">{textToSpeak}</h1>
-        <TTS text={textToSpeak} />
+        <h1 class="my-4 dictionary-word">
+          {textToSpeak}
+          <TTS text={textToSpeak} />
+        </h1>
         <BookmarkEntry wordId={word._id.toString()} />
       </div>
       <DictionaryDefinitions word={word} setWord={setWord} />
