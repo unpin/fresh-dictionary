@@ -41,7 +41,7 @@ export default function DictionaryDefinitions(
       {Array.from(definitions.keys()).map((type) => {
         return (
           <>
-            <span class="entry-type">{type}</span>
+            <span class="entry-type">{type || "other"}</span>
             <ul class="my-4">
               {definitions.get(type)!.map(
                 (definition: Definition, idx: number) => {
