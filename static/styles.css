@@ -609,6 +609,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     & h1 {
         word-break: break-word;
         display: flex;
