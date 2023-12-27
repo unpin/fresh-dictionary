@@ -1,54 +1,34 @@
-import { useEffect, useState } from "preact/hooks";
 import Icon from "../components/Icon.tsx";
-
-interface SearchHistory {
-  _id: string;
-  word: string;
-  article: string;
-}
+import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
 
 export default function PreviousSearches() {
-  const [history, setHistory] = useState<SearchHistory[]>([]);
-
-  useEffect(() => {
-    const storedHistory = JSON.parse(
-      localStorage.getItem("searchHistory") || "[]",
-    ) as SearchHistory[];
-    setHistory(storedHistory);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("searchHistory", JSON.stringify(history));
-  }, [history]);
-
-  const removeItem = (_id: string) => {
-    setHistory(history.filter((e) => e._id !== _id));
-  };
+  const [searchItems, addSearchItem, deleteSearchItem] =
+    useDictionarySearchHistory();
 
   return (
-    <>
-      {history.length > 0 && (
-        <div class="container">
-          <div class="search-history">
-            {history.map((entry) => (
-              <div class="history-entry">
-                <div class="history-entry-word">
-                  <Icon name="clock-rotate-left" />
-                  <a href={"/dictionary/" + entry._id} data-id={entry._id}>
-                    {entry.word}
-                  </a>
-                </div>
-                <div
-                  class="history-close-btn"
-                  onClick={() => removeItem(entry._id)}
-                >
-                  &#10005;
-                </div>
-              </div>
-            ))}
+    <div class="container">
+      <div class="search-history">
+        {searchItems.map(({ _id, searchTerm }) => (
+          <div class="history-entry">
+            <div class="history-entry-word">
+              <Icon name="clock-rotate-left" />
+              <a
+                href={"/dictionary/" + _id}
+                data-id={_id}
+                onClick={() => addSearchItem({ _id, searchTerm })}
+              >
+                {searchTerm}
+              </a>
+            </div>
+            <div
+              class="history-close-btn"
+              onClick={() => deleteSearchItem(_id)}
+            >
+              &#10005;
+            </div>
           </div>
-        </div>
-      )}
-    </>
+        ))}
+      </div>
+    </div>
   );
 }

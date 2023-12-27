@@ -1,16 +1,18 @@
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { WordEntry } from "../models/DictionaryEntry.ts";
 import Icon from "../components/Icon.tsx";
+import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
+import { Word } from "../types/words.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
 export default function NavbarSearch() {
   const searchFieldRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
-  const [entries, setEntries] = useState<WordEntry[]>([]);
+  const [entries, setEntries] = useState<Word[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [_, addSearchItem] = useDictionarySearchHistory();
 
   useEffect(() => {
     queryDictionary();
@@ -23,7 +25,7 @@ export default function NavbarSearch() {
     }
 
     setIsLoading(true);
-    const data = await queryWordsThrottled(query.trim()) as WordEntry[];
+    const data = await queryWordsThrottled(query.trim()) as Word[];
     setEntries([...data]);
     setIsLoading(false);
   };
@@ -33,6 +35,11 @@ export default function NavbarSearch() {
     if (searchFieldRef.current) {
       searchFieldRef.current.focus();
     }
+  };
+
+  const handleLinkClick = (_id: string, searchTerm: string) => {
+    console.log("Click registered", _id, searchTerm);
+    addSearchItem({ _id, searchTerm });
   };
 
   return (
@@ -74,13 +81,15 @@ export default function NavbarSearch() {
         (
           <div class="results-container">
             <ul>
-              {entries.map((e) => (
+              {entries.map(({ _id, article, word }) => (
                 <li>
                   <a
                     class="entry-word"
-                    href={"/dictionary/" + encodeURI(e._id.toString())}
+                    href={"/dictionary/" + encodeURI(_id)}
+                    onClick={() =>
+                      addSearchItem({ _id, searchTerm: article + " " + word })}
                   >
-                    {e.article} {e.word}
+                    {article} {word}
                   </a>
                 </li>
               ))}
