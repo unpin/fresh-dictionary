@@ -660,6 +660,7 @@ hr {
     left: 0;
     right: 0;
     background-color: var(--color-background-secondary);
+    border-top: 1px solid var(--color-pale);
 }
 
 .navigation-menu ul {
@@ -668,7 +669,6 @@ hr {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    border-top: 1px solid var(--color-pale);
     padding: 1.25rem 0;
     bottom: 0;
     z-index: 90;
