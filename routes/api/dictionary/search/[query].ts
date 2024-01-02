@@ -18,7 +18,7 @@ export const handler: Handlers = {
         word: 1,
         article: 1,
       },
-      limit: 20,
+      limit: 50,
     });
 
     return new Response(JSON.stringify(entries), {
