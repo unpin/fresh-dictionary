@@ -9,13 +9,12 @@ import DictionaryWord from "../../islands/dictionary/DictionaryWord.tsx";
 import { Word } from "../../types/words.ts";
 
 export default async function Dictionary(_req: Request, ctx: FreshContext) {
-  const entry = await DictionaryEntry.findOne({
-    _id: new ObjectId(ctx.params._id),
-  }) as Word;
+  const wordId = ctx.params._id;
+  const { _id } = ctx.state.auth as { _id: string };
+  const entry = await getWordWithBookmark(wordId, _id) as Word;
+
   if (!entry) return ctx.renderNotFound();
-  // const examples = (await Sentence.findMany({
-  //   v: { $regex: new RegExp(`\\b${entry.word}\\b`) },
-  // }, { limit: 10 })) as { v: string }[];
+
   return (
     <>
       <Head>
@@ -40,4 +39,49 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
       </div>
     </>
   );
+}
+
+async function getWordWithBookmark(wordId: string, userId: string) {
+  const array = DictionaryEntry.aggregate([
+    {
+      $match: {
+        _id: new ObjectId(wordId),
+      },
+    },
+    {
+      $lookup: {
+        from: "bookmarks",
+        localField: "_id",
+        foreignField: "wordIds._id",
+        as: "bookmarks",
+        pipeline: [
+          {
+            $match: {
+              userId: new ObjectId(userId),
+            },
+          },
+        ],
+      },
+    },
+    {
+      $set: {
+        isBookmarked: {
+          $cond: [
+            {
+              $gt: [
+                {
+                  $size: ["$bookmarks"],
+                },
+                0,
+              ],
+            },
+            true,
+            false,
+          ],
+        },
+      },
+    },
+  ]);
+
+  return (await array.toArray())[0];
 }

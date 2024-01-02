@@ -1,30 +1,17 @@
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { addBookmark, deleteBookmark } from "../services/BookmarkService.ts";
 import Icon from "../components/Icon.tsx";
+import { Word } from "../types/words.ts";
 
 interface BookmarkEntryProps {
-  wordId: string;
+  word: Word;
 }
 
-export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
-  const [isBookmarked, setIsBookmarked] = useState(false);
-
-  useEffect(() => {
-    fetch("/api/bookmarks/find", {
-      method: "POST",
-      body: JSON.stringify({
-        wordId,
-      }),
-    }).then(async (res) => {
-      const { isBookmarked } = await res.json();
-      setIsBookmarked(isBookmarked);
-    }).catch((e) => {
-      console.log(e);
-    });
-  }, []);
+export default function BookmarkEntry({ word }: BookmarkEntryProps) {
+  const [isBookmarked, setIsBookmarked] = useState(word.isBookmarked);
 
   const handleAdd = () => {
-    addBookmark(wordId).then((res) => {
+    addBookmark(word._id).then((res) => {
       if (res.status === 201) {
         setIsBookmarked(true);
       }
@@ -32,7 +19,7 @@ export default function BookmarkEntry({ wordId }: BookmarkEntryProps) {
   };
 
   const handleDelete = () => {
-    deleteBookmark(wordId).then((res) => {
+    deleteBookmark(word._id).then((res) => {
       if (res.status === 204) {
         setIsBookmarked(false);
       }
