@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useSignal, useSignalEffect } from "@preact/signals";
 
 interface SearchHistoryItem {
   _id: string;
@@ -12,35 +12,35 @@ export function useDictionarySearchHistory(): [
   (addItem: SearchHistoryItem) => void,
   (deleteItem: string) => void,
 ] {
-  const [searchItems, setSearchItems] = useState<SearchHistoryItem[]>([]);
+  const searchItems = useSignal<SearchHistoryItem[]>([]);
 
-  useEffect(() => {
+  useSignalEffect(() => {
     const savedSearches = localStorage.getItem(SEARCH_HISTORY_STORAGE_KEY);
     if (savedSearches) {
       try {
-        setSearchItems(JSON.parse(savedSearches));
+        searchItems.value = JSON.parse(savedSearches);
       } catch (error) {
         console.error(error);
-        setSearchItems([]);
+        searchItems.value = [];
       }
     }
-  }, []);
+  });
 
   function addSearchItem(searchItem: SearchHistoryItem) {
-    const array = searchItems.filter((e) => e._id !== searchItem._id);
+    const array = searchItems.value.filter((e) => e._id !== searchItem._id);
     array.unshift(searchItem);
     storeItem(array.slice(0, 10));
   }
 
   function deleteSearchItem(_id: string) {
-    const array = searchItems.filter((e) => e._id !== _id);
+    const array = searchItems.value.filter((e) => e._id !== _id);
     storeItem(array);
   }
 
   function storeItem(array: SearchHistoryItem[]) {
-    setSearchItems(array);
+    searchItems.value = array;
     localStorage.setItem(SEARCH_HISTORY_STORAGE_KEY, JSON.stringify(array));
   }
 
-  return [searchItems, addSearchItem, deleteSearchItem];
+  return [searchItems.value, addSearchItem, deleteSearchItem];
 }
