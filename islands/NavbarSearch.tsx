@@ -74,8 +74,8 @@ export default function NavbarSearch() {
       </div>
       {entries.length > 0 &&
         (
-          <div class="results-container">
-            <ul>
+          <div class="search-results">
+            <ul class="container">
               {entries.map(({ _id, article, word }) => (
                 <li>
                   <a
@@ -84,7 +84,9 @@ export default function NavbarSearch() {
                     onClick={() =>
                       addSearchItem({ _id, searchTerm: article + " " + word })}
                   >
-                    {article} {word}
+                    {article
+                      ? <span class="search-article">{article}</span>
+                      : ""} {word}
                   </a>
                 </li>
               ))}
