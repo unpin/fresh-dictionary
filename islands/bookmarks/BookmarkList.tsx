@@ -21,7 +21,7 @@ export default function BookmarkedWords() {
   const handleDelete = (_id: string) => {
     deleteBookmark(_id).then((res) => {
       if (res.status === 204) {
-        setEntries(entries.filter((e) => e._id !== _id));
+        setEntries((items) => items.filter((e) => e._id !== _id));
       }
     });
   };
