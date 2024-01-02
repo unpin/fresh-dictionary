@@ -1,5 +1,5 @@
 export interface Definition {
-  _id?: string;
+  _id: string;
   type: string;
   definition: string;
   usageLabel?: string;
@@ -12,6 +12,7 @@ export interface Word {
   word: string;
   article: string;
   definitions: Definition[];
+  isBookmarked?: boolean;
 }
 
 export interface ReviewWord extends Partial<Omit<Word, "definitions">> {
