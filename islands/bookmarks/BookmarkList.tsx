@@ -10,13 +10,19 @@ interface Entry {
 
 export default function BookmarkedWords() {
   const [entries, setEntries] = useState<Entry[]>([]);
+  const [page, setPage] = useState<number>(0);
 
   useEffect(() => {
     fetch("/api/bookmarks")
-      .then((res) => res.json()).then((data) => {
-        setEntries(data);
+      .then((res) => res.json())
+      .then((data) => {
+        setEntries(() => data);
       });
   }, []);
+
+  useEffect(() => {
+    console.log("update entries", entries);
+  }, [entries]);
 
   const handleDelete = (_id: string) => {
     deleteBookmark(_id).then((res) => {
@@ -26,24 +32,37 @@ export default function BookmarkedWords() {
     });
   };
 
+  const onLoadMore = () => {
+    fetch(`/api/bookmarks?page=${page + 1}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setEntries((entries) => [...entries, ...data]);
+        setPage((page) => page + 1);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div class="container">
       <div class="bookmarks-container">
         {entries.length > 0 && (
-          <ul>
-            {entries.map((e) => (
-              <li>
-                <a href={"/dictionary/" + e._id}>
-                  {e.article} {e.word}
-                </a>
-                <Icon
-                  class="icon"
-                  name="bookmark-solid"
-                  onClick={() => handleDelete(e._id)}
-                />
-              </li>
-            ))}
-          </ul>
+          <>
+            <ul>
+              {entries.map((e) => (
+                <li key={e._id}>
+                  <a href={"/dictionary/" + e._id}>
+                    {e.article} {e.word}
+                  </a>
+                  <Icon
+                    class="icon"
+                    name="bookmark-solid"
+                    onClick={() => handleDelete(e._id)}
+                  />
+                </li>
+              ))}
+            </ul>
+            <button class="btn" onClick={onLoadMore}>Load more</button>
+          </>
         )}
       </div>
     </div>

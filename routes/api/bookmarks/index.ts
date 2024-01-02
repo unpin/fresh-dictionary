@@ -10,7 +10,7 @@ export const handler: Handlers = {
     const auth = ctx.state.auth as { _id: string };
 
     try {
-      const { modifiedCount } = await Bookmark.updateOne({
+      const { matchedCount } = await Bookmark.updateOne({
         userId: new ObjectId(auth._id as string),
       }, {
         $addToSet: {
@@ -25,7 +25,7 @@ export const handler: Handlers = {
         upsert: true,
       });
       return new Response("", {
-        status: modifiedCount ? Status.Created : Status.BadRequest,
+        status: matchedCount ? Status.Created : Status.BadRequest,
       });
     } catch (e) {
       Logger.debug(e);
@@ -36,6 +36,10 @@ export const handler: Handlers = {
   },
   async GET(_req, ctx) {
     const auth = ctx.state.auth as { _id: string };
+    const page = ctx.url.searchParams.get("page");
+    const LIMIT = 10;
+    const PAGE = page ? Number(page) : 0;
+    const SKIP = PAGE * LIMIT;
     try {
       const data = Bookmark.aggregate(
         [
@@ -74,8 +78,15 @@ export const handler: Handlers = {
               createdAt: -1,
             },
           },
+          {
+            $skip: SKIP,
+          },
+          {
+            $limit: LIMIT,
+          },
         ],
       );
+
       return Response.json(await data.toArray(), {
         status: Status.OK,
       });
@@ -91,14 +102,14 @@ export const handler: Handlers = {
     const auth = ctx.state.auth as { _id: string };
 
     try {
-      const { modifiedCount } = await Bookmark.updateOne({
+      const { matchedCount } = await Bookmark.updateOne({
         userId: new ObjectId(auth._id as string),
       }, {
         $pull: { wordIds: { _id: new ObjectId(wordId) } },
       });
 
       return new Response(null, {
-        status: modifiedCount ? Status.NoContent : Status.NotFound,
+        status: matchedCount ? Status.NoContent : Status.NotFound,
       });
     } catch (e) {
       Logger.debug(e);
