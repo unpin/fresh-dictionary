@@ -21,7 +21,7 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           {textToSpeak}
           <TTS text={textToSpeak} />
         </h1>
-        <BookmarkEntry wordId={word._id.toString()} />
+        <BookmarkEntry word={word} />
       </div>
       <DictionaryDefinitions word={word} setWord={setWord} />
       {isAddDefinition
