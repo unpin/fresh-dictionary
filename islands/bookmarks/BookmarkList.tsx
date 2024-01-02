@@ -20,10 +20,6 @@ export default function BookmarkedWords() {
       });
   }, []);
 
-  useEffect(() => {
-    console.log("update entries", entries);
-  }, [entries]);
-
   const handleDelete = (_id: string) => {
     deleteBookmark(_id).then((res) => {
       if (res.status === 204) {
