@@ -17,6 +17,8 @@ export default function DictionaryDefinitions(
   const handleDeleteDefinition = (
     e: MouseEvent,
   ) => {
+    const response = confirm("Delete this definition?");
+    if (!response) return;
     const target = e.target as HTMLElement;
     const btn = target.closest("button");
     const definitionId = btn?.dataset._id;
