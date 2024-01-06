@@ -5,17 +5,17 @@ import { User } from "../../models/User.ts";
 export const handler: Handlers = {
   async POST(req, _ctx) {
     const { email } = await req.json();
-    const user = await User.findOne({ email });
+    const foundUser = await User.findOne({ email });
 
-    if (!user) {
+    if (!foundUser) {
       return new Response("", {
         status: Status.NotFound,
       });
     }
 
     return Response.json({
-      name: user.name,
-      email: user.email,
+      name: foundUser.name,
+      email: foundUser.email,
     });
   },
 };
