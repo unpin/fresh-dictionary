@@ -14,8 +14,8 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [showAddDefinition, setShowAddDefinition] = useState(false);
 
   return (
-    <>
-      <div class="dictionary-word my-4">
+    <div class="dictionary-entry">
+      <div class="dictionary-heading">
         <h1>
           {word.word}
           <TTS text={word.word} />
@@ -24,7 +24,7 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
       </div>
       {word.article &&
         (
-          <div class="my-4">
+          <div>
             <span class="dictionary-article">{word.article}</span>
           </div>
         )}
@@ -42,6 +42,6 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
             Add definition
           </button>
         )}
-    </>
+    </div>
   );
 }

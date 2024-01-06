@@ -23,7 +23,7 @@ export default function DictionaryDefinition(
   }, [definition]);
 
   return (
-    <li class="my-4">
+    <li>
       <div class="definition-counter my-2">{order + 1}.</div>
       <div class="definition-term">
         <p contentEditable={isContentEditable}>{definition.definition}</p>
