@@ -14,22 +14,14 @@ export default function SignInForm() {
   ) => {
     e.preventDefault();
     setError("");
-    signUp(name, email, password).then(
-      ({ name, email, token }) => {
-        window.localStorage.setItem("token", token);
-        window.localStorage.setItem("name", name);
-        window.localStorage.setItem("email", email);
-        const date = new Date();
-        date.setTime(date.getTime() + (7 * 24 * 60 * 60 * 1000));
-        const expires = "; expires=" + date.toUTCString();
-        document.cookie = "authToken" + "=" + token + "; domain=" +
-          location.hostname + "; " + expires +
-          "; path=/";
+    signUp(name, email, password)
+      .then((_) => {
         window.location.replace(window.location.origin);
-      },
-    ).catch((error: Error) => {
-      setError(error.message);
-    });
+      }).catch(
+        (error: Error) => {
+          setError(error.message);
+        },
+      );
   };
 
   const clearError = () => {
