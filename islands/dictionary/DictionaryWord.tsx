@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import BookmarkEntry from "../BookmarkEntry.tsx";
 import TTS from "../TTS.tsx";
 import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
@@ -11,7 +11,7 @@ interface DictionaryWordProps {
 
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [word, setWord] = useState(entry);
-  const [isAddDefinition, setIsAddDefinition] = useState(false);
+  const [showAddDefinition, setShowAddDefinition] = useState(false);
 
   return (
     <>
@@ -29,16 +29,16 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           </div>
         )}
       <DictionaryDefinitions word={word} setWord={setWord} />
-      {isAddDefinition
+      {showAddDefinition
         ? (
           <AddDefinition
             word={word}
             setWord={setWord}
-            onClose={() => setIsAddDefinition(false)}
+            onClose={() => setShowAddDefinition(false)}
           />
         )
         : (
-          <button class="btn" onClick={() => setIsAddDefinition(true)}>
+          <button class="btn" onClick={() => setShowAddDefinition(true)}>
             Add definition
           </button>
         )}
