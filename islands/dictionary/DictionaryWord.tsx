@@ -12,17 +12,22 @@ interface DictionaryWordProps {
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [word, setWord] = useState(entry);
   const [isAddDefinition, setIsAddDefinition] = useState(false);
-  const textToSpeak = word.article ? word.article + " " + word.word : word.word;
 
   return (
     <>
-      <div class="dictionary-heading">
-        <h1 class="my-4 dictionary-word">
-          {textToSpeak}
-          <TTS text={textToSpeak} />
+      <div class="dictionary-word my-4">
+        <h1>
+          {word.word}
+          <TTS text={word.word} />
         </h1>
         <BookmarkEntry word={word} />
       </div>
+      {word.article &&
+        (
+          <div class="my-4">
+            <span class="dictionary-article">{word.article}</span>
+          </div>
+        )}
       <DictionaryDefinitions word={word} setWord={setWord} />
       {isAddDefinition
         ? (

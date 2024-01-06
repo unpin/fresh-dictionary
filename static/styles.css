@@ -626,7 +626,7 @@ hr {
     color: var(--color-gray);
 }
 
-.dictionary-heading {
+.dictionary-word {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -641,6 +641,13 @@ hr {
         width: 1.75rem;
         height: 1.75rem;
     }
+}
+
+.dictionary-article {
+    color: var(--color-text);
+    background-color: var(--color-pale);
+    border-radius: var(--border-radius);
+    padding: 0.25rem 0.75rem;
 }
 
 .bookmarks-container {
