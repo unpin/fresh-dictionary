@@ -1,4 +1,4 @@
-import { StateUpdater, useEffect, useState } from "preact/hooks";
+import { StateUpdater } from "preact/hooks";
 import { Definition, Word } from "../../types/words.ts";
 import DictionaryDefinition from "./DictionaryDefinition.tsx";
 import { JSX } from "preact/jsx-runtime";
@@ -50,6 +50,7 @@ export default function DictionaryDefinitions(
                   return (
                     <DictionaryDefinition
                       order={idx}
+                      wordId={word._id}
                       definition={definition}
                       setWord={setWord}
                       onDeleteDefinition={handleDeleteDefinition}

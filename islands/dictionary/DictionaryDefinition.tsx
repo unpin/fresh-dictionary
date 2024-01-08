@@ -6,12 +6,14 @@ import { JSX } from "preact/jsx-runtime";
 interface DictionaryDefinitionProps {
   definition: Definition;
   order: number;
+  wordId: string;
   setWord: StateUpdater<Word>;
   onDeleteDefinition: (e: MouseEvent) => void;
 }
 
 export default function DictionaryDefinition(
-  { definition, order, setWord, onDeleteDefinition }: DictionaryDefinitionProps,
+  { definition, order, setWord, onDeleteDefinition, wordId }:
+    DictionaryDefinitionProps,
 ) {
   const [isContentEditable, setIsContentEditable] = useState(false);
   const [examples, setExamples] = useState<string[]>([]);
