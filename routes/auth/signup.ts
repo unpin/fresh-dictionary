@@ -39,7 +39,7 @@ export const handler: Handlers = {
       value: token,
       domain: ctx.url.hostname,
       path: "/",
-      expires: new Date(new Date().getTime() + (1000 * 60 * 60 * 24)),
+      expires: new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 28)),
     });
 
     return Response.json({ name: user.name, email: user.email, token }, {
