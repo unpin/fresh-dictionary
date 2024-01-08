@@ -20,3 +20,18 @@ export async function deleteDefinition(_id: string, definitionId: string) {
   );
   return response;
 }
+
+export async function updateDefinition(
+  _id: string,
+  definitionId: string,
+  update: Partial<Definition>,
+) {
+  const response = await fetch(
+    `/api/dictionary/${_id}/definition/${definitionId}`,
+    {
+      method: "PATCH",
+      body: JSON.stringify(update),
+    },
+  );
+  return response;
+}
