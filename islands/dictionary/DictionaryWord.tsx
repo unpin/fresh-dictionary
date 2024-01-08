@@ -4,6 +4,7 @@ import TTS from "../TTS.tsx";
 import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
 import AddDefinition from "./AddDefinition.tsx";
+import { useAuth } from "../../hooks/useAuth.tsx";
 
 interface DictionaryWordProps {
   entry: Word;
@@ -12,6 +13,7 @@ interface DictionaryWordProps {
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [word, setWord] = useState(entry);
   const [showAddDefinition, setShowAddDefinition] = useState(false);
+  const [auth] = useAuth();
 
   return (
     <div class="dictionary-entry">
@@ -29,19 +31,23 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           </div>
         )}
       <DictionaryDefinitions word={word} setWord={setWord} />
-      {showAddDefinition
-        ? (
-          <AddDefinition
-            word={word}
-            setWord={setWord}
-            onClose={() => setShowAddDefinition(false)}
-          />
-        )
-        : (
-          <button class="btn" onClick={() => setShowAddDefinition(true)}>
-            Add definition
-          </button>
-        )}
+      {auth.isAdmin && (
+        <>
+          {showAddDefinition
+            ? (
+              <AddDefinition
+                word={word}
+                setWord={setWord}
+                onClose={() => setShowAddDefinition(false)}
+              />
+            )
+            : (
+              <button class="btn" onClick={() => setShowAddDefinition(true)}>
+                Add definition
+              </button>
+            )}
+        </>
+      )}
     </div>
   );
 }
