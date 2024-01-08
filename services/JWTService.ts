@@ -1,4 +1,4 @@
-export function parseJWT(token: string): Record<string, unknown> | null {
+export function parseJWT(token: string) {
   try {
     const base64Url = token.split(".")[1];
     const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -9,6 +9,6 @@ export function parseJWT(token: string): Record<string, unknown> | null {
     );
     return JSON.parse(jsonPayload);
   } catch {
-    return null;
+    throw new Error("Invalid JSON Web Token");
   }
 }
