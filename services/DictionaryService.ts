@@ -6,9 +6,6 @@ export async function addDefinition(
 ) {
   const response = await fetch(`/api/dictionary/${_id}/definition`, {
     method: "PATCH",
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("token"),
-    },
     body: JSON.stringify(definition),
   });
   return response;
@@ -19,9 +16,6 @@ export async function deleteDefinition(_id: string, definitionId: string) {
     `/api/dictionary/${_id}/definition/${definitionId}`,
     {
       method: "DELETE",
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
     },
   );
   return response;
