@@ -301,10 +301,17 @@ input:-webkit-autofill:active {
         border-radius: var(--border-radius);
     }
 
-    & ul {
+    & .items {
         display: flex;
         flex-direction: column;
         row-gap: 0.5rem;
+        & .item > a {
+            display: block;
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 1.25rem;
+            word-break: break-word;
+        }
     }
 }
 

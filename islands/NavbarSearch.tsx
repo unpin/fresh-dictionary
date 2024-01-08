@@ -75,22 +75,26 @@ export default function NavbarSearch() {
       {entries.length > 0 &&
         (
           <div class="search-results">
-            <ul class="container">
-              {entries.map(({ _id, article, word }) => (
-                <li>
-                  <a
-                    class="entry-word"
-                    href={"/dictionary/" + encodeURI(_id)}
-                    onClick={() =>
-                      addSearchItem({ _id, searchTerm: article + " " + word })}
-                  >
-                    {article
-                      ? <span class="search-article">{article}</span>
-                      : ""} {word}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div class="container">
+              <ul class="items">
+                {entries.map(({ _id, article, word }) => (
+                  <li class="item">
+                    <a
+                      href={"/dictionary/" + encodeURI(_id)}
+                      onClick={() =>
+                        addSearchItem({
+                          _id,
+                          searchTerm: article + " " + word,
+                        })}
+                    >
+                      {article
+                        ? <span class="search-article">{article}</span>
+                        : ""} {word}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         )}
     </>
