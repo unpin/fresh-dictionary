@@ -752,3 +752,15 @@ hr {
     flex-direction: column;
     gap: 1rem;
 }
+
+.openai-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+    & .items {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

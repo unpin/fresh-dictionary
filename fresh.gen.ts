@@ -11,6 +11,7 @@ import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
 import * as $api_dictionary_id_definition_definitionId_index from "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts";
 import * as $api_dictionary_id_definition_index from "./routes/api/dictionary/[_id]/definition/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
+import * as $api_openai_example_word_ from "./routes/api/openai/example/[word].ts";
 import * as $auth_delete from "./routes/auth/delete.ts";
 import * as $auth_email from "./routes/auth/email.ts";
 import * as $auth_signin from "./routes/auth/signin.ts";
@@ -36,6 +37,7 @@ import * as $dictionary_AddDefinition from "./islands/dictionary/AddDefinition.t
 import * as $dictionary_DictionaryDefinition from "./islands/dictionary/DictionaryDefinition.tsx";
 import * as $dictionary_DictionaryDefinitions from "./islands/dictionary/DictionaryDefinitions.tsx";
 import * as $dictionary_DictionaryWord from "./islands/dictionary/DictionaryWord.tsx";
+import * as $dictionary_GenerateExample from "./islands/dictionary/GenerateExample.tsx";
 import * as $notifications_Toast from "./islands/notifications/Toast.tsx";
 import * as $notifications_ToastContainer from "./islands/notifications/ToastContainer.tsx";
 import { type Manifest } from "$fresh/server.ts";
@@ -53,6 +55,7 @@ const manifest = {
     "./routes/api/dictionary/[_id]/definition/index.ts":
       $api_dictionary_id_definition_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
+    "./routes/api/openai/example/[word].ts": $api_openai_example_word_,
     "./routes/auth/delete.ts": $auth_delete,
     "./routes/auth/email.ts": $auth_email,
     "./routes/auth/signin.ts": $auth_signin,
@@ -82,6 +85,7 @@ const manifest = {
     "./islands/dictionary/DictionaryDefinitions.tsx":
       $dictionary_DictionaryDefinitions,
     "./islands/dictionary/DictionaryWord.tsx": $dictionary_DictionaryWord,
+    "./islands/dictionary/GenerateExample.tsx": $dictionary_GenerateExample,
     "./islands/notifications/Toast.tsx": $notifications_Toast,
     "./islands/notifications/ToastContainer.tsx": $notifications_ToastContainer,
   },

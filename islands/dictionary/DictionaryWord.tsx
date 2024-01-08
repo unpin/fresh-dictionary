@@ -5,6 +5,7 @@ import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
 import AddDefinition from "./AddDefinition.tsx";
 import { useAuth } from "../../hooks/useAuth.tsx";
+import GenerateExample from "./GenerateExample.tsx";
 
 interface DictionaryWordProps {
   entry: Word;
@@ -49,6 +50,7 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
             )}
         </>
       )}
+      <GenerateExample word={word.word} />
     </div>
   );
 }

@@ -35,3 +35,10 @@ export async function updateDefinition(
   );
   return response;
 }
+
+export async function generateExampleSentence(word: string) {
+  const response = await fetch(
+    `/api/openai/example/${word}`,
+  );
+  return response;
+}
