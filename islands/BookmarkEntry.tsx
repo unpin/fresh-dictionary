@@ -26,7 +26,7 @@ export default function BookmarkEntry({ word }: BookmarkEntryProps) {
     }).catch();
   };
   return (
-    <span>
+    <span class="dictionary-bookmark">
       {isBookmarked
         ? <Icon name="bookmark-solid" onClick={handleDelete} />
         : <Icon name="bookmark" onClick={handleAdd} />}

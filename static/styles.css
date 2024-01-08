@@ -611,7 +611,6 @@ hr {
     & .dictionary-heading {
         display: flex;
         gap: 1rem;
-        justify-content: space-between;
         align-items: center;
     }
     & h1 {
@@ -624,6 +623,10 @@ hr {
         width: 1.75rem;
         height: 1.75rem;
     }
+}
+
+.dictionary-bookmark {
+    margin-left: auto;
 }
 
 .dictionary-definitions {

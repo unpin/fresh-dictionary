@@ -18,18 +18,19 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
   return (
     <div class="dictionary-entry">
       <div class="dictionary-heading">
+        {word.article &&
+          (
+            <div>
+              <span class="dictionary-article">{word.article}</span>
+            </div>
+          )}
         <h1>
           {word.word}
           <TTS text={word.word} />
         </h1>
         <BookmarkEntry word={word} />
       </div>
-      {word.article &&
-        (
-          <div>
-            <span class="dictionary-article">{word.article}</span>
-          </div>
-        )}
+
       <DictionaryDefinitions word={word} setWord={setWord} />
       {auth.isAdmin && (
         <>
