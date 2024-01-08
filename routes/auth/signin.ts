@@ -25,6 +25,7 @@ export const handler: Handlers = {
 
     const token = await signToken({
       _id: user._id,
+      name: user.name,
       email: user.email,
       userRole: user.userRole,
     });

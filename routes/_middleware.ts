@@ -16,8 +16,8 @@ export async function handler(
 
   if (authToken) {
     try {
-      const { _id, email, userRole } = await verifyToken(authToken);
-      ctx.state.auth = { _id, email, userRole };
+      const { _id, name, email, userRole } = await verifyToken(authToken);
+      ctx.state.auth = { _id, name, email, userRole };
     } catch (e) {
       Logger.debug(e);
       const resp = await ctx.next();
