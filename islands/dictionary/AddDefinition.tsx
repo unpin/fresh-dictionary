@@ -1,4 +1,4 @@
-import { StateUpdater } from "preact/hooks";
+import { StateUpdater, useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import { addDefinition } from "../../services/DictionaryService.ts";
 import { Word } from "../../types/words.ts";
@@ -12,6 +12,12 @@ interface AddDefinitionProps {
 export default function AddDefinition(
   { word, setWord, onClose }: AddDefinitionProps,
 ) {
+  const [definitionData, setDefinitionData] = useState({
+    type: "",
+    definition: "",
+    examples: [""],
+  });
+
   const handleAddDefinition = (
     e: JSX.TargetedEvent<HTMLFormElement, SubmitEvent>,
   ) => {
@@ -27,6 +33,7 @@ export default function AddDefinition(
           const { insertedId: _id } = await res.json();
           word.definitions.push({ _id, type, definition, examples });
           setWord({ ...word });
+          onClose();
         } else {
           // TODO Show Toast notification
         }
@@ -40,20 +47,48 @@ export default function AddDefinition(
         class="form-input"
         name="type"
         placeholder="Type*"
+        value={definitionData.type}
+        onInput={(e) =>
+          setDefinitionData({
+            ...definitionData,
+            type: (e.target as HTMLInputElement).value,
+          })}
       />
       <input
         type="text"
         class="form-input"
         name="definition"
         placeholder="Definition*"
+        value={definitionData.definition}
+        onInput={(e) =>
+          setDefinitionData({
+            ...definitionData,
+            definition: (e.target as HTMLInputElement).value,
+          })}
       />
-      <textarea
-        type="text"
-        class="form-input"
-        name="example"
-        placeholder="Example"
-      />
-      <button class="btn">Add definition</button>
+      {definitionData.examples.map((example) => (
+        <textarea
+          type="text"
+          class="form-input"
+          name="example"
+          placeholder="Example"
+        >
+          {example}
+        </textarea>
+      ))}
+      <button
+        class="btn"
+        type="button"
+        onClick={() => {
+          setDefinitionData(() => {
+            definitionData.examples.push("");
+            return structuredClone(definitionData);
+          });
+        }}
+      >
+        Add example
+      </button>
+      <button class="btn">Save definition</button>
       <button class="btn btn-outline" type="button" onClick={onClose}>
         Cancel
       </button>
