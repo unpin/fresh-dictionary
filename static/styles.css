@@ -86,10 +86,6 @@ video {
     height: auto;
 }
 
-form {
-    margin-bottom: 1rem;
-}
-
 textarea {
     max-width: 100%;
 }
@@ -399,6 +395,7 @@ input:-webkit-autofill:active {
 .btn {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.75rem;
     padding: 0.75rem;
     border-radius: 0.25rem;
@@ -581,9 +578,21 @@ hr {
     }
 }
 
+.definition-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .definition-buttons {
     display: flex;
     gap: 0.5rem;
+    flex-wrap: wrap;
+
+    & .btn {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
 }
 
 .search-history {
