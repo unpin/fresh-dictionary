@@ -19,8 +19,8 @@
     "mongo": "https://deno.land/x/mongo@v0.32.0/mod.ts",
     "bcrypt": "https://deno.land/x/bcrypt@v0.4.1/mod.ts",
     "djwt": "https://deno.land/x/djwt@v2.9.1/mod.ts",
-    "openai": "https://deno.land/x/openai@v4.22.0/mod.ts",
-    "openai/": "https://deno.land/x/openai@v4.22.0/"
+    "openai": "https://deno.land/x/openai@v4.26.0/mod.ts",
+    "openai/": "https://deno.land/x/openai@v4.26.0/"
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
   "exclude": ["**/_fresh/*"]
