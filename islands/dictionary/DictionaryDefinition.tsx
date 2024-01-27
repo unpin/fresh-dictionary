@@ -64,7 +64,7 @@ export default function DictionaryDefinition(
 
   return (
     <li>
-      <form onSubmit={handleUpdateDefinition}>
+      <form class="definition-form" onSubmit={handleUpdateDefinition}>
         <div class="definition-counter my-2">{order + 1}.</div>
         <div class="definition-term">
           <input
@@ -90,9 +90,9 @@ export default function DictionaryDefinition(
             </>
           )}
         </div>
-        <ul class="definition-examples">
-          {definitionData.examples &&
-            definitionData.examples.map((example, i) => (
+        {definitionData.examples &&
+          definitionData.examples.map((example, i) => (
+            <ul class="definition-examples">
               <div>
                 <textarea
                   type="text"
@@ -116,27 +116,29 @@ export default function DictionaryDefinition(
                     </span>
                   )}
               </div>
-            ))}
-        </ul>
+            </ul>
+          ))}
         {isContentEditable && (
-          <div class="definition-buttons">
-            <button class="btn" type="button" onClick={handleAddExample}>
-              <Icon name="circle-plus" />
-              Add example
-            </button>
-            <button
-              class="btn"
-              type="button"
-              data-_id={definition._id}
-              onClick={onDeleteDefinition}
-            >
-              <Icon name="trash" />
-              Delete Definition
-            </button>
-            <button class="btn">
-              <Icon name="circle-check" />
-              Save
-            </button>
+          <>
+            <div class="definition-buttons">
+              <button class="btn" type="button" onClick={handleAddExample}>
+                <Icon name="circle-plus" />
+                Add example
+              </button>
+              <button
+                class="btn"
+                type="button"
+                data-_id={definition._id}
+                onClick={onDeleteDefinition}
+              >
+                <Icon name="trash" />
+                Delete Definition
+              </button>
+              <button class="btn">
+                <Icon name="circle-check" />
+                Save
+              </button>
+            </div>
             <button
               class="btn"
               type="button"
@@ -148,7 +150,7 @@ export default function DictionaryDefinition(
               <Icon name="xmark" />
               Cancel
             </button>
-          </div>
+          </>
         )}
       </form>
     </li>
