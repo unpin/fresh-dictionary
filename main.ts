@@ -9,4 +9,6 @@ import "$std/dotenv/load.ts";
 import { start } from "$fresh/server.ts";
 import manifest from "./fresh.gen.ts";
 
+console.log("Deno version:", Deno.version);
+
 await start(manifest);
