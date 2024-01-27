@@ -28,6 +28,7 @@
     opacity: 0.75;
     cursor: pointer;
     transition: opacity var(--animation-ms) ease-in;
+
     &:hover {
         opacity: 1;
     }
@@ -38,6 +39,7 @@
 *::after {
     box-sizing: border-box;
 }
+
 * {
     margin: 0;
     font-family: Inter, 'Segoe UI', sans-serif;
@@ -61,30 +63,37 @@ a,
 button {
     color: inherit;
 }
+
 button,
 [role='button'] {
     cursor: pointer;
 }
+
 code {
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
         'Liberation Mono', 'Courier New', monospace;
     font-size: 1em;
 }
+
 img,
 svg {
     display: block;
 }
+
 img,
 video {
     max-width: 100%;
     height: auto;
 }
+
 form {
     margin-bottom: 1rem;
 }
+
 textarea {
     max-width: 100%;
 }
+
 ul {
     padding: 0;
 }
@@ -106,82 +115,104 @@ input:-webkit-autofill:active {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
 }
+
 .mb-1 {
     margin-bottom: 1rem;
 }
+
 .my-6 {
     margin-bottom: 1.5rem;
     margin-top: 1.5rem;
 }
+
 .text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
 }
+
 .mx-2 {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
+
 .my-4 {
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
+
 .my-2 {
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }
+
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
 }
+
 .px-4 {
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
 .py-8 {
     padding-bottom: 2rem;
     padding-top: 2rem;
 }
+
 .text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
 }
+
 .py-6 {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
 }
+
 .px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
 }
+
 .py-1 {
     padding-bottom: 0.25rem;
     padding-top: 0.25rem;
 }
+
 .flex {
     display: flex;
 }
+
 .gap-8 {
     grid-gap: 2rem;
     gap: 2rem;
 }
+
 .font-bold {
     font-weight: 700;
 }
+
 .max-w-screen-md {
     max-width: 768px;
 }
+
 .flex-col {
     flex-direction: column;
 }
+
 .items-center {
     align-items: center;
 }
+
 .justify-center {
     justify-content: center;
 }
+
 .border-2 {
     border-width: 2px;
 }
+
 .rounded {
     border-radius: 0.25rem;
 }
@@ -231,6 +262,7 @@ input:-webkit-autofill:active {
     color: var(--color-text);
     background: var(--color-primary);
     z-index: 110;
+
     & .search-input {
         flex: 1;
         height: 2.5rem;
@@ -242,6 +274,7 @@ input:-webkit-autofill:active {
         padding-right: 1rem;
         width: 100%;
         color: var(--color-text);
+
         &:focus-visible {
             outline: none;
         }
@@ -266,6 +299,7 @@ input:-webkit-autofill:active {
     transition: background-color var(--animation-ms) ease-in-out;
     background-color: transparent;
     cursor: pointer;
+
     & .icon {
         width: 18px;
         height: 18px;
@@ -303,7 +337,8 @@ input:-webkit-autofill:active {
         display: flex;
         flex-direction: column;
         row-gap: 0.5rem;
-        & .item > a {
+
+        & .item>a {
             display: block;
             color: var(--color-text);
             text-decoration: none;
@@ -348,6 +383,7 @@ input:-webkit-autofill:active {
     border-radius: 0.25rem;
     background: var(--color-background-secondary);
     color: var(--color-text);
+
     &:focus {
         outline: 1px solid var(--color-pale);
     }
@@ -463,9 +499,11 @@ hr {
     justify-content: center;
     cursor: pointer;
 }
+
 .profile-wrapper {
     display: flex;
     justify-content: space-between;
+
     & .icon {
         width: 1.25rem;
     }
@@ -519,19 +557,23 @@ hr {
     margin-left: 1rem;
     font-size: 1rem;
     color: var(--color-gray);
+
     & li {
         display: flex;
         justify-content: space-between;
         align-items: start;
         gap: 1rem;
+
         &::before {
             content: '-';
             position: absolute;
             left: -1rem;
         }
+
         & .icon {
             width: 1rem;
             flex-shrink: 0;
+
             &:hover {
                 fill: var(--color-danger);
             }
@@ -570,6 +612,7 @@ hr {
     display: flex;
     gap: 1rem;
     color: var(--color-gray);
+
     & .icon {
         width: 20px;
     }
@@ -581,6 +624,7 @@ hr {
     font-size: 1.25rem;
     word-break: break-word;
     margin-bottom: 0.125rem;
+
     &:hover {
         color: var(--color-text);
     }
@@ -596,7 +640,7 @@ hr {
     cursor: pointer;
 }
 
-.examples > li {
+.examples>li {
     margin-bottom: 0.5rem;
     color: var(--color-gray);
 }
@@ -606,17 +650,20 @@ hr {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem 0;
+
     & .dictionary-heading {
         display: flex;
         gap: 1rem;
         align-items: center;
     }
+
     & h1 {
         word-break: break-word;
         display: flex;
         align-items: center;
         gap: 1rem;
     }
+
     & .icon {
         width: 1.75rem;
         height: 1.75rem;
@@ -652,20 +699,25 @@ hr {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+
     & p {
         flex-grow: 1;
     }
+
     & .icon {
         opacity: 0.25;
         width: 1rem;
+
         &:hover {
             opacity: 1;
         }
     }
+
     & .form-input {
         padding: 0.5rem;
         width: 100%;
     }
+
     & .form-input:disabled {
         padding: 0rem;
         background: none;
@@ -680,11 +732,13 @@ hr {
     flex-direction: column;
     margin: 1rem 0;
     gap: 1rem;
+
     & ul {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        & > li {
+
+        &>li {
             display: flex;
             justify-content: space-between;
             gap: 1rem;
@@ -693,12 +747,14 @@ hr {
             border-radius: var(--border-radius);
             cursor: pointer;
         }
+
         & a {
             text-decoration: none;
             color: var(--color-text);
             font-size: 1.125rem;
             line-break: anywhere;
         }
+
         & .icon {
             flex-shrink: 0;
             width: 1rem;
@@ -717,6 +773,7 @@ hr {
     right: 0;
     background-color: var(--color-background-secondary);
     border-top: 1px solid var(--color-pale);
+
     & ul {
         position: relative;
         display: flex;
@@ -728,10 +785,12 @@ hr {
         z-index: 90;
         height: 60px;
     }
+
     & li {
         width: 1.5rem;
         height: 1.5rem;
     }
+
     & .icon {
         height: 1.5rem;
         width: 1.5rem;
@@ -756,9 +815,20 @@ hr {
     flex-direction: column;
     gap: 1rem;
     align-items: start;
+
     & .items {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+    }
+}
+
+.openai-container {
+    & ul {
+        & .icon {
+            display: flex;
+            gap: 0.5rem;
+
+        }
     }
 }
