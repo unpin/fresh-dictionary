@@ -1,5 +1,7 @@
 import { useState } from "preact/hooks";
 import { generateExampleSentence } from "../../services/DictionaryService.ts";
+import Icon from "../../components/Icon.tsx";
+import { JSX } from "preact/jsx-runtime";
 
 interface GenerateExampleProps {
   word: string;
@@ -26,13 +28,40 @@ export default function GenerateExample(
     });
   };
 
+  const copyToClipboard = (e: JSX.TargetedEvent) => {
+    const element = e.target as HTMLElement;
+    const span = element.closest("span");
+    if (!span || !span.classList.contains("copy-to-clipboard")) return;
+    const svg = span.querySelector("svg") as SVGSVGElement;
+    const p = (span.closest("li") as HTMLLIElement)
+      .querySelector("p") as HTMLParagraphElement;
+
+    navigator.clipboard.writeText(p.innerText)
+      .then(() => {
+        // TODO notify user that text is copied and add animation
+        svg.style.fill = "springgreen";
+        setTimeout(() => {
+          svg.style.fill = "var(--color-text)";
+        }, 3000);
+      });
+  };
+
   return (
     <div class="openai-container">
       <button class="btn" onClick={onClick}>
         Generate an example sentence
       </button>
-      <ul class="items">
-        {examples.map((example) => <li>{example}</li>)}
+      <ul class="items" onClick={copyToClipboard}>
+        {examples.map((example) => (
+          <li>
+            <p>
+              {example}
+            </p>
+            <span class="copy-to-clipboard">
+              <Icon name="copy" />
+            </span>
+          </li>
+        ))}
       </ul>
     </div>
   );
