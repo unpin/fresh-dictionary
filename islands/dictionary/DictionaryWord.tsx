@@ -29,7 +29,7 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           {word.word}
           <TTS text={word.word} />
         </h1>
-        <BookmarkEntry word={word} />
+        <BookmarkEntry word={word} setWord={setWord} />
       </div>
 
       <DictionaryDefinitions word={word} setWord={setWord} />
