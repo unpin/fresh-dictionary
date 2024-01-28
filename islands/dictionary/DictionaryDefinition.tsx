@@ -1,4 +1,4 @@
-import { StateUpdater, useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import Icon from "../../components/Icon.tsx";
 import { Definition, Word } from "../../types/words.ts";
 import { JSX } from "preact/jsx-runtime";
@@ -9,132 +9,122 @@ interface DictionaryDefinitionProps {
   definition: Definition;
   order: number;
   wordId: string;
-  setWord: StateUpdater<Word>;
   onDeleteDefinition: (e: MouseEvent) => void;
 }
 
 export default function DictionaryDefinition(
-  { definition, order, setWord, onDeleteDefinition, wordId }:
-    DictionaryDefinitionProps,
+  { definition, order, onDeleteDefinition, wordId }: DictionaryDefinitionProps,
 ) {
   const [definitionData, setDefinitionData] = useState(definition);
-  const [isContentEditable, setIsContentEditable] = useState(false);
+  const [tempData, setTempData] = useState<Definition | null>(null);
+  const [isEditMode, setIsEditMode] = useState(false);
   const [auth] = useAuth();
 
-  useEffect(() => {
-    setDefinitionData(definition);
-  }, [definition]);
-
-  const handleAddExample = () => {
-    setDefinitionData((currDefinition) => {
-      if (currDefinition.examples) {
-        currDefinition.examples.push("");
+  const addExampleTextarea = () => {
+    setTempData((state) => {
+      if (state === null) return state;
+      if (state.examples) {
+        state.examples.push("");
       } else {
-        currDefinition.examples = [""];
+        state.examples = [""];
       }
-      console.log(currDefinition);
-
-      return structuredClone(currDefinition);
+      return structuredClone(state);
     });
   };
 
-  const handleUpdateDefinition = (
+  // TODO move to DictionaryDefinition class
+  const onUpdateDefinition = (
     e: JSX.TargetedEvent<HTMLFormElement, SubmitEvent>,
   ) => {
     e.preventDefault();
 
     const formData = new FormData(e.target as HTMLFormElement);
-    const updatedDefinition = formData.get("definition")?.toString() || "";
-    const examples = Array.from(formData.getAll("example")) as string[];
-    console.log({ updatedDefinition, examples });
+    const definitionUpdate = formData.get("definition")?.toString() || "";
+    const examplesUpdate = Array.from(formData.getAll("example")) as string[];
+
     updateDefinition(wordId, definition._id, {
-      definition: updatedDefinition,
-      examples,
+      definition: definitionUpdate,
+      examples: examplesUpdate,
     }).then((res) => {
       if (res.status === 200) {
-        console.log("Success");
-      } else {
-        console.log("Error");
+        setDefinitionData((state) => ({
+          ...state,
+          definition: definitionUpdate,
+          examples: examplesUpdate,
+        }));
+        setIsEditMode(false);
+        setTempData(null);
       }
     });
   };
 
-  const handleDeleteMeaning = () => {
+  // TODO move to client utilities
+  const updateTextareaHeight = (e: JSX.TargetedEvent) => {
+    const textarea = e.target as HTMLTextAreaElement;
+    textarea.style.height = "0";
+    textarea.style.height = Math.max(50, textarea.scrollHeight) + "px";
+  };
+
+  const restoreTextareaHeight = (e: JSX.TargetedEvent) => {
+    const textarea = e.target as HTMLTextAreaElement;
+    textarea.style.height = "50px";
   };
 
   return (
     <li>
-      <form class="definition-form" onSubmit={handleUpdateDefinition}>
-        <div class="definition-counter my-2">{order + 1}.</div>
-        <div class="definition-term">
-          <input
-            class="form-input"
-            type="text"
-            name="definition"
-            disabled={!isContentEditable}
-            value={definitionData.definition}
-            onInput={(e) => {
-              definitionData.definition = (e.target as HTMLInputElement).value;
-              setDefinitionData(structuredClone(definitionData));
-            }}
-          >
-          </input>
-          {auth.isAdmin && (
-            <>
-              {!isContentEditable && (
-                <Icon
-                  name="pen-to-square"
-                  onClick={() => setIsContentEditable(!isContentEditable)}
-                />
-              )}
-            </>
-          )}
-        </div>
-        {definitionData.examples &&
-          definitionData.examples.map((example, i) => (
-            <ul class="definition-examples">
-              <div>
+      <div class="definition-counter">{order}.</div>
+      {isEditMode
+        ? (
+          <form class="definition-form" onSubmit={onUpdateDefinition}>
+            <input
+              type="text"
+              class="form-input"
+              name="definition"
+              value={tempData?.definition}
+            />
+            {tempData?.examples?.map((example, i) => (
+              <div class="textarea-wrapper">
                 <textarea
-                  type="text"
                   class="form-input"
                   name="example"
-                  disabled={!isContentEditable}
+                  onFocus={updateTextareaHeight}
+                  onInput={updateTextareaHeight}
+                  onBlur={restoreTextareaHeight}
                 >
                   {example}
                 </textarea>
-                {isContentEditable &&
-                  (
-                    <span
-                      onClick={() => {
-                        setDefinitionData((state) => {
-                          state.examples.splice(i, 1);
-                          return structuredClone(state);
-                        });
-                      }}
-                    >
-                      <Icon name="xmark"></Icon>
-                    </span>
-                  )}
+                <span
+                  onClick={() => {
+                    setTempData((state) => {
+                      state!.examples.splice(i, 1);
+                      return structuredClone(state);
+                    });
+                  }}
+                >
+                  <Icon name="xmark"></Icon>
+                </span>
               </div>
-            </ul>
-          ))}
-        {isContentEditable && (
-          <>
+            ))}
+
             <div class="definition-buttons">
-              <button class="btn" type="button" onClick={handleAddExample}>
+              <button
+                class="btn"
+                type="button"
+                onClick={addExampleTextarea}
+              >
                 <Icon name="circle-plus" />
                 Add example
               </button>
               <button
                 class="btn"
                 type="button"
-                data-_id={definition._id}
+                data-id={definitionData._id}
                 onClick={onDeleteDefinition}
               >
                 <Icon name="trash" />
                 Delete Definition
               </button>
-              <button class="btn">
+              <button class="btn" type="submit">
                 <Icon name="circle-check" />
                 Save
               </button>
@@ -143,16 +133,39 @@ export default function DictionaryDefinition(
               class="btn"
               type="button"
               onClick={() => {
-                setIsContentEditable(false);
-                setDefinitionData(structuredClone(definition));
+                setTempData(null);
+                setIsEditMode(false);
               }}
             >
               <Icon name="xmark" />
               Cancel
             </button>
+          </form>
+        )
+        : (
+          <>
+            <div class="definition-term">
+              {definitionData.definition}
+              {auth.isAdmin &&
+                (
+                  <Icon
+                    name="pen-to-square"
+                    onClick={() => {
+                      setTempData(structuredClone(definitionData));
+                      setIsEditMode(true);
+                    }}
+                  />
+                )}
+            </div>
+            <ul class="definition-examples">
+              {definitionData?.examples?.map((example) => (
+                <li>
+                  {example}
+                </li>
+              ))}
+            </ul>
           </>
         )}
-      </form>
     </li>
   );
 }

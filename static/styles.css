@@ -582,6 +582,18 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    & .textarea-wrapper {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        & textarea {
+            transition: height var(--animation-ms) ease-in;
+            height: 50px;
+            flex-grow: 1;
+        }
+    }
 }
 
 .definition-buttons {

@@ -20,21 +20,20 @@ export default function DictionaryDefinitions(
     if (!confirm("Delete this definition?")) return;
     const target = e.target as HTMLElement;
     const btn = target.closest("button");
-    const definitionId = btn?.dataset._id;
-    if (definitionId) {
-      deleteDefinition(word._id, definitionId).then(({ status }) => {
-        if (status === 200) {
-          console.log("Success");
+    const definitionId = btn?.dataset.id;
+    if (!definitionId) return;
+    deleteDefinition(word._id, definitionId).then(({ status }) => {
+      if (status === 200) {
+        console.log("Success");
 
-          word.definitions = word.definitions.filter((e) =>
-            e._id !== definitionId
-          );
-          setWord({ ...word });
-        } else {
-          console.log("Failure");
-        }
-      });
-    }
+        word.definitions = word.definitions.filter((e) =>
+          e._id !== definitionId
+        );
+        setWord({ ...word });
+      } else {
+        console.log("Failure");
+      }
+    });
   };
 
   return (
@@ -45,17 +44,14 @@ export default function DictionaryDefinitions(
             <span class="entry-type">{type || "other"}</span>
             <ul class="dictionary-definitions">
               {definitions.get(type)!.map(
-                (definition: Definition, idx: number) => {
-                  return (
-                    <DictionaryDefinition
-                      order={idx}
-                      wordId={word._id}
-                      definition={definition}
-                      setWord={setWord}
-                      onDeleteDefinition={handleDeleteDefinition}
-                    />
-                  );
-                },
+                (definition: Definition, idx: number) => (
+                  <DictionaryDefinition
+                    order={idx + 1}
+                    wordId={word._id}
+                    definition={definition}
+                    onDeleteDefinition={handleDeleteDefinition}
+                  />
+                ),
               )}
             </ul>
           </>
