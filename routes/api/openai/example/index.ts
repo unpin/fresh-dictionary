@@ -6,8 +6,8 @@ import { Status } from "std/http/http_status.ts";
 const client = new OpenAI();
 
 export const handler: Handlers = {
-  async GET(_req, ctx) {
-    const word = ctx.params.word;
+  async POST(req, _ctx) {
+    const { word } = await req.json();
     try {
       const chatCompletion = await client.chat.completions.create({
         messages: [{

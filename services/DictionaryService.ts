@@ -38,7 +38,11 @@ export async function updateDefinition(
 
 export async function generateExampleSentence(word: string) {
   const response = await fetch(
-    `/api/openai/example/${word}`,
+    `/api/openai/example`,
+    {
+      method: "POST",
+      body: JSON.stringify({ word }),
+    },
   );
   return response;
 }
