@@ -11,7 +11,7 @@ import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
 import * as $api_dictionary_id_definition_definitionId_index from "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts";
 import * as $api_dictionary_id_definition_index from "./routes/api/dictionary/[_id]/definition/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
-import * as $api_openai_example_word_ from "./routes/api/openai/example/index.ts";
+import * as $api_openai_example_index from "./routes/api/openai/example/index.ts";
 import * as $auth_delete from "./routes/auth/delete.ts";
 import * as $auth_email from "./routes/auth/email.ts";
 import * as $auth_signin from "./routes/auth/signin.ts";
@@ -55,7 +55,7 @@ const manifest = {
     "./routes/api/dictionary/[_id]/definition/index.ts":
       $api_dictionary_id_definition_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
-    "./routes/api/openai/example/[word].ts": $api_openai_example_word_,
+    "./routes/api/openai/example/index.ts": $api_openai_example_index,
     "./routes/auth/delete.ts": $auth_delete,
     "./routes/auth/email.ts": $auth_email,
     "./routes/auth/signin.ts": $auth_signin,
