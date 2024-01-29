@@ -21,6 +21,7 @@ export default function BookmarkedWords() {
   }, []);
 
   const handleDelete = (_id: string) => {
+    navigator.vibrate([200]);
     deleteBookmark(_id).then((res) => {
       if (res.status === 204) {
         setEntries((items) => items.filter((e) => e._id !== _id));
