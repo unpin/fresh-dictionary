@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import Icon from "../components/Icon.tsx";
+import { Volume, VolumeSolid } from "../components/Icon.tsx";
 
 interface TTSProps {
   text: string;
@@ -32,7 +32,7 @@ export default function TTS({ text }: TTSProps) {
   };
   return (
     <span onClick={handlePlay}>
-      <Icon name={isPlaying ? "volume-solid" : "volume"} />
+      {isPlaying ? <VolumeSolid class="icon" /> : <Volume class="icon" />}
     </span>
   );
 }

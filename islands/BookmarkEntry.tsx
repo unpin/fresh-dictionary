@@ -1,7 +1,7 @@
 import { StateUpdater, useRef } from "preact/hooks";
 import { addBookmark, deleteBookmark } from "../services/BookmarkService.ts";
-import Icon from "../components/Icon.tsx";
 import { Word } from "../types/words.ts";
+import { Bookmark, BookmarkSolid } from "../components/Icon.tsx";
 
 interface BookmarkEntryProps {
   word: Word;
@@ -14,7 +14,6 @@ const bookmarkAnimation = [
   { transform: "translateY(0px) scaleY(1.1) scaleX(.9)" },
   { transform: "translateY(-8px) scaleY(.85) scaleX(1.05)" },
   { transform: "translateY(0px) scaleY(1.05) scaleX(.95)" },
-  { transform: "translateY(-5px)" },
   { transform: "translateY(0px)" },
 ];
 
@@ -64,12 +63,15 @@ export default function BookmarkEntry({ word, setWord }: BookmarkEntryProps) {
     <span class="dictionary-bookmark" ref={bookmarkSpanRef}>
       {word.isBookmarked
         ? (
-          <Icon
-            name="bookmark-solid"
-            onClick={handleDelete}
-          />
+          <span onClick={handleDelete}>
+            <BookmarkSolid class="icon" />
+          </span>
         )
-        : <Icon name="bookmark" onClick={handleAdd} />}
+        : (
+          <span onClick={handleAdd}>
+            <Bookmark class="icon" />
+          </span>
+        )}
     </span>
   );
 }

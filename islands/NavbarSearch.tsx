@@ -1,9 +1,9 @@
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
-import Icon from "../components/Icon.tsx";
 import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
 import { Word } from "../types/words.ts";
+import { MagnifyingGlass, SpinnerThird, Xmark } from "../components/Icon.tsx";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
@@ -53,19 +53,19 @@ export default function NavbarSearch() {
             {isLoading
               ? (
                 <div class="search-btn" onClick={queryDictionary}>
-                  <Icon class="icon spinning" name="spinner-third" />
+                  <SpinnerThird class="icon spinning" />
                 </div>
               )
               : (
                 entries.length > 0
                   ? (
                     <div class="search-btn" onClick={clearQuery}>
-                      <Icon name="xmark" />
+                      <Xmark class="icon" />
                     </div>
                   )
                   : (
                     <div class="search-btn" onClick={queryDictionary}>
-                      <Icon name="magnifying-glass" />
+                      <MagnifyingGlass class="icon" />
                     </div>
                   )
               )}

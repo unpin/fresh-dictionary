@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { deleteBookmark } from "../../services/BookmarkService.ts";
-import Icon from "../../components/Icon.tsx";
+import { BookmarkSolid } from "../../components/Icon.tsx";
 
 interface Entry {
   _id: string;
@@ -50,11 +50,9 @@ export default function BookmarkedWords() {
                   <a href={"/dictionary/" + e._id}>
                     {e.article} {e.word}
                   </a>
-                  <Icon
-                    class="icon"
-                    name="bookmark-solid"
-                    onClick={() => handleDelete(e._id)}
-                  />
+                  <span onClick={() => handleDelete(e._id)}>
+                    <BookmarkSolid class="icon" />
+                  </span>
                 </li>
               ))}
             </ul>

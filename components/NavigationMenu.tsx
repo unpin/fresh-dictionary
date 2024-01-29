@@ -1,4 +1,4 @@
-import Icon from "./Icon.tsx";
+import { Bookmark, HouseBlank, MagnifyingGlass, User } from "./Icon.tsx";
 
 export default function NavigationMenu() {
   return (
@@ -7,22 +7,22 @@ export default function NavigationMenu() {
         <ul>
           <li>
             <a href="/">
-              <Icon name="house-blank" />
+              <HouseBlank class="icon" />
             </a>
           </li>
           <li>
             <a href="/bookmarks">
-              <Icon name="bookmark" />
+              <Bookmark class="icon" />
             </a>
           </li>
           <li>
             <a href="">
-              <Icon name="magnifying-glass" />
+              <MagnifyingGlass class="icon" />
             </a>
           </li>
           <li>
             <a href="/profile">
-              <Icon name="user" />
+              <User class="icon" />
             </a>
           </li>
         </ul>

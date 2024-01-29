@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import { generateExampleSentence } from "../../services/DictionaryService.ts";
-import Icon from "../../components/Icon.tsx";
 import { JSX } from "preact/jsx-runtime";
+import { Copy } from "../../components/Icon.tsx";
 
 interface GenerateExampleProps {
   word: string;
@@ -59,7 +59,7 @@ export default function GenerateExample(
               {example}
             </p>
             <span class="copy-to-clipboard">
-              <Icon name="copy" />
+              <Copy class="icon" />
             </span>
           </li>
         ))}

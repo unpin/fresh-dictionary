@@ -1,4 +1,4 @@
-import Icon from "../components/Icon.tsx";
+import { ClockRotateLeft } from "../components/Icon.tsx";
 import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
 
 export default function PreviousSearches() {
@@ -10,7 +10,7 @@ export default function PreviousSearches() {
         {searchItems.map(({ _id, searchTerm }) => (
           <div class="history-entry">
             <div class="history-entry-word">
-              <Icon name="clock-rotate-left" />
+              <ClockRotateLeft class="icon" />
               <a
                 href={"/dictionary/" + _id}
               >
