@@ -24,7 +24,7 @@ export default function BookmarkEntry({ word, setWord }: BookmarkEntryProps) {
       ...word,
       isBookmarked: true,
     });
-    navigator.vibrate([200]);
+    navigator.vibrate([100]);
     addBookmark(word._id).then((res) => {
       if (res.status === 201) {
         if (bookmarkSpanRef.current) {
@@ -46,7 +46,7 @@ export default function BookmarkEntry({ word, setWord }: BookmarkEntryProps) {
       ...word,
       isBookmarked: false,
     });
-    navigator.vibrate([200]);
+    navigator.vibrate([100]);
     deleteBookmark(word._id).then((res) => {
       if (res.status === 204) {
         if (bookmarkSpanRef.current) {
