@@ -639,8 +639,35 @@ hr {
         gap: 1rem;
         flex-direction: column;
 
+
+
+        & .delete-example-icon {
+            align-self: center;
+
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+
+            &:hover::before {
+                opacity: 1;
+            }
+
+            &:hover::after {
+                opacity: 1;
+            }
+
+
+
+            & .icon {
+                width: 1.25rem;
+                height: 1.25rem;
+
+                &:hover {
+                    fill: var(--color-danger)
+                }
+            }
+        }
+
         & textarea {
-            transition: height var(--animation-ms) ease-in;
             height: 50px;
             flex-grow: 1;
         }
@@ -651,6 +678,10 @@ hr {
     display: flex;
     gap: 0.5rem;
     flex-direction: column;
+
+    & .add-example-icon {
+        align-self: center;
+    }
 
     & .btn {
         flex-grow: 1;
