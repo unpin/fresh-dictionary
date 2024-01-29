@@ -548,6 +548,13 @@ hr {
 .definition-counter {
     color: var(--color-gray);
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+    & .edit-button .icon {
+        width: 1rem;
+        flex-shrink: 0;
+    }
 }
 
 .definition-examples {
@@ -567,15 +574,6 @@ hr {
             position: absolute;
             left: -1rem;
         }
-
-        & .icon {
-            width: 1rem;
-            flex-shrink: 0;
-
-            &:hover {
-                fill: var(--color-danger);
-            }
-        }
     }
 }
 
@@ -587,7 +585,7 @@ hr {
     & .textarea-wrapper {
         display: flex;
         gap: 1rem;
-        align-items: center;
+        flex-direction: column;
 
         & textarea {
             transition: height var(--animation-ms) ease-in;
@@ -600,7 +598,7 @@ hr {
 .definition-buttons {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    flex-direction: column;
 
     & .btn {
         flex-grow: 1;
