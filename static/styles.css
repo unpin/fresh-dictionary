@@ -836,7 +836,6 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    align-items: start;
 
     & .items {
         display: flex;
@@ -846,6 +845,7 @@ hr {
         & li {
             display: flex;
             gap: 1rem;
+            justify-content: space-between;
         }
     }
 }
