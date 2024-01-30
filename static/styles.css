@@ -833,7 +833,6 @@ hr {
 .bookmarks-container {
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
     gap: 1rem;
 
     & ul {
@@ -845,10 +844,15 @@ hr {
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            padding: 1rem;
-            border: 1px solid var(--color-pale);
+            padding: 1rem 0;
             border-radius: var(--border-radius);
             cursor: pointer;
+            align-items: center;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--color-background-secondary);
+
+            }
         }
 
         & a {
