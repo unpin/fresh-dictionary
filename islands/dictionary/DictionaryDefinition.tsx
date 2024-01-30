@@ -78,7 +78,7 @@ export default function DictionaryDefinition(
   };
 
   return (
-    <li>
+    <li class="flex column gap">
       <div class="definition-counter">
         {order}. {auth.isAdmin &&
           (isEditMode
@@ -182,7 +182,7 @@ export default function DictionaryDefinition(
             <div class="definition-term">
               {definitionData.definition}
             </div>
-            <ul class="definition-examples">
+            <ul class="definition-examples flex column gap">
               {definitionData?.examples?.map((example) => (
                 <li>
                   {example}
