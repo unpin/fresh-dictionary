@@ -875,7 +875,6 @@ hr {
     left: 0;
     right: 0;
     background-color: var(--color-background-secondary);
-    border-top: 1px solid var(--color-pale);
 
     & ul {
         position: relative;
