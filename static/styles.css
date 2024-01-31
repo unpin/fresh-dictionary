@@ -930,6 +930,11 @@ hr {
             justify-content: space-between;
         }
     }
+    .btn {
+        background: none;
+        border: 1px solid var(--color-primary);
+        align-self: center;
+    }
 }
 
 .openai-container {
