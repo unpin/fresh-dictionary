@@ -8,7 +8,9 @@ import {
   CirclePlus,
   PenToSquare,
   Trash,
+  Xmark,
 } from "../../components/Icon.tsx";
+import { Ellipsis } from "../../components/Icon.tsx";
 
 interface DictionaryDefinitionProps {
   definition: Definition;
@@ -77,24 +79,25 @@ export default function DictionaryDefinition(
     textarea.style.height = "50px";
   };
 
+  const cancelEdit = () => {
+    setIsEditMode(() => false);
+    setTempData(() => null);
+  };
+
   return (
     <li class="flex column gap">
       <div class="definition-counter">
-        {order}. {auth.isAdmin &&
-          (isEditMode
-            ? (
-              <div class="edit-button">
-                <span
-                  name="circle-check"
-                  onClick={onUpdateDefinition}
-                >
-                  <CircleCheck class="icon" />
+        <span>{order}.</span> {auth.isAdmin &&
+          (
+            <div class="dropdown">
+              <div class="dropdown-toggle" tabIndex={order}>
+                <span>
+                  <Ellipsis class="icon" />
                 </span>
               </div>
-            )
-            : (
-              <div class="edit-button">
-                <span
+              <div class="dropdown-menu">
+                <li
+                  class="dropdown-item"
                   onClick={() => {
                     setTempData(() => {
                       const cloned = structuredClone(definitionData);
@@ -104,10 +107,21 @@ export default function DictionaryDefinition(
                     setIsEditMode(() => true);
                   }}
                 >
-                  <PenToSquare class="icon" />
-                </span>
+                  <span>
+                    <PenToSquare class="icon" />
+                  </span>Edit
+                </li>
+                <li
+                  class="dropdown-item"
+                  data-id={definitionData._id}
+                  onClick={onDeleteDefinition}
+                >
+                  <Trash class="icon" />
+                  Delete Definition
+                </li>
               </div>
-            ))}
+            </div>
+          )}
       </div>
       {isEditMode && tempData
         ? (
@@ -121,41 +135,45 @@ export default function DictionaryDefinition(
                 tempData.definition = (e.target as HTMLInputElement).value}
               value={tempData?.definition}
             />
-            <label>Examples</label>
+
             {tempData?.examples.map((example, i) => (
-              <div class="textarea-wrapper">
-                <label>{i + 1}.</label>
-                <textarea
-                  class="form-input"
-                  name="example"
-                  value={example}
-                  onFocus={updateTextareaHeight}
-                  onInput={(
-                    e: JSX.TargetedMouseEvent<HTMLTextAreaElement>,
-                  ) => {
-                    updateTextareaHeight(e);
-                    const target = e.target as HTMLTextAreaElement;
-                    console.log("change", target.value);
+              <>
+                <label>Examples</label>
+                <div class="textarea-wrapper">
+                  <textarea
+                    class="form-input"
+                    name="example"
+                    value={example}
+                    onFocus={updateTextareaHeight}
+                    onInput={(
+                      e: JSX.TargetedMouseEvent<HTMLTextAreaElement>,
+                    ) => {
+                      updateTextareaHeight(e);
+                      const target = e.target as HTMLTextAreaElement;
+                      console.log("change", target.value);
 
-                    setTempData((state) => {
-                      const clone = structuredClone(state);
+                      setTempData((state) => {
+                        const clone = structuredClone(state);
 
-                      if (clone?.examples) {
-                        clone.examples[i] = target.value;
-                      }
-                      return clone;
-                    });
-                  }}
-                >
-                  {example}
-                </textarea>
-                <span
-                  class="delete-example-icon"
-                  onClick={() => deleteExampleTextarea(i)}
-                >
-                  <Trash class="icon" />
-                </span>
-              </div>
+                        if (clone?.examples) {
+                          clone.examples[i] = target.value;
+                        }
+                        return clone;
+                      });
+                    }}
+                  >
+                    {example}
+                  </textarea>
+                  <div>
+                    <span
+                      class="delete-example-icon"
+                      onClick={() => deleteExampleTextarea(i)}
+                    >
+                      <Trash class="icon" />
+                    </span>
+                  </div>
+                </div>
+              </>
             ))}
 
             <div class="definition-buttons">
@@ -165,15 +183,27 @@ export default function DictionaryDefinition(
               >
                 <CirclePlus class="icon" />
               </span>
-              <button
-                class="btn"
-                type="button"
-                data-id={definitionData._id}
-                onClick={onDeleteDefinition}
-              >
-                <Trash class="icon" />
-                Delete Definition
-              </button>
+              Add an example
+            </div>
+            <div class="flex gap justify-center">
+              <div class="definition-buttons">
+                <span
+                  class="add-example-icon"
+                  onClick={cancelEdit}
+                >
+                  <Xmark class="icon" />
+                </span>
+                Cancel
+              </div>
+              <div class="definition-buttons">
+                <span
+                  name="circle-check"
+                  onClick={onUpdateDefinition}
+                >
+                  <CircleCheck class="icon" />
+                </span>
+                Save
+              </div>
             </div>
           </form>
         )

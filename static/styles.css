@@ -386,7 +386,7 @@ input:-webkit-autofill:active {
         flex-direction: column;
         row-gap: 0.5rem;
 
-        & .item>a {
+        & .item > a {
             display: block;
             color: var(--color-text);
             text-decoration: none;
@@ -601,11 +601,6 @@ hr {
     color: var(--color-gray);
     display: flex;
     justify-content: space-between;
-
-    & .edit-button .icon {
-        width: 1rem;
-        flex-shrink: 0;
-    }
 }
 
 .definition-examples {
@@ -636,15 +631,10 @@ hr {
     & .textarea-wrapper {
         display: flex;
         gap: 1rem;
-        flex-direction: column;
-
-
+        align-items: center;
 
         & .delete-example-icon {
             align-self: center;
-
-            margin-top: 1rem;
-            margin-bottom: 1rem;
 
             &:hover::before {
                 opacity: 1;
@@ -654,14 +644,12 @@ hr {
                 opacity: 1;
             }
 
-
-
             & .icon {
                 width: 1.25rem;
                 height: 1.25rem;
 
                 &:hover {
-                    fill: var(--color-danger)
+                    fill: var(--color-danger);
                 }
             }
         }
@@ -677,7 +665,9 @@ hr {
     display: flex;
     gap: 0.5rem;
     flex-direction: column;
-
+    align-items: center;
+    font-size: 13px;
+    color: var(--color-gray);
     & .add-example-icon {
         align-self: center;
     }
@@ -742,7 +732,7 @@ hr {
     cursor: pointer;
 }
 
-.examples>li {
+.examples > li {
     margin-bottom: 0.5rem;
     color: var(--color-gray);
 }
@@ -769,6 +759,54 @@ hr {
     & .icon {
         width: 1.75rem;
         height: 1.75rem;
+    }
+}
+
+.dropdown {
+    position: relative;
+
+    & .dropdown-toggle {
+        padding: 0.25rem;
+        cursor: pointer;
+    }
+
+    & > .dropdown-toggle:focus-within + .dropdown-menu {
+        visibility: visible;
+    }
+
+    & > .dropdown-menu {
+        position: absolute;
+        visibility: hidden;
+        top: 2.25rem;
+        right: 0;
+        background-color: var(--color-background-secondary);
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-pale);
+
+        &:hover {
+            visibility: visible;
+        }
+
+        & .dropdown-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            align-items: center;
+            white-space: nowrap;
+            z-index: 999;
+
+            &:hover {
+                background-color: var(--color-pale);
+                color: var(--color-text);
+            }
+        }
+    }
+
+    & .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        flex-shrink: 0;
     }
 }
 
@@ -839,7 +877,7 @@ hr {
         flex-direction: column;
         gap: 0.5rem;
 
-        &>li {
+        & > li {
             display: flex;
             justify-content: space-between;
             gap: 1rem;
@@ -849,7 +887,6 @@ hr {
 
             &:not(:last-child) {
                 border-bottom: 1px solid var(--color-background-secondary);
-
             }
         }
 
@@ -912,6 +949,9 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border: 1px dashed var(--color-pale);
+    padding: 1rem;
+    border-radius: 4px;
 }
 
 .openai-container {
@@ -942,7 +982,6 @@ hr {
         & .icon {
             display: flex;
             gap: 0.5rem;
-
         }
     }
 }
