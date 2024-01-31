@@ -1,5 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
-import { Status } from "std/http/http_status.ts";
+import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { signToken } from "../../common/jwt.ts";
 import { User, UserRole } from "../../models/User.ts";
 import { genSaltSync, hashSync } from "bcrypt";
@@ -45,7 +44,7 @@ export const handler: Handlers = {
 
     return Response.json({ name: user.name, email: user.email, token }, {
       headers,
-      status: Status.Created,
+      status: STATUS_CODE.Created,
     });
   },
 };

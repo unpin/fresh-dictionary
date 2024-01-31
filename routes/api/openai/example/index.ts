@@ -1,8 +1,7 @@
-import { Handlers } from "$fresh/server.ts";
-
-import OpenAI from "https://deno.land/x/openai@v4.20.1/mod.ts";
+import { Handlers, STATUS_CODE } from "$fresh/server.ts";
+import OpenAI from "openai/mod.ts";
 import { Logger } from "../../../../common/logger.ts";
-import { Status } from "std/http/http_status.ts";
+
 const client = new OpenAI();
 
 export const handler: Handlers = {
@@ -22,7 +21,7 @@ export const handler: Handlers = {
       });
     } catch (error) {
       Logger.error(error);
-      return new Response(null, { status: Status.InternalServerError });
+      return new Response(null, { status: STATUS_CODE.InternalServerError });
     }
   },
 };

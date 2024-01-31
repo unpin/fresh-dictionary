@@ -1,5 +1,4 @@
-import { FreshContext, Handlers } from "$fresh/server.ts";
-import { Status } from "std/http/http_status.ts";
+import { FreshContext, Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { User } from "../../models/User.ts";
 import { compareSync } from "bcrypt";
 import { Bookmark } from "../../models/Bookmark.ts";
@@ -10,7 +9,7 @@ export const handler: Handlers = {
   async POST(req: Request, ctx: FreshContext) {
     if (!ctx.state.auth) {
       return new Response(null, {
-        status: Status.BadRequest,
+        status: STATUS_CODE.BadRequest,
       });
     }
     const { password } = await req.json();
@@ -21,11 +20,11 @@ export const handler: Handlers = {
       password: string;
     };
     const user = await User.findOne({ email: auth.email });
-    if (!user) return new Response(null, { status: Status.BadRequest });
+    if (!user) return new Response(null, { status: STATUS_CODE.BadRequest });
 
     if (!compareSync(password, user.password)) {
       return new Response(null, {
-        status: Status.BadRequest,
+        status: STATUS_CODE.BadRequest,
         statusText: "Password is incorrect",
       });
     }
@@ -36,14 +35,14 @@ export const handler: Handlers = {
     const deletedCount = await User.deleteOne({ email: auth.email });
     if (!deletedCount) {
       return new Response(null, {
-        status: Status.BadRequest,
+        status: STATUS_CODE.BadRequest,
       });
     }
     const headers = new Headers(req.headers);
     deleteCookie(headers, "authToken", { path: "/", domain: ctx.url.hostname });
     return new Response(null, {
       headers,
-      status: Status.NoContent,
+      status: STATUS_CODE.NoContent,
     });
   },
 };

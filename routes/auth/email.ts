@@ -1,5 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
-import { Status } from "std/http/http_status.ts";
+import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { User } from "../../models/User.ts";
 
 export const handler: Handlers = {
@@ -9,7 +8,7 @@ export const handler: Handlers = {
 
     if (!foundUser) {
       return new Response("", {
-        status: Status.NotFound,
+        status: STATUS_CODE.NotFound,
       });
     }
 

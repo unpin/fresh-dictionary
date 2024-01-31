@@ -1,12 +1,11 @@
-import { FreshContext, Handlers } from "$fresh/server.ts";
-import { Status } from "std/http/http_status.ts";
+import { FreshContext, Handlers, STATUS_CODE } from "$fresh/server.ts";
 import SignInForm from "../../islands/auth/SignInForm.tsx";
 
 export const handler: Handlers = {
   async GET(_req: Request, ctx: FreshContext) {
     if (ctx.state.auth) {
       return new Response("", {
-        status: Status.TemporaryRedirect,
+        status: STATUS_CODE.TemporaryRedirect,
         headers: { Location: "/" },
       });
     }

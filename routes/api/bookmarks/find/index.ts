@@ -1,9 +1,7 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { Bookmark } from "../../../../models/Bookmark.ts";
-import { Status } from "std/http/http_status.ts";
 import { Logger } from "../../../../common/logger.ts";
-
 export const handler: Handlers = {
   async POST(req, ctx) {
     const { wordId } = await req.json();
@@ -15,12 +13,12 @@ export const handler: Handlers = {
         "wordIds._id": new ObjectId(wordId),
       });
       return Response.json({ isBookmarked: hasBookmark ? true : false }, {
-        status: Status.OK,
+        status: STATUS_CODE.OK,
       });
     } catch (e) {
       Logger.debug(e);
       return new Response("", {
-        status: Status.Unauthorized,
+        status: STATUS_CODE.Unauthorized,
       });
     }
   },

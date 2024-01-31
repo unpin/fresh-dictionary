@@ -1,6 +1,5 @@
 import { deleteCookie } from "$std/http/cookie.ts";
-import { FreshContext, Handlers } from "$fresh/server.ts";
-import { Status } from "std/http/http_status.ts";
+import { FreshContext, Handlers, STATUS_CODE } from "$fresh/server.ts";
 
 export const handler: Handlers = {
   GET(req: Request, ctx: FreshContext) {
@@ -8,7 +7,7 @@ export const handler: Handlers = {
     deleteCookie(headers, "authToken", { path: "/", domain: ctx.url.hostname });
     headers.set("Location", "/signin");
     return new Response(null, {
-      status: Status.Found,
+      status: STATUS_CODE.Found,
       headers,
     });
   },

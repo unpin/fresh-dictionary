@@ -1,5 +1,4 @@
-import { Handlers } from "$fresh/server.ts";
-import { Status } from "std/http/http_status.ts";
+import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { Bookmark } from "../../../models/Bookmark.ts";
 import { ObjectId } from "mongo";
 import { Logger } from "../../../common/logger.ts";
@@ -25,12 +24,12 @@ export const handler: Handlers = {
         upsert: true,
       });
       return new Response("", {
-        status: matchedCount ? Status.Created : Status.BadRequest,
+        status: matchedCount ? STATUS_CODE.Created : STATUS_CODE.BadRequest,
       });
     } catch (e) {
       Logger.debug(e);
       return new Response("", {
-        status: Status.BadRequest,
+        status: STATUS_CODE.BadRequest,
       });
     }
   },
@@ -88,12 +87,12 @@ export const handler: Handlers = {
       );
 
       return Response.json(await data.toArray(), {
-        status: Status.OK,
+        status: STATUS_CODE.OK,
       });
     } catch (e) {
       Logger.debug(e);
       return new Response("", {
-        status: Status.Unauthorized,
+        status: STATUS_CODE.Unauthorized,
       });
     }
   },
@@ -109,12 +108,12 @@ export const handler: Handlers = {
       });
 
       return new Response(null, {
-        status: matchedCount ? Status.NoContent : Status.NotFound,
+        status: matchedCount ? STATUS_CODE.NoContent : STATUS_CODE.NotFound,
       });
     } catch (e) {
       Logger.debug(e);
       return new Response("", {
-        status: Status.BadRequest,
+        status: STATUS_CODE.BadRequest,
       });
     }
   },
