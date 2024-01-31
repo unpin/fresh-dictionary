@@ -46,6 +46,14 @@ export function Copy(props: { class?: string }) {
   );
 }
 
+export function Ellipsis(props: { class?: string }) {
+  return (
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path d="M416 256a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zm-160 0a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM64 288a32 32 0 1 1 0-64 32 32 0 1 1 0 64z" />
+    </svg>
+  );
+}
+
 export function MagnifyingGlass(props: { class?: string }) {
   return (
     <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
