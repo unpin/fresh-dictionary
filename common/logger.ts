@@ -1,8 +1,8 @@
 import {
+  ConsoleHandler,
   critical,
   debug,
   error,
-  handlers,
   info,
   LevelName,
   setup,
@@ -12,7 +12,7 @@ import { LOG_LEVEL } from "./constants.ts";
 
 setup({
   handlers: {
-    console: new handlers.ConsoleHandler("DEBUG"),
+    console: new ConsoleHandler("DEBUG"),
   },
   loggers: {
     default: {
