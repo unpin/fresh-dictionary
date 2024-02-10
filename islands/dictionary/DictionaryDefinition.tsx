@@ -138,7 +138,7 @@ export default function DictionaryDefinition(
 
             {tempData?.examples.map((example, i) => (
               <>
-                <label>Examples</label>
+                <label>Example {i + 1}</label>
                 <div class="textarea-wrapper">
                   <textarea
                     class="form-input"
