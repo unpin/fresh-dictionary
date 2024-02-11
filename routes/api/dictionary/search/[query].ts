@@ -9,7 +9,7 @@ export const handler: Handlers = {
     const decodedQuery = decodeURI(query);
     const entries = await DictionaryEntry.findMany({
       $text: {
-        $search: decodedQuery,
+        $search: `\"${decodedQuery}\"`,
         $caseSensitive: false,
         $diacriticSensitive: false,
       },
@@ -18,7 +18,7 @@ export const handler: Handlers = {
         word: 1,
         article: 1,
       },
-      // limit: 50,
+      limit: 50,
     });
 
     return new Response(JSON.stringify(entries), {
