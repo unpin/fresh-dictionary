@@ -56,7 +56,7 @@ export default function BookmarkedWords() {
                 </li>
               ))}
             </ul>
-            <button class="btn" onClick={onLoadMore}>Load more</button>
+            <button class="btn" onClick={onLoadMore}>Show more</button>
           </>
         )}
       </div>
