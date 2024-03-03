@@ -335,6 +335,7 @@ input:-webkit-autofill:active {
     gap: 0.5rem;
     background-color: var(--color-background);
     border-radius: 32px;
+    transition: background-color var(--animation-ms) ease-in-out;
     &:focus-within {
         background-color: #282a2c;
     }
