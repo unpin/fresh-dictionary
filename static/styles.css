@@ -335,6 +335,9 @@ input:-webkit-autofill:active {
     gap: 0.5rem;
     background-color: var(--color-background);
     border-radius: 32px;
+    &:focus-within {
+        background-color: #282a2c;
+    }
 }
 
 .search-btn {
