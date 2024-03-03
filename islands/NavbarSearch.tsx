@@ -46,6 +46,7 @@ export default function NavbarSearch() {
               ref={searchFieldRef}
               class="search-input"
               placeholder="Stichwort"
+              autocomplete="off"
               value={query}
               onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
             />
