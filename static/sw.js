@@ -53,32 +53,32 @@ async function networkFirst(request) {
   }
 }
 
-self.addEventListener("fetch", (event) => {
-  // if (event.request.method === "GET") {
-  //   const { pathname } = new URL(event.request.url);
-  //   if (cacheFirstResources.some((resource) => resource.startsWith(pathname))) {
-  //     event.respondWith(cacheFirst(event.request));
-  //   } else {
-  //     event.respondWith(networkFirst(event.request));
-  //   }
-  // }
-});
+// self.addEventListener("fetch", (event) => {
+// if (event.request.method === "GET") {
+//   const { pathname } = new URL(event.request.url);
+//   if (cacheFirstResources.some((resource) => resource.startsWith(pathname))) {
+//     event.respondWith(cacheFirst(event.request));
+//   } else {
+//     event.respondWith(networkFirst(event.request));
+//   }
+// }
+// });
 
-self.addEventListener("activate", (event) => {
-  // const cacheAllowlist = [CACHE_VERSION];
-  // event.waitUntil(async () => {
-  //   (await caches.keys()).forEach((cacheName) => {
-  //     if (!cacheAllowlist.includes(cacheName)) {
-  //       return caches.delete(cacheName);
-  //     }
-  //   });
-  // });
-});
+// self.addEventListener("activate", (event) => {
+// const cacheAllowlist = [CACHE_VERSION];
+// event.waitUntil(async () => {
+//   (await caches.keys()).forEach((cacheName) => {
+//     if (!cacheAllowlist.includes(cacheName)) {
+//       return caches.delete(cacheName);
+//     }
+//   });
+// });
+// });
 
-self.addEventListener("install", (event) => {
-  // event.waitUntil(
-  //   caches
-  //     .open(CACHE_VERSION)
-  //     .then((cache) => cache.addAll(cacheOnInstall)),
-  // );
-});
+// self.addEventListener("install", (event) => {
+// event.waitUntil(
+//   caches
+//     .open(CACHE_VERSION)
+//     .then((cache) => cache.addAll(cacheOnInstall)),
+// );
+// });
