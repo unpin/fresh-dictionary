@@ -703,6 +703,7 @@ hr {
 .history-entry {
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .history-entry-word {
