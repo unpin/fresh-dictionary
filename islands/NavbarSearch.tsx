@@ -9,6 +9,7 @@ import {
   SpinnerThird,
   Xmark,
 } from "../components/Icon.tsx";
+import { useBody } from "../hooks/useBody.tsx";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
@@ -20,6 +21,7 @@ export default function NavbarSearch() {
   const [showContent, setShowContent] = useState<boolean>(false);
   const [_, addSearchItem] = useDictionarySearchHistory();
   const [searchItems, __, deleteSearchItem] = useDictionarySearchHistory();
+  const [body] = useBody();
 
   useEffect(() => {
     queryDictionary();
@@ -47,6 +49,9 @@ export default function NavbarSearch() {
   const closeSearchContent = () => {
     setShowContent(false);
     setEntries([]);
+    if (body.current) {
+      body.current.style.overflow = "auto";
+    }
   };
 
   return (
@@ -61,7 +66,12 @@ export default function NavbarSearch() {
               autocomplete="off"
               value={query}
               onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-              onFocus={() => setShowContent(true)}
+              onFocus={() => {
+                setShowContent(true);
+                if (body.current) {
+                  body.current.style.overflow = "hidden";
+                }
+              }}
             />
 
             {isLoading

@@ -308,8 +308,7 @@ input:-webkit-autofill:active {
 
 .search-container {
     color: var(--color-text);
-    background: var(--color-primary);
-    z-index: 110;
+    z-index: 1000;
 
     & .search-input {
         flex: 1;
@@ -361,8 +360,8 @@ input:-webkit-autofill:active {
 .search-content {
     position: absolute;
     border-radius: 4px;
-    z-index: 100;
-    top: 10rem;
+    z-index: 1010;
+    top: 0rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -389,6 +388,8 @@ input:-webkit-autofill:active {
         background-color: #282a2c;
         padding: 1rem;
         border-radius: 0.5rem;
+        position: relative;
+        top: 10rem;
 
         & .item > a {
             display: block;
