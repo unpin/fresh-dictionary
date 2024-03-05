@@ -71,6 +71,7 @@ export default function NavbarSearch() {
                 if (body.current) {
                   body.current.style.overflow = "hidden";
                 }
+                self.scrollTo({ top: 0, behavior: "smooth" });
               }}
             />
 
