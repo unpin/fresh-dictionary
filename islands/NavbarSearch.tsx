@@ -68,10 +68,12 @@ export default function NavbarSearch() {
               onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
               onFocus={() => {
                 setShowContent(true);
-                if (body.current) {
-                  body.current.style.overflow = "hidden";
-                }
                 self.scrollTo({ top: 0, behavior: "smooth" });
+                setTimeout(() => {
+                  if (body.current) {
+                    body.current.style.overflow = "hidden";
+                  }
+                }, 250);
               }}
             />
 
