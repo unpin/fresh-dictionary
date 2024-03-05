@@ -108,11 +108,13 @@ export default function NavbarSearch() {
                       <li class="item">
                         <a
                           href={"/dictionary/" + encodeURI(_id)}
-                          onClick={() =>
+                          onClick={(e) => {
+                            e.stopPropagation();
                             addSearchItem({
                               _id,
                               searchTerm: article + " " + word,
-                            })}
+                            });
+                          }}
                         >
                           {article
                             ? <span class="search-article">{article}</span>
@@ -131,6 +133,7 @@ export default function NavbarSearch() {
                             <ClockRotateLeft class="icon" />
                             <a
                               href={"/dictionary/" + _id}
+                              onClick={(e) => e.stopPropagation()}
                             >
                               {searchTerm}
                             </a>
