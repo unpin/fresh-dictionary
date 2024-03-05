@@ -824,7 +824,7 @@ hr {
 
 .entry-type {
     border-radius: 4px;
-    background-color: var(--color-primary);
+    background-color: #282a2c;
     padding: 0.25rem 0.75rem;
     font-weight: 500;
     align-self: start;
