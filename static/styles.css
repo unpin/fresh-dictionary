@@ -752,6 +752,7 @@ hr {
     }
 
     & h1 {
+        font-size: 1.75rem;
         word-break: break-word;
         display: flex;
         align-items: center;
