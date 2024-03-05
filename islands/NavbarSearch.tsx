@@ -137,7 +137,10 @@ export default function NavbarSearch() {
                           </div>
                           <div
                             class="history-close-btn"
-                            onClick={() => deleteSearchItem(_id)}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              deleteSearchItem(_id);
+                            }}
                           >
                             &#10005;
                           </div>
