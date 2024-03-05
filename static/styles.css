@@ -603,7 +603,7 @@ hr {
 }
 
 .definition-counter {
-    color: var(--color-gray);
+    color: var(--color-text);
     display: flex;
     justify-content: space-between;
 }
