@@ -362,7 +362,7 @@ input:-webkit-autofill:active {
     position: absolute;
     border-radius: 4px;
     z-index: 100;
-    top: 1rem;
+    top: 10rem;
     left: 0;
     right: 0;
     bottom: 0;
@@ -710,7 +710,8 @@ hr {
     color: var(--color-gray);
 
     & .icon {
-        width: 20px;
+        width: 18px;
+        flex-shrink: 0;
     }
 }
 
