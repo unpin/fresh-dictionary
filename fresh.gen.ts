@@ -27,7 +27,6 @@ import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
-import * as $SearchHistory from "./islands/SearchHistory.tsx";
 import * as $TTS from "./islands/TTS.tsx";
 import * as $auth_DeleteAccountForm from "./islands/auth/DeleteAccountForm.tsx";
 import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
@@ -73,7 +72,6 @@ const manifest = {
   islands: {
     "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
-    "./islands/SearchHistory.tsx": $SearchHistory,
     "./islands/TTS.tsx": $TTS,
     "./islands/auth/DeleteAccountForm.tsx": $auth_DeleteAccountForm,
     "./islands/auth/SignInForm.tsx": $auth_SignInForm,

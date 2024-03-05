@@ -358,18 +358,16 @@ input:-webkit-autofill:active {
     }
 }
 
-.search-results {
+.search-content {
     position: absolute;
     border-radius: 4px;
-    background-color: var(--color-background-secondary);
     padding: 1rem;
     z-index: 100;
-    top: 10rem;
+    top: 9rem;
     left: 0;
     right: 0;
     bottom: 0;
     overflow-y: scroll;
-    scrollbar-width: thin;
 
     &::-webkit-scrollbar {
         width: 0.5rem;
@@ -389,12 +387,15 @@ input:-webkit-autofill:active {
         display: flex;
         flex-direction: column;
         row-gap: 0.5rem;
+        background-color: #282a2c;
+        padding: 1rem;
+        border-radius: 0.5rem;
 
         & .item > a {
             display: block;
             color: var(--color-text);
             text-decoration: none;
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             word-break: break-word;
         }
     }
@@ -717,19 +718,13 @@ hr {
 .history-entry a {
     color: inherit;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     word-break: break-word;
     margin-bottom: 0.125rem;
 
     &:hover {
         color: var(--color-text);
     }
-}
-
-.history-footer {
-    display: flex;
-    justify-content: right;
-    padding: 1rem;
 }
 
 .history-close-btn {
