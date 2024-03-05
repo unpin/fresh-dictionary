@@ -308,7 +308,6 @@ input:-webkit-autofill:active {
 
 .search-container {
     color: var(--color-text);
-    z-index: 1020;
 
     & .search-input {
         flex: 1;
@@ -321,6 +320,7 @@ input:-webkit-autofill:active {
         padding-right: 1rem;
         width: 100%;
         color: var(--color-text);
+        z-index: 1020;
 
         &:focus-visible {
             outline: none;
