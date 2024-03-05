@@ -361,9 +361,8 @@ input:-webkit-autofill:active {
 .search-content {
     position: absolute;
     border-radius: 4px;
-    padding: 1rem;
     z-index: 100;
-    top: 9rem;
+    top: 1rem;
     left: 0;
     right: 0;
     bottom: 0;
