@@ -362,42 +362,16 @@ input:-webkit-autofill:active {
     }
 }
 
-@keyframes animation-pop-up {
-    from {
-        top: 1rem;
-        opacity: 0;
-    }
-    to {
-        top: 0;
-        opacity: 1;
-    }
-}
-
-@keyframes animation-pop-down {
-    from {
-        top: 0rem;
-        opacity: 1;
-    }
-    to {
-        top: 1rem;
-        opacity: 0;
-    }
-}
-
 .search-content {
     position: absolute;
     border-radius: 4px;
     z-index: 1010;
-    top: 1rem;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 0;
     overflow-y: auto;
-    animation: animation-pop-up var(--animation-ms) ease-out forwards;
-
-    &.close {
-        animation: animation-pop-down var(--animation-ms) ease-out forwards;
-    }
 
     &::-webkit-scrollbar {
         width: 0.5rem;

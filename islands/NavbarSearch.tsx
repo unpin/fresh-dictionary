@@ -10,6 +10,7 @@ import {
   Xmark,
 } from "../components/Icon.tsx";
 import { useBody } from "../hooks/useBody.tsx";
+import { FadeInUp, FadeOutDown } from "../utils/Animation.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
@@ -22,11 +23,17 @@ export default function NavbarSearch() {
   const [showContent, setShowContent] = useState<boolean>(false);
   const [searchItems, addSearchItem, deleteSearchItem] =
     useDictionarySearchHistory();
-  const [body] = useBody();
+  const [bodyRef] = useBody();
 
   useEffect(() => {
     queryDictionary();
   }, [query]);
+
+  useEffect(() => {
+    if (showContent) {
+      FadeInUp(searchContentRef.current as HTMLElement);
+    }
+  }, [showContent]);
 
   const queryDictionary = async () => {
     if (query.trim().length < 2) {
@@ -47,18 +54,21 @@ export default function NavbarSearch() {
     }
   };
 
+  const openSearchContent = () => {
+    setShowContent(true);
+    self.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    bodyRef.current!.style.overflow = "hidden";
+  };
+
   const closeSearchContent = () => {
-    if (searchContentRef.current) {
-      searchContentRef.current.classList.add("close");
-      setTimeout(() => {
-        searchContentRef.current!.classList.remove("close");
-        setShowContent(false);
-        setEntries([]);
-        if (body.current) {
-          body.current.style.overflow = "auto";
-        }
-      }, 300);
-    }
+    const searchContent = searchContentRef.current as HTMLDivElement;
+    const body = bodyRef.current as HTMLBodyElement;
+    FadeOutDown(searchContent);
+    setTimeout(() => {
+      setShowContent(false);
+      setEntries([]);
+      body.style.overflow = "auto";
+    }, 300);
   };
 
   return (
@@ -73,13 +83,7 @@ export default function NavbarSearch() {
               autocomplete="off"
               value={query}
               onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-              onFocus={() => {
-                setShowContent(true);
-                self.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-                if (body.current) {
-                  body.current.style.overflow = "hidden";
-                }
-              }}
+              onFocus={() => openSearchContent()}
             />
 
             {isLoading
