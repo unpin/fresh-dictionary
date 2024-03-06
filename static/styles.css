@@ -732,6 +732,9 @@ hr {
 
 .history-close-btn {
     cursor: pointer;
+    & .icon {
+        width: 0.75rem;
+    }
 }
 
 .examples > li {

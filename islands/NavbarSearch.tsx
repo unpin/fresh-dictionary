@@ -19,8 +19,8 @@ export default function NavbarSearch() {
   const [entries, setEntries] = useState<Word[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showContent, setShowContent] = useState<boolean>(false);
-  const [_, addSearchItem] = useDictionarySearchHistory();
-  const [searchItems, __, deleteSearchItem] = useDictionarySearchHistory();
+  const [searchItems, addSearchItem, deleteSearchItem] =
+    useDictionarySearchHistory();
   const [body] = useBody();
 
   useEffect(() => {
@@ -133,7 +133,9 @@ export default function NavbarSearch() {
                             <ClockRotateLeft class="icon" />
                             <a
                               href={"/dictionary/" + _id}
-                              onClick={(e) => e.stopPropagation()}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                              }}
                             >
                               {searchTerm}
                             </a>
@@ -145,7 +147,7 @@ export default function NavbarSearch() {
                               deleteSearchItem(_id);
                             }}
                           >
-                            &#10005;
+                            <Xmark class="icon" />
                           </div>
                         </div>
                       </li>
