@@ -796,7 +796,8 @@ hr {
         right: 0;
         background-color: var(--color-background-secondary);
         border-radius: var(--border-radius);
-        border: 1px solid var(--color-pale);
+        border: 1px solid #282a2c;
+        z-index: 100;
 
         &:hover {
             visibility: visible;
