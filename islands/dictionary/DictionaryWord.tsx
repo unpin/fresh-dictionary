@@ -3,7 +3,7 @@ import BookmarkEntry from "../BookmarkEntry.tsx";
 import TTS from "../TTS.tsx";
 import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
-import AddDefinition from "./AddDefinition.tsx";
+// import AddDefinition from "./AddDefinition.tsx";
 import { useAuth } from "../../hooks/useAuth.tsx";
 import GenerateExample from "./GenerateExample.tsx";
 
@@ -13,8 +13,8 @@ interface DictionaryWordProps {
 
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [word, setWord] = useState(entry);
-  const [showAddDefinition, setShowAddDefinition] = useState(false);
-  const [auth] = useAuth();
+  // const [showAddDefinition, setShowAddDefinition] = useState(false);
+  // const [auth] = useAuth();
 
   return (
     <div class="dictionary-entry">
@@ -33,7 +33,8 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
       </div>
 
       <DictionaryDefinitions word={word} setWord={setWord} />
-      {auth.isAdmin && (
+      {
+        /* {auth.isAdmin && (
         <>
           {showAddDefinition
             ? (
@@ -49,7 +50,8 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
               </button>
             )}
         </>
-      )}
+      )} */
+      }
       <GenerateExample word={word.word} />
     </div>
   );
