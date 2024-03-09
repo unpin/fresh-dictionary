@@ -10,6 +10,17 @@
     --border-radius: 4px;
     --animation-ms: 250ms;
     --btn-padding: 1rem 0.625rem;
+
+    --clr-1: #e92e18;
+    --clr-2: #316dd9;
+    --clr-3: #249a41;
+    --clr-4: #f6ad03;
+}
+
+@property --gradient-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -983,9 +994,51 @@ hr {
         }
     }
     .btn {
-        background: none;
-        border: 1px solid var(--color-primary);
         align-self: center;
+    }
+}
+
+.btn-animated-border {
+    position: relative;
+    background-color: #282a2c;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-animated-border:focus::before,
+.btn-animated-border:focus::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    background: conic-gradient(
+        from var(--gradient-angle),
+        var(--clr-1),
+        var(--clr-2),
+        var(--clr-3),
+        var(--clr-1)
+    );
+    border-radius: inherit;
+    animation: angle-animation linear 2s forwards;
+}
+
+.btn-animated-border::after {
+    filter: blur(0.5rem);
+}
+
+@keyframes angle-animation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        --gradient-angle: 360deg;
+        opacity: 0;
     }
 }
 
