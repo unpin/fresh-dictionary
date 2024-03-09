@@ -477,10 +477,10 @@ input:-webkit-autofill:active {
     background: var(--color-background-secondary);
 }
 
-.btn:disabled {
+/* .btn:disabled {
     background-color: var(--color-pale);
     color: var(--color-background);
-}
+} */
 
 .btn-primary {
     border: 1px solid transparent;
@@ -1001,14 +1001,14 @@ hr {
     position: relative;
     background-color: #282a2c;
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 4px;
     color: white;
     cursor: pointer;
 }
 
-.btn-animated-border:focus::before,
-.btn-animated-border:focus::after {
+.btn-animated-border.animated::before,
+.btn-animated-border.animated::after {
     content: '';
     position: absolute;
     inset: -1px;
@@ -1021,7 +1021,7 @@ hr {
         var(--clr-1)
     );
     border-radius: inherit;
-    animation: angle-animation linear 2s forwards;
+    animation: angle-animation 2s linear infinite forwards;
 }
 
 .btn-animated-border::after {
@@ -1032,12 +1032,9 @@ hr {
     0% {
         --gradient-angle: 0deg;
     }
-    90% {
-        opacity: 1;
-    }
+
     100% {
         --gradient-angle: 360deg;
-        opacity: 0;
     }
 }
 

@@ -12,19 +12,21 @@ export default function GenerateExample(
 ) {
   const [examples, setExamples] = useState<string[]>([]);
 
-  const onClick = () => {
+  const onGenerate = (e: JSX.TargetedMouseEvent<HTMLButtonElement>) => {
+    const btn = e.currentTarget;
+    btn.classList.add("animated");
+    btn.disabled = true;
     generateExampleSentence(word).then((response) => {
-      console.log("status", response.status);
-
       if (response.ok) {
         response.json()
           .then((json) => {
             const example = json.example as string;
-            console.log({ example });
-
             setExamples((examples) => [...examples, example]);
           });
       }
+    }).finally(() => {
+      btn.classList.remove("animated");
+      btn.disabled = false;
     });
   };
 
@@ -49,7 +51,7 @@ export default function GenerateExample(
 
   return (
     <div class="openai-container">
-      <button class="btn btn-animated-border" onClick={onClick}>
+      <button class="btn btn-animated-border" onClick={onGenerate}>
         Beispielsatz generieren
       </button>
       <ul class="items" onClick={copyToClipboard}>
