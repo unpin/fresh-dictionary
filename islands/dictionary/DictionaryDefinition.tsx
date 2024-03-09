@@ -212,13 +212,13 @@ export default function DictionaryDefinition(
             <div class="definition-term">
               {definitionData.definition}
             </div>
-            <ul class="definition-examples flex column gap">
-              {definitionData?.examples?.map((example) => (
+            {definitionData?.examples?.map((example) => (
+              <ul class="definition-examples flex column gap">
                 <li>
                   {example}
                 </li>
-              ))}
-            </ul>
+              </ul>
+            ))}
           </>
         )}
     </li>
