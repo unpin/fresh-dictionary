@@ -49,8 +49,8 @@ export default function GenerateExample(
 
   return (
     <div class="openai-container">
-      <button class="btn" onClick={onClick}>
-        Generate an example sentence
+      <button class="btn btn-animated-border" onClick={onClick}>
+        Beispielsatz generieren
       </button>
       <ul class="items" onClick={copyToClipboard}>
         {examples.map((example) => (
