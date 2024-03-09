@@ -471,7 +471,6 @@ input:-webkit-autofill:active {
     gap: 0.75rem;
     padding: 0.75rem;
     border-radius: 0.25rem;
-    font-weight: 600;
     font-size: 14px;
     transition: all var(--animation-ms) ease-out;
     border: none;
