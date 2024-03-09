@@ -979,17 +979,23 @@ hr {
 .openai-container {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    margin: 1rem 0;
 
     & .items {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
 
         & li {
             display: flex;
-            gap: 1rem;
             justify-content: space-between;
+            color: var(--color-gray);
+            & .icon {
+                display: flex;
+                gap: 0.5rem;
+                width: 1.5rem;
+                height: 1.5rem;
+            }
         }
     }
     .btn {
@@ -1003,7 +1009,7 @@ hr {
     border: none;
     padding: 0.75rem 1.25rem;
     border-radius: 4px;
-    color: white;
+    color: var(--color-gray);
     cursor: pointer;
 }
 
@@ -1035,14 +1041,5 @@ hr {
 
     100% {
         --gradient-angle: 360deg;
-    }
-}
-
-.openai-container {
-    & ul {
-        & .icon {
-            display: flex;
-            gap: 0.5rem;
-        }
     }
 }

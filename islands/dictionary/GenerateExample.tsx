@@ -19,9 +19,19 @@ export default function GenerateExample(
     generateExampleSentence(word).then((response) => {
       if (response.ok) {
         response.json()
-          .then((json) => {
-            const example = json.example as string;
-            setExamples((examples) => [...examples, example]);
+          .then(async (json) => {
+            setExamples((examples) => [...examples, ""]);
+            for await (const word of json.example.split(/\s/)) {
+              await new Promise<void>((resolve) => {
+                setTimeout(() => {
+                  setExamples((examples) => {
+                    const curr = examples.pop() + " " + word;
+                    return [...examples, curr];
+                  });
+                  resolve();
+                }, 50);
+              });
+            }
           });
       }
     }).finally(() => {
@@ -54,9 +64,9 @@ export default function GenerateExample(
       <button class="btn btn-animated-border" onClick={onGenerate}>
         Beispielsatz generieren
       </button>
-      <ul class="items" onClick={copyToClipboard}>
+      <ul class="items gap" onClick={copyToClipboard}>
         {examples.map((example) => (
-          <li>
+          <li class="gap">
             <p>
               {example}
             </p>
