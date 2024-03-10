@@ -1016,6 +1016,8 @@ hr {
     }
 }
 
+.btn-animated-border::before,
+.btn-animated-border::after,
 .btn-animated-border.animated::before,
 .btn-animated-border.animated::after {
     content: '';
@@ -1024,15 +1026,24 @@ hr {
     z-index: -1;
     background: conic-gradient(
         from var(--gradient-angle),
-        var(--clr-1),
-        var(--clr-2),
-        var(--clr-3),
-        var(--clr-1)
+        #282a2c,
+        #49535d,
+        #282a2c
     );
     border-radius: inherit;
     animation: angle-animation 2s linear infinite forwards;
 }
 
+.btn-animated-border.animated::before,
+.btn-animated-border.animated::after {
+    background: conic-gradient(
+        from var(--gradient-angle),
+        var(--clr-1),
+        var(--clr-2),
+        var(--clr-3),
+        var(--clr-1)
+    );
+}
 .btn-animated-border::after {
     filter: blur(0.5rem);
 }
