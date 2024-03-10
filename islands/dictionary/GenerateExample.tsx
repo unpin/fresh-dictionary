@@ -16,6 +16,7 @@ export default function GenerateExample(
   const onGenerate = (e: JSX.TargetedMouseEvent<HTMLButtonElement>) => {
     const btn = e.currentTarget;
     btn.classList.add("animated");
+    navigator.vibrate([50]);
     btn.disabled = true;
     generateExampleSentence(word).then((response) => {
       if (response.ok) {
@@ -24,6 +25,7 @@ export default function GenerateExample(
             setExamples((examples) => [...examples, ""]);
             for await (const word of json.example.split(/\s/)) {
               await delay(50);
+              navigator.vibrate([20]);
               setExamples((examples) => {
                 const curr = examples.pop() + " " + word;
                 return [...examples, curr];
