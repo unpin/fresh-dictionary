@@ -150,7 +150,6 @@ export default function DictionaryDefinition(
                     ) => {
                       updateTextareaHeight(e);
                       const target = e.target as HTMLTextAreaElement;
-                      console.log("change", target.value);
 
                       setTempData((state) => {
                         const clone = structuredClone(state);

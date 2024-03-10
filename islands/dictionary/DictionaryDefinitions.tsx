@@ -24,14 +24,12 @@ export default function DictionaryDefinitions(
     if (!definitionId) return;
     deleteDefinition(word._id, definitionId).then(({ status }) => {
       if (status === 200) {
-        console.log("Success");
-
         word.definitions = word.definitions.filter((e) =>
           e._id !== definitionId
         );
         setWord({ ...word });
       } else {
-        console.log("Failure");
+        console.error("Failure");
       }
     });
   };

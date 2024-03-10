@@ -6,7 +6,6 @@ export const handler: Handlers = {
   async PATCH(req, ctx) {
     const { _id, definitionId } = ctx.params;
     const { definition, examples } = await req.json();
-    console.log({ definition, examples });
 
     const { matchedCount } = await DictionaryEntry.updateOne({
       _id: new ObjectId(_id),
