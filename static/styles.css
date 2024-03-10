@@ -35,7 +35,7 @@
 
 .icon {
     width: 1rem;
-    fill: var(--color-text);
+    fill: var(--color-gray);
     opacity: 0.75;
     cursor: pointer;
     transition: opacity var(--animation-ms) ease-in;
@@ -1011,6 +1011,9 @@ hr {
     border-radius: 4px;
     color: var(--color-gray);
     cursor: pointer;
+    &:hover {
+        color: var(--color-text);
+    }
 }
 
 .btn-animated-border.animated::before,

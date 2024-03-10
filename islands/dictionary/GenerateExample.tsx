@@ -51,11 +51,6 @@ export default function GenerateExample(
     navigator.clipboard.writeText(p.innerText)
       .then(() => {
         navigator.vibrate([100]);
-        // TODO notify user that text is copied and add animation
-        svg.style.fill = "springgreen";
-        setTimeout(() => {
-          svg.style.fill = "var(--color-text)";
-        }, 3000);
       });
   };
 
