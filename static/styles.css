@@ -897,6 +897,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin: 0.5rem 0;
 
     & ul {
         display: flex;
@@ -920,7 +921,9 @@ hr {
             text-decoration: none;
             color: var(--color-text);
             font-size: 1.125rem;
-            line-break: anywhere;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         & .icon {
