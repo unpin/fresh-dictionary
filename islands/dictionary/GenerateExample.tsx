@@ -49,7 +49,7 @@ export default function GenerateExample(
 
     navigator.clipboard.writeText(p.innerText)
       .then(() => {
-        navigator.vibrate([100]);
+        navigator.vibrate([50]);
       });
   };
 
