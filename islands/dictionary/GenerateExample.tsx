@@ -2,6 +2,7 @@ import { useState } from "preact/hooks";
 import { generateExampleSentence } from "../../services/DictionaryService.ts";
 import { JSX } from "preact/jsx-runtime";
 import { Copy } from "../../components/Icon.tsx";
+import { delay } from "../../utils/async.ts";
 
 interface GenerateExampleProps {
   word: string;
@@ -22,14 +23,10 @@ export default function GenerateExample(
           .then(async (json) => {
             setExamples((examples) => [...examples, ""]);
             for await (const word of json.example.split(/\s/)) {
-              await new Promise<void>((resolve) => {
-                setTimeout(() => {
-                  setExamples((examples) => {
-                    const curr = examples.pop() + " " + word;
-                    return [...examples, curr];
-                  });
-                  resolve();
-                }, 50);
+              await delay(50);
+              setExamples((examples) => {
+                const curr = examples.pop() + " " + word;
+                return [...examples, curr];
               });
             }
           });
