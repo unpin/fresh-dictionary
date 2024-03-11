@@ -2,6 +2,8 @@
     --color-background: #fff;
     --color-background-secondary: #fff;
     --color-primary: #ffd008;
+    --color-darker-gray: #f2f4f6;
+    --color-gray-shade: #e8e8e9;
     --color-gray: #606060;
     --color-pale: #d8dde8;
     --color-text: #0d1623;
@@ -27,6 +29,8 @@
     :root {
         --color-background: #131314;
         --color-background-secondary: #1e1f20;
+        --color-darker-gray: #282a2c;
+        --color-gray-shade: #2e3135;
         --color-primary: var(--color-background-secondary);
         --color-text: #e2e2e2;
         --color-pale: #494949;
@@ -352,7 +356,7 @@ input:-webkit-autofill:active {
     transition: background-color var(--animation-ms) ease-in-out;
     z-index: 1020;
     &:focus-within {
-        background-color: #282a2c;
+        background-color: var(--color-darker-gray);
     }
 }
 
@@ -403,7 +407,7 @@ input:-webkit-autofill:active {
         flex-direction: column;
         row-gap: 0.5rem;
         padding: 1rem 1rem 0.5rem;
-        background-color: #282a2c;
+        background-color: var(--color-darker-gray);
         border-radius: 0.5rem 0.5rem 0 0;
 
         & .item > a {
@@ -705,7 +709,7 @@ hr {
     padding-bottom: 1rem;
 
     & footer {
-        background-color: #2e3135;
+        background-color: var(--color-gray-shade);
         border-radius: 0 0 0.5rem 0.5rem;
         padding: 0.5rem 1rem;
         text-align: end;
@@ -849,7 +853,7 @@ hr {
 
 .entry-type {
     border-radius: 4px;
-    background-color: #282a2c;
+    background-color: var(--color-darker-gray);
     padding: 0.25rem 0.75rem;
     font-weight: 500;
     align-self: start;
@@ -1009,7 +1013,7 @@ hr {
 
 .btn-animated-border {
     position: relative;
-    background-color: #282a2c;
+    background-color: var(--color-darker-gray);
     border: none;
     padding: 0.75rem 1.25rem;
     border-radius: 4px;
@@ -1030,9 +1034,9 @@ hr {
     z-index: -1;
     background: conic-gradient(
         from var(--gradient-angle),
-        #282a2c,
+        var(--color-darker-gray),
         #49535d,
-        #282a2c
+        var(--color-darker-gray)
     );
     border-radius: inherit;
     animation: angle-animation 2s linear infinite forwards;
