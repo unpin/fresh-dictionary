@@ -19,7 +19,7 @@ export default function DictionaryDefinitions(
   ) => {
     if (!confirm("Delete this definition?")) return;
     const target = e.target as HTMLElement;
-    const btn = target.closest("button");
+    const btn = target.closest("li");
     const definitionId = btn?.dataset.id;
     if (!definitionId) return;
     deleteDefinition(word._id, definitionId).then(({ status }) => {
