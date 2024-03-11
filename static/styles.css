@@ -804,9 +804,9 @@ hr {
         visibility: hidden;
         top: 2.25rem;
         right: 0;
-        background-color: var(--color-background-secondary);
+        color: var(--color-gray);
+        background-color: #2f3135;
         border-radius: var(--border-radius);
-        border: 1px solid #282a2c;
         z-index: 100;
 
         &:hover {
@@ -820,12 +820,6 @@ hr {
             cursor: pointer;
             align-items: center;
             white-space: nowrap;
-            z-index: 999;
-
-            &:hover {
-                background-color: var(--color-pale);
-                color: var(--color-text);
-            }
         }
     }
 
