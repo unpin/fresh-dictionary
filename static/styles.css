@@ -809,7 +809,7 @@ hr {
         top: 2.25rem;
         right: 0;
         color: var(--color-gray);
-        background-color: #2f3135;
+        background-color: var(--color-background-secondary);
         border-radius: var(--border-radius);
         z-index: 100;
 
@@ -824,6 +824,9 @@ hr {
             cursor: pointer;
             align-items: center;
             white-space: nowrap;
+            &:hover {
+                background-color: #2f3135;
+            }
         }
     }
 
