@@ -830,6 +830,13 @@ hr {
     }
 }
 
+.order-span {
+    font-size: 0.9rem;
+    &:after {
+        content: '.';
+    }
+}
+
 .dictionary-bookmark {
     margin-left: auto;
 }

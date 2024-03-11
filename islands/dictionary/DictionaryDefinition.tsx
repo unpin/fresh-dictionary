@@ -87,7 +87,7 @@ export default function DictionaryDefinition(
   return (
     <li class="flex column gap">
       <div class="definition-counter">
-        <span>{order}.</span> {auth.isAdmin &&
+        <span class="order-span">{order}</span> {auth.isAdmin &&
           (
             <div class="dropdown">
               <div class="dropdown-toggle" tabIndex={order}>
