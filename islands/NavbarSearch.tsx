@@ -140,7 +140,7 @@ export default function NavbarSearch() {
                       ))}
                     </ul>
                     <footer>
-                      <a href="">Load more</a>
+                      <a href="">Mehr zeigen</a>
                     </footer>
                   </div>
                 )
