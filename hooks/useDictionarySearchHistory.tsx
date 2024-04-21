@@ -11,6 +11,7 @@ export function useDictionarySearchHistory(): [
   SearchHistoryItem[],
   (addItem: SearchHistoryItem) => void,
   (deleteItem: string) => void,
+  () => void,
 ] {
   const searchItems = useSignal<SearchHistoryItem[]>([]);
 
@@ -42,5 +43,10 @@ export function useDictionarySearchHistory(): [
     localStorage.setItem(SEARCH_HISTORY_STORAGE_KEY, JSON.stringify(array));
   }
 
-  return [searchItems.value, addSearchItem, deleteSearchItem];
+  function clearSearchItems() {
+    localStorage.setItem(SEARCH_HISTORY_STORAGE_KEY, JSON.stringify([]));
+    searchItems.value = [];
+  }
+
+  return [searchItems.value, addSearchItem, deleteSearchItem, clearSearchItems];
 }

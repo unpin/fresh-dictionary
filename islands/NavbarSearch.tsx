@@ -21,7 +21,7 @@ export default function NavbarSearch() {
   const [entries, setEntries] = useState<Word[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [showContent, setShowContent] = useState<boolean>(false);
-  const [searchItems, addSearchItem, deleteSearchItem] =
+  const [searchItems, addSearchItem, deleteSearchItem, clearSearchItems] =
     useDictionarySearchHistory();
   const [bodyRef] = useBody();
 
@@ -175,7 +175,16 @@ export default function NavbarSearch() {
                       ))}
                     </ul>
                     <footer>
-                      <a href="">Alle löschen</a>
+                      <a
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopImmediatePropagation();
+                          clearSearchItems();
+                        }}
+                        href=""
+                      >
+                        Alle löschen
+                      </a>
                     </footer>
                   </div>
                 )}
