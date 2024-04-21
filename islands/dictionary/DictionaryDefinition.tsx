@@ -49,8 +49,9 @@ export default function DictionaryDefinition(
     e: JSX.TargetedEvent<HTMLSpanElement>,
   ) => {
     if (!tempData) return;
-    const definitionUpdate = tempData.definition;
-    const examplesUpdate = tempData.examples;
+    const definitionUpdate = tempData.definition.trim();
+    const examplesUpdate = tempData.examples.map((e) => e.trim());
+
     updateDefinition(wordId, definition._id, {
       definition: definitionUpdate,
       examples: examplesUpdate,
