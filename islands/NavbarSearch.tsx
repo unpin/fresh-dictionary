@@ -49,8 +49,10 @@ export default function NavbarSearch() {
 
   const clearQuery = () => {
     setQuery("");
-    if (searchFieldRef.current) {
+    if (showContent && searchFieldRef.current) {
       searchFieldRef.current.focus();
+    } else {
+      setShowContent(false);
     }
   };
 
@@ -66,7 +68,6 @@ export default function NavbarSearch() {
     FadeOutDown(searchContent);
     setTimeout(() => {
       setShowContent(false);
-      setEntries([]);
       body.style.overflow = "auto";
     }, 300);
   };
