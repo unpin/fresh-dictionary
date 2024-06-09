@@ -10,6 +10,7 @@ export const {
   TEST,
   ADMIN_EMAIL,
   ADMIN_PASSWORD,
+  OPENAI_API_KEY,
 } = isProd
   ? Deno.env
     .toObject()

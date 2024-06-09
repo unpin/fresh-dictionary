@@ -1,8 +1,11 @@
 import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import OpenAI from "openai/mod.ts";
 import { Logger } from "../../../../common/logger.ts";
+import { OPENAI_API_KEY } from "../../../../common/constants.ts";
 
-const client = new OpenAI();
+const client = new OpenAI({
+  apiKey: OPENAI_API_KEY,
+});
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
