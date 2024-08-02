@@ -130,7 +130,7 @@ export default function NavbarSearch() {
             onClick={() => closeSearchContent()}
           >
             <div class="container">
-              {query.length > 0 && entries.length > 0
+              {entries.length > 0
                 ? (
                   <div class="search-items">
                     <ul class="items">
@@ -167,7 +167,8 @@ export default function NavbarSearch() {
                     </footer>
                   </div>
                 )
-                : (
+                : searchItems.length > 0
+                ? (
                   <div class="history-items">
                     <ul class="items">
                       {searchItems.map(({ _id, searchTerm }) => (
@@ -210,7 +211,8 @@ export default function NavbarSearch() {
                       </a>
                     </footer>
                   </div>
-                )}
+                )
+                : null}
             </div>
           </div>
         </>
