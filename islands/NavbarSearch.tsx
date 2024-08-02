@@ -118,7 +118,7 @@ export default function NavbarSearch() {
                 ? (
                   <div class="search-items">
                     <ul class="items">
-                      {entries.map(({ _id, article, word }) => (
+                      {entries.map(({ _id, article, word }: Word) => (
                         <li class="item">
                           <a
                             href={"/dictionary/" + encodeURI(_id)}
