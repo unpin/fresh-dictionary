@@ -73,16 +73,13 @@ export default function NavbarSearch() {
   };
 
   const showMore = () => {
-    if (entries.length < 10 || noItemsLeft) {
-      console.log("no more items... returning");
-      return;
-    }
+    if (entries.length < 10 || noItemsLeft) return;
     queryWords(query.trim(), currPage + 1)
       .then((data) => {
         setEntries([...entries, ...data]);
         if (data.length === 0) setNoItemsLeft(true);
+        setCurrPage(currPage + 1);
       });
-    setCurrPage(currPage + 1);
   };
 
   return (
