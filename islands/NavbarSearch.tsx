@@ -22,6 +22,7 @@ export default function NavbarSearch() {
   const [showContent, setShowContent] = useState<boolean>(false);
   const [searchItems, addSearchItem, deleteSearchItem, clearSearchItems] =
     useDictionarySearchHistory();
+  const [currPage, setCurrPage] = useState(0);
 
   useEffect(() => {
     queryDictionary();
@@ -67,6 +68,14 @@ export default function NavbarSearch() {
       setShowContent(false);
       document.body.style.overflow = "auto";
     }, 300);
+  };
+
+  const showMore = () => {
+    queryWords(query.trim(), currPage + 1)
+      .then((data) => {
+        setEntries([...entries, ...data]);
+      });
+    setCurrPage(currPage + 1);
   };
 
   return (
@@ -138,7 +147,16 @@ export default function NavbarSearch() {
                       ))}
                     </ul>
                     <footer>
-                      <a href="">Mehr zeigen</a>
+                      <a
+                        href=""
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopImmediatePropagation();
+                          showMore();
+                        }}
+                      >
+                        Mehr zeigen
+                      </a>
                     </footer>
                   </div>
                 )

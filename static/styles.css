@@ -707,6 +707,32 @@ hr {
     top: 10rem;
     border-radius: 0.5rem;
     padding-bottom: 1rem;
+    & .items {
+        max-height: calc(100vh - 20rem);
+        overflow-y: auto;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: var(--color-gray-shade);
+        border-radius: 100px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-gray);
+        border-radius: 100px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-text);
+    }
 
     & footer {
         background-color: var(--color-gray-shade);

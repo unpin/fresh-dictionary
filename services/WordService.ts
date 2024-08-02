@@ -1,8 +1,8 @@
 import { Word } from "../types/words.ts";
 
-export async function queryWords(query: string): Promise<Word[]> {
+export async function queryWords(query: string, page = 0): Promise<Word[]> {
   const response = await fetch(
-    `/api/dictionary/search/${query}`,
+    `/api/dictionary/search/${query}?page=${page}`,
     {
       mode: "cors",
       headers: {
