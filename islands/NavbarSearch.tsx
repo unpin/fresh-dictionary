@@ -9,7 +9,6 @@ import {
   SpinnerThird,
   Xmark,
 } from "../components/Icon.tsx";
-import { useBody } from "../hooks/useBody.tsx";
 import { FadeInUp, FadeOutDown } from "../utils/Animation.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
@@ -23,7 +22,6 @@ export default function NavbarSearch() {
   const [showContent, setShowContent] = useState<boolean>(false);
   const [searchItems, addSearchItem, deleteSearchItem, clearSearchItems] =
     useDictionarySearchHistory();
-  const [bodyRef] = useBody();
 
   useEffect(() => {
     queryDictionary();
@@ -59,16 +57,15 @@ export default function NavbarSearch() {
   const openSearchContent = () => {
     setShowContent(true);
     self.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-    bodyRef.current!.style.overflow = "hidden";
+    document.body.style.overflow = "hidden";
   };
 
   const closeSearchContent = () => {
     const searchContent = searchContentRef.current as HTMLDivElement;
-    const body = bodyRef.current as HTMLBodyElement;
     FadeOutDown(searchContent);
     setTimeout(() => {
       setShowContent(false);
-      body.style.overflow = "auto";
+      document.body.style.overflow = "auto";
     }, 300);
   };
 
