@@ -26,6 +26,7 @@ export default function NavbarSearch() {
 
   useEffect(() => {
     queryDictionary();
+    setCurrPage(0);
   }, [query]);
 
   useEffect(() => {
