@@ -23,6 +23,7 @@ export default function NavbarSearch() {
   const [searchItems, addSearchItem, deleteSearchItem, clearSearchItems] =
     useDictionarySearchHistory();
   const [currPage, setCurrPage] = useState(0);
+  const [noItemsLeft, setNoItemsLeft] = useState(false);
 
   useEffect(() => {
     queryDictionary();
@@ -40,7 +41,7 @@ export default function NavbarSearch() {
       setEntries([]);
       return;
     }
-
+    setNoItemsLeft(false);
     setIsLoading(true);
     const data = await queryWordsThrottled(query.trim()) as Word[];
     setEntries([...data]);
@@ -72,9 +73,14 @@ export default function NavbarSearch() {
   };
 
   const showMore = () => {
+    if (entries.length < 10 || noItemsLeft) {
+      console.log("no more items... returning");
+      return;
+    }
     queryWords(query.trim(), currPage + 1)
       .then((data) => {
         setEntries([...entries, ...data]);
+        if (data.length === 0) setNoItemsLeft(true);
       });
     setCurrPage(currPage + 1);
   };
