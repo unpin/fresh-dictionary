@@ -708,7 +708,7 @@ hr {
     border-radius: 0.5rem;
     padding-bottom: 1rem;
     & .items {
-        max-height: calc(100vh - 20rem);
+        max-height: calc(100vh - 268px);
         overflow-y: auto;
     }
 
