@@ -6,7 +6,7 @@ interface TTSProps {
 }
 
 export default function TTS({ text }: TTSProps) {
-  const synth = window.speechSynthesis;
+  const synth = self.speechSynthesis;
 
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [utterance, setUtterance] = useState<SpeechSynthesisUtterance>();

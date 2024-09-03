@@ -16,7 +16,7 @@ export default function SignInForm() {
     setError("");
     signUp(name, email, password)
       .then((_) => {
-        window.location.replace(window.location.origin);
+        self.location.replace(self.location.origin);
       }).catch(
         (error: Error) => {
           setError(error.message);

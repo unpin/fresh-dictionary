@@ -16,7 +16,7 @@ export default function DeleteUserForm() {
       if (res.status === 204) {
         setIsDeleted(true);
         setTimeout(() => {
-          window.location.replace(window.location.origin);
+          self.location.replace(self.location.origin);
         }, 5000);
       }
     });

@@ -17,7 +17,7 @@ export default function SignUpForm() {
     setError("");
     signIn(email, password)
       .then((_) => {
-        window.location.replace(window.location.origin);
+        self.location.replace(self.location.origin);
       })
       .catch((error) => {
         setError(error.message);
