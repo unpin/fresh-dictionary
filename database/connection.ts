@@ -14,7 +14,9 @@ async function connect(retries = 5, delay = 1000): Promise<Database> {
       return await connect(retries - 1, delay * 2);
     } else {
       Logger.critical(error);
-      throw new Error("MongoDB connection failed:", error);
+      throw new Error("MongoDB connection failed:", {
+        cause: error,
+      });
     }
   }
 }
