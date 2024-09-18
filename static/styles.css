@@ -657,26 +657,6 @@ hr {
     justify-content: space-between;
 }
 
-.definition-examples {
-    position: relative;
-    margin-left: 1rem;
-    font-size: 1rem;
-    color: var(--color-gray-600);
-
-    & li {
-        display: flex;
-        justify-content: space-between;
-        align-items: start;
-        gap: 1rem;
-
-        &::before {
-            content: '-';
-            position: absolute;
-            left: -1rem;
-        }
-    }
-}
-
 .search-items,
 .history-items {
     position: relative;
