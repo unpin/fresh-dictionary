@@ -47,7 +47,7 @@
 }
 
 .icon {
-    width: 1rem;
+    height: 1.5rem;
     fill: var(--color-gray);
     opacity: 0.75;
     cursor: pointer;
