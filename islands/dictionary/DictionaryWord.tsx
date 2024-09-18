@@ -3,7 +3,6 @@ import BookmarkEntry from "../BookmarkEntry.tsx";
 import TTS from "../TTS.tsx";
 import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
-// import AddDefinition from "./AddDefinition.tsx";
 import { useAuth } from "../../hooks/useAuth.tsx";
 import GenerateExample from "./GenerateExample.tsx";
 
@@ -13,8 +12,7 @@ interface DictionaryWordProps {
 
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [word, setWord] = useState(entry);
-  // const [showAddDefinition, setShowAddDefinition] = useState(false);
-  // const [auth] = useAuth();
+  const [auth] = useAuth();
 
   return (
     <div class="dictionary-entry">
@@ -28,29 +26,12 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           </div>
           <TTS text={word.word} />
         </h1>
-        <BookmarkEntry word={word} setWord={setWord} />
+        {auth.isAdmin &&
+          <BookmarkEntry word={word} setWord={setWord} />}
       </div>
 
       <DictionaryDefinitions word={word} setWord={setWord} />
-      {
-        /* {auth.isAdmin && (
-        <>
-          {showAddDefinition
-            ? (
-              <AddDefinition
-                word={word}
-                setWord={setWord}
-                onClose={() => setShowAddDefinition(false)}
-              />
-            )
-            : (
-              <button class="btn" onClick={() => setShowAddDefinition(true)}>
-                Add definition
-              </button>
-            )}
-        </>
-      )} */
-      }
+      <h3 class="subheading">Example sentences</h3>
       <GenerateExample word={word.word} />
     </div>
   );
