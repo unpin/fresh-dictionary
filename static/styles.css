@@ -335,7 +335,12 @@ input:-webkit-autofill:active {
 }
 
 .search-container {
+    position: sticky;
+    top: 0;
     color: var(--color-body);
+    background: var(--color-primary);
+    padding: 1rem 0;
+    z-index: 90;
 
     & .search-input {
         flex: 1;
