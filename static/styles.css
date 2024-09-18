@@ -49,7 +49,7 @@
 
 .icon {
     height: 1.5rem;
-    fill: var(--color-gray-600);
+    fill: var(--color-body);
     opacity: 0.75;
     cursor: pointer;
     transition: opacity var(--animation-ms) ease-in;
