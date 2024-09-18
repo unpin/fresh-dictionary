@@ -326,10 +326,17 @@ input:-webkit-autofill:active {
         cursor: pointer;
         grid-column: 1;
         border-radius: var(--border-radius-round);
+        transition: all var(--animation-ms) ease-in-out;
+
+        &:hover {
+            border: 1px solid var(--color-body);
+            /* border-color: var(--color-body); */
+        }
     }
 
     & .brand {
         grid-column: 2;
+        place-self: center;
     }
 }
 
@@ -615,7 +622,7 @@ hr {
 .profile-img {
     width: 4rem;
     height: 4rem;
-    border-radius: 100%;
+    border-radius: var(--border-radius-round);
     border: 1px solid var(--color-gray-100);
 }
 
@@ -689,7 +696,7 @@ hr {
     /* Track */
     ::-webkit-scrollbar-track {
         background: var(--color-gray-200);
-        border-radius: 100px;
+        border-radius: var(--border-radius-round);
     }
 
     /* Handle */
@@ -777,6 +784,7 @@ hr {
         align-items: center;
 
         & .dictionary-word {
+            font-size: 1.5rem;
             word-break: break-word;
             vertical-align: middle;
         }
