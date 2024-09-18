@@ -23,6 +23,16 @@
     --border-radius: 4px;
     --animation-ms: 250ms;
     --btn-padding: 1rem 0.625rem;
+
+    --gap-xs: 4;
+    --gap-sm: 8;
+    --gap: 16;
+    --gap-lg: 32;
+    --gap-xl: 64;
+
+    --border-radius: 4;
+    --border-radius-md: 8;
+    --border-radius-lg: 16;
 }
 
 @property --gradient-angle {
