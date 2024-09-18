@@ -817,11 +817,22 @@ hr {
     }
 
     & h1 {
-        font-size: 1.75rem;
-        word-break: break-word;
         display: flex;
         align-items: center;
-        gap: 1rem;
+
+        & .dictionary-word {
+            word-break: break-word;
+            vertical-align: middle;
+        }
+
+        & .dictionary-article {
+            font-weight: 400;
+            text-transform: lowercase;
+        }
+
+        & > :not(:last-child) {
+            margin-right: 1rem;
+        }
     }
 
     & .icon {
@@ -899,13 +910,6 @@ hr {
     padding: 0.25rem 0.75rem;
     font-weight: 500;
     align-self: start;
-}
-
-.dictionary-article {
-    color: var(--color-body);
-    background-color: var(--color-gray-100);
-    border-radius: var(--border-radius);
-    padding: 0.25rem 0.75rem;
 }
 
 .definition-term {

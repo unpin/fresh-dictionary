@@ -19,14 +19,13 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
   return (
     <div class="dictionary-entry">
       <div class="dictionary-heading">
-        {word.article &&
-          (
-            <div>
-              <span class="dictionary-article">{word.article}</span>
-            </div>
-          )}
         <h1>
-          {word.word}
+          <div class="dictionary-word">
+            {word.word}
+            {word.article && (
+              <span class="dictionary-article">, {word.article}</span>
+            )}
+          </div>
           <TTS text={word.word} />
         </h1>
         <BookmarkEntry word={word} setWord={setWord} />
