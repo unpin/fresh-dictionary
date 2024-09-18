@@ -1046,8 +1046,8 @@ hr {
 .openai-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    margin: 1rem 0;
+    align-items: start;
+    gap: 1rem;
 
     & .items {
         display: flex;
@@ -1057,6 +1057,8 @@ hr {
             display: flex;
             justify-content: space-between;
             color: var(--color-gray);
+            cursor: pointer;
+            font-style: italic;
             & .icon {
                 display: flex;
                 gap: 0.5rem;
@@ -1065,55 +1067,45 @@ hr {
             }
         }
     }
-    .btn {
-        align-self: center;
-    }
 }
 
 .btn-animated-border {
     position: relative;
-    background-color: var(--color-gray-100);
-    border: none;
+    background-color: var(--color-background);
     padding: 0.75rem 1.25rem;
     border-radius: var(--border-radius-round);
     color: transparent;
     cursor: pointer;
-    &:hover {
-        color: var(--color-body);
-    }
+    animation: angle-animation 4s linear infinite forwards;
 }
 
-.btn-animated-border::before,
-.btn-animated-border::after,
-.btn-animated-border.animated::before,
-.btn-animated-border.animated::after {
+.btn-animated-border::before {
     content: '';
     position: absolute;
     inset: -1px;
     z-index: -1;
-    background: conic-gradient(
-        from var(--gradient-angle),
-        var(--color-red),
-        var(--color-blue),
-        var(--color-green),
-        var(--color-red)
-    );
+    background: linear-gradient(var(--gradient-angle), #ff00cc, #333399);
     border-radius: inherit;
-    animation: angle-animation 2s linear infinite forwards;
+    animation: angle-animation 4s linear infinite forwards;
 }
 
-.btn-animated-border.animated::before,
-.btn-animated-border.animated::after {
-    background: conic-gradient(
-        from var(--gradient-angle),
-        var(--color-red),
-        var(--color-blue),
-        var(--color-green),
-        var(--color-red)
-    );
-}
 .btn-animated-border::after {
-    filter: blur(0.5rem);
+    content: 'Beispielsatz generieren';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(var(--gradient-angle), #ff00cc, #333399);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: angle-animation 4s linear infinite forwards;
+    padding: 0.75rem 1.25rem;
+}
+
+.btn-animated-border.animated {
+    background-color: transparent;
 }
 
 @keyframes angle-animation {
