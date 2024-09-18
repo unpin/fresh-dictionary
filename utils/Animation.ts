@@ -5,10 +5,10 @@ const DEFAULT_ANIMATION_OPTIONS: KeyframeAnimationOptions = {
 };
 
 export function FadeInUp(
-  el: HTMLElement,
-  options?: KeyframeAnimationOptions,
+  element: HTMLElement,
+  options: KeyframeAnimationOptions = {},
 ) {
-  el.animate([
+  return element.animate([
     {
       top: "1rem",
       opacity: 0,
@@ -17,14 +17,14 @@ export function FadeInUp(
       top: 0,
       opacity: 1,
     },
-  ], options || DEFAULT_ANIMATION_OPTIONS);
+  ], { ...DEFAULT_ANIMATION_OPTIONS, ...options });
 }
 
 export function FadeOutDown(
-  el: HTMLElement,
-  options?: KeyframeAnimationOptions,
+  element: HTMLElement,
+  options: KeyframeAnimationOptions = {},
 ) {
-  el.animate([
+  return element.animate([
     {
       top: 0,
       opacity: 1,
@@ -33,5 +33,34 @@ export function FadeOutDown(
       top: "1rem",
       opacity: 0,
     },
-  ], options || DEFAULT_ANIMATION_OPTIONS);
+  ], { ...DEFAULT_ANIMATION_OPTIONS, ...options });
+}
+
+export function BounceIn(
+  element: HTMLElement,
+  options: KeyframeAnimationOptions = {},
+) {
+  return element.animate([
+    {
+      scale: .85,
+      opacity: .25,
+    },
+    {
+      scale: 1,
+      opacity: .85,
+    },
+    {
+      opacity: 1,
+      scale: .90,
+    },
+    {
+      scale: 1,
+    },
+    {
+      scale: .95,
+    },
+    {
+      scale: 1,
+    },
+  ], { ...DEFAULT_ANIMATION_OPTIONS, ...options });
 }
