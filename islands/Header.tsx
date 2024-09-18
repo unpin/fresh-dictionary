@@ -9,10 +9,10 @@ interface HeaderProps {
 export default function Header({ enableNavigation, children }: HeaderProps) {
   return (
     <header class="header">
-      <div class="navigation">
+      <div class="container navigation">
         {enableNavigation && (
           <div
-            className="navigation-button"
+            class="navigation-button"
             onClick={() => {
               self.history.back();
             }}
