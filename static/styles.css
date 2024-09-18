@@ -29,9 +29,11 @@
     --gap-lg: 32px;
     --gap-xl: 64px;
 
-    --border-radius: 4px;
+    --border-radius-sm: 4px;
+    --border-radius: 8px;
     --border-radius-md: 8px;
     --border-radius-lg: 16px;
+    --border-radius-round: 50px;
 }
 
 @property --gradient-angle {
