@@ -3,6 +3,7 @@ import { generateExampleSentence } from "../../services/DictionaryService.ts";
 import { JSX } from "preact/jsx-runtime";
 import { Copy } from "../../components/Icons.tsx";
 import { delay } from "../../utils/async.ts";
+import { BounceIn } from "../../utils/Animation.ts";
 
 interface GenerateExampleProps {
   word: string;
@@ -41,13 +42,12 @@ export default function GenerateExample(
 
   const copyToClipboard = (e: JSX.TargetedEvent) => {
     const element = e.target as HTMLElement;
-    const span = element.closest("span");
-    if (!span || !span.classList.contains("copy-to-clipboard")) return;
-    const svg = span.querySelector("svg") as SVGSVGElement;
-    const p = (span.closest("li") as HTMLLIElement)
-      .querySelector("p") as HTMLParagraphElement;
-
-    navigator.clipboard.writeText(p.innerText)
+    const li = element.closest("li");
+    if (!li) return;
+    BounceIn(li, {
+      duration: 750,
+    });
+    navigator.clipboard.writeText(li.innerText)
       .then(() => {
         navigator.vibrate([50]);
       });
@@ -55,18 +55,14 @@ export default function GenerateExample(
 
   return (
     <div class="openai-container">
+      {/* Add context button so that users can add context */}
       <button class="btn btn-animated-border" onClick={onGenerate}>
         Beispielsatz generieren
       </button>
       <ul class="items gap" onClick={copyToClipboard}>
         {examples.map((example) => (
           <li class="gap">
-            <p>
-              {example}
-            </p>
-            <span class="copy-to-clipboard">
-              <Copy class="icon" />
-            </span>
+            {example}
           </li>
         ))}
       </ul>
