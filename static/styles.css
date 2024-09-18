@@ -1,22 +1,28 @@
 :root {
-    --color-background: #fff;
-    --color-background-secondary: #fff;
-    --color-primary: #ffd008;
-    --color-darker-gray: #f2f4f6;
-    --color-gray-shade: #e8e8e9;
-    --color-gray: #606060;
-    --color-pale: #d8dde8;
-    --color-text: #0d1623;
-    --color-danger: #fe4854;
-    --color-danger-300: #ffe1e3;
+    /* Colors */
+    --color-background: #fff; /**/
+    --color-body: #0d1623; /**/
+    --color-primary: #ffcc00; /**/
+    --color-gray-100: #f2f2f7;
+    --color-gray-200: #e5e5ea;
+    --color-gray-300: #d1d1d6;
+    --color-gray-400: #c7c7cc;
+    --color-gray-500: #aeaeb2;
+    --color-gray-600: #8e8e93;
+    --color-red: #ff3b30;
+    --color-orange: #ff9500;
+    --color-yellow: #ffcc00;
+    --color-green: #34c759;
+    --color-cyan: #32ade6;
+    --color-blue: #007aff;
+    --color-indigo: #5856d6;
+    --color-purple: #af52de;
+    --color-pink: #ff2d55;
+    --color-brown: #a2845e;
+
     --border-radius: 4px;
     --animation-ms: 250ms;
     --btn-padding: 1rem 0.625rem;
-
-    --clr-1: #e92e18;
-    --clr-2: #316dd9;
-    --clr-3: #249a41;
-    --clr-4: #f6ad03;
 }
 
 @property --gradient-angle {
@@ -27,13 +33,6 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-background: #131314;
-        --color-background-secondary: #1e1f20;
-        --color-darker-gray: #282a2c;
-        --color-gray-shade: #2e3135;
-        --color-primary: var(--color-background-secondary);
-        --color-text: #e2e2e2;
-        --color-pale: #494949;
     }
 }
 
@@ -67,7 +66,7 @@ html {
 
 body {
     background-color: var(--color-background);
-    color: var(--color-text);
+    color: var(--color-body);
 }
 
 p {
@@ -326,7 +325,7 @@ input:-webkit-autofill:active {
 }
 
 .search-container {
-    color: var(--color-text);
+    color: var(--color-body);
 
     & .search-input {
         flex: 1;
@@ -338,7 +337,7 @@ input:-webkit-autofill:active {
         padding-left: 1rem;
         padding-right: 1rem;
         width: 100%;
-        color: var(--color-text);
+        color: var(--color-body);
 
         &:focus-visible {
             outline: none;
@@ -356,7 +355,7 @@ input:-webkit-autofill:active {
     transition: background-color var(--animation-ms) ease-in-out;
     z-index: 1020;
     &:focus-within {
-        background-color: var(--color-darker-gray);
+        background-color: var(--color-gray-100);
     }
 }
 
@@ -398,7 +397,7 @@ input:-webkit-autofill:active {
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: var(--color-pale);
+        background-color: var(--color-gray-100);
         border-radius: var(--border-radius);
     }
 
@@ -407,12 +406,12 @@ input:-webkit-autofill:active {
         flex-direction: column;
         row-gap: 0.5rem;
         padding: 1rem;
-        background-color: var(--color-darker-gray);
+        background-color: var(--color-gray-100);
         border-radius: 0.5rem 0.5rem 0 0;
 
         & .item > a {
             display: block;
-            color: var(--color-text);
+            color: var(--color-body);
             text-decoration: none;
             font-size: 1.125rem;
             word-break: break-word;
@@ -421,10 +420,10 @@ input:-webkit-autofill:active {
 }
 
 .search-article {
-    background-color: var(--color-pale);
+    background-color: var(--color-gray-100);
     border-radius: 4px;
     padding: 0.25rem 0.5rem;
-    color: var(--color-text);
+    color: var(--color-body);
 }
 
 .spinning {
@@ -451,13 +450,13 @@ input:-webkit-autofill:active {
 
 .form-input {
     padding: var(--btn-padding);
-    border: 1px solid var(--color-pale);
+    border: 1px solid var(--color-gray-100);
     border-radius: 0.25rem;
-    background: var(--color-background-secondary);
-    color: var(--color-text);
+    background: var(--color-background);
+    color: var(--color-body);
 
     &:focus {
-        outline: 1px solid var(--color-pale);
+        outline: 1px solid var(--color-gray-100);
     }
 }
 
@@ -465,7 +464,7 @@ input:-webkit-autofill:active {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 0.5rem;
-    color: var(--color-text);
+    color: var(--color-body);
 }
 
 .btn {
@@ -478,11 +477,11 @@ input:-webkit-autofill:active {
     font-size: 14px;
     transition: all var(--animation-ms) ease-out;
     border: none;
-    background: var(--color-background-secondary);
+    background: var(--color-background);
 }
 
 /* .btn:disabled {
-    background-color: var(--color-pale);
+    background-color: var(--color-gray-100);
     color: var(--color-background);
 } */
 
@@ -493,7 +492,7 @@ input:-webkit-autofill:active {
 
 .btn-outline,
 .btn-social {
-    border: 1px solid var(--color-pale);
+    border: 1px solid var(--color-gray-100);
     color: var(--color-gray);
     background-color: var(--color-background);
 }
@@ -505,7 +504,7 @@ input:-webkit-autofill:active {
 }
 
 .btn-social:hover {
-    background-color: var(--color-pale);
+    background-color: var(--color-gray-100);
 }
 
 .btn img {
@@ -535,7 +534,7 @@ hr {
     border-left: none;
     border-right: none;
     border-bottom: none;
-    border-top: 1px solid var(--color-pale);
+    border-top: 1px solid var(--color-gray-100);
 }
 
 /* ALERTS */
@@ -544,16 +543,16 @@ hr {
     display: flex;
     border: 1px solid var(--color-gray);
     color: var(--color-gray);
-    background-color: var(--color-pale);
+    background-color: var(--color-gray-100);
     border-radius: 0.25rem;
     border-left-width: 4px;
     justify-content: space-between;
 }
 
 .alert-error {
-    border-color: var(--color-danger);
-    color: var(--color-danger);
-    background-color: var(--color-danger-300);
+    border-color: var(--color-red);
+    color: var(--color-red);
+    background-color: var(--color-red);
 }
 
 .alert-text {
@@ -564,8 +563,8 @@ hr {
 
 .alert-close {
     display: flex;
-    background-color: var(--color-danger);
-    color: var(--color-danger-300);
+    background-color: var(--color-red);
+    color: var(--color-red);
     padding: 1rem;
     align-items: center;
     justify-content: center;
@@ -592,7 +591,7 @@ hr {
     width: 4rem;
     height: 4rem;
     border-radius: 100%;
-    border: 1px solid var(--color-pale);
+    border: 1px solid var(--color-gray-100);
 }
 
 .profile-info {
@@ -603,7 +602,7 @@ hr {
 
 .profile-name {
     font-size: 1rem;
-    color: var(--color-text);
+    color: var(--color-body);
 }
 
 .profile-email {
@@ -621,7 +620,7 @@ hr {
 }
 
 .definition-counter {
-    color: var(--color-text);
+    color: var(--color-body);
     display: flex;
     justify-content: space-between;
 }
@@ -672,7 +671,7 @@ hr {
                 height: 1.25rem;
 
                 &:hover {
-                    fill: var(--color-danger);
+                    fill: var(--color-red);
                 }
             }
         }
@@ -719,7 +718,7 @@ hr {
 
     /* Track */
     ::-webkit-scrollbar-track {
-        background: var(--color-gray-shade);
+        background: var(--color-gray-200);
         border-radius: 100px;
     }
 
@@ -731,11 +730,11 @@ hr {
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-        background: var(--color-text);
+        background: var(--color-body);
     }
 
     & footer {
-        background-color: var(--color-gray-shade);
+        background-color: var(--color-gray-200);
         border-radius: 0 0 0.5rem 0.5rem;
         padding: 0.5rem 1rem;
         text-align: end;
@@ -744,7 +743,7 @@ hr {
             transition: color var(--animation-ms) ease-in-out;
             color: var(--color-gray);
             &:hover {
-                color: var(--color-text);
+                color: var(--color-body);
             }
         }
     }
@@ -771,7 +770,7 @@ hr {
         flex-shrink: 0;
         fill: var(--color-gray);
         &:hover {
-            fill: var(--color-text);
+            fill: var(--color-body);
         }
     }
 
@@ -782,7 +781,7 @@ hr {
     }
 
     &:hover {
-        color: var(--color-text);
+        color: var(--color-body);
     }
 }
 
@@ -835,7 +834,7 @@ hr {
         top: 2.25rem;
         right: 0;
         color: var(--color-gray);
-        background-color: var(--color-background-secondary);
+        background-color: var(--color-background);
         border-radius: var(--border-radius);
         z-index: 100;
 
@@ -882,15 +881,15 @@ hr {
 
 .entry-type {
     border-radius: 4px;
-    background-color: var(--color-darker-gray);
+    background-color: var(--color-gray-100);
     padding: 0.25rem 0.75rem;
     font-weight: 500;
     align-self: start;
 }
 
 .dictionary-article {
-    color: var(--color-text);
-    background-color: var(--color-pale);
+    color: var(--color-body);
+    background-color: var(--color-gray-100);
     border-radius: var(--border-radius);
     padding: 0.25rem 0.75rem;
 }
@@ -923,7 +922,7 @@ hr {
         background: none;
         border: none;
         font-size: 1rem;
-        color: var(--color-text);
+        color: var(--color-body);
     }
 }
 
@@ -947,13 +946,13 @@ hr {
             align-items: center;
 
             &:not(:last-child) {
-                border-bottom: 1px solid var(--color-background-secondary);
+                border-bottom: 1px solid var(--color-background);
             }
         }
 
         & a {
             text-decoration: none;
-            color: var(--color-text);
+            color: var(--color-body);
             font-size: 1.125rem;
             white-space: nowrap;
             overflow: hidden;
@@ -972,7 +971,8 @@ hr {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--color-background-secondary);
+    background-color: var(--color-background);
+    border-top: 1px solid var(--color-gray-200);
 
     & ul {
         position: relative;
@@ -1042,14 +1042,14 @@ hr {
 
 .btn-animated-border {
     position: relative;
-    background-color: var(--color-darker-gray);
+    background-color: var(--color-gray-100);
     border: none;
     padding: 0.75rem 1.25rem;
     border-radius: 4px;
     color: var(--color-gray);
     cursor: pointer;
     &:hover {
-        color: var(--color-text);
+        color: var(--color-body);
     }
 }
 
@@ -1063,9 +1063,10 @@ hr {
     z-index: -1;
     background: conic-gradient(
         from var(--gradient-angle),
-        var(--color-darker-gray),
-        #49535d,
-        var(--color-darker-gray)
+        var(--color-red),
+        var(--color-blue),
+        var(--color-green),
+        var(--color-red)
     );
     border-radius: inherit;
     animation: angle-animation 2s linear infinite forwards;
@@ -1075,10 +1076,10 @@ hr {
 .btn-animated-border.animated::after {
     background: conic-gradient(
         from var(--gradient-angle),
-        var(--clr-1),
-        var(--clr-2),
-        var(--clr-3),
-        var(--clr-1)
+        var(--color-red),
+        var(--color-blue),
+        var(--color-green),
+        var(--color-red)
     );
 }
 .btn-animated-border::after {
