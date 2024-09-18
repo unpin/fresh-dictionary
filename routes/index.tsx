@@ -23,8 +23,8 @@ export default function Home() {
         <title>Words</title>
       </Head>
       <Header>
-        <NavbarSearch />
       </Header>
+      <NavbarSearch />
     </>
   );
 }
