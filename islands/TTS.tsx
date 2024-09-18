@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { Volume, VolumeSolid } from "../components/Icon.tsx";
+import { Volume, VolumeSolid } from "../components/Icons.tsx";
 
 interface TTSProps {
   text: string;

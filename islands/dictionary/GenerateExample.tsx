@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import { generateExampleSentence } from "../../services/DictionaryService.ts";
 import { JSX } from "preact/jsx-runtime";
-import { Copy } from "../../components/Icon.tsx";
+import { Copy } from "../../components/Icons.tsx";
 import { delay } from "../../utils/async.ts";
 
 interface GenerateExampleProps {

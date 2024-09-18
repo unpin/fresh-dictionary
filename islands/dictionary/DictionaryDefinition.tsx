@@ -9,8 +9,8 @@ import {
   PenToSquare,
   Trash,
   Xmark,
-} from "../../components/Icon.tsx";
-import { Ellipsis } from "../../components/Icon.tsx";
+} from "../../components/Icons.tsx";
+import { Ellipsis } from "../../components/Icons.tsx";
 
 interface DictionaryDefinitionProps {
   definition: Definition;

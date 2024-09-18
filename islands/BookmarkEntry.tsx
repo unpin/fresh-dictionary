@@ -1,7 +1,7 @@
 import { StateUpdater, useRef } from "preact/hooks";
 import { addBookmark, deleteBookmark } from "../services/BookmarkService.ts";
 import { Word } from "../types/words.ts";
-import { Bookmark, BookmarkSolid } from "../components/Icon.tsx";
+import { Bookmark, BookmarkSolid } from "../components/Icons.tsx";
 
 interface BookmarkEntryProps {
   word: Word;

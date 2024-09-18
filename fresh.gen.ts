@@ -27,6 +27,7 @@ import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
 import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
+import * as $NavigationMenu from "./islands/NavigationMenu.tsx";
 import * as $TTS from "./islands/TTS.tsx";
 import * as $auth_DeleteAccountForm from "./islands/auth/DeleteAccountForm.tsx";
 import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
@@ -39,7 +40,7 @@ import * as $dictionary_DictionaryWord from "./islands/dictionary/DictionaryWord
 import * as $dictionary_GenerateExample from "./islands/dictionary/GenerateExample.tsx";
 import * as $notifications_Toast from "./islands/notifications/Toast.tsx";
 import * as $notifications_ToastContainer from "./islands/notifications/ToastContainer.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
@@ -72,6 +73,7 @@ const manifest = {
   islands: {
     "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
+    "./islands/NavigationMenu.tsx": $NavigationMenu,
     "./islands/TTS.tsx": $TTS,
     "./islands/auth/DeleteAccountForm.tsx": $auth_DeleteAccountForm,
     "./islands/auth/SignInForm.tsx": $auth_SignInForm,

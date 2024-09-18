@@ -1,6 +1,6 @@
 import { PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import NavigationMenu from "../components/NavigationMenu.tsx";
+import NavigationMenu from "../islands/NavigationMenu.tsx";
 
 export default function App({ Component }: PageProps) {
   return (

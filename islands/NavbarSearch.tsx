@@ -8,7 +8,7 @@ import {
   MagnifyingGlass,
   SpinnerThird,
   Xmark,
-} from "../components/Icon.tsx";
+} from "../components/Icons.tsx";
 import { FadeInUp, FadeOutDown } from "../utils/Animation.ts";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);

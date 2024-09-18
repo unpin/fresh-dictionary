@@ -2,7 +2,7 @@ import { useState } from "preact/hooks";
 import { JSX } from "preact/jsx-runtime";
 import { findUser, signIn } from "../../services/AuthService.ts";
 import Alert from "../../components/Alert.tsx";
-import { ArrowLeft } from "../../components/Icon.tsx";
+import { ArrowLeft } from "../../components/Icons.tsx";
 
 export default function SignUpForm() {
   const [name, setName] = useState("");

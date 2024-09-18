@@ -1,12 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { deleteBookmark } from "../../services/BookmarkService.ts";
-import { BookmarkSolid } from "../../components/Icon.tsx";
+import { BookmarkSolid } from "../../components/Icons.tsx";
 
-interface Entry {
-  _id: string;
-  word: string;
-  article: string;
-}
 
 export default function BookmarkedWords() {
   const [entries, setEntries] = useState<Entry[]>([]);
