@@ -1,7 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import NavbarSearch from "../islands/NavbarSearch.tsx";
 import { FreshContext, Handlers, STATUS_CODE } from "$fresh/server.ts";
-import Header from "../components/Header.tsx";
+import Header from "../islands/Header.tsx";
 
 export const handler: Handlers = {
   async GET(req: Request, ctx: FreshContext) {
@@ -23,8 +23,8 @@ export default function Home() {
         <title>Words</title>
       </Head>
       <Header>
+        <NavbarSearch />
       </Header>
-      <NavbarSearch />
     </>
   );
 }

@@ -1,10 +1,8 @@
 import { FreshContext } from "$fresh/server.ts";
 import { ObjectId } from "mongo";
 import { DictionaryEntry } from "../../models/DictionaryEntry.ts";
-import NavbarSearch from "../../islands/NavbarSearch.tsx";
-import { Sentence } from "../../models/Sentence.ts";
 import { Head } from "$fresh/runtime.ts";
-import Header from "../../components/Header.tsx";
+import Header from "../../islands/Header.tsx";
 import DictionaryWord from "../../islands/dictionary/DictionaryWord.tsx";
 import { Word } from "../../types/words.ts";
 
@@ -20,9 +18,7 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
       <Head>
         <title>{entry.article} {entry.word} | Words</title>
       </Head>
-      <Header>
-        <NavbarSearch />
-      </Header>
+      <Header enableNavigation={true} />
       <div class="container">
         <DictionaryWord entry={entry} />
         {

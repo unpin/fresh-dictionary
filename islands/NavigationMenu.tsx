@@ -25,7 +25,12 @@ export default function NavigationMenu() {
       ActiveIcon: DummbellSolid,
       isActive: false,
     },
-    { href: "/profile", Icon: User, ActiveIcon: UserSolid, isActive: false },
+    {
+      href: "/profile",
+      Icon: User,
+      ActiveIcon: UserSolid,
+      isActive: false,
+    },
   ]);
 
   useEffect(() => {

@@ -308,38 +308,50 @@ input:-webkit-autofill:active {
     background: var(--color-primary);
 }
 
+.navigation {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+
+    & .navigation-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        cursor: pointer;
+        grid-column: 1;
+    }
+
+    & .brand {
+        grid-column: 2;
+    }
+}
+
 .header-content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
 }
 
-.back-btn {
-    width: 1rem;
-    grid-area: 'i';
-    cursor: pointer;
-}
-
 .main {
     padding-bottom: 90px;
 }
 
-.logo {
-    justify-self: center;
+.brand {
+    margin: auto;
 }
 
-.logo img {
+.brand img {
     width: 48px;
-    grid-area: 'l';
 }
 
 .search-container {
-    position: sticky;
-    top: 0;
     color: var(--color-body);
     background: var(--color-primary);
-    padding: 1rem 0;
-    z-index: 90;
 
     & .search-input {
         flex: 1;
@@ -420,7 +432,8 @@ input:-webkit-autofill:active {
         flex-direction: column;
         row-gap: 0.5rem;
         padding: 1rem;
-        background-color: var(--color-gray-100);
+        border: 1px solid var(--color-gray-100);
+        background-color: var(--color-background);
         border-radius: 0.5rem 0.5rem 0 0;
 
         & .item > a {
@@ -634,7 +647,7 @@ hr {
 }
 
 .definition-counter {
-    color: var(--color-body);
+    color: var(--color-gray-600);
     display: flex;
     justify-content: space-between;
 }
@@ -748,14 +761,14 @@ hr {
     }
 
     & footer {
-        background-color: var(--color-gray-200);
+        background-color: var(--color-gray-100);
         border-radius: 0 0 0.5rem 0.5rem;
         padding: 0.5rem 1rem;
         text-align: end;
         & a {
             text-decoration: none;
             transition: color var(--animation-ms) ease-in-out;
-            color: var(--color-gray);
+            color: var(--color-gray-500);
             &:hover {
                 color: var(--color-body);
             }
@@ -906,7 +919,8 @@ hr {
 
 .entry-type {
     border-radius: 4px;
-    background-color: var(--color-gray-100);
+    background-color: var(--color-body);
+    color: var(--color-background);
     padding: 0.25rem 0.75rem;
     font-weight: 500;
     align-self: start;
