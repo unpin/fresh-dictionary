@@ -995,20 +995,15 @@ hr {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
+        padding: 2rem;
+        padding: 2rem 1rem;
         bottom: 0;
         z-index: 90;
-        height: 60px;
     }
 
     & li {
         width: 1.5rem;
         height: 1.5rem;
-    }
-
-    & .icon {
-        height: 1.5rem;
-        width: 1.5rem;
     }
 }
 
