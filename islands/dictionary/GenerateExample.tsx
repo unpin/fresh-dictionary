@@ -21,7 +21,7 @@ export default function GenerateExample(
     generateExampleSentence(word)
       .then((response) => {
         if (response.ok) {
-          response.json()
+          return response.json()
             .then(async (json) => {
               setExamples((examples) => ["", ...examples]);
               for await (const word of json.example.split(/\s/)) {
