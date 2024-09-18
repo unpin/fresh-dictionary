@@ -20,6 +20,22 @@
     --color-pink: #ff2d55;
     --color-brown: #a2845e;
 
+    /* Font */
+
+    --ff: Inter, sans-serif;
+
+    --font-title: 600 2.5rem / 1.2 var(--ff);
+    --font-heading: 600 1.5rem / 1.2 var(--ff);
+    --font-subheading: 600 1.25rem / 1.2 var(--ff);
+    --font-base: 400 1rem / 1.4 var(--ff);
+    --font-base-strong: 500 1rem / 1.4 var(--ff);
+    --font-small: 400 0.875rem / 1.4 var(--ff);
+    --font-small-strong: 500 0.85rem / 1.4 var(--ff);
+    --font-small: 400 0.875rem / 1.4 var(--ff);
+    --font-small-strong: 500 0.85rem / 1.4 var(--ff);
+    --font-tiny: 400 0.7rem / 1.4 var(--ff);
+    --font-tiny-strong: 500 0.7rem / 1.4 var(--ff);
+
     --animation-ms: 250ms;
     --btn-padding: 1rem 0.625rem;
 
@@ -34,6 +50,22 @@
     --border-radius-md: 8px;
     --border-radius-lg: 16px;
     --border-radius-round: 50px;
+}
+
+h1 {
+    font: var(--font-title);
+}
+
+h2 {
+    font: var(--font-heading);
+}
+
+h3 {
+    font: var(--font-subheading);
+}
+
+p {
+    font: var(--font-base);
 }
 
 @property --gradient-angle {
@@ -129,6 +161,14 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     transition: all 86400s ease-in;
+}
+
+.heading {
+    font-size: 1.5rem;
+}
+
+.subheading {
+    font-size: 1.25rem;
 }
 
 .transition-colors {
@@ -841,11 +881,15 @@ hr {
 
         & > li {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             gap: 1rem;
             padding: 1rem 0;
             cursor: pointer;
-            align-items: center;
+
+            & :first-child {
+                display: flex;
+                justify-content: space-between;
+            }
 
             &:not(:last-child) {
                 border-bottom: 1px solid var(--color-background);
@@ -1005,11 +1049,11 @@ hr {
     z-index: -1;
 }
 
-.button:hover > span::before {
+.button.animated > span::before {
     background: transparent;
 }
 
-.button:hover {
+.button.animated {
     background: linear-gradient(
         calc(var(--gradient-angle) - 180deg),
         #ff00cc,
@@ -1024,6 +1068,6 @@ hr {
     fill: url('#colorfulGradient');
 }
 
-.button:hover > svg {
+.button.animated > svg {
     fill: url('#neutralGradient');
 }
