@@ -1023,7 +1023,7 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border: 1px dashed var(--color-pale);
+    border: 1px dashed var(--color-gray-100);
     padding: 1rem;
     border-radius: 4px;
 }
