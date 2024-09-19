@@ -6,6 +6,7 @@ interface SearchHistoryItem {
 }
 
 const SEARCH_HISTORY_STORAGE_KEY = "searchHistory";
+const SEARCH_HISTORY_LIMIT = 8;
 
 export function useDictionarySearchHistory(): [
   SearchHistoryItem[],
@@ -30,7 +31,7 @@ export function useDictionarySearchHistory(): [
   function addSearchItem(searchItem: SearchHistoryItem) {
     const array = searchItems.value.filter((e) => e._id !== searchItem._id);
     array.unshift(searchItem);
-    storeItem(array.slice(0, 10));
+    storeItem(array.slice(0, SEARCH_HISTORY_LIMIT));
   }
 
   function deleteSearchItem(_id: string) {
