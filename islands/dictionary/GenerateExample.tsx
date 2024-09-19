@@ -28,8 +28,8 @@ export default function GenerateExample(
                 await delay(50);
                 navigator.vibrate([20]);
                 setExamples((examples) => {
-                  const curr = examples.shift() + " " + word;
-                  return [curr, ...examples];
+                  const sentence = examples.shift() + " " + word;
+                  return [sentence.trim(), ...examples];
                 });
               }
             });
