@@ -956,8 +956,6 @@ hr {
         flex-direction: column;
 
         & li {
-            display: flex;
-            justify-content: space-between;
             color: var(--color-body);
             cursor: pointer;
             font-style: italic;
@@ -966,6 +964,14 @@ hr {
                 gap: 0.5rem;
                 width: 1.5rem;
                 height: 1.5rem;
+            }
+            &::before {
+                display: inline;
+                content: '“';
+            }
+            &::after {
+                display: inline;
+                content: '”';
             }
         }
     }
