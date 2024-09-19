@@ -15,17 +15,16 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
   const [auth] = useAuth();
 
   return (
-    <div class="dictionary-entry">
+    <div class="dictionary-container">
       <div class="dictionary-heading">
         <h1>
-          <div class="dictionary-word">
-            {word.word}
-            {word.article && (
-              <span class="dictionary-article">, {word.article}</span>
-            )}
-          </div>
+          {word.word}
+          {word.article && (
+            <span class="dictionary-article">, {word.article}</span>
+          )}
           <TTS text={word.word} />
         </h1>
+
         {auth.isAdmin &&
           <BookmarkEntry word={word} setWord={setWord} />}
       </div>

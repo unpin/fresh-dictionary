@@ -80,6 +80,8 @@ p {
 }
 
 .icon {
+    display: inline-block;
+    vertical-align: middle;
     height: 1.5rem;
     fill: var(--color-body);
     opacity: 0.75;
@@ -784,11 +786,11 @@ hr {
     color: var(--color-gray-600);
 }
 
-.dictionary-entry {
+.dictionary-container {
+    margin: 1rem 0;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    padding: 2rem 0;
+    gap: 2rem;
 
     & .dictionary-heading {
         display: flex;
@@ -797,28 +799,27 @@ hr {
     }
 
     & h1 {
-        display: flex;
-        align-items: center;
-
-        & .dictionary-word {
-            font-size: 1.5rem;
-            word-break: break-word;
-            vertical-align: middle;
-        }
+        font-size: 1.5rem;
 
         & .dictionary-article {
             font-weight: 400;
             text-transform: lowercase;
-        }
-
-        & > :not(:last-child) {
-            margin-right: 1rem;
         }
     }
 
     & .icon {
         height: 1.75rem;
     }
+}
+
+.entry-type {
+    display: inline-block;
+    border-radius: var(--border-radius);
+    background-color: var(--color-body);
+    color: var(--color-background);
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+    align-self: start;
 }
 
 .order-span {
@@ -836,15 +837,6 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-}
-
-.entry-type {
-    border-radius: var(--border-radius);
-    background-color: var(--color-body);
-    color: var(--color-background);
-    padding: 0.375rem 0.75rem;
-    font-weight: 500;
-    align-self: start;
 }
 
 .definition-term {
@@ -946,7 +938,7 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 1rem;
+    gap: 2rem;
 
     & .items {
         display: flex;
