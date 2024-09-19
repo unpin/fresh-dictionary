@@ -36,6 +36,7 @@ export default function TTS(
   };
   return (
     <span
+      class="tts"
       onClick={handlePlay}
       role="button"
       aria-pressed={isPlaying}

@@ -805,6 +805,10 @@ hr {
             font-weight: 400;
             text-transform: lowercase;
         }
+
+        .tts {
+            margin-left: 0.5rem;
+        }
     }
 
     & .icon {
