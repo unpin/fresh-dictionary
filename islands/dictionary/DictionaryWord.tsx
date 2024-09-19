@@ -5,6 +5,7 @@ import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
 import { useAuth } from "../../hooks/useAuth.tsx";
 import GenerateExample from "./GenerateExample.tsx";
+import { Volume, VolumeSolid } from "../../components/Icons.tsx";
 
 interface DictionaryWordProps {
   entry: Word;
@@ -22,7 +23,11 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           {word.article && (
             <span class="dictionary-article">, {word.article}</span>
           )}
-          <TTS text={word.word} />
+          <TTS
+            defailtIcon={<Volume class="icon" />}
+            activeIcon={<VolumeSolid class="icon" />}
+            text={word.word}
+          />
         </h1>
 
         {auth.isAdmin &&

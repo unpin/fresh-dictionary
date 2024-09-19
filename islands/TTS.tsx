@@ -1,11 +1,15 @@
 import { useEffect, useState } from "preact/hooks";
-import { Volume, VolumeSolid } from "../components/Icons.tsx";
+import type { JSX } from "preact/jsx-runtime";
 
 interface TTSProps {
   text: string;
+  defailtIcon: JSX.Element;
+  activeIcon?: JSX.Element;
 }
 
-export default function TTS({ text }: TTSProps) {
+export default function TTS(
+  { text, defailtIcon, activeIcon = defailtIcon }: TTSProps,
+) {
   const synth = self.speechSynthesis;
 
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
@@ -31,8 +35,13 @@ export default function TTS({ text }: TTSProps) {
     if (utterance) synth.speak(utterance);
   };
   return (
-    <span onClick={handlePlay}>
-      {isPlaying ? <VolumeSolid class="icon" /> : <Volume class="icon" />}
+    <span
+      onClick={handlePlay}
+      role="button"
+      aria-pressed={isPlaying}
+      aria-label={isPlaying ? "Stop TTS" : "Play TTS"}
+    >
+      {isPlaying ? activeIcon : defailtIcon}
     </span>
   );
 }
