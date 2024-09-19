@@ -492,10 +492,7 @@ input:-webkit-autofill:active {
 }
 
 .search-article {
-    background-color: var(--color-gray-100);
-    border-radius: var(--border-radius);
-    padding: 0.25rem 0.5rem;
-    color: var(--color-body);
+    font-weight: 700;
 }
 
 .spinning {
