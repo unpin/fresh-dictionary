@@ -703,7 +703,7 @@ hr {
     border-radius: 0.5rem;
     padding-bottom: 1rem;
     & .items {
-        max-height: calc(100vh - 268px);
+        max-height: calc(100vh - 300px);
         overflow-y: auto;
     }
 
