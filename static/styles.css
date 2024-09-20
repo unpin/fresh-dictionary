@@ -24,13 +24,11 @@
 
     --ff: Inter, sans-serif;
 
-    --font-title: 600 2.5rem / 1.2 var(--ff);
-    --font-heading: 600 1.5rem / 1.2 var(--ff);
-    --font-subheading: 600 1.25rem / 1.2 var(--ff);
+    --font-title: 700 2.5rem / 1.2 var(--ff);
+    --font-heading: 700 1.5rem / 1.2 var(--ff);
+    --font-subheading: 700 1.25rem / 1.2 var(--ff);
     --font-base: 400 1rem / 1.4 var(--ff);
-    --font-base-strong: 500 1rem / 1.4 var(--ff);
-    --font-small: 400 0.875rem / 1.4 var(--ff);
-    --font-small-strong: 500 0.85rem / 1.4 var(--ff);
+    --font-base-strong: 600 1rem / 1.4 var(--ff);
     --font-small: 400 0.875rem / 1.4 var(--ff);
     --font-small-strong: 500 0.85rem / 1.4 var(--ff);
     --font-tiny: 400 0.7rem / 1.4 var(--ff);
