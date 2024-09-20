@@ -23,12 +23,13 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
           {word.article && (
             <span class="dictionary-article">, {word.article}</span>
           )}
-          <TTS
-            defailtIcon={<Volume class="icon" />}
-            activeIcon={<VolumeSolid class="icon" />}
-            text={word.word}
-          />
         </h1>
+
+        <TTS
+          defailtIcon={<Volume class="icon" />}
+          activeIcon={<VolumeSolid class="icon" />}
+          text={word.word}
+        />
 
         {auth.isAdmin &&
           <BookmarkEntry word={word} setWord={setWord} />}
