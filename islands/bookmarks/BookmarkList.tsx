@@ -1,10 +1,11 @@
 import { useEffect, useState } from "preact/hooks";
 import { deleteBookmark } from "../../services/BookmarkService.ts";
-import { BookmarkSolid } from "../../components/Icons.tsx";
-
+import { CircleCheckSolid } from "../../components/Icons.tsx";
+import { Bookmark } from "../../models/Bookmark.ts";
+import TTS from "../TTS.tsx";
 
 export default function BookmarkedWords() {
-  const [entries, setEntries] = useState<Entry[]>([]);
+  const [entries, setEntries] = useState<Bookmark[]>([]);
   const [page, setPage] = useState<number>(0);
 
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function BookmarkedWords() {
   }, []);
 
   const handleDelete = (_id: string) => {
+    if (!confirm("Do you really want to remove bookmark?")) return;
     navigator.vibrate([50]);
     deleteBookmark(_id).then((res) => {
       if (res.status === 204) {
@@ -35,26 +37,32 @@ export default function BookmarkedWords() {
   };
 
   return (
-    <div class="container">
-      <div class="bookmarks-container">
-        {entries.length > 0 && (
-          <>
-            <ul>
-              {entries.map((e) => (
-                <li key={e._id}>
-                  <a href={"/dictionary/" + e._id}>
+    <>
+      <h2>All bookmarks</h2>
+
+      {entries.length > 0 && (
+        <ul class="bookmark-list">
+          {entries.map((e) => (
+            <li key={e._id} class="bookmark-item">
+              <div>
+                <p>
+                  <a href={"/dictionary/" + e.wordId}>
                     {e.article} {e.word}
                   </a>
-                  <span onClick={() => handleDelete(e._id)}>
-                    <BookmarkSolid class="icon" />
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <button class="btn" onClick={onLoadMore}>Show more</button>
-          </>
-        )}
-      </div>
-    </div>
+                  <TTS text={e.word} />
+                </p>
+                <span onClick={() => handleDelete(e._id)}>
+                  <CircleCheckSolid class="icon bookmark-icon" />
+                </span>
+              </div>
+              <div class="definition">
+                {e.definition}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+      <button class="btn" onClick={onLoadMore}>Show more</button>
+    </>
   );
 }

@@ -8,6 +8,8 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $api_middleware from "./routes/api/_middleware.ts";
 import * as $api_bookmarks_find_index from "./routes/api/bookmarks/find/index.ts";
 import * as $api_bookmarks_index from "./routes/api/bookmarks/index.ts";
+import * as $api_collections_id_index from "./routes/api/collections/[_id]/index.ts";
+import * as $api_collections_index from "./routes/api/collections/index.ts";
 import * as $api_dictionary_id_definition_definitionId_index from "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts";
 import * as $api_dictionary_id_definition_index from "./routes/api/dictionary/[_id]/definition/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
@@ -34,6 +36,7 @@ import * as $auth_DeleteAccountForm from "./islands/auth/DeleteAccountForm.tsx";
 import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
 import * as $auth_SignUpForm from "./islands/auth/SignUpForm.tsx";
 import * as $bookmarks_BookmarkList from "./islands/bookmarks/BookmarkList.tsx";
+import * as $bookmarks_Collections from "./islands/bookmarks/Collections.tsx";
 import * as $dictionary_AddDefinition from "./islands/dictionary/AddDefinition.tsx";
 import * as $dictionary_DictionaryDefinition from "./islands/dictionary/DictionaryDefinition.tsx";
 import * as $dictionary_DictionaryDefinitions from "./islands/dictionary/DictionaryDefinitions.tsx";
@@ -51,6 +54,8 @@ const manifest = {
     "./routes/api/_middleware.ts": $api_middleware,
     "./routes/api/bookmarks/find/index.ts": $api_bookmarks_find_index,
     "./routes/api/bookmarks/index.ts": $api_bookmarks_index,
+    "./routes/api/collections/[_id]/index.ts": $api_collections_id_index,
+    "./routes/api/collections/index.ts": $api_collections_index,
     "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts":
       $api_dictionary_id_definition_definitionId_index,
     "./routes/api/dictionary/[_id]/definition/index.ts":
@@ -81,6 +86,7 @@ const manifest = {
     "./islands/auth/SignInForm.tsx": $auth_SignInForm,
     "./islands/auth/SignUpForm.tsx": $auth_SignUpForm,
     "./islands/bookmarks/BookmarkList.tsx": $bookmarks_BookmarkList,
+    "./islands/bookmarks/Collections.tsx": $bookmarks_Collections,
     "./islands/dictionary/AddDefinition.tsx": $dictionary_AddDefinition,
     "./islands/dictionary/DictionaryDefinition.tsx":
       $dictionary_DictionaryDefinition,

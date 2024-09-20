@@ -41,35 +41,53 @@ export const handler: Handlers = {
     const SKIP = PAGE * LIMIT;
     try {
       const data = Bookmark.aggregate(
+        // [
+        //   {
+        //     $match: {
+        //       userId: new ObjectId(auth._id.toString()),
+        //     },
+        //   },
+        //   {
+        //     $unwind: "$wordIds",
+        //   },
+        //   {
+        //     $lookup: {
+        //       from: "dictionary",
+        //       localField: "wordIds._id",
+        //       foreignField: "_id",
+        //       as: "bookmarks",
+        //     },
+        //   },
+        //   {
+        //     $unwind: "$bookmarks",
+        //   },
+        //   {
+        //     $replaceRoot: {
+        //       newRoot: {
+        //         _id: "$bookmarks._id",
+        //         word: "$bookmarks.word",
+        //         article: "$bookmarks.article",
+        //         reviews: "$wordIds.reviews",
+        //         createdAt: "$wordIds.createdAt",
+        //       },
+        //     },
+        //   },
+        //   {
+        //     $sort: {
+        //       createdAt: -1,
+        //     },
+        //   },
+        //   {
+        //     $skip: SKIP,
+        //   },
+        //   {
+        //     $limit: LIMIT,
+        //   },
+        // ],
         [
           {
             $match: {
               userId: new ObjectId(auth._id.toString()),
-            },
-          },
-          {
-            $unwind: "$wordIds",
-          },
-          {
-            $lookup: {
-              from: "dictionary",
-              localField: "wordIds._id",
-              foreignField: "_id",
-              as: "bookmarks",
-            },
-          },
-          {
-            $unwind: "$bookmarks",
-          },
-          {
-            $replaceRoot: {
-              newRoot: {
-                _id: "$bookmarks._id",
-                word: "$bookmarks.word",
-                article: "$bookmarks.article",
-                reviews: "$wordIds.reviews",
-                createdAt: "$wordIds.createdAt",
-              },
             },
           },
           {
@@ -83,10 +101,56 @@ export const handler: Handlers = {
           {
             $limit: LIMIT,
           },
+          {
+            $lookup: {
+              from: "definition",
+              localField: "definitionId",
+              foreignField: "_id",
+              as: "definition",
+              pipeline: [
+                {
+                  $project: {
+                    _id: 0,
+                    definition: 1,
+                  },
+                },
+              ],
+            },
+          },
+          {
+            $lookup: {
+              from: "dictionary",
+              localField: "wordId",
+              foreignField: "_id",
+              as: "word",
+              pipeline: [
+                {
+                  $project: {
+                    _id: 0,
+                    word: 1,
+                  },
+                },
+              ],
+            },
+          },
+          {
+            $set: {
+              word: {
+                $arrayElemAt: ["$word.word", 0],
+              },
+              definition: {
+                $arrayElemAt: [
+                  "$definition.definition",
+                  0,
+                ],
+              },
+            },
+          },
         ],
       );
+      const array = await data.toArray();
 
-      return Response.json(await data.toArray(), {
+      return Response.json(array, {
         status: STATUS_CODE.OK,
       });
     } catch (e) {

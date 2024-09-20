@@ -19,20 +19,9 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
         <title>{entry.article} {entry.word} | Words</title>
       </Head>
       <Header enableNavigation={true} />
-      <div class="container">
+      <main class="container">
         <DictionaryWord entry={entry} />
-        {
-          /* {examples.length > 0 &&
-          (
-            <>
-              <h3 class="my-4">Beispiele</h3>
-              <ul class="examples">
-                {examples.map((e) => <li>{e.v}</li>)}
-              </ul>
-            </>
-          )} */
-        }
-      </div>
+      </main>
     </>
   );
 }
