@@ -1,14 +1,19 @@
 import { useEffect, useState } from "preact/hooks";
 import type { JSX } from "preact/jsx-runtime";
+import { Volume, VolumeSolid } from "../components/Icons.tsx";
 
 interface TTSProps {
   text: string;
-  defailtIcon: JSX.Element;
+  defailtIcon?: JSX.Element;
   activeIcon?: JSX.Element;
 }
 
 export default function TTS(
-  { text, defailtIcon, activeIcon = defailtIcon }: TTSProps,
+  {
+    text,
+    defailtIcon = <Volume class="icon" />,
+    activeIcon = <VolumeSolid class="icon" />,
+  }: TTSProps,
 ) {
   const synth = self.speechSynthesis;
 
