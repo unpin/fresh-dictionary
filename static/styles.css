@@ -791,7 +791,7 @@ hr {
 }
 
 .dictionary-container {
-    margin: 1rem;
+    margin: 1rem 0;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -869,7 +869,7 @@ hr {
 }
 
 .bookmarks-container {
-    margin: 1rem;
+    margin: 1rem 0;
     display: flex;
     flex-direction: column;
     gap: 2rem;
