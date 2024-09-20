@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
 import { Word } from "../types/words.ts";
 import {
+  AngleDown,
   ClockRotateLeft,
   MagnifyingGlass,
   SpinnerThird,
@@ -159,7 +160,7 @@ export default function NavbarSearch() {
                           showMore();
                         }}
                       >
-                        Mehr zeigen
+                        <AngleDown class="icon" />
                       </a>
                     </footer>
                   </div>
