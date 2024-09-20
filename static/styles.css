@@ -586,6 +586,11 @@ input:-webkit-autofill:active {
     margin-bottom: 3rem;
 }
 
+.separator {
+    border: none;
+    border-top: 1px solid var(--color-gray-200);
+}
+
 .or-separator {
     display: flex;
     align-items: center;
