@@ -17,6 +17,7 @@ export default function DictionaryDefinition(
   const [isBookmarked, setIsBookmarked] = useState(definition.isBookmarked);
 
   function addBookmark(definition: Definition) {
+    navigator.vibrate([50]);
     setIsBookmarked(true);
     saveDefinitionBookmark({
       definitionId: definition._id,
@@ -30,6 +31,7 @@ export default function DictionaryDefinition(
   }
 
   function deleteBookmark(definition: Definition) {
+    navigator.vibrate([50]);
     setIsBookmarked(false);
     deleteDefinitionBookmark(definition._id)
       .catch((e) => {

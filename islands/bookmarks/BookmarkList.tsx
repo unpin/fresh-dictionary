@@ -12,15 +12,13 @@ export default function BookmarkedWords() {
     fetch("/api/bookmarks")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data[0]);
-
         setEntries(() => data);
       });
   }, []);
 
   const handleDelete = (definitionId: string) => {
-    if (!confirm("Do you really want to remove the bookmark?")) return;
     navigator.vibrate([50]);
+    if (!confirm("Do you really want to remove the bookmark?")) return;
     deleteDefinitionBookmark(definitionId)
       .then((res) => {
         if (res.status === 204) {
