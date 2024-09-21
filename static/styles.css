@@ -1102,19 +1102,16 @@ hr {
         font: var(--font-base-strong);
     }
 
+    & .collection-info {
+        display: flex;
+        flex-direction: row;
+        font: var(--font-small);
+        color: var(--color-gray-600);
+    }
+
     & > li {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
     }
-}
-
-.collection-date {
-    font: var(--font-small);
-    color: var(--color-gray-600);
-}
-
-.collection-info {
-    display: flex;
-    flex-direction: row;
 }
