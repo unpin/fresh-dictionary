@@ -5,26 +5,23 @@ import { Logger } from "../../../common/logger.ts";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
-    const { wordId } = await req.json();
+    const { wordId, definitionId } = await req.json();
     const auth = ctx.state.auth as { _id: string };
+    console.log(wordId, definitionId, auth._id);
 
     try {
-      const { matchedCount } = await Bookmark.updateOne({
+      const created = await Bookmark.create({
         userId: new ObjectId(auth._id as string),
-      }, {
-        $addToSet: {
-          wordIds: {
-            _id: new ObjectId(wordId),
-            createdAt: new Date(),
-            reviewedAt: new Date(),
-            reviews: 0,
-          },
-        },
-      }, {
-        upsert: true,
+        wordId: new ObjectId(wordId),
+        definitionId: new ObjectId(definitionId),
+        createdAt: new Date(),
+        reviewedAt: new Date(),
+        reviewCount: 0,
       });
+      console.log(created);
+
       return new Response("", {
-        status: matchedCount ? STATUS_CODE.Created : STATUS_CODE.BadRequest,
+        status: created ? STATUS_CODE.Created : STATUS_CODE.BadRequest,
       });
     } catch (e) {
       Logger.debug(e);
@@ -161,18 +158,20 @@ export const handler: Handlers = {
     }
   },
   async DELETE(req, ctx) {
-    const { wordId } = await req.json();
+    const { definitionId } = await req.json();
     const auth = ctx.state.auth as { _id: string };
+    console.log({ definitionId, userId: auth._id });
 
     try {
-      const { matchedCount } = await Bookmark.updateOne({
-        userId: new ObjectId(auth._id as string),
-      }, {
-        $pull: { wordIds: { _id: new ObjectId(wordId) } },
+      const deletedCount = await Bookmark.deleteOne({
+        userId: new ObjectId(auth._id),
+        definitionId: new ObjectId(definitionId),
       });
 
+      console.log({ deletedCount });
+
       return new Response(null, {
-        status: matchedCount ? STATUS_CODE.NoContent : STATUS_CODE.NotFound,
+        status: deletedCount ? STATUS_CODE.NoContent : STATUS_CODE.NotFound,
       });
     } catch (e) {
       Logger.debug(e);

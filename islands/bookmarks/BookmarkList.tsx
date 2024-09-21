@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { deleteBookmark } from "../../services/BookmarkService.ts";
+import { deleteDefinitionBookmark } from "../../services/BookmarkService.ts";
 import { CircleCheckSolid } from "../../components/Icons.tsx";
 import { Bookmark } from "../../models/Bookmark.ts";
 import TTS from "../TTS.tsx";
@@ -12,18 +12,25 @@ export default function BookmarkedWords() {
     fetch("/api/bookmarks")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data[0]);
+
         setEntries(() => data);
       });
   }, []);
 
-  const handleDelete = (_id: string) => {
-    if (!confirm("Do you really want to remove bookmark?")) return;
+  const handleDelete = (definitionId: string) => {
+    if (!confirm("Do you really want to remove the bookmark?")) return;
     navigator.vibrate([50]);
-    deleteBookmark(_id).then((res) => {
-      if (res.status === 204) {
-        setEntries((items) => items.filter((e) => e._id !== _id));
-      }
-    });
+    deleteDefinitionBookmark(definitionId)
+      .then((res) => {
+        if (res.status === 204) {
+          setEntries((items) =>
+            items.filter((e) =>
+              (e.definitionId as string) !== definitionId as string
+            )
+          );
+        }
+      });
   };
 
   const onLoadMore = () => {
@@ -43,15 +50,17 @@ export default function BookmarkedWords() {
       {entries.length > 0 && (
         <ul class="bookmark-list">
           {entries.map((e) => (
+            // TODO: Extract bookmark Item and pass add/delete function
             <li key={e._id} class="bookmark-item">
               <div>
                 <p>
                   <a href={"/dictionary/" + e.wordId}>
                     {e.article} {e.word}
                   </a>
+                  {/* TODO: opyimize TTS */}
                   <TTS text={e.word} />
                 </p>
-                <span onClick={() => handleDelete(e._id)}>
+                <span onClick={() => handleDelete(e.definitionId as string)}>
                   <CircleCheckSolid class="icon bookmark-icon" />
                 </span>
               </div>

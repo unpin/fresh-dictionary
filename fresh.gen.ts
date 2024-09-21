@@ -27,7 +27,6 @@ import * as $review_index from "./routes/review/index.tsx";
 import * as $signin_index from "./routes/signin/index.tsx";
 import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
-import * as $BookmarkEntry from "./islands/BookmarkEntry.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
 import * as $NavigationMenu from "./islands/NavigationMenu.tsx";
@@ -77,7 +76,6 @@ const manifest = {
     "./routes/signup/index.tsx": $signup_index,
   },
   islands: {
-    "./islands/BookmarkEntry.tsx": $BookmarkEntry,
     "./islands/Header.tsx": $Header,
     "./islands/NavbarSearch.tsx": $NavbarSearch,
     "./islands/NavigationMenu.tsx": $NavigationMenu,

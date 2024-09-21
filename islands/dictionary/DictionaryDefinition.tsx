@@ -1,6 +1,10 @@
+import { useState } from "preact/hooks";
 import { Definition } from "../../types/words.ts";
-
 import { CircleCheckSolid, Plus } from "../../components/Icons.tsx";
+import {
+  deleteDefinitionBookmark,
+  saveDefinitionBookmark,
+} from "../../services/BookmarkService.ts";
 
 interface DictionaryDefinitionProps {
   definition: Definition;
@@ -10,6 +14,30 @@ interface DictionaryDefinitionProps {
 export default function DictionaryDefinition(
   { definition, order }: DictionaryDefinitionProps,
 ) {
+  const [isBookmarked, setIsBookmarked] = useState(definition.isBookmarked);
+
+  function addBookmark(definition: Definition) {
+    setIsBookmarked(true);
+    saveDefinitionBookmark({
+      definitionId: definition._id,
+      wordId: definition.wordId,
+    })
+      .then(() => {
+      }).catch((e) => {
+        console.error(e);
+        setIsBookmarked(false);
+      });
+  }
+
+  function deleteBookmark(definition: Definition) {
+    setIsBookmarked(false);
+    deleteDefinitionBookmark(definition._id)
+      .catch((e) => {
+        console.error(e);
+        setIsBookmarked(true);
+      });
+  }
+
   return (
     <li class="flex column gap">
       <div class="definition-counter">
@@ -18,9 +46,17 @@ export default function DictionaryDefinition(
 
       <div class="definition-term">
         {definition.definition}
-        {definition.isBookmarked
-          ? <CircleCheckSolid class="icon bookmark-icon" />
-          : <Plus class="icon" />}
+        {isBookmarked
+          ? (
+            <span onClick={() => deleteBookmark(definition)}>
+              <CircleCheckSolid class="icon bookmark-icon" />
+            </span>
+          )
+          : (
+            <span onClick={() => addBookmark(definition)}>
+              <Plus class="icon" />
+            </span>
+          )}
       </div>
     </li>
   );

@@ -1,13 +1,20 @@
-export function addBookmark(wordId: string) {
-  return fetch("/api/bookmarks", {
+type WordDefinition = {
+  wordId: string;
+  definitionId: string;
+};
+
+export async function saveDefinitionBookmark(
+  { definitionId, wordId }: WordDefinition,
+) {
+  return await fetch("/api/bookmarks", {
     method: "POST",
-    body: JSON.stringify({ wordId }),
+    body: JSON.stringify({ definitionId, wordId }),
   });
 }
 
-export function deleteBookmark(wordId: string) {
-  return fetch("/api/bookmarks", {
+export async function deleteDefinitionBookmark(definitionId: string) {
+  return await fetch("/api/bookmarks", {
     method: "DELETE",
-    body: JSON.stringify({ wordId }),
+    body: JSON.stringify({ definitionId }),
   });
 }

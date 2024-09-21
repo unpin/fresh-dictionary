@@ -3,9 +3,10 @@ import { Query } from "../database/Query.ts";
 import { Schema } from "../database/SchemaValidator.ts";
 
 export interface Bookmark {
-  _id: ObjectId;
-  userId: ObjectId;
-  wordId: ObjectId;
+  _id: ObjectId | string;
+  userId: ObjectId | string;
+  wordId: ObjectId | string;
+  definitionId: ObjectId | string;
   word: string;
   article: string;
   definition: string;
