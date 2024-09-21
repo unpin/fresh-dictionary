@@ -13,6 +13,7 @@ export interface Collection {
     visibility: string;
     createdAt: Date;
     updatedAt: Date;
+    userName: string;
 }
 
 const collectionSchema: Schema = {};

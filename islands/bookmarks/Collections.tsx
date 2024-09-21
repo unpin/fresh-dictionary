@@ -30,7 +30,7 @@ export function Collections() {
                                         )}
                                     </span>
                                     <span class="collection-username">
-                                        by {coll.userId}
+                                        by {coll.userName}
                                     </span>
                                     <span class="v-separator"></span>
                                     <div class="collection-members">

@@ -593,8 +593,8 @@ input:-webkit-autofill:active {
 
 .v-separator {
     border-left: 1px solid var(--color-gray-300);
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: 1ch;
+    margin-right: 1ch;
     height: 1em;
 }
 

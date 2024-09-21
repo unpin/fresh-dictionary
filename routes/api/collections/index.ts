@@ -11,19 +11,46 @@ export const handler: Handlers = {
         const PAGE = page ? Number(page) : 0;
         const SKIP = PAGE * LIMIT;
         try {
-            const collections = await Collection.findMany({
-                userId: new ObjectId(auth._id),
+            const collections = Collection.aggregate([{
+                $match: {
+                    userId: new ObjectId(auth._id),
+                },
             }, {
-                sort: { updatedAt: -1 },
-                skip: SKIP,
-                limit: LIMIT,
-            });
+                $sort: { updatedAt: -1 },
+            }, {
+                $skip: SKIP,
+            }, {
+                $limit: LIMIT,
+            }, {
+                $lookup: {
+                    from: "user",
+                    localField: "userId",
+                    foreignField: "_id",
+                    as: "user",
+                    pipeline: [
+                        {
+                            $project: {
+                                _id: 0,
+                                name: 1,
+                            },
+                        },
+                    ],
+                },
+            }, {
+                $set: {
+                    userName: {
+                        $arrayElemAt: ["$user.name", 0],
+                    },
+                },
+            }]);
+            const array = await collections.toArray();
+            console.log(array);
 
-            return Response.json(collections, {
+            return Response.json(array, {
                 status: STATUS_CODE.OK,
             });
         } catch (e) {
-            Logger.debug(e);
+            Logger.error(e);
             return new Response("", {
                 status: STATUS_CODE.Unauthorized,
             });
