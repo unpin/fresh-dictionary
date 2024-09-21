@@ -1094,10 +1094,13 @@ hr {
 }
 
 .collection-list {
-    font: var(--font-base-strong);
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    & .colleciton-name {
+        font: var(--font-base-strong);
+    }
 
     & > li {
         display: flex;
