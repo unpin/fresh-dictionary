@@ -25,18 +25,27 @@ export function Collections() {
                                     {coll.name}
                                 </p>
                                 <div className="collection-info">
-                                    <span class="collection-date">
+                                    <span>
                                         {getDisplayDateOrTime(
                                             new Date(coll.updatedAt),
                                         )}
                                     </span>
+                                    <span class="collection-username">
+                                        by {coll.userId}
+                                    </span>
                                     <span class="v-separator"></span>
                                     <div class="collection-members">
                                         <img
-                                            src=""
+                                            src="/profile/default.png"
                                             alt=""
-                                            width={16}
-                                            height={16}
+                                        />
+                                        <img
+                                            src="/profile/default.png"
+                                            alt=""
+                                        />
+                                        <img
+                                            src="/profile/default.png"
+                                            alt=""
                                         />
                                     </div>
                                 </div>
@@ -44,7 +53,7 @@ export function Collections() {
                         ))}
                     </ul>
                 )
-                : <div>You don't habe any collections yet</div>}
+                : <div>You don't habe any collection yet</div>}
         </>
     );
 }
