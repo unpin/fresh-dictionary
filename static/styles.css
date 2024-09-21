@@ -1112,11 +1112,13 @@ hr {
 
         & .collection-username {
             margin-left: 1ch;
+            word-break: break-word;
         }
     }
 
     & .collection-members {
         display: flex;
+        flex-shrink: 0;
         & > img {
             width: 1.125rem;
             height: 1.125rem;
