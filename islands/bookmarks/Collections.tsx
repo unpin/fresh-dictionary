@@ -49,7 +49,7 @@ export function Collections() {
                         ))}
                     </ul>
                 )
-                : <div>You don't habe any collection yet</div>}
+                : <div>You don't habe any collections yet</div>}
         </>
     );
 }
