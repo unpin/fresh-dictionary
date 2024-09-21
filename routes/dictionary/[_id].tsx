@@ -9,24 +9,24 @@ import { Word } from "../../types/words.ts";
 export default async function Dictionary(_req: Request, ctx: FreshContext) {
   const wordId = ctx.params._id;
   const { _id } = ctx.state.auth as { _id: string };
-  const entry = await getWordWithBookmark(wordId, _id) as Word;
+  const word = await getWord(wordId, _id) as Word;
 
-  if (!entry) return ctx.renderNotFound();
+  if (!word) return ctx.renderNotFound();
 
   return (
     <>
       <Head>
-        <title>{entry.article} {entry.word} | Words</title>
+        <title>{word.article} {word.word} | Words</title>
       </Head>
       <Header enableNavigation={true} />
       <main class="container">
-        <DictionaryWord entry={entry} />
+        <DictionaryWord entry={word} />
       </main>
     </>
   );
 }
 
-async function getWordWithBookmark(wordId: string, userId: string) {
+async function getWord(wordId: string, userId: string) {
   const array = DictionaryEntry.aggregate([
     {
       $match: {
@@ -35,36 +35,59 @@ async function getWordWithBookmark(wordId: string, userId: string) {
     },
     {
       $lookup: {
-        from: "bookmarks",
+        from: "definition",
         localField: "_id",
-        foreignField: "wordIds._id",
-        as: "bookmarks",
-        pipeline: [
-          {
-            $match: {
-              userId: new ObjectId(userId),
-            },
-          },
-        ],
+        foreignField: "wordId",
+        as: "definitions",
       },
     },
     {
-      $set: {
-        isBookmarked: {
-          $cond: [
-            {
-              $gt: [
+      $lookup: {
+        from: "bookmark",
+        let: { definitionIds: "$definitions._id" },
+        pipeline: [
+          {
+            $match: {
+              $expr: {
+                $and: [
+                  { $in: ["$definitionId", "$$definitionIds"] },
+                  { $eq: ["$userId", new ObjectId(userId)] },
+                ],
+              },
+            },
+          },
+          {
+            $project: {
+              _id: 1,
+              definitionId: 1,
+            },
+          },
+        ],
+        as: "bookmarked",
+      },
+    },
+    {
+      $addFields: {
+        definitions: {
+          $map: {
+            input: "$definitions",
+            as: "definition",
+            in: {
+              $mergeObjects: [
+                "$$definition",
                 {
-                  $size: ["$bookmarks"],
+                  isBookmarked: {
+                    $in: ["$$definition._id", "$bookmarked.definitionId"],
+                  },
                 },
-                0,
               ],
             },
-            true,
-            false,
-          ],
+          },
         },
       },
+    },
+    {
+      $unset: ["bookmarked"],
     },
   ]);
 

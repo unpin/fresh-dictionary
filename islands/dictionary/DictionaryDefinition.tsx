@@ -1,12 +1,10 @@
 import { Definition } from "../../types/words.ts";
 
-import { Plus } from "../../components/Icons.tsx";
+import { CircleCheckSolid, Plus } from "../../components/Icons.tsx";
 
 interface DictionaryDefinitionProps {
   definition: Definition;
   order: number;
-  wordId: string;
-  onDeleteDefinition: (e: MouseEvent) => void;
 }
 
 export default function DictionaryDefinition(
@@ -20,7 +18,9 @@ export default function DictionaryDefinition(
 
       <div class="definition-term">
         {definition.definition}
-        <Plus class="icon" />
+        {definition.isBookmarked
+          ? <CircleCheckSolid class="icon bookmark-icon" />
+          : <Plus class="icon" />}
       </div>
     </li>
   );

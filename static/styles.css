@@ -860,12 +860,7 @@ hr {
     }
 
     & .icon {
-        opacity: 0.25;
-        width: 1rem;
-
-        &:hover {
-            opacity: 1;
-        }
+        height: 1rem;
     }
 }
 
@@ -924,8 +919,11 @@ hr {
     & .bookmark-icon {
         flex-shrink: 0;
         height: 1rem;
-        fill: var(--color-yellow);
     }
+}
+
+.bookmark-icon {
+    fill: var(--color-yellow);
 }
 
 .navigation-menu {

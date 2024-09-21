@@ -1,18 +1,18 @@
 export interface Definition {
   _id: string;
+  wordId: string;
   type: string;
-  definition: string;
   usageLabel?: string;
-  examples: string[];
+  definition: string;
+  isBookmarked: boolean;
 }
 
 export interface Word {
   _id: string;
-  userId: string;
   word: string;
   article: string;
+  tags: string;
   definitions: Definition[];
-  isBookmarked?: boolean;
 }
 
 export interface ReviewWord extends Partial<Omit<Word, "definitions">> {
