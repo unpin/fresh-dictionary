@@ -8,7 +8,6 @@ export function Collections() {
     useEffect(() => {
         fetch("/api/collections").then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 setCollections(data);
             });
     }, []);
@@ -19,7 +18,7 @@ export function Collections() {
             {collections.length
                 ? (
                     <ul class="collection-list">
-                        {collections.map((coll) => (
+                        {collections.map((coll, idx) => (
                             <li>
                                 <p class="colleciton-name">
                                     {coll.name}
@@ -35,18 +34,15 @@ export function Collections() {
                                     </span>
                                     <span class="v-separator"></span>
                                     <div class="collection-members">
-                                        <img
-                                            src="/profile/default.png"
-                                            alt=""
-                                        />
-                                        <img
-                                            src="/profile/default.png"
-                                            alt=""
-                                        />
-                                        <img
-                                            src="/profile/default.png"
-                                            alt=""
-                                        />
+                                        {/* Replace with real implementation */}
+                                        {Array(idx + 2).fill(true).map(
+                                            () => (
+                                                <img
+                                                    src="/profile/default.png"
+                                                    alt=""
+                                                />
+                                            ),
+                                        )}
                                     </div>
                                 </div>
                             </li>
