@@ -14,6 +14,7 @@ export const handler: Handlers = {
             const collections = await Collection.findMany({
                 userId: new ObjectId(auth._id),
             }, {
+                sort: { updatedAt: -1 },
                 skip: SKIP,
                 limit: LIMIT,
             });
