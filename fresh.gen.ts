@@ -19,11 +19,10 @@ import * as $auth_email from "./routes/auth/email.ts";
 import * as $auth_signin from "./routes/auth/signin.ts";
 import * as $auth_signup from "./routes/auth/signup.ts";
 import * as $bookmarks_index from "./routes/bookmarks/index.tsx";
-import * as $delete_index from "./routes/delete/index.tsx";
 import * as $dictionary_id_ from "./routes/dictionary/[_id].tsx";
 import * as $index from "./routes/index.tsx";
+import * as $practice_index from "./routes/practice/index.tsx";
 import * as $profile_index from "./routes/profile/index.tsx";
-import * as $review_index from "./routes/review/index.tsx";
 import * as $signin_index from "./routes/signin/index.tsx";
 import * as $signout from "./routes/signout.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
@@ -66,11 +65,10 @@ const manifest = {
     "./routes/auth/signin.ts": $auth_signin,
     "./routes/auth/signup.ts": $auth_signup,
     "./routes/bookmarks/index.tsx": $bookmarks_index,
-    "./routes/delete/index.tsx": $delete_index,
     "./routes/dictionary/[_id].tsx": $dictionary_id_,
     "./routes/index.tsx": $index,
+    "./routes/practice/index.tsx": $practice_index,
     "./routes/profile/index.tsx": $profile_index,
-    "./routes/review/index.tsx": $review_index,
     "./routes/signin/index.tsx": $signin_index,
     "./routes/signout.ts": $signout,
     "./routes/signup/index.tsx": $signup_index,
