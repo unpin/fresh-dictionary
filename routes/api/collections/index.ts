@@ -44,7 +44,6 @@ export const handler: Handlers = {
                 },
             }]);
             const array = await collections.toArray();
-            console.log(array);
 
             return Response.json(array, {
                 status: STATUS_CODE.OK,

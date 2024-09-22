@@ -7,7 +7,6 @@ export const handler: Handlers = {
   async POST(req, ctx) {
     const { wordId, definitionId } = await req.json();
     const auth = ctx.state.auth as { _id: string };
-    console.log(wordId, definitionId, auth._id);
 
     try {
       const created = await Bookmark.create({
@@ -18,7 +17,6 @@ export const handler: Handlers = {
         reviewedAt: new Date(),
         reviewCount: 0,
       });
-      console.log(created);
 
       return new Response("", {
         status: created ? STATUS_CODE.Created : STATUS_CODE.BadRequest,
@@ -160,15 +158,12 @@ export const handler: Handlers = {
   async DELETE(req, ctx) {
     const { definitionId } = await req.json();
     const auth = ctx.state.auth as { _id: string };
-    console.log({ definitionId, userId: auth._id });
 
     try {
       const deletedCount = await Bookmark.deleteOne({
         userId: new ObjectId(auth._id),
         definitionId: new ObjectId(definitionId),
       });
-
-      console.log({ deletedCount });
 
       return new Response(null, {
         status: deletedCount ? STATUS_CODE.NoContent : STATUS_CODE.NotFound,

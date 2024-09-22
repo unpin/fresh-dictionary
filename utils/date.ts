@@ -14,8 +14,6 @@ const MONTHS = [
 ];
 
 export function getDisplayDateOrTime(date: Date): string {
-    console.log(date);
-
     const now = new Date();
 
     const isToday = now.toDateString() === date.toDateString(); // Simplified date comparison
