@@ -68,9 +68,6 @@ export default function BookmarkedWords() {
           {bookmarks.map((bookmark, i) => (
             // TODO: Extract bookmark Item and pass add/delete function
             <li
-              style={{
-                backgroundColor: bookmarks.length - 1 === i ? "red" : "",
-              }}
               key={bookmark._id}
               ref={bookmarks.length - 1 === i ? bottomItem : null}
               class="bookmark-item"
