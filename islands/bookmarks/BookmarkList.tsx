@@ -17,8 +17,8 @@ export default function BookmarkedWords() {
   }, []);
 
   const handleDelete = (definitionId: string) => {
-    navigator.vibrate([50]);
     if (!confirm("Do you really want to remove the bookmark?")) return;
+    navigator.vibrate([50]);
     deleteDefinitionBookmark(definitionId)
       .then((res) => {
         if (res.status === 204) {
