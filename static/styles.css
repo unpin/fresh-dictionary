@@ -745,9 +745,10 @@ hr {
     & footer {
         background-color: var(--color-gray-100);
         border-radius: 0 0 0.5rem 0.5rem;
-        padding: 0.5rem 1rem;
         text-align: center;
         & a {
+            display: block;
+            padding: 0.5rem 1rem;
             text-decoration: none;
             transition: color var(--animation-ms) ease-in-out;
             color: var(--color-gray-500);
