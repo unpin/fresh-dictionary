@@ -348,6 +348,9 @@ input:-webkit-autofill:active {
     gap: 1rem;
     padding: 1rem 0;
     background: var(--color-primary);
+    position: sticky;
+    top: 0;
+    z-index: 90;
 }
 
 .navigation {
@@ -448,7 +451,7 @@ input:-webkit-autofill:active {
 }
 
 .search-content {
-    position: absolute;
+    position: fixed;
     border-radius: var(--border-radius);
     z-index: 1010;
     top: 0;
