@@ -13,6 +13,7 @@ import * as $api_collections_index from "./routes/api/collections/index.ts";
 import * as $api_dictionary_id_definition_definitionId_index from "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts";
 import * as $api_dictionary_id_definition_index from "./routes/api/dictionary/[_id]/definition/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
+import * as $api_old_bookmarks_index from "./routes/api/old_bookmarks/index.ts";
 import * as $api_openai_example_index from "./routes/api/openai/example/index.ts";
 import * as $auth_delete from "./routes/auth/delete.ts";
 import * as $auth_email from "./routes/auth/email.ts";
@@ -24,7 +25,7 @@ import * as $index from "./routes/index.tsx";
 import * as $practice_index from "./routes/practice/index.tsx";
 import * as $profile_index from "./routes/profile/index.tsx";
 import * as $signin_index from "./routes/signin/index.tsx";
-import * as $signout from "./routes/signout.ts";
+import * as $signout_index from "./routes/signout/index.ts";
 import * as $signup_index from "./routes/signup/index.tsx";
 import * as $Header from "./islands/Header.tsx";
 import * as $NavbarSearch from "./islands/NavbarSearch.tsx";
@@ -59,6 +60,7 @@ const manifest = {
     "./routes/api/dictionary/[_id]/definition/index.ts":
       $api_dictionary_id_definition_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
+    "./routes/api/old_bookmarks/index.ts": $api_old_bookmarks_index,
     "./routes/api/openai/example/index.ts": $api_openai_example_index,
     "./routes/auth/delete.ts": $auth_delete,
     "./routes/auth/email.ts": $auth_email,
@@ -70,7 +72,7 @@ const manifest = {
     "./routes/practice/index.tsx": $practice_index,
     "./routes/profile/index.tsx": $profile_index,
     "./routes/signin/index.tsx": $signin_index,
-    "./routes/signout.ts": $signout,
+    "./routes/signout/index.ts": $signout_index,
     "./routes/signup/index.tsx": $signup_index,
   },
   islands: {
