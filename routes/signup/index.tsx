@@ -16,8 +16,10 @@ export const handler: Handlers = {
 
 export default function Signin() {
   return (
-    <div class="container form-wrapper">
-      <SignUpForm />
-    </div>
+    <main class="main">
+      <div class="container form-wrapper">
+        <SignUpForm />
+      </div>
+    </main>
   );
 }

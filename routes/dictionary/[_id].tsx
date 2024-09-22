@@ -5,6 +5,7 @@ import { Head } from "$fresh/runtime.ts";
 import Header from "../../islands/Header.tsx";
 import DictionaryWord from "../../islands/dictionary/DictionaryWord.tsx";
 import { Word } from "../../types/words.ts";
+import NavigationMenu from "../../islands/NavigationMenu.tsx";
 
 export default async function Dictionary(_req: Request, ctx: FreshContext) {
   const wordId = ctx.params._id;
@@ -19,9 +20,12 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
         <title>{word.article} {word.word} | Words</title>
       </Head>
       <Header enableNavigation={true} />
-      <main class="container">
-        <DictionaryWord entry={word} />
+      <main class="main">
+        <div class="container">
+          <DictionaryWord entry={word} />
+        </div>
       </main>
+      <NavigationMenu />
     </>
   );
 }

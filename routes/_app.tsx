@@ -20,9 +20,8 @@ export default function App({ Component }: PageProps) {
         <link rel="manifest" href="/manifest.json" />
         <script src="/register.js"></script>
       </Head>
-      <body class="main">
+      <body>
         <Component />
-        <NavigationMenu />
       </body>
     </>
   );
