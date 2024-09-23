@@ -1,13 +1,15 @@
 import { useEffect, useState } from "preact/hooks";
-import { Collection } from "../../models/Collection.ts";
+import { ICollection } from "../../models/Collection.ts";
 import { getDisplayDateOrTime } from "../../utils/date.ts";
 
 export function Collections() {
-    const [collections, setCollections] = useState<Collection[]>([]);
+    const [collections, setCollections] = useState<ICollection[]>([]);
 
     useEffect(() => {
-        fetch("/api/collections").then((res) => res.json())
+        fetch("/api/collections")
+            .then((res) => res.json())
             .then((data) => {
+                console.log("/api/collections", data);
                 setCollections(data);
             });
     }, []);
@@ -18,31 +20,37 @@ export function Collections() {
             {collections.length
                 ? (
                     <ul class="collection-list">
-                        {collections.map((coll, idx) => (
+                        {collections.map((collection, idx) => (
                             <li>
                                 <p class="colleciton-name">
-                                    {coll.name}
+                                    <a href={`/collection/${collection._id}`}>
+                                        {collection.name}
+                                    </a>
                                 </p>
                                 <div className="collection-info">
-                                    <span>
+                                    <span class="collection-date">
                                         {getDisplayDateOrTime(
-                                            new Date(coll.updatedAt),
+                                            new Date(collection.updatedAt),
                                         )}
                                     </span>
+                                    <span>by</span>
                                     <span class="collection-username">
-                                        by {coll.userName}
+                                        <a href={`/user/${collection.userId}`}>
+                                            {collection.userName}
+                                        </a>
                                     </span>
                                     <span class="v-separator"></span>
                                     <div class="collection-members">
                                         {/* Replace with real implementation */}
-                                        {Array(idx + 2).fill(true).map(
-                                            () => (
-                                                <img
-                                                    src="/profile/default.png"
-                                                    alt=""
-                                                />
-                                            ),
-                                        )}
+                                        {Array(Math.min(Math.min(idx + 1), 3))
+                                            .fill(true).map(
+                                                () => (
+                                                    <img
+                                                        src="/profile/default.png"
+                                                        alt=""
+                                                    />
+                                                ),
+                                            )}
                                     </div>
                                 </div>
                             </li>

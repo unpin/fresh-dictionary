@@ -1102,11 +1102,16 @@ hr {
     flex-direction: column;
     gap: 1rem;
 
+    & a {
+        text-decoration: none;
+    }
+
+    & .collection-date {
+        user-select: none;
+    }
+
     & .colleciton-name {
         font: var(--font-base-strong);
-        & a {
-            text-decoration: none;
-        }
     }
 
     & .collection-info {
