@@ -118,6 +118,7 @@ body {
     grid-template-rows: auto 1fr auto;
     background-color: var(--color-background);
     color: var(--color-body);
+    height: 100vh;
 }
 
 p {
