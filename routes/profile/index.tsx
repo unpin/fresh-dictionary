@@ -5,6 +5,11 @@ export default function () {
   return (
     <>
       <Header />
+      <main class="main">
+        <div class="container">
+          <a href="/signout">Sign out</a>
+        </div>
+      </main>
       <NavigationMenu />
     </>
   );
