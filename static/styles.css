@@ -1104,6 +1104,9 @@ hr {
 
     & .colleciton-name {
         font: var(--font-base-strong);
+        & a {
+            text-decoration: none;
+        }
     }
 
     & .collection-info {
