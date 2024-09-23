@@ -1106,7 +1106,8 @@ hr {
         text-decoration: none;
     }
 
-    & .collection-date {
+    & .collection-date,
+    & .collection-by {
         user-select: none;
     }
 
