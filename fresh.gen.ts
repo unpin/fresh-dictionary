@@ -20,6 +20,7 @@ import * as $auth_email from "./routes/auth/email.ts";
 import * as $auth_signin from "./routes/auth/signin.ts";
 import * as $auth_signup from "./routes/auth/signup.ts";
 import * as $bookmarks_index from "./routes/bookmarks/index.tsx";
+import * as $collection_id_ from "./routes/collection/[_id].tsx";
 import * as $dictionary_id_ from "./routes/dictionary/[_id].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $practice_index from "./routes/practice/index.tsx";
@@ -36,6 +37,7 @@ import * as $auth_SignInForm from "./islands/auth/SignInForm.tsx";
 import * as $auth_SignUpForm from "./islands/auth/SignUpForm.tsx";
 import * as $bookmarks_BookmarkList from "./islands/bookmarks/BookmarkList.tsx";
 import * as $bookmarks_Collections from "./islands/bookmarks/Collections.tsx";
+import * as $collection_CollectionItem from "./islands/collection/CollectionItem.tsx";
 import * as $dictionary_AddDefinition from "./islands/dictionary/AddDefinition.tsx";
 import * as $dictionary_DictionaryDefinition from "./islands/dictionary/DictionaryDefinition.tsx";
 import * as $dictionary_DictionaryDefinitions from "./islands/dictionary/DictionaryDefinitions.tsx";
@@ -67,6 +69,7 @@ const manifest = {
     "./routes/auth/signin.ts": $auth_signin,
     "./routes/auth/signup.ts": $auth_signup,
     "./routes/bookmarks/index.tsx": $bookmarks_index,
+    "./routes/collection/[_id].tsx": $collection_id_,
     "./routes/dictionary/[_id].tsx": $dictionary_id_,
     "./routes/index.tsx": $index,
     "./routes/practice/index.tsx": $practice_index,
@@ -85,6 +88,7 @@ const manifest = {
     "./islands/auth/SignUpForm.tsx": $auth_SignUpForm,
     "./islands/bookmarks/BookmarkList.tsx": $bookmarks_BookmarkList,
     "./islands/bookmarks/Collections.tsx": $bookmarks_Collections,
+    "./islands/collection/CollectionItem.tsx": $collection_CollectionItem,
     "./islands/dictionary/AddDefinition.tsx": $dictionary_AddDefinition,
     "./islands/dictionary/DictionaryDefinition.tsx":
       $dictionary_DictionaryDefinition,
