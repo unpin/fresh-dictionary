@@ -1121,6 +1121,9 @@ hr {
         font: var(--font-small);
         color: var(--color-gray-600);
 
+        & .collection-by {
+            margin-left: 0.25rem;
+        }
         & .collection-username {
             margin-left: 0.25rem;
             word-break: break-word;

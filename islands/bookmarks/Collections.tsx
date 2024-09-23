@@ -33,7 +33,7 @@ export function Collections() {
                                             new Date(collection.updatedAt),
                                         )}
                                     </span>
-                                    <span>by</span>
+                                    <span class="collection-by">by</span>
                                     <span class="collection-username">
                                         <a href={`/user/${collection.userId}`}>
                                             {collection.userName}
