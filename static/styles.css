@@ -74,6 +74,25 @@ p {
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --color-background: #000000;
+        --color-body: #f2f2f7;
+        --color-primary: #ffcc00;
+        --color-gray-100: #1c1c1e;
+        --color-gray-200: #2c2c2e;
+        --color-gray-300: #3a3a3c;
+        --color-gray-400: #48484a;
+        --color-gray-500: #636366;
+        --color-gray-600: #8e8e93;
+        --color-red: #ff453a;
+        --color-orange: #ff9f0a;
+        --color-yellow: #ffd60a;
+        --color-green: #30d158;
+        --color-cyan: #32d3e6;
+        --color-blue: #0a84ff;
+        --color-indigo: #5e5ce6;
+        --color-purple: #bf5af2;
+        --color-pink: #ff375f;
+        --color-brown: #ac8e68;
     }
 }
 
@@ -357,6 +376,10 @@ input:-webkit-autofill:active {
     gap: 1rem;
     padding: 1rem 0;
     background: var(--color-primary);
+
+    @media (prefers-color-scheme: dark) {
+        background: var(--color-gray-100);
+    }
 }
 
 .navigation {
@@ -407,7 +430,6 @@ input:-webkit-autofill:active {
 
 .search-container {
     color: var(--color-body);
-    background: var(--color-primary);
 
     & .search-input {
         flex: 1;
@@ -437,6 +459,12 @@ input:-webkit-autofill:active {
     z-index: 1020;
     &:focus-within {
         background-color: var(--color-gray-100);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        &:focus-within {
+            background-color: var(--color-gray-200);
+        }
     }
 }
 
@@ -889,6 +917,7 @@ hr {
         flex-direction: column;
         gap: 0.5rem;
         cursor: pointer;
+        padding-bottom: 1rem;
         & p {
             display: flex;
             align-items: center;
@@ -909,7 +938,7 @@ hr {
         }
 
         &:not(:last-child) {
-            border-bottom: 1px solid var(--color-background);
+            border-bottom: 1px solid var(--color-gray-100);
         }
 
         & .definition {
@@ -1069,7 +1098,7 @@ hr {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: #fff;
+    background-color: var(--color-background);
     border-radius: 50px;
     z-index: -1;
 }
