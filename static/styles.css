@@ -74,7 +74,7 @@ p {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-background: #000000;
+        --color-background: #111;
         --color-body: #f2f2f7;
         --color-primary: #ffcc00;
         --color-gray-100: #1c1c1e;
