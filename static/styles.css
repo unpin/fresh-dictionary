@@ -20,6 +20,27 @@
     --color-pink: #ff2d55;
     --color-brown: #a2845e;
 
+    .collection-modal {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        margin: 2rem;
+        border: 1px solid var(--color-gray-200);
+        border-radius: var(--border-radius-sm);
+        max-width: 360px;
+
+        & ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1rem;
+             & li {
+                display: flex;
+                justify-content: space-between;
+             }
+        }
+    }
+
     /* Font */
 
     --ff: Inter, sans-serif;
