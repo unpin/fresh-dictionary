@@ -3,6 +3,8 @@ import { deleteDefinitionBookmark } from "../../services/BookmarkService.ts";
 import { CircleCheckSolid } from "../../components/Icons.tsx";
 import { Bookmark } from "../../models/Bookmark.ts";
 import TTS from "../TTS.tsx";
+import { CollectionModal } from "../collection/CollectionModal.tsx";
+import { vibrate } from "../../utils/compat.ts";
 
 export default function BookmarkedWords() {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
@@ -46,7 +48,7 @@ export default function BookmarkedWords() {
 
   const handleDelete = (definitionId: string) => {
     if (!confirm("Do you really want to remove the bookmark?")) return;
-    navigator.vibrate([50]);
+    vibrate([50]);
     deleteDefinitionBookmark(definitionId)
       .then((res) => {
         if (res.status === 204) {

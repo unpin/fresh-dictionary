@@ -3,6 +3,7 @@ import { generateExampleSentence } from "../../services/DictionaryService.ts";
 import { JSX } from "preact/jsx-runtime";
 import { delay } from "../../utils/async.ts";
 import { BounceIn } from "../../utils/Animation.ts";
+import { vibrate } from "../../utils/compat.ts";
 
 interface GenerateExampleProps {
   word: string;
@@ -16,7 +17,7 @@ export default function GenerateExample(
   const onGenerate = (e: JSX.TargetedMouseEvent<HTMLButtonElement>) => {
     const btn = e.currentTarget;
     btn.classList.add("animated");
-    navigator.vibrate([50]);
+    vibrate([50]);
     btn.disabled = true;
     generateExampleSentence(word)
       .then((response) => {
@@ -26,7 +27,7 @@ export default function GenerateExample(
               setExamples((examples) => ["", ...examples]);
               for await (const word of json.example.split(/\s/)) {
                 await delay(50);
-                navigator.vibrate([20]);
+                vibrate([20]);
                 setExamples((examples) => {
                   const sentence = examples.shift() + " " + word;
                   return [sentence.trim(), ...examples];
@@ -49,7 +50,7 @@ export default function GenerateExample(
     });
     navigator.clipboard.writeText(li.innerText)
       .then(() => {
-        navigator.vibrate([50]);
+        vibrate([50]);
       });
   };
 
