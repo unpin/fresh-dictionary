@@ -13,6 +13,7 @@ export interface Word {
   article: string;
   tags: string;
   definitions: Definition[];
+  examples: string[];
 }
 
 export interface ReviewWord extends Partial<Omit<Word, "definitions">> {

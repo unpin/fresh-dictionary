@@ -25,7 +25,7 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
 
       <DictionaryDefinitions word={word} setWord={setWord} />
       <h3 class="subheading">Example sentences</h3>
-      <GenerateExample word={word.word} />
+      <GenerateExample word={word.word} examples={word.examples} />
     </div>
   );
 }
