@@ -1,4 +1,4 @@
-import { create, decode, getNumericDate, Payload, verify } from "djwt";
+import { create, decode, getNumericDate, Payload, verify } from "@emrahcom/jwt";
 import { JWT_SECRET } from "./constants.ts";
 
 export const CRYPTO_KEY = await crypto.subtle.importKey(
