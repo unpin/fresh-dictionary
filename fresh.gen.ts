@@ -12,6 +12,7 @@ import * as $api_collections_id_index from "./routes/api/collections/[_id]/index
 import * as $api_collections_index from "./routes/api/collections/index.ts";
 import * as $api_dictionary_id_definition_definitionId_index from "./routes/api/dictionary/[_id]/definition/[definitionId]/index.ts";
 import * as $api_dictionary_id_definition_index from "./routes/api/dictionary/[_id]/definition/index.ts";
+import * as $api_dictionary_id_examples_index from "./routes/api/dictionary/[_id]/examples/index.ts";
 import * as $api_dictionary_search_query_ from "./routes/api/dictionary/search/[query].ts";
 import * as $api_old_bookmarks_index from "./routes/api/old_bookmarks/index.ts";
 import * as $api_openai_example_index from "./routes/api/openai/example/index.ts";
@@ -62,6 +63,8 @@ const manifest = {
       $api_dictionary_id_definition_definitionId_index,
     "./routes/api/dictionary/[_id]/definition/index.ts":
       $api_dictionary_id_definition_index,
+    "./routes/api/dictionary/[_id]/examples/index.ts":
+      $api_dictionary_id_examples_index,
     "./routes/api/dictionary/search/[query].ts": $api_dictionary_search_query_,
     "./routes/api/old_bookmarks/index.ts": $api_old_bookmarks_index,
     "./routes/api/openai/example/index.ts": $api_openai_example_index,

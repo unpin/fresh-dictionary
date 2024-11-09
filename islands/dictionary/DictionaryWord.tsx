@@ -3,13 +3,30 @@ import TTS from "../TTS.tsx";
 import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
 import GenerateExample from "./GenerateExample.tsx";
+import { addExample } from "../../services/DictionaryService.ts";
+import { useAuth } from "../../hooks/useAuth.tsx";
 
 interface DictionaryWordProps {
   entry: Word;
 }
 
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
-  const [word, setWord] = useState(entry);
+  const [word, setWord] = useState<Word>(entry);
+  const [text, setText] = useState<string>("");
+  const [auth] = useAuth();
+
+  function handleAddExample(e: SubmitEvent) {
+    e.preventDefault();
+    addExample(word._id, text)
+      .then(() => {
+        if (word.examples) {
+          word.examples.push(text);
+        } else {
+          word.examples = [text];
+        }
+        setWord({ ...word });
+      });
+  }
 
   return (
     <div class="dictionary-container">
@@ -25,7 +42,21 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
 
       <DictionaryDefinitions word={word} setWord={setWord} />
       <h3 class="subheading">Example sentences</h3>
-      <GenerateExample word={word.word} examples={word.examples} />
+      <GenerateExample word={word} />
+      {auth.isAdmin &&
+        (
+          <div>
+            <form onSubmit={handleAddExample}>
+              <input
+                class="form-input"
+                type="text"
+                value={text}
+                onInput={(e) => setText(e.target.value)}
+              />
+              {text && <button class="btn">+</button>}
+            </form>
+          </div>
+        )}
     </div>
   );
 }

@@ -46,3 +46,14 @@ export async function generateExampleSentence(word: string) {
   );
   return response;
 }
+
+export async function addExample(wordId: string, example: string) {
+  const response = await fetch(
+    `/api/dictionary/${wordId}/examples`,
+    {
+      method: "PATCH",
+      body: JSON.stringify({ example }),
+    },
+  );
+  return response;
+}

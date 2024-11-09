@@ -1,10 +1,10 @@
-import { StateUpdater } from "preact/hooks";
+import { Dispatch, StateUpdater } from "preact/hooks";
 import { Definition, Word } from "../../types/words.ts";
 import DictionaryDefinition from "./DictionaryDefinition.tsx";
 
 interface DictionaryDefinitionsProps {
   word: Word;
-  setWord: StateUpdater<Word>;
+  setWord: Dispatch<StateUpdater<Word>>;
 }
 
 export default function DictionaryDefinitions(
