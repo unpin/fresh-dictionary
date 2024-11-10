@@ -11,20 +11,22 @@ interface DictionaryWordProps {
 }
 
 export default function DictionaryWord({ entry }: DictionaryWordProps) {
-  const [word, setWord] = useState<Word>(entry);
-  const [text, setText] = useState<string>("");
+  const [word, setWord] = useState(entry);
+  const [text, setText] = useState("");
   const [auth] = useAuth();
 
   function handleAddExample(e: SubmitEvent) {
     e.preventDefault();
-    addExample(word._id, text)
+    const trimmedText = text.trim();
+    addExample(word._id, trimmedText)
       .then(() => {
         if (word.examples) {
-          word.examples.push(text);
+          word.examples.push(trimmedText);
         } else {
-          word.examples = [text];
+          word.examples = [trimmedText];
         }
         setWord({ ...word });
+        setText("");
       });
   }
 
@@ -51,7 +53,7 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
                 class="form-input"
                 type="text"
                 value={text}
-                onInput={(e) => setText(e.target.value)}
+                onInput={(e) => setText((e.target as HTMLInputElement).value)}
               />
               {text && <button class="btn">+</button>}
             </form>
