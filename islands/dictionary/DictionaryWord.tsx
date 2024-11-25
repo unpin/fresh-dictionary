@@ -49,11 +49,15 @@ export default function DictionaryWord({ entry }: DictionaryWordProps) {
         (
           <div>
             <form onSubmit={handleAddExample}>
-              <input
-                class="form-input"
+              <textarea
+                class="form-input w-full overflow-hidden"
                 type="text"
                 value={text}
-                onInput={(e) => setText((e.target as HTMLInputElement).value)}
+                onInput={({ currentTarget }) => {
+                  setText(currentTarget.value);
+                  currentTarget.style.height = currentTarget.scrollHeight +
+                    "px";
+                }}
               />
               {text && <button class="btn">+</button>}
             </form>

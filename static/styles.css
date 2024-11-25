@@ -346,6 +346,14 @@ input:-webkit-autofill:active {
     flex-grow: 3;
 }
 
+.w-full {
+  width: 100%;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .no-shrink {
     flex-shrink: 0;
 }
