@@ -7,7 +7,6 @@ export const {
   PORT,
   JWT_SECRET,
   LOG_LEVEL,
-  TEST,
   ADMIN_EMAIL,
   ADMIN_PASSWORD,
   OPENAI_API_KEY,
