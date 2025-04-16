@@ -1,12 +1,20 @@
 import { PageProps } from "$fresh/server.ts";
 import { Head } from "$fresh/runtime.ts";
-import NavigationMenu from "../islands/NavigationMenu.tsx";
 
 export default function App({ Component }: PageProps) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#1c1c1e" />
+        <meta
+          name="theme-color"
+          content="#ffcc00"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#1c1c1e"
+          media="(prefers-color-scheme: dark)"
+        />
         <link rel="stylesheet" href="/styles.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
