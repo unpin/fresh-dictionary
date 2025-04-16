@@ -14,9 +14,10 @@ export const handler: Handlers = {
       const chatCompletion = await client.chat.completions.create({
         messages: [{
           role: "user",
-          content: `„Generiere einen kurzen Beispielsatz in einem beliebigen Kontext mit dem Wort "${word}", ohne ihn in Anführungszeichen zu setzen.`,
+          content:
+            `„Generiere einen kurzen Beispielsatz in einem beliebigen Kontext mit dem Wort "${word}", ohne ihn in Anführungszeichen zu setzen.`,
         }],
-        model: "gpt-3.5-turbo",
+        model: "gpt-4o-mini",
       });
 
       return Response.json({
