@@ -4,7 +4,6 @@ import {
   debug,
   error,
   info,
-  LevelName,
   setup,
 } from "std/log/mod.ts";
 import { LOG_LEVEL } from "./constants.ts";
@@ -15,7 +14,7 @@ setup({
   },
   loggers: {
     default: {
-      level: LOG_LEVEL as LevelName,
+      level: LOG_LEVEL,
       handlers: ["console"],
     },
   },
