@@ -18,7 +18,7 @@ const parseLogLevel = (value: string): LevelName => {
   const validLevels: ReadonlyArray<string> = [
     "DEBUG",
     "INFO",
-    "WARNING",
+    "WARN",
     "ERROR",
     "CRITICAL",
   ];
