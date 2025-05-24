@@ -1,5 +1,5 @@
 import { Handlers, STATUS_CODE } from "$fresh/server.ts";
-import OpenAI from "openai/mod.ts";
+import OpenAI from "openai";
 import { Logger } from "../../../../common/logger.ts";
 import { OPENAI_API_KEY } from "../../../../common/constants.ts";
 
