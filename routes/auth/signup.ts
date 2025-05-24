@@ -1,7 +1,7 @@
 import { Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { signToken } from "../../common/jwt.ts";
 import { User, UserRole } from "../../models/User.ts";
-import { genSaltSync, hashSync } from "bcrypt";
+import { hash } from "@felix/argon2";
 import { setCookie } from "std/http/cookie.ts";
 
 export const handler: Handlers = {
@@ -14,7 +14,7 @@ export const handler: Handlers = {
         statusText: "User already exists",
       });
     }
-    const hashedPassword = hashSync(password, genSaltSync());
+    const hashedPassword = await hash(password);
 
     const user = {
       name,

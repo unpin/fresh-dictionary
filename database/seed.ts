@@ -1,4 +1,4 @@
-import { genSaltSync, hashSync } from "bcrypt";
+import { hash } from "@felix/argon2";
 import { ADMIN_EMAIL, ADMIN_PASSWORD } from "../common/constants.ts";
 import { User, UserRole } from "../models/User.ts";
 
@@ -8,7 +8,7 @@ export async function seed() {
   await User.create({
     name: "Admin",
     email: ADMIN_EMAIL,
-    password: hashSync(ADMIN_PASSWORD, genSaltSync()),
+    password: await hash(ADMIN_PASSWORD),
     userRole: UserRole.ADMIN,
     createdAt: new Date(),
   });

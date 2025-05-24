@@ -2,7 +2,7 @@ import { Handlers } from "$fresh/server.ts";
 import { setCookie } from "std/http/cookie.ts";
 import { signToken } from "../../common/jwt.ts";
 import { User } from "../../models/User.ts";
-import { compareSync } from "bcrypt";
+import { verify } from "@felix/argon2";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
@@ -16,7 +16,7 @@ export const handler: Handlers = {
       });
     }
 
-    if (!compareSync(password, user.password)) {
+    if (!await verify(user.password, password)) {
       return new Response("", {
         status: 400,
         statusText: "Password is incorrect",
