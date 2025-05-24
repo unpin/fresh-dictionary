@@ -5,6 +5,7 @@ import {
   error,
   info,
   setup,
+  warn,
 } from "std/log/mod.ts";
 import { LOG_LEVEL } from "./constants.ts";
 
@@ -23,6 +24,7 @@ setup({
 export const Logger = {
   debug,
   info,
+  warn,
   error,
   critical,
 };
