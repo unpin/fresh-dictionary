@@ -19,7 +19,7 @@ export default async function Dictionary(_req: Request, ctx: FreshContext) {
       <Head>
         <title>{word.article} {word.word} | Words</title>
       </Head>
-      <Header enableNavigation={true} />
+      <Header enableBackNavigation />
       <main class="main">
         <div class="container">
           <DictionaryWord entry={word} />

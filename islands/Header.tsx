@@ -2,15 +2,17 @@ import { ComponentChildren } from "preact";
 import { AngleLeft } from "../components/Icons.tsx";
 
 interface HeaderProps {
-  enableNavigation?: boolean;
+  enableBackNavigation?: boolean;
   children?: ComponentChildren;
 }
 
-export default function Header({ enableNavigation, children }: HeaderProps) {
+export default function Header(
+  { enableBackNavigation, children }: HeaderProps,
+) {
   return (
     <header class="header">
       <div class="container navigation">
-        {enableNavigation && (
+        {enableBackNavigation && (
           <div
             class="navigation-button"
             onClick={() => {

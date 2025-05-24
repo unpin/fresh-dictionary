@@ -10,7 +10,7 @@ export default function Bookmarks() {
       <Head>
         <title>Bookmarks | Words</title>
       </Head>
-      <Header enableNavigation={true} />
+      <Header enableBackNavigation />
       <main class="main">
         <div class="container">
           <div class="bookmarks-container">
