@@ -61,7 +61,7 @@ export default function DictionaryDefinition(
           )
           : (
             <span onClick={() => addBookmark(definition)}>
-              <Plus width={16} height={16} />
+              <Plus size={16} />
             </span>
           )}
       </div>

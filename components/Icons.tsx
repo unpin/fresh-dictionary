@@ -1,15 +1,21 @@
 import { JSX } from "preact/jsx-runtime";
 
 type IconProps = JSX.SVGAttributes<SVGSVGElement> & {
+  size?: number;
+  width?: number;
+  height?: number;
   color?: string;
 };
 
-export function AngleLeft({ width = 24, height = 24, ...props }: IconProps) {
+export function AngleLeft({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 320 512"
       {...props}
@@ -19,12 +25,15 @@ export function AngleLeft({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function AngleDown({ width = 24, height = 24, ...props }: IconProps) {
+export function AngleDown({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -34,12 +43,15 @@ export function AngleDown({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function ArrowLeft({ width = 24, height = 24, ...props }: IconProps) {
+export function ArrowLeft({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -49,12 +61,15 @@ export function ArrowLeft({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Ban({ width = 24, height = 24, ...props }: IconProps) {
+export function Ban({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -64,12 +79,15 @@ export function Ban({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Bookmark({ width = 24, height = 24, ...props }: IconProps) {
+export function Bookmark({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
       {...props}
@@ -80,13 +98,16 @@ export function Bookmark({ width = 24, height = 24, ...props }: IconProps) {
 }
 
 export function BookmarkSolid(
-  { width = 24, height = 24, ...props }: IconProps,
+  { size, width, height, ...props }: IconProps,
 ) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 384 512"
       {...props}
@@ -97,13 +118,16 @@ export function BookmarkSolid(
 }
 
 export function ClockRotateLeft(
-  { width = 24, height = 24, ...props }: IconProps,
+  { size, width, height, ...props }: IconProps,
 ) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -113,12 +137,15 @@ export function ClockRotateLeft(
   );
 }
 
-export function Copy({ width = 24, height = 24, ...props }: IconProps) {
+export function Copy({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -128,12 +155,15 @@ export function Copy({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Dummbell({ width = 24, height = 24, ...props }: IconProps) {
+export function Dummbell({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 512"
       {...props}
@@ -144,13 +174,16 @@ export function Dummbell({ width = 24, height = 24, ...props }: IconProps) {
 }
 
 export function DummbellSolid(
-  { width = 24, height = 24, ...props }: IconProps,
+  { size, width, height, ...props }: IconProps,
 ) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 512"
       {...props}
@@ -160,12 +193,15 @@ export function DummbellSolid(
   );
 }
 
-export function Ellipsis({ width = 24, height = 24, ...props }: IconProps) {
+export function Ellipsis({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -176,13 +212,16 @@ export function Ellipsis({ width = 24, height = 24, ...props }: IconProps) {
 }
 
 export function MagnifyingGlass(
-  { width = 24, height = 24, ...props }: IconProps,
+  { size, width, height, ...props }: IconProps,
 ) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -192,12 +231,15 @@ export function MagnifyingGlass(
   );
 }
 
-export function House({ width = 24, height = 24, ...props }: IconProps) {
+export function House({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
       {...props}
@@ -207,12 +249,15 @@ export function House({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function HouseSolid({ width = 24, height = 24, ...props }: IconProps) {
+export function HouseSolid({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
       {...props}
@@ -222,12 +267,15 @@ export function HouseSolid({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function HouseBlank({ width = 24, height = 24, ...props }: IconProps) {
+export function HouseBlank({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
       {...props}
@@ -237,12 +285,15 @@ export function HouseBlank({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function PenToSquare({ width = 24, height = 24, ...props }: IconProps) {
+export function PenToSquare({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -252,12 +303,15 @@ export function PenToSquare({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function CircleCheck({ width = 24, height = 24, ...props }: IconProps) {
+export function CircleCheck({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -268,13 +322,16 @@ export function CircleCheck({ width = 24, height = 24, ...props }: IconProps) {
 }
 
 export function CircleCheckSolid(
-  { width = 24, height = 24, ...props }: IconProps,
+  { size, width, height, ...props }: IconProps,
 ) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -284,12 +341,15 @@ export function CircleCheckSolid(
   );
 }
 
-export function CirclePlus({ width = 24, height = 24, ...props }: IconProps) {
+export function CirclePlus({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -299,12 +359,15 @@ export function CirclePlus({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Sparkles({ width = 24, height = 24, ...props }: IconProps) {
+export function Sparkles({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       {...props}
@@ -314,12 +377,15 @@ export function Sparkles({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function SpinnerThird({ width = 24, height = 24, ...props }: IconProps) {
+export function SpinnerThird({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
       {...props}
@@ -329,12 +395,15 @@ export function SpinnerThird({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Plus({ width = 24, height = 24, ...props }: IconProps) {
+export function Plus({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -343,12 +412,15 @@ export function Plus({ width = 24, height = 24, ...props }: IconProps) {
     </svg>
   );
 }
-export function Trash({ width = 24, height = 24, ...props }: IconProps) {
+export function Trash({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -358,12 +430,15 @@ export function Trash({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function User({ width = 24, height = 24, ...props }: IconProps) {
+export function User({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -373,12 +448,15 @@ export function User({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function UserSolid({ width = 24, height = 24, ...props }: IconProps) {
+export function UserSolid({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
       {...props}
@@ -388,12 +466,15 @@ export function UserSolid({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Volume({ width = 24, height = 24, ...props }: IconProps) {
+export function Volume({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
       {...props}
@@ -403,12 +484,15 @@ export function Volume({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function VolumeSolid({ width = 24, height = 24, ...props }: IconProps) {
+export function VolumeSolid({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
       {...props}
@@ -418,12 +502,15 @@ export function VolumeSolid({ width = 24, height = 24, ...props }: IconProps) {
   );
 }
 
-export function Xmark({ width = 24, height = 24, ...props }: IconProps) {
+export function Xmark({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
   return (
     <svg
       fill="currentColor"
-      width={width}
-      height={height}
+      width={w}
+      height={h}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 320 512"
       {...props}

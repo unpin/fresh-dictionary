@@ -101,19 +101,19 @@ export default function NavbarSearch() {
             {isLoading
               ? (
                 <div class="search-btn" onClick={queryDictionary}>
-                  <SpinnerThird class="spinning" width={18} height={18} />
+                  <SpinnerThird class="spinning" size={18} />
                 </div>
               )
               : (
                 query.length > 0
                   ? (
                     <div class="search-btn" onClick={clearQuery}>
-                      <Xmark width={18} height={18} />
+                      <Xmark size={18} />
                     </div>
                   )
                   : (
                     <div class="search-btn" onClick={queryDictionary}>
-                      <MagnifyingGlass width={18} height={18} />
+                      <MagnifyingGlass size={18} />
                     </div>
                   )
               )}
@@ -173,7 +173,7 @@ export default function NavbarSearch() {
                         <li class="item">
                           <div class="history-entry">
                             <div class="flex gap align-center">
-                              <ClockRotateLeft width={16} height={16} />
+                              <ClockRotateLeft size={16} />
                               <a
                                 href={"/dictionary/" + _id}
                                 onClick={(e) => {
@@ -190,10 +190,7 @@ export default function NavbarSearch() {
                                 deleteSearchItem(_id);
                               }}
                             >
-                              <Xmark
-                                width={16}
-                                height={16}
-                              />
+                              <Xmark size={16} />
                             </div>
                           </div>
                         </li>
