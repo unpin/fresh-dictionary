@@ -1,6 +1,6 @@
 import { FreshContext, Handlers, STATUS_CODE } from "$fresh/server.ts";
 import { User } from "../../models/User.ts";
-import { verify } from "@felix/argon2";
+import { compareSync } from "bcrypt";
 import { Bookmark } from "../../models/Bookmark.ts";
 import { ObjectId } from "mongo";
 import { deleteCookie } from "std/http/cookie.ts";
@@ -22,7 +22,7 @@ export const handler: Handlers = {
     const user = await User.findOne({ email: auth.email });
     if (!user) return new Response(null, { status: STATUS_CODE.BadRequest });
 
-    if (!verify(user.password, password)) {
+    if (!compareSync(password, user.password)) {
       return new Response(null, {
         status: STATUS_CODE.BadRequest,
         statusText: "Password is incorrect",
