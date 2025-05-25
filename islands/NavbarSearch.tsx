@@ -101,19 +101,19 @@ export default function NavbarSearch() {
             {isLoading
               ? (
                 <div class="search-btn" onClick={queryDictionary}>
-                  <SpinnerThird class="spinning" width={20} height={20} />
+                  <SpinnerThird class="spinning" width={18} height={18} />
                 </div>
               )
               : (
                 query.length > 0
                   ? (
                     <div class="search-btn" onClick={clearQuery}>
-                      <Xmark width={20} height={20} />
+                      <Xmark width={18} height={18} />
                     </div>
                   )
                   : (
                     <div class="search-btn" onClick={queryDictionary}>
-                      <MagnifyingGlass width={20} height={20} />
+                      <MagnifyingGlass width={18} height={18} />
                     </div>
                   )
               )}
