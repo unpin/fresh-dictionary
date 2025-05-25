@@ -34,10 +34,10 @@
             display: flex;
             flex-direction: column;
             row-gap: 1rem;
-             & li {
+            & li {
                 display: flex;
                 justify-content: space-between;
-             }
+            }
         }
     }
 
@@ -347,11 +347,11 @@ input:-webkit-autofill:active {
 }
 
 .w-full {
-  width: 100%;
+    width: 100%;
 }
 
 .overflow-hidden {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .no-shrink {
