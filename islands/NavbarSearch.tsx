@@ -101,19 +101,19 @@ export default function NavbarSearch() {
             {isLoading
               ? (
                 <div class="search-btn" onClick={queryDictionary}>
-                  <SpinnerThird class="icon spinning" />
+                  <SpinnerThird class="spinning" width={20} height={20} />
                 </div>
               )
               : (
                 query.length > 0
                   ? (
                     <div class="search-btn" onClick={clearQuery}>
-                      <Xmark class="icon" />
+                      <Xmark width={20} height={20} />
                     </div>
                   )
                   : (
                     <div class="search-btn" onClick={queryDictionary}>
-                      <MagnifyingGlass class="icon" />
+                      <MagnifyingGlass width={20} height={20} />
                     </div>
                   )
               )}
@@ -160,7 +160,7 @@ export default function NavbarSearch() {
                           showMore();
                         }}
                       >
-                        <AngleDown class="icon" />
+                        <AngleDown />
                       </a>
                     </footer>
                   </div>
@@ -172,8 +172,8 @@ export default function NavbarSearch() {
                       {searchItems.map(({ _id, searchTerm }) => (
                         <li class="item">
                           <div class="history-entry">
-                            <div class="flex gap">
-                              <ClockRotateLeft class="icon" />
+                            <div class="flex gap align-center">
+                              <ClockRotateLeft width={16} height={16} />
                               <a
                                 href={"/dictionary/" + _id}
                                 onClick={(e) => {
@@ -190,7 +190,11 @@ export default function NavbarSearch() {
                                 deleteSearchItem(_id);
                               }}
                             >
-                              <Xmark class="icon" />
+                              <Xmark
+                                class="icon-button"
+                                width={16}
+                                height={16}
+                              />
                             </div>
                           </div>
                         </li>

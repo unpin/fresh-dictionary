@@ -85,7 +85,11 @@ export default function BookmarkedWords() {
                 <span
                   onClick={() => handleDelete(bookmark.definitionId as string)}
                 >
-                  <CircleCheckSolid class="icon bookmark-icon" />
+                  <CircleCheckSolid
+                    width={16}
+                    height={16}
+                    color="var(--color-yellow)"
+                  />
                 </span>
               </div>
               <div class="definition">

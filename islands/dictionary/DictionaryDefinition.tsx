@@ -52,12 +52,16 @@ export default function DictionaryDefinition(
         {isBookmarked
           ? (
             <span onClick={() => deleteBookmark(definition)}>
-              <CircleCheckSolid class="icon bookmark-icon" />
+              <CircleCheckSolid
+                width={16}
+                height={16}
+                color="var(--color-yellow)"
+              />
             </span>
           )
           : (
             <span onClick={() => addBookmark(definition)}>
-              <Plus class="icon" />
+              <Plus width={16} height={16} />
             </span>
           )}
       </div>

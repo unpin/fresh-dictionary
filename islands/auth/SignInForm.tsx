@@ -108,7 +108,7 @@ export default function SignUpForm() {
               </div>
             </div>
             <div class="svg-icon" onClick={goBack}>
-              <ArrowLeft class="icon" />
+              <ArrowLeft />
             </div>
           </div>
           <form onSubmit={signInHandler} id="signinForm">

@@ -65,7 +65,6 @@ export default function GenerateExample(
         <span></span>
         Beispielsatz generieren
         <svg
-          class="icon anime"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
           style="height: 18px"

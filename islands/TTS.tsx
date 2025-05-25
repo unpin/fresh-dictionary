@@ -11,8 +11,8 @@ interface TTSProps {
 
 export default function TTS({
   text,
-  defailtIcon = <Volume />,
-  activeIcon = <VolumeSolid />,
+  defailtIcon = <Volume class="icon-button" />,
+  activeIcon = <VolumeSolid class="icon-button" />,
 }: TTSProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   console.log("render TTS", text);

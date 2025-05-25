@@ -19,7 +19,7 @@ export default function Header(
               self.history.back();
             }}
           >
-            <AngleLeft class="icon" />
+            <AngleLeft />
           </div>
         )}
         <a href="/" class="brand">

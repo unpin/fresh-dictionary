@@ -117,20 +117,6 @@ p {
     }
 }
 
-.icon {
-    display: inline-block;
-    vertical-align: middle;
-    height: 1.5rem;
-    fill: var(--color-body);
-    opacity: 0.75;
-    cursor: pointer;
-    transition: opacity var(--animation-ms) ease-in;
-
-    &:hover {
-        opacity: 1;
-    }
-}
-
 *,
 *::before,
 *::after {
@@ -180,9 +166,14 @@ code {
     font-size: 1em;
 }
 
-img,
-svg {
+img {
     display: block;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
 }
 
 img,
@@ -457,6 +448,22 @@ input:-webkit-autofill:active {
     width: 48px;
 }
 
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    fill: currentColor;
+}
+
+.icon-button {
+    opacity: 0.75;
+    cursor: pointer;
+    transition: opacity var(--animation-ms) ease-in;
+}
+
+.icon-button:hover {
+    opacity: 1;
+}
+
 .search-container {
     color: var(--color-body);
 
@@ -507,11 +514,6 @@ input:-webkit-autofill:active {
     transition: background-color var(--animation-ms) ease-in-out;
     background-color: transparent;
     cursor: pointer;
-
-    & .icon {
-        width: 18px;
-        height: 18px;
-    }
 }
 
 .search-content {
@@ -725,10 +727,6 @@ hr {
 .profile-wrapper {
     display: flex;
     justify-content: space-between;
-
-    & .icon {
-        width: 1.25rem;
-    }
 }
 
 .profile-card {
@@ -888,10 +886,6 @@ hr {
             margin-left: 0.5rem;
         }
     }
-
-    & .icon {
-        height: 1.75rem;
-    }
 }
 
 .entry-type {
@@ -931,10 +925,6 @@ hr {
     & p {
         flex-grow: 1;
     }
-
-    & .icon {
-        height: 1rem;
-    }
 }
 
 .bookmarks-container {
@@ -957,10 +947,6 @@ hr {
         & p {
             display: flex;
             align-items: center;
-
-            & .icon {
-                height: 1.25rem;
-            }
         }
         & > :first-child {
             display: flex;
@@ -988,15 +974,6 @@ hr {
         color: var(--color-body);
         font-size: 1.125rem;
     }
-
-    & .bookmark-icon {
-        flex-shrink: 0;
-        height: 1rem;
-    }
-}
-
-.bookmark-icon {
-    fill: var(--color-yellow);
 }
 
 .navigation-menu {
@@ -1043,12 +1020,6 @@ hr {
             color: var(--color-body);
             cursor: pointer;
             font-style: italic;
-            & .icon {
-                display: flex;
-                gap: 0.5rem;
-                width: 1.5rem;
-                height: 1.5rem;
-            }
             &::before {
                 display: inline;
                 content: '“';

@@ -52,8 +52,8 @@ export default function NavigationMenu() {
                 <li>
                   <a href={href}>
                     {isActive
-                      ? <ActiveIcon class="icon" />
-                      : <Icon class="icon" />}
+                      ? <ActiveIcon width={25} height={25} />
+                      : <Icon width={25} height={25} />}
                   </a>
                 </li>
               );
