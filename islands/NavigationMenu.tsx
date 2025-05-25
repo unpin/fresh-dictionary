@@ -34,12 +34,11 @@ export default function NavigationMenu() {
   ]);
 
   useEffect(() => {
-    items.forEach((item) => {
-      if (item.href === self.location.pathname) {
-        item.isActive = true;
-      }
-    });
-    setItems([...items]);
+    const updatedItems = items.map((item) => ({
+      ...item,
+      isActive: self.location.pathname === item.href,
+    }));
+    setItems(updatedItems);
   }, []);
 
   return (
