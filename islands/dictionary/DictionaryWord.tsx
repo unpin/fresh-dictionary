@@ -4,7 +4,7 @@ import DictionaryDefinitions from "./DictionaryDefinitions.tsx";
 import { Word } from "../../types/words.ts";
 import GenerateExample from "./GenerateExample.tsx";
 import { addExample } from "../../services/DictionaryService.ts";
-import { useAuth } from "../../hooks/useAuth.tsx";
+import { useAuth } from "../../hooks/useAuth.ts";
 
 interface DictionaryWordProps {
   entry: Word;

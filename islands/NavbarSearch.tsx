@@ -1,7 +1,7 @@
 import { queryWords } from "../services/WordService.ts";
 import { asyncThrottle } from "../utils/throttle.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
-import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.tsx";
+import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.ts";
 import { Word } from "../types/words.ts";
 import {
   AngleDown,
