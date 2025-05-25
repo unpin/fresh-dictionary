@@ -191,7 +191,6 @@ export default function NavbarSearch() {
                               }}
                             >
                               <Xmark
-                                class="icon-button"
                                 width={16}
                                 height={16}
                               />

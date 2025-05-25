@@ -454,16 +454,6 @@ input:-webkit-autofill:active {
     fill: currentColor;
 }
 
-.icon-button {
-    opacity: 0.75;
-    cursor: pointer;
-    transition: opacity var(--animation-ms) ease-in;
-}
-
-.icon-button:hover {
-    opacity: 1;
-}
-
 .search-container {
     color: var(--color-body);
 
