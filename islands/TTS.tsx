@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import type { JSX } from "preact/jsx-runtime";
 import { Volume, VolumeSolid } from "../components/Icons.tsx";
+import { speak } from "../services/TTSService.ts";
 
 interface TTSProps {
   text: string;
@@ -8,37 +9,24 @@ interface TTSProps {
   activeIcon?: JSX.Element;
 }
 
-export default function TTS(
-  {
-    text,
-    defailtIcon = <Volume class="icon" />,
-    activeIcon = <VolumeSolid class="icon" />,
-  }: TTSProps,
-) {
-  const synth = self.speechSynthesis;
-
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
-  const [utterance, setUtterance] = useState<SpeechSynthesisUtterance>();
-
-  useEffect(() => {
-    const germanVoices = synth.getVoices().filter((v) => v.lang === "de-DE");
-    const voice = germanVoices.find((voice) => {
-      if (voice.localService === false) return voice;
-    }) || germanVoices[0];
-
-    const utterThis = new SpeechSynthesisUtterance(text);
-    utterThis.addEventListener("start", () => setIsPlaying(true));
-    utterThis.addEventListener("end", () => setIsPlaying(false));
-    utterThis.voice = voice;
-    setUtterance(utterThis);
-  }, []);
+export default function TTS({
+  text,
+  defailtIcon = <Volume />,
+  activeIcon = <VolumeSolid />,
+}: TTSProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  console.log("render TTS", text);
 
   const handlePlay = () => {
-    if (synth.speaking) {
-      return synth.cancel();
-    }
-    if (utterance) synth.speak(utterance);
+    speak(text, () => {
+      setIsPlaying(true);
+    }, () => {
+      setIsPlaying(false);
+    });
   };
+
+  useEffect(() => {}, []);
+
   return (
     <span
       class="tts"
