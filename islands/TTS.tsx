@@ -15,7 +15,6 @@ export default function TTS({
   activeIcon = <VolumeSolid />,
 }: TTSProps) {
   const [isPlaying, setIsPlaying] = useState(false);
-  console.log("render TTS", text);
 
   const handlePlay = () => {
     speak(text, () => {
