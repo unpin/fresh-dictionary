@@ -377,6 +377,10 @@ input:-webkit-autofill:active {
     width: 100%;
 }
 
+.h-full {
+    height: 100%;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }
@@ -874,6 +878,10 @@ hr {
         border-radius: 0 0 0.5rem 0.5rem;
         text-align: center;
         height: 48px;
+
+        &:hover {
+            background-color: var(--color-gray-300);
+        }
 
         @media (prefers-color-scheme: dark) {
             background-color: var(--color-gray-200);

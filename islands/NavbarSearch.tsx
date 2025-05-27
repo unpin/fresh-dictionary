@@ -194,14 +194,16 @@ function SearchResults({
       </List>
       <footer>
         <div
+          class="flex items-center justify-center w-full h-full"
           onClick={(e) => {
             e.preventDefault();
             e.stopImmediatePropagation();
             showMore();
           }}
-          class="icon-wrapper"
         >
-          <AngleDown size={16} />
+          <div class="icon-wrapper">
+            <AngleDown size={16} />
+          </div>
         </div>
       </footer>
     </div>
