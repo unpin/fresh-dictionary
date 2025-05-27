@@ -5,12 +5,13 @@ import { useDictionarySearchHistory } from "../hooks/useDictionarySearchHistory.
 import { Word } from "../types/words.ts";
 import {
   AngleDown,
-  ClockRotateLeft,
+  ChevronRight,
   MagnifyingGlass,
   SpinnerThird,
   Xmark,
 } from "../components/Icons.tsx";
 import { FadeInUp, FadeOutDown } from "../utils/Animation.ts";
+import List from "./components/List.tsx";
 
 const queryWordsThrottled = asyncThrottle(queryWords, 500);
 
@@ -83,6 +84,9 @@ export default function NavbarSearch() {
       });
   };
 
+  const showResults = entries.length > 0;
+  const showHistory = !showResults && searchItems.length > 0;
+
   return (
     <>
       <div class="search-container">
@@ -128,87 +132,21 @@ export default function NavbarSearch() {
             onClick={() => closeSearchContent()}
           >
             <div class="container">
-              {entries.length > 0
+              {showResults
                 ? (
-                  <div class="search-items">
-                    <ul class="items">
-                      {entries.map(({ _id, article, word }: Word) => (
-                        <li class="item">
-                          <a
-                            href={"/dictionary/" + encodeURI(_id)}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              addSearchItem({
-                                _id,
-                                searchTerm: article + " " + word,
-                              });
-                            }}
-                          >
-                            {article
-                              ? <span class="search-article">{article}</span>
-                              : ""} {word}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                    <footer>
-                      <a
-                        href=""
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopImmediatePropagation();
-                          showMore();
-                        }}
-                      >
-                        <AngleDown />
-                      </a>
-                    </footer>
-                  </div>
+                  <SearchResults
+                    entries={entries}
+                    addSearchItem={addSearchItem}
+                    showMore={showMore}
+                  />
                 )
-                : searchItems.length > 0
+                : showHistory
                 ? (
-                  <div class="history-items">
-                    <ul class="items">
-                      {searchItems.map(({ _id, searchTerm }) => (
-                        <li class="item">
-                          <div class="history-entry">
-                            <div class="flex gap align-center">
-                              <ClockRotateLeft size={16} />
-                              <a
-                                href={"/dictionary/" + _id}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                }}
-                              >
-                                {searchTerm}
-                              </a>
-                            </div>
-                            <div
-                              class="btn-delete"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                deleteSearchItem(_id);
-                              }}
-                            >
-                              <Xmark size={16} />
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                    <footer>
-                      <a
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopImmediatePropagation();
-                          clearSearchItems();
-                        }}
-                        href=""
-                      >
-                        Alle löschen
-                      </a>
-                    </footer>
-                  </div>
+                  <SearchHistory
+                    searchItems={searchItems}
+                    deleteSearchItem={deleteSearchItem}
+                    clearSearchItems={clearSearchItems}
+                  />
                 )
                 : null}
             </div>
@@ -216,5 +154,106 @@ export default function NavbarSearch() {
         </>
       )}
     </>
+  );
+}
+
+function SearchResults({
+  entries,
+  addSearchItem,
+  showMore,
+}: {
+  entries: Word[];
+  addSearchItem: (item: { _id: string; searchTerm: string }) => void;
+  showMore: () => void;
+}) {
+  return (
+    <div class="search-items">
+      <List items={entries} getKey={(item) => item._id}>
+        {(item: Word) => (
+          <a
+            href={"/dictionary/" + encodeURI(item._id)}
+            class="flex align-center space-between"
+            onClick={(e) => {
+              e.stopPropagation();
+              addSearchItem({
+                _id: item._id,
+                searchTerm: item.article + " " + item.word,
+              });
+            }}
+          >
+            <span>
+              {item.article
+                ? <span class="search-article">{item.article}</span>
+                : ""} {item.word}
+            </span>
+            <div class="icon-wrapper">
+              <ChevronRight size={16} />
+            </div>
+          </a>
+        )}
+      </List>
+      <footer>
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            showMore();
+          }}
+          class="icon-wrapper"
+        >
+          <AngleDown size={16} />
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+function SearchHistory({
+  searchItems,
+  deleteSearchItem,
+  clearSearchItems,
+}: {
+  searchItems: { _id: string; searchTerm: string }[];
+  deleteSearchItem: (id: string) => void;
+  clearSearchItems: () => void;
+}) {
+  return (
+    <div class="search-items">
+      <List items={searchItems} getKey={(item) => item._id}>
+        {(item) => (
+          <a
+            href={"/dictionary/" + item._id}
+            class="flex align-center space-between"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            <span>{item.searchTerm}</span>
+            <div
+              class="icon-wrapper"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                deleteSearchItem(item._id);
+              }}
+            >
+              <Xmark size={16} />
+            </div>
+          </a>
+        )}
+      </List>
+      <footer>
+        <a
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            clearSearchItems();
+          }}
+          href=""
+        >
+          Clear history
+        </a>
+      </footer>
+    </div>
   );
 }

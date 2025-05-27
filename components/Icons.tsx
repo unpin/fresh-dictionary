@@ -303,6 +303,42 @@ export function PenToSquare({ size, width, height, ...props }: IconProps) {
   );
 }
 
+export function ChevronRight({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
+  return (
+    <svg
+      fill="currentColor"
+      width={w}
+      height={h}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 320 512"
+      {...props}
+    >
+      <path d="M299.3 244.7c6.2 6.2 6.2 16.4 0 22.6l-192 192c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6L265.4 256 84.7 75.3c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0l192 192z" />
+    </svg>
+  );
+}
+
+export function ChevronDown({ size, width, height, ...props }: IconProps) {
+  const w = width ?? size ?? 24;
+  const h = height ?? size ?? 24;
+
+  return (
+    <svg
+      fill="currentColor"
+      width={w}
+      height={h}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      {...props}
+    >
+      <path d="M267.3 395.3c-6.2 6.2-16.4 6.2-22.6 0l-192-192c-6.2-6.2-6.2-16.4 0-22.6s16.4-6.2 22.6 0L256 361.4 436.7 180.7c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6l-192 192z" />
+    </svg>
+  );
+}
+
 export function CircleCheck({ size, width, height, ...props }: IconProps) {
   const w = width ?? size ?? 24;
   const h = height ?? size ?? 24;

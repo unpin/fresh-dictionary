@@ -40,6 +40,7 @@ import * as $bookmarks_BookmarkList from "./islands/bookmarks/BookmarkList.tsx";
 import * as $bookmarks_Collections from "./islands/bookmarks/Collections.tsx";
 import * as $collection_CollectionItem from "./islands/collection/CollectionItem.tsx";
 import * as $collection_CollectionModal from "./islands/collection/CollectionModal.tsx";
+import * as $components_List from "./islands/components/List.tsx";
 import * as $dictionary_AddDefinition from "./islands/dictionary/AddDefinition.tsx";
 import * as $dictionary_DictionaryDefinition from "./islands/dictionary/DictionaryDefinition.tsx";
 import * as $dictionary_DictionaryDefinitions from "./islands/dictionary/DictionaryDefinitions.tsx";
@@ -94,6 +95,7 @@ const manifest = {
     "./islands/bookmarks/Collections.tsx": $bookmarks_Collections,
     "./islands/collection/CollectionItem.tsx": $collection_CollectionItem,
     "./islands/collection/CollectionModal.tsx": $collection_CollectionModal,
+    "./islands/components/List.tsx": $components_List,
     "./islands/dictionary/AddDefinition.tsx": $dictionary_AddDefinition,
     "./islands/dictionary/DictionaryDefinition.tsx":
       $dictionary_DictionaryDefinition,
