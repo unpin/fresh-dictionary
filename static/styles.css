@@ -1018,6 +1018,7 @@ hr {
     grid-area: navigation;
     background-color: var(--color-background);
     border-top: 1px solid var(--color-gray-200);
+    padding-bottom: env(safe-area-inset-bottom, 0);
 
     & ul {
         position: relative;
