@@ -26,16 +26,50 @@ export default function NavbarSearch() {
     useDictionarySearchHistory();
   const [currPage, setCurrPage] = useState(0);
   const [noItemsLeft, setNoItemsLeft] = useState(false);
+  const [maxHeight, setMaxHeight] = useState(300);
 
   useEffect(() => {
     queryDictionary();
     setCurrPage(0);
   }, [query]);
 
+  const updateMaxHeight = () => {
+    console.log("updateMaxHeight()");
+
+    const header = document.querySelector(".header") as HTMLElement | null;
+    const navbar = document.querySelector(".navigation-menu") as
+      | HTMLElement
+      | null;
+    const items = document.querySelector(".search-items .items") as
+      | HTMLElement
+      | null;
+    const footer = document?.querySelector(".search-items footer") as
+      | HTMLElement
+      | null;
+
+    if (header && navbar && items && footer) {
+      const headerHeight = header.getBoundingClientRect().height;
+      const navHeight = navbar.getBoundingClientRect().height;
+      const footerHeight = footer.getBoundingClientRect().height;
+      const availableHeight = self.innerHeight - headerHeight -
+        navHeight -
+        footerHeight;
+
+      items.style.maxHeight = `${availableHeight}px`;
+      setMaxHeight((_) => availableHeight);
+    }
+  };
+
   useEffect(() => {
     if (showContent) {
       FadeInUp(searchContentRef.current as HTMLElement);
+      updateMaxHeight();
+      self.addEventListener("resize", updateMaxHeight);
     }
+
+    return () => {
+      self.removeEventListener("resize", updateMaxHeight);
+    };
   }, [showContent]);
 
   const queryDictionary = async () => {
@@ -125,13 +159,13 @@ export default function NavbarSearch() {
         </div>
       </div>
       {showContent && (
-        <>
-          <div
-            class="search-content"
-            ref={searchContentRef}
-            onClick={() => closeSearchContent()}
-          >
-            <div class="container">
+        <div
+          class="search-content"
+          ref={searchContentRef}
+          onClick={() => closeSearchContent()}
+        >
+          <div class="container">
+            <div class="search-items" style={{ maxHeight }}>
               {showResults
                 ? (
                   <SearchResults
@@ -151,7 +185,7 @@ export default function NavbarSearch() {
                 : null}
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   );
@@ -167,7 +201,7 @@ function SearchResults({
   showMore: () => void;
 }) {
   return (
-    <div class="search-items">
+    <>
       <List items={entries} getKey={(item) => item._id}>
         {(item: Word) => (
           <a
@@ -206,7 +240,7 @@ function SearchResults({
           </div>
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 
@@ -220,7 +254,7 @@ function SearchHistory({
   clearSearchItems: () => void;
 }) {
   return (
-    <div class="search-items">
+    <>
       <List items={searchItems} getKey={(item) => item._id}>
         {(item) => (
           <a
@@ -256,6 +290,6 @@ function SearchHistory({
           Clear history
         </a>
       </footer>
-    </div>
+    </>
   );
 }

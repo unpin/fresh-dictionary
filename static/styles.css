@@ -570,7 +570,6 @@ input:-webkit-autofill:active {
     right: 0;
     bottom: 0;
     opacity: 0;
-    overflow-y: auto;
 
     &::-webkit-scrollbar {
         width: 0.5rem;
@@ -837,11 +836,10 @@ hr {
     position: relative;
     top: 10rem;
     border-radius: 0.5rem;
-    padding-bottom: 1rem;
+    max-height: 1039px;
+    overflow-y: auto;
     & .items {
         background-color: var(--color-gray-200);
-        max-height: calc(100vh - 300px);
-        overflow-y: auto;
 
         & > li {
             border-bottom: 1px solid red;
@@ -849,24 +847,24 @@ hr {
     }
 
     /* width */
-    ::-webkit-scrollbar {
+    &::-webkit-scrollbar {
         width: 5px;
     }
 
     /* Track */
-    ::-webkit-scrollbar-track {
-        background: var(--color-gray-200);
+    &::-webkit-scrollbar-track {
+        background: var(--color-gray-300);
         border-radius: var(--border-radius-round);
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
         background: var(--color-gray-600);
         border-radius: var(--border-radius-round);
     }
 
     /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
+    &::-webkit-scrollbar-thumb:hover {
         background: var(--color-body);
     }
 
@@ -952,6 +950,9 @@ hr {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--color-gray-100);
+    padding: 10px 20px;
 }
 
 .definition-term {
