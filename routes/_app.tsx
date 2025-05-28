@@ -6,6 +6,10 @@ export default function App({ Component }: PageProps) {
     <>
       <Head>
         <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+        />
+        <meta
           name="theme-color"
           content="#ffcc00"
           media="(prefers-color-scheme: light)"
