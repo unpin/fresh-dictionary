@@ -40,14 +40,11 @@ export default function NavbarSearch() {
     const navbar = document.querySelector(".navigation-menu") as
       | HTMLElement
       | null;
-    const items = document.querySelector(".search-items .items") as
-      | HTMLElement
-      | null;
     const footer = document?.querySelector(".search-items footer") as
       | HTMLElement
       | null;
 
-    if (header && navbar && items && footer) {
+    if (header && navbar && footer) {
       const headerHeight = header.getBoundingClientRect().height;
       const navHeight = navbar.getBoundingClientRect().height;
       const footerHeight = footer.getBoundingClientRect().height;
@@ -55,7 +52,6 @@ export default function NavbarSearch() {
         navHeight -
         footerHeight;
 
-      items.style.maxHeight = `${availableHeight}px`;
       setMaxHeight((_) => availableHeight);
     }
   };
