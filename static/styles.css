@@ -20,61 +20,6 @@
     --color-pink: #ff2d55;
     --color-brown: #a2845e;
 
-    .collection-modal {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
-        margin: 2rem;
-        border: 1px solid var(--color-gray-200);
-        border-radius: var(--border-radius-sm);
-        max-width: 360px;
-
-        & ul {
-            display: flex;
-            flex-direction: column;
-            row-gap: 1rem;
-            & li {
-                display: flex;
-                justify-content: space-between;
-            }
-        }
-    }
-
-    /* Font */
-
-    .roboto-400 {
-        font-family: 'Roboto';
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-        font-variation-settings: 'wdth' 100;
-    }
-
-    .roboto-500 {
-        font-family: 'Roboto';
-        font-optical-sizing: auto;
-        font-weight: 500;
-        font-style: normal;
-        font-variation-settings: 'wdth' 100;
-    }
-
-    .roboto-600 {
-        font-family: 'Roboto';
-        font-optical-sizing: auto;
-        font-weight: 600;
-        font-style: normal;
-        font-variation-settings: 'wdth' 100;
-    }
-
-    .roboto-700 {
-        font-family: 'Roboto';
-        font-optical-sizing: auto;
-        font-weight: 700;
-        font-style: normal;
-        font-variation-settings: 'wdth' 100;
-    }
-
     --ff: Roboto, 'Segoe UI', sans-serif;
 
     --font-title: 700 2.5rem / 1.2 var(--ff);
@@ -103,28 +48,6 @@
     --border-radius-round: 50px;
 }
 
-h1 {
-    font: var(--font-title);
-}
-
-h2 {
-    font: var(--font-heading);
-}
-
-h3 {
-    font: var(--font-subheading);
-}
-
-p {
-    font: var(--font-base);
-}
-
-@property --gradient-angle {
-    syntax: '<angle>';
-    initial-value: 0deg;
-    inherits: false;
-}
-
 @media (prefers-color-scheme: dark) {
     :root {
         --color-background: #111;
@@ -147,6 +70,83 @@ p {
         --color-pink: #ff375f;
         --color-brown: #ac8e68;
     }
+}
+
+.collection-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 2rem;
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius-sm);
+    max-width: 360px;
+
+    & ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        & li {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
+
+/* Font */
+
+.roboto-400 {
+    font-family: 'Roboto';
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+}
+
+.roboto-500 {
+    font-family: 'Roboto';
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+}
+
+.roboto-600 {
+    font-family: 'Roboto';
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+}
+
+.roboto-700 {
+    font-family: 'Roboto';
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
+}
+
+h1 {
+    font: var(--font-title);
+}
+
+h2 {
+    font: var(--font-heading);
+}
+
+h3 {
+    font: var(--font-subheading);
+}
+
+p {
+    font: var(--font-base);
+}
+
+@property --gradient-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
 }
 
 *,
