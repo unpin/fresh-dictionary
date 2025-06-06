@@ -5,6 +5,8 @@ import { Logger } from "../common/logger.ts";
 async function connect(retries = 5, delay = 1000): Promise<Database> {
   try {
     const client = new MongoClient();
+    console.log(DATABASE_URL);
+
     return await client.connect(DATABASE_URL);
   } catch (error) {
     if (retries > 0) {
