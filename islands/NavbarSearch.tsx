@@ -34,8 +34,6 @@ export default function NavbarSearch() {
   }, [query]);
 
   const updateMaxHeight = () => {
-    console.log("updateMaxHeight()");
-
     const header = document.querySelector(".header") as HTMLElement | null;
     const navbar = document.querySelector(".navigation-menu") as
       | HTMLElement
