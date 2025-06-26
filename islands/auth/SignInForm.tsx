@@ -88,7 +88,7 @@ export default function SignUpForm() {
               </button>
             </form>
             <div>
-              <p class="small-text my-2">
+              <p class="small-text my-4">
                 Don't have an account yet? <a href="/signup">Sign up</a>
               </p>
             </div>
