@@ -17,7 +17,7 @@ export const handler: Handlers = {
 export default function Signin() {
   return (
     <main class="main">
-      <div class="container form-wrappr">
+      <div class="container form-wrapper">
         <SignInForm />
       </div>
     </main>
