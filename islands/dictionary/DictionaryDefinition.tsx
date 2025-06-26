@@ -48,21 +48,24 @@ export default function DictionaryDefinition(
       </div>
 
       <div class="definition-term">
-        {definition.definition}
+        <span>{definition.definition}</span>
+
         {isBookmarked
           ? (
-            <span onClick={() => deleteBookmark(definition)}>
-              <CircleCheckSolid
-                width={16}
-                height={16}
-                color="var(--color-yellow)"
-              />
-            </span>
+            <div
+              class="icon-wrapper active"
+              onClick={() => deleteBookmark(definition)}
+            >
+              <CircleCheckSolid size={16} />
+            </div>
           )
           : (
-            <span onClick={() => addBookmark(definition)}>
+            <div
+              class="icon-wrapper"
+              onClick={() => addBookmark(definition)}
+            >
               <Plus size={16} />
-            </span>
+            </div>
           )}
       </div>
     </li>
